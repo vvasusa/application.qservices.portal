@@ -1,0 +1,80 @@
+DIV.wrapper {
+	POSITION: relative; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 950px; PADDING-RIGHT: 0px; HEIGHT: 240px; OVERFLOW: hidden; PADDING-TOP: 0px; margin-bottom:10px;
+}
+UL.wrapper {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: block; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+.wrapper LI {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: block; FLOAT: left; PADDING-TOP: 0px
+}
+.wrapper A {
+	DISPLAY: block; TEXT-DECORATION: none
+}
+.slide_set {
+	MARGIN: 0px; WIDTH: 960px; DISPLAY: inline; FLOAT: left; HEIGHT: 240px
+}
+#leftArrow {
+	BACKGROUND-IMAGE: url(../img/left_arrow.png); BORDER-BOTTOM: 0px; POSITION: absolute; BORDER-LEFT: 0px; WIDTH: 25px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 40px; BORDER-TOP: 0px; TOP: 90px; BORDER-RIGHT: 0px; LEFT: -50px
+}
+#rightArrow {
+	BACKGROUND-IMAGE: url(../img/right_arrow.png); BORDER-BOTTOM: 0px; POSITION: absolute; BORDER-LEFT: 0px; WIDTH: 25px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 40px; BORDER-TOP: 0px; TOP: 90px; RIGHT: -50px; BORDER-RIGHT: 0px
+}
+
+
+.slide_text {
+	WIDTH: 350px; FLOAT: left; HEIGHT: auto; margin-left:30px; margin-top:8px;
+}
+
+.slide_title H1 {
+	LINE-HEIGHT: 1.1em; MARGIN-TOP: 0px; WIDTH: 370px; DISPLAY: block; COLOR: #08c; FONT-WEIGHT: bold; font-size:28px; text-align:left; padding-left:0; margin-left:0; float:left;
+}
+
+.slide_paragraph {
+	LINE-HEIGHT:20px; MARGIN: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px; font-weight:normal; text-align:left; padding-bottom:10px;
+}
+
+.slide_paragraph a{color:#383838; font-weight:200; text-decoration:underline}
+.slide_paragraph a:hover{color:#56BFF8}
+
+.slide_buttons {
+	
+}
+.slide_buttonL A {
+	BACKGROUND-IMAGE: url(../img/rotate/download.jpg); WIDTH: 150px; DISPLAY: block; FLOAT: left; HEIGHT: 30px
+}
+.slide_buttonL A:hover {
+	
+}
+.slide_buttonR A {
+	BACKGROUND-IMAGE: url(../img/rotate/moretut.jpg); WIDTH: 150px; DISPLAY: block; FLOAT: left; HEIGHT: 30px; MARGIN-LEFT: 35px
+}
+.slide_buttonR A:hover {
+
+}
+.image_wrapper {
+	POSITION: relative; MARGIN-TOP:0px; WIDTH: 560px; BACKGROUND-REPEAT: no-repeat; FLOAT: LEFT; HEIGHT:240px; margin-right:0px; padding:0px; background:#f0f0f0; border:1px solid #ddd;}
+
+.image_wrapper2 {
+	POSITION: relative; MARGIN-TOP:5px; WIDTH: 560px; BACKGROUND-REPEAT: no-repeat; FLOAT: LEFT; HEIGHT:210px; margin-right:0px;}
+	
+.image_placeset {margin:0; padding:0; }
+.image_placeset img{padding:10px; border:1px solid #ddd; background:#f7f7f7;}
+
+.image_set {
+	POSITION: absolute; WIDTH: 560px; HEIGHT: 180px; TOP: 14px; LEFT: 15px
+}
+.headerFadeWrapper {
+	POSITION: relative; HEIGHT: 305px
+}
+.singleFade {
+	POSITION: absolute; WIDTH: 960px; TOP: 0px; LEFT: 0px
+}
+
+.slide_container {
+	POSITION: relative; TEXT-ALIGN: left; PADDING-BOTTOM: 0px; MARGIN: auto; PADDING-LEFT: 0px; WIDTH: 950px; PADDING-RIGHT: 0px; HEIGHT: auto; PADDING-TOP: 0px
+}
+.slide_title .grey {color:#383838;}
+.slide_title .yellow {color:#56BFF8;}
+.slide_title .green {color:#9c0;}
+.slide_title .red {color:#cc0000;}
+.slide_title .color{color:#56BFF8;}

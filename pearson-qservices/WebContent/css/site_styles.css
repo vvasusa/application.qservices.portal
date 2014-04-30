@@ -1,0 +1,283 @@
+/* -----------------------------------------------------------------------
+
+Logical Complete Site Styles - (BLUE) 
+
+----------------------------------------------------------------------- */
+
+/* General Styling */
+body{background:#fff; FONT: 12px/18px Tahoma, Arial, sans-serif; COLOR: #383838}
+h3{color:#383838}
+a{color:#56BFF8; text-decoration:underline;}
+ul,li {list-style-type: none;}
+a {outline: none; text-decoration: none;}
+.color{color:#56BFF8;}
+.bg{background:#eee;}
+a:hover {text-decoration: none; cursor: pointer;}
+a span, button span, ul#navigation span, h2 span, h3 span {display: none;}
+.header{padding-top:40px; padding-bottom:20px;}
+.intro{padding:10px 0 10px 0px; width:950px;}
+.intro a{color:#56BFF8; font-weight:bold}
+.intro a:hover{color:#000;}
+.intro p{padding-left:7px;}
+.intro p img{margin-left:5px;}
+.aboutservices img {padding-top:10px;}
+.page{padding:10px 0 10px;}
+.page h3{padding:0 0 10px 0; margin:0;}
+.page h2{color:#383838;}
+.page p{padding-bottom:0; margin-bottom:0; line-height:20px;}
+.logo{padding-bottom:10px;}
+.more{color:#ddd; padding-bottom:10px;}
+.slogan h3{font-size:20px;}
+
+.nodisplay{display:none;}
+
+/* Navigation */
+/* ============================================================================= */
+
+ul#navigation {height: 50px; margin:0; padding:0;}
+ul#navigation li {width: 190px; float: left;}
+ul#navigation li a {display: block;height: 50px;cursor: pointer;}
+ul#navigation li a#home {background: url(../img/home.png) 0 0 no-repeat;}
+ul#navigation li a#port {background: url(../img/portfolio.png) 0 0 no-repeat;}
+ul#navigation li a#services {background: url(../img/services.png) 0 0 no-repeat;}
+ul#navigation li a#blog {background: url(../img/blog.png) 0 0 no-repeat;}
+ul#navigation li a#contact {background: url(../img/contact.png) 0 0 no-repeat;}
+
+ul#navigation li a#home_front {background: url(../img/home.png) 0 -50px no-repeat;}
+ul#navigation li a#port_front {background: url(../img/portfolio.png) 0 -50px no-repeat;}
+ul#navigation li a#services_front {background: url(../img/services.png) 0 -50px no-repeat;}
+ul#navigation li a#blog_front {background: url(../img/blog.png) 0 -50px no-repeat;}
+ul#navigation li a#contact_front {background: url(../img/contact.png) 0 -50px no-repeat;}
+
+ul#navigation li a#home:hover,
+ul#navigation li a#port:hover,
+ul#navigation li a#services:hover,
+ul#navigation li a#blog:hover,
+ul#navigation li a#contact:hover {background-position: 0 -50px;}
+	
+ul#navigation li .selected{background-position: 0 -50px;}
+
+.submenu{background:url(../img/bg_submenu.jpg) no-repeat; height:55px;}
+#sub-nav{padding-top:22px; margin-left:0; padding-left:28px; font-size:11px;}
+#sub-nav li{list-style:none; float:left;}
+#sub-nav li a{margin-right:5px; color:#999; float:left; padding-left:15px; background:url(../img/bullet.jpg) no-repeat; padding-right:10px;}
+#sub-nav li a:hover{color:#151515; background:url(../img/bullet_selected.jpg) no-repeat;}
+#sub-nav li a.selected {background:url(../img/bullet_selected.jpg) no-repeat; padding-left:15px; float:left; color:#151515;}
+
+/* HR Styling */
+/* ============================================================================= */
+
+.hrbg{background:url(../img/hrbg.gif) repeat-x; height:5px; width:950px;margin-top:2px; margin-bottom:5px;}
+.hrbg_small{background:url(../img/hrbg_small.gif) repeat-x; height:1px; width:950px;margin-top:0px; margin-bottom:20px;}
+.hrbg_small_case{background:url(../img/hrbg_small.gif) repeat-x; height:1px; width:950px;margin-top:0px; margin-bottom:10px;}
+.hrbg_small_case_b1{background:url(../img/hrbg_small.gif) repeat-x; height:1px; width:534px;margin-top:0px; margin-bottom:10px;}
+.hrbg_underintro{background:url(../img/hrbg_small.gif) repeat-x; height:1px; width:950px;margin-top:20px; margin-bottom:0px;}
+.hrbg_blog{background:url(../img/hrbg_small.gif) repeat-x; height:1px; width:750px;margin-top:0px; margin-bottom:20px;}
+.hrbg_blog3{background:url(../img/hrbg_small.gif) repeat-x; height:1px; width:530px;margin-top:0px; margin-bottom:20px; margin-left:20px;}
+
+
+
+/* Box Styling */
+/* ============================================================================= */
+
+.box1{padding:16px 0 10px;}
+.box1 h3{padding:0px; margin:0; padding-bottom:14px; font-size:20px;}
+.box1 h4{padding-bottom:0; margin-bottom:5px;}
+.box1 h4 a:hover{color:#56BFF8;}
+.box1 h6{padding:0 0 10px; margin:0;}
+.box1 img{padding:0; margin:0; float:left; padding-right:10px;}
+.box1 p{line-height:20px;}
+.box1 p a{color:#56BFF8; font-weight:bold;}
+.box1 p a:hover{color:#151515;}
+
+.box2{padding:16px 0 10px;}
+.box2 h3{padding:0px; margin:0; padding-bottom:14px; font-size:20px;}
+.box2 h4{padding-bottom:0; margin-bottom:15px;}
+.box2 h4 a:hover{color:#56BFF8;}
+.box2 h6{padding:0 0 10px; margin:0;}
+.box2 img{padding:0; margin:0; float:left; padding-right:10px;}
+.box2 p{line-height:20px;}
+
+p.quote{padding-top:10px; font-size:12px; font-style:italic; line-height:22px;}
+p.other{}
+p.other a{color:#56BFF8;}
+.meta{padding-bottom:5px; margin-bottom:5px;}
+
+
+/* Footer Styling */
+/* ============================================================================= */
+.footer{padding-top:20px; color:#999;}
+.footer a{color:#999; font-weight:bold;}
+.footer a:hover{color:#151515;}
+#footer-nav{float:right; padding-right:0; margin-right:0; font-size:11px;}
+#footer-nav li{list-style:none; float:left; padding-left:5px; color:#ccc;}
+.footer_text {padding:0; margin:0; font-size:11px;}
+
+
+/* Portfolio Page Styling */
+/* ============================================================================= */
+ul.thumb_view {float: left;width: 950px;margin: 0 0 0 24px;padding: 0;list-style: none;border:0;background: #fff;}
+ul.thumb_view li {float: left;width: 237px;padding: 0px 0px 0 0;margin: 0 0px 30px 0;border:0;}
+ul.thumb_view li img {float: left; width:160px; margin-right:10px; padding-left:0px;}
+ul.thumb_view li a {color: #383838;text-decoration: none;}
+ul.thumb_view li .content_block {padding: 0 0px 0px 0;}
+ul.thumb_view li .content_block h2 {margin: 0 20px 0 0;padding: 5px;font-weight: normal;font-size: 18px;}
+ul.thumb_view li .content_block a img{padding: 10px;border: 1px solid #ddd;background: #f7f7f7;margin:0;float: left; margin-bottom:10px;}
+ul.thumb_view li h2 {padding-left:10px;}
+ul.thumb_view li p{display: none;}
+ul.thumb_view li .content_block a img {margin: 0 20px 10px 0;}
+
+ul.display li{width: 950px;margin-bottom:30px;}
+ul.display li .content_block p img{padding:0;border:0; height:20px; width:74px;}
+ul.display li .content_block p {margin: 0;padding: 5px 0px 5px 0px;}
+ul.display li p{display: block;}
+
+a.switch_thumb {
+	width: 122px;
+	height: 26px;
+	line-height: 26px;
+	padding: 0;
+	margin: 0px 0 15px;
+	display: block;
+	background: url(../img/switch.gif) no-repeat;
+	outline: none;
+	text-indent: -9999px;
+	float:right;
+	margin-right:30px;}
+
+a:hover.switch_thumb {filter:alpha(opacity=75);opacity:.75;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";}
+a.swap {background-position: left bottom;}
+.switch h1 {font: 5em normal Georgia, 'Times New Roman', Times, serif; text-align:center;margin-bottom: 20px;}
+.switch h1 span {color: #e7ff61;}
+
+
+/* Case Studies Page */
+
+.case{}
+
+.case_title{padding-top:20px;}
+.case_title h4{font-size:16px;}
+
+.case img{padding:10px; border:1px solid #ddd; background:#f7f7f7;}
+.case_text{}
+.case_text h3{font-size:24px;}
+.case_text p{padding-bottom:10px; line-height:20px;}
+
+.case_text_b1{padding-top:18px;}
+.case_text_b1 p{padding-bottom:10px; margin-right:16px;}
+.case_text_b1 .last{padding-bototm:20px;}
+.case_text_b2{padding-top:20px;}
+.case_text_b2 img{padding:10px; border:1px solid #ddd; background:#f7f7f7; margin-bottom:14px;}
+
+#case_preview{float:left;padding-left:0; margin-left:0; font-size:11px; margin-bottom:20px;}
+#case_preview li{list-style:none; float:left; padding-right:20px; color:#ccc;}
+#case_preview li img{padding:5px; border:1px solid #ddd;}
+
+
+
+/* Web Design Page*/
+.port_web{}
+.port_web h3{font-size:24px;}
+.port_web p{padding-bottom:10px; padding-right:10px;}
+.port_web_img img{padding:10px; border:1px solid #ddd; background:#f7f7f7; float:right; margin-bottom:30px;}
+
+
+/* Service */
+.page_services{padding:10px 0 10px; margin-bottom:30px;}
+.boxed_page{background:#fff; padding:10px 20px 10px 0px;}
+.boxed_page h2{padding:0; margin:0; color:#444;}
+.boxed_page h4{padding:5px 0 5px 0; margin:0; color:#383838; font-size:22px;}
+.boxed_page h5{padding:5px 0 5px 0; margin:0; color:#383838; font-size:16px;}
+.boxed_page p{padding:0 0 10px 0; margin:0;}
+
+
+.boxed_top{background:url(../img/box_topper.png) no-repeat; height:12px;}
+.boxed_bottom{background:url(../img/box_bottom.png) no-repeat; height:12px;}
+.boxed{background:#fff; border-left:1px solid #ddd; border-right:1px solid #ddd; padding:20px;}
+.boxed p{padding-bottom:10px;}
+.boxed h3, .boxed h2{padding:0; margin:0; margin-bottom:5px;}
+.grey{color:#444;} 
+.boxed h5{padding:0; margin:0; color:#444; font-size:14px;}
+.meta{font-size:11px; padding:0 0 5px 0;}
+
+#case_preview2{float:left;padding-left:0; margin-left:0; font-size:11px; margin-bottom:20px;}
+#case_preview2 li{list-style:none; float:left; padding-right:20px; color:#ccc;}
+#case_preview2 li img{padding:5px; border:1px solid #ddd;}
+
+/* Blog Page*/
+
+.blog_img img{padding:10px; border:1px solid #ddd; background:#f7f7f7; margin-bottom:20px; margin-left:0px;}
+.entrynotes{}
+.entrynotes ul{padding:0; margin:0 0 0 35px;}
+.entrynotes li{list-style:none;}
+.entrynotes .last{padding-bottom:0; margin-bottom:0;}
+.blog_web{background:#fff;}
+.blog_web h3{font-size:24px; color:#383838;}
+.blog_web h3 a{color:#383838;}
+.blog_web p{padding-bottom:10px; padding-right:10px;}
+
+
+/* img replacement*/
+.logo_intro{padding-bottom:20px;}
+#irg img{padding:10px; border:1px solid #ddd; background:#f7f7f7;}
+.thumb_block{padding-left:10px;}
+.thumb_block img{padding-left:10px; padding-bottom:10px;}
+.thumb_block h3{padding-left:10px;}
+ul.thumbs{padding:0; margin:0;}
+ul.thumbs li{margin-left:10px; margin-bottom:15px; float:left;}
+ul.thumbs li img{padding:5px; border:1px solid #ddd; background:#f7f7f7;}
+#hiddenbox{padding-top:70px; background:#fff url(../img/loading.gif) center no-repeat; display:none; height:200px; padding-left:200px; border:1px solid #ddd;}
+
+
+/* Blog Layout #2 Styling */
+.blog2_meta{font-size:10px; color:#999; padding:0; margin:0;}
+.entrynotes h6{margin-top:5px;padding-bottom:4px; color:#151515; border-bottom:1px solid #ddd;}
+.entrynotes a{color:#888;}
+.readmore{padding-top:20px; float:left; padding-bottom:20px; }
+.page_blog2{padding:10px 0 10px;}
+.page_blog2 p{line-height:22px;}
+
+
+/* Identity Pack Page */
+.identity{padding-right:20px;}
+.identity p{padding-bottom:10px; line-height:20px;}
+.identity img{padding:10px; border:1px solid #ddd; background:#f7f7f7; margin-bottom:10px;}
+.quote_{padding-top:10px;}
+
+
+/* Identity Menus */
+#ident_menu {list-style: none;margin: 0 0 20px;padding: 10px 0 0 0;width: 100%;font-size:14px;}
+#ident_menu li {margin: 0;padding: 0;}
+#ident_menu a {border-bottom: 1px solid #ddd;color: #999;display: block;margin: 0;padding: 4px 0px;text-decoration: none;font-weight:normal; height:15px;}
+#ident_menu a:hover {background: #eee;color: #666;}
+#ident2_menu {list-style: none;margin: 0 0 20px;padding: 10px 0 0 0;width: 100%;font-size:14px;}
+#ident2_menu li {margin: 0;padding: 0;}
+#ident2_menu a {border-bottom: 1px solid #ddd;color: #999;display: block;margin: 0;padding: 4px 0px;text-decoration: none;font-weight:normal; height:15px;}
+#ident2_menu a:hover {background: #eee;color: #666;}
+
+
+
+/* Index2 Styling */
+.index2{}
+.index2 img{padding:10px; border:1px solid #ddd; background:#f7f7f7; margin-top:5px;}
+.index2 p{padding-left:40px; line-height:20px; padding-bottom:0px; margin-bottom:5px;}
+.index2 h1{padding-left:40px; font-size:28px; padding-top:10px;}
+.index2 .slide_buttons {padding-left:40px;}
+
+
+/* Blog Layout #3 */
+
+.bg_work_page{color:#383838; margin-top:0px; margin-bottom:30px;}
+.bg_work_page h4{padding: 10px 20px 0px 20px; margin:0; color:#fff; font-size:22px;}
+.bg_work_page h4 a{color:#383838;}
+.bg_work_page p{padding:10px 20px 0px 20px; margin:0; color:#555;}
+.bg_work_page img{padding-right:10px;}
+
+.blog_entrynotes{padding-top:24px; color:#999;}
+.blog_entrynotes h4{color:#999; font-size:20px; padding:5px; margin:0; display:inline}
+.blog_entrynotes ul{padding:0; margin:0; padding-top:5px; border-top:1px solid #eee;margin-top:2px;}
+blog_.entrynotes li{list-style:none; padding:2px 0 5px 2px}
+.blog_entrynotes .last{padding-bottom:0; margin-bottom:0;}
+
+.work_sideimg{margin-top:25px;}
+.work_sideimg img{padding:10px; background:#f7f7f7; border:1px solid #ddd;}

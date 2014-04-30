@@ -1,0 +1,36 @@
+/* stupid ie 6 fix */
+/* This fixes a border rendering issue (only found on portfolio page) and only present in IE6 */
+.span-8{border-right:1px solid #ddd; width:309px;}
+
+.signup{padding-left:324px; padding-top:5px; color:#999;}
+.btn{background:url(../images/btn.jpg) no-repeat; margin-top:7px; margin-right:5px;}
+
+
+input.search{width:100px;margin-left:0px;color:#ccc; margin-right:10px; border:1px solid #ddd;}
+
+/*Fixes jQuery overflow text in the portfolio page. Keeps "Visit Site" link from showing up outside last portfolio image*/
+.fix6{position:absolute; left:-9999px; overflow:hidden; color:#fff; display:none; height:0px;}
+
+
+.image_wrapper2 {
+	POSITION: relative; MARGIN-TOP:0px; BACKGROUND-REPEAT: no-repeat; FLOAT: LEFT; HEIGHT:210px; margin-right:0px; padding:0px;}
+
+.image_placeset {margin:0; padding:0; }
+.image_placeset img{padding:9px; border:1px solid #ddd; background:#f7f7f7;}
+
+.hrbg_small{background:url(../img/hrbg_small.gif) repeat-x; height:1px; width:950px;margin-top:0px; margin-bottom:10px; padding-top:0;}
+.page{padding-bottom:0; margin-bottom:0;}
+.slogan{padding-bottom:0; margin-bottom:0;}
+.intro{padding-bottom:0; margin-bottom:0;}
+.footer .span-8{border-right:0px;}
+
+
+ul.thumb_view {float: left;width: 950px;margin: 0 0 0 14px;padding: 0;list-style: none;border:0;background: #fff;}
+a.switch_thumb {margin-right:15px;}
+
+.span-8{border:0px}
+
+
+.ie6_capsule .span-8{width:310px;}
+.ie6_capsule .span-10{width:390px;}
+.ie6_capsule .span-14{width:550px;}
