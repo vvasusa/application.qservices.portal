@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- <mvc:annotation-driven /> -->
+
+	<context:component-scan base-package="com.pearson.controller" />
+
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	
+
+
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" /> -->
+
+
+
+
+
+
+	<!-- <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" 
+		/> <property name="prefix" value="/WEB-INF/jsp/" /> <property name="suffix" 
+		value=".html" /> </bean> -->
+
+	<!-- declare beans -->
+	<!-- <bean id="LoginDao" class="com.tool.dao.LoginDaoImpl" /> <bean id="LoginService" 
+		class="com.tool.services.LoginServiceImpl" /> -->
+
+	<!-- declare datasource bean -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
+		name="url" value="jdbc:mysql://localhost:3306/tool" /> <property name="username" 
+		value="root" /> <property name="password" value="1" /> </bean> -->
+
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="/WEB-INF/Jsp/"></property> <property name="suffix" 
+		value=".jsp"></property> </bean> -->
+
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="viewClass"> <value>org.springframework.web.servlet.view.JstlView</value> 
+		</property> <property name="prefix"> <value>/WEB-INF/jsp/</value> </property> 
+		<property name="suffix"> <value>.jsp</value> </property> <property name="order"> 
+		<value>0</value> </property> </bean> -->
+
+
+</beans>
