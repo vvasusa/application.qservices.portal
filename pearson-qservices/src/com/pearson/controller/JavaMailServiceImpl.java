@@ -31,13 +31,13 @@ public class JavaMailServiceImpl implements JavaMailService {
 	@Autowired
 	private org.springframework.mail.javamail.JavaMailSenderImpl sender;
 
-
 	/*
 	 * @Autowired private SimpleMailMessage alertMailMessage;
 	 */
 
 	public void sendEmail() {
-		// private final static Logger LOGGER = Logger.getLogger(UseLogger.class.getName());
+		// private final static Logger LOGGER =
+		// Logger.getLogger(UseLogger.class.getName());
 
 		MimeMessage msg = null;
 		try {
@@ -48,8 +48,7 @@ public class JavaMailServiceImpl implements JavaMailService {
 			mail.addTo("karthikcarun@gmail.com");
 
 			ArrayList<String> toddress = new ArrayList<String>();
-			
-			
+
 			if (toddress != null) {
 				for (String to : toddress) {
 					mail.addTo(to);
@@ -57,15 +56,14 @@ public class JavaMailServiceImpl implements JavaMailService {
 				}
 			}
 
-			
 			mail.setSubject("hii");
 			mail.setText("hello", true);
-			
-			JFileChooser chooser = new JFileChooser();              
-        	chooser.showOpenDialog(null);          
-        	File file = chooser.getSelectedFile();            
-        	String filename = file.getName();            
-        	System.out.println("You have selected: " + filename);    
+
+			JFileChooser chooser = new JFileChooser();
+			chooser.showOpenDialog(null);
+			File file = chooser.getSelectedFile();
+			String filename = file.getName();
+			System.out.println("You have selected: " + filename);
 
 			FileSystemResource file1 = new FileSystemResource(filename);
 			mail.addAttachment(file.getPath(), file1);

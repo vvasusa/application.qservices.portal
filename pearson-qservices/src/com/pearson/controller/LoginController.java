@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-/* @SuppressWarnings("unchecked") */
 @SessionAttributes
 @RequestMapping("/")
 public class LoginController {
@@ -18,11 +17,12 @@ public class LoginController {
 	public String indexPage(ModelMap model, HttpServletRequest request) {
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "/NewFile", method = RequestMethod.GET)
 	public String NewFile(ModelMap model, HttpServletRequest request) {
 		return "NewFile";
 	}
+
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String indexPage1(ModelMap model, HttpServletRequest request) {
 		return "index";
@@ -42,6 +42,7 @@ public class LoginController {
 	public String contactPage(ModelMap model, HttpServletRequest request) {
 		return "contact";
 	}
+
 	@RequestMapping(value = "/blog", method = RequestMethod.GET)
 	public String blog(ModelMap model, HttpServletRequest request) {
 		return "blog";
