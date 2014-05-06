@@ -230,7 +230,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 			</div>
 			<!--Close Logo Area-->
-<a href="${pageContext.servletContext.contextPath}/NewFile/"> Login login </a> 
+			
+<a href="${pageContext.servletContext.contextPath}/mail/"> Send Mail </a> <br>
 
 			<!--Begin Navigation-->
 			<ul id="navigation">

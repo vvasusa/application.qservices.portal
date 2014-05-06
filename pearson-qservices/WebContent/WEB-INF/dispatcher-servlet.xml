@@ -21,42 +21,72 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- ** START ** Added for E-mail Component Date 5/5/2014 -->
+	<!-- SMTP settings -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">     
+		<!-- <property name="host" value="smtp.gmail.com "/>
+		<property name="port" value="465 " /> -->
+		
+		<property name="host" value=" localhost"/>
+		<property name="port" value="25"/>
+		<property name="username" value="karthikcarun@gmail.com" />
+		<property name="password" value="cts@2014" />
+		
 
+		
+		<!-- additional properties specific to JavaMail -->
+		<property name="javaMailProperties">         
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				
+			</props>
+		</property>
+	</bean>
 	
-
-
-	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
-		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" /> -->
-
-
-
-
-
-
-	<!-- <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" 
-		/> <property name="prefix" value="/WEB-INF/jsp/" /> <property name="suffix" 
-		value=".html" /> </bean> -->
-
-	<!-- declare beans -->
-	<!-- <bean id="LoginDao" class="com.tool.dao.LoginDaoImpl" /> <bean id="LoginService" 
-		class="com.tool.services.LoginServiceImpl" /> -->
-
-	<!-- declare datasource bean -->
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
-		name="url" value="jdbc:mysql://localhost:3306/tool" /> <property name="username" 
-		value="root" /> <property name="password" value="1" /> </bean> -->
-
-	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix" value="/WEB-INF/Jsp/"></property> <property name="suffix" 
-		value=".jsp"></property> </bean> -->
-
-	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="viewClass"> <value>org.springframework.web.servlet.view.JstlView</value> 
-		</property> <property name="prefix"> <value>/WEB-INF/jsp/</value> </property> 
-		<property name="suffix"> <value>.jsp</value> </property> <property name="order"> 
-		<value>0</value> </property> </bean> -->
-
+	 <bean id="javaMailService" class="com.pearson.controller.JavaMailServiceImpl"/> 
+	 
+	 <!-- <bean id="alertMailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from">            
+            <value>myusername@gmail.com</value>
+        </property>
+        <property name="to">            
+            <value>myusername@gmail.com</value>
+        </property>
+        <property name="subject" value="Alert - Exception occurred. Please investigate"/>
+    </bean>  -->
+	 
+	
+	
+	<!-- <bean id="id2" class="com.pearson.controller.EmailController">
+	
+   </bean> -->
+   
+      
+  <!-- <bean id="JavaMailSender" class="com.pearson.controller.JavaMailSenderImpl" />
+ 	<bean id="LoginService" class="com.tool.services.LoginServiceImpl" /> -->
+	
+<!-- 	<bean id="id1" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="465" />	
+		<property name="username" value="*******@gmail.com" />
+		<property name="password" value="******" />
+	 
+		<property name="javaMailProperties">
+		   <props>
+	       	      <prop key="mail.smtp.auth">true</prop>
+	       	      <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+	       	      <prop key="mail.smtp.socketFactory.port">465</prop>
+	       	      <prop key="mail.debug">true</prop>				       	      	       	      	       	      
+	       	      <prop key="mail.smtp.starttls.enable">true</prop>
+	       </props>
+		</property>	
+   </bean>   
+ 
+   <bean id="id2" class="java4s.MailLogic">
+	   <property name="mail" ref="id1" />	   
+   </bean> -->
+	<!-- ** END ** Added for E-mail Component Date 5/5/2014 -->
 
 </beans>
