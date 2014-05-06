@@ -25,7 +25,7 @@ public abstract class Abcd implements MailSender{
 	
 
 }
-}
+
 	
 	
 	
