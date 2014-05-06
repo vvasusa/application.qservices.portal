@@ -1,4 +1,4 @@
-/* stupid ie 6 fix */
+ /* stupid ie 6 fix */
 /* This fixes a border rendering issue (only found on portfolio page) and only present in IE6 */
 .span-8{border-right:1px solid #ddd; width:309px;}
 

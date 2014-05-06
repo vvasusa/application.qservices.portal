@@ -6,7 +6,7 @@
 
 <title>Our Services - Logical Media</title>
 
-<!-- CSS Links-->
+<!-- CSS Links -->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
 
 <!--6 CSS files total, listed below--> 

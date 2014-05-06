@@ -6,7 +6,7 @@
 
 <title>Our Portfolio - Logical Media</title>
 
-<!-- CSS Links-->
+<!-- CSS Link s-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
 
 <!--6 CSS files total, listed below--> 

@@ -8,6 +8,5 @@
 </head>
 <body>
 <a href="${pageContext.servletContext.contextPath}/mail/"> Send Mail </a> <br>
-
 </body>
 </html>
