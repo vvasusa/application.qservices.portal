@@ -167,7 +167,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="left">
 					<h1>Member Login</h1>
 					<!-- Login Form -->
-
+<form action="${pageContext.request.contextPath}/login" method="get" commandName="login">
+<%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
 					<label class="color">Username:</label> <input class="field"
 						type="text" name="log" id="log" value="" size="23" /> <label
 						class="color" for="pwd">Password:</label> <input class="field"
@@ -177,7 +178,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<div class="clear"></div>
 					<input type="submit" name="submit" value="Login" class="bt_login" />
 					<a class="lost-pwd" href="#">Lost your password?</a>
-
+</form>
 				</div>
 				<!--panel box2 close-->
 

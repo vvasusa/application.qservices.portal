@@ -9,6 +9,7 @@ public class AdminUser {
 	private String email;
 	private String location;
 	private String address;
+	
 	private String phoneNo;
 
 	public String getUserId() {

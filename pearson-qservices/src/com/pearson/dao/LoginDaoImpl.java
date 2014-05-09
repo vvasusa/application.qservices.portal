@@ -6,47 +6,64 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.pearson.model.AdminUser;
+import com.pearson.model.Admin1;
 
 public class LoginDaoImpl implements LoginDao {
 
 	@Autowired
 	DataSource dataSource;
 
-	public boolean getLoginDeatils() {
+	public boolean getLoginDeatils(String uname,String pass) {
+		// static Logger logger = Logger.getLogger(LoginDaoImpl.class);
+		
 
-		List<String> list = new ArrayList<String>();
-
-		String sql = "select * from ADMINUSER";
-
+		List<Admin1> list = new ArrayList<Admin1>();
+		//String sql = "select * from ADMINUSER";
 		try {
 			Connection connection = dataSource.getConnection();
-			Statement statement;
-			statement = connection.createStatement();
-			// statement.executeUpdate(sql);
-			ResultSet rs = statement.executeQuery(sql);
-			/*while (rs.next()) {
-				list.add(rs.getString(1))(rs.getString(i)); // First Column
-			}*/
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("select *from admin1");
 
-			for (int i = 0; i < sql.length(); i++)
-
-			{
-				list.add(rs.getString(i));
-				list.indexOf(0);
+			while (rs.next()) {
+//list.add(rs.getString());
+//list.add(rs.getString("password"));
+				/*list.add(rs.getString("userId"));
+				list.add(rs.getString("firstName"));
+				list.add(rs.getString("lastName"));
+				list.add(rs.getString("email"));
+				list.add(rs.getString("location"));
+				list.add(rs.getString("address"));
+				list.add(rs.getString("phoneNo"));*/
+				// String str=(rs.getString(1));
+				// String str1=(rs.getString(2));
+				// System.out.println(str);
+				// System.out.println(str1);
 			}
+
+			if (list != null) {
+				for (Admin1 user : list) {
+					
+					/*USERNAME PASSWORD VALIDATION SECTION HERE*/
+					
+					System.out.println(user);
+					System.out.println("inside dao");
+				}
+			}
+
 			statement.close();
 			connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		return true;
 	}
+
+	
 }

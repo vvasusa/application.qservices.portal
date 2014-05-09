@@ -10,9 +10,10 @@ public class LoginServiceImpl implements LoginService {
 	LoginDao loginDao;
 
 	@Override
-	public boolean loginValidation() {
-		boolean value;
-		value = loginDao.getLoginDeatils();
+	public boolean loginValidation(String u_name, String p_word) {
+		String uname = u_name;
+		String pass = p_word;
+		boolean value = loginDao.getLoginDeatils(uname, pass);
 		return value;
 	}
 

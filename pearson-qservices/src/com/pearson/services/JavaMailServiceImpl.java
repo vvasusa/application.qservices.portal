@@ -1,27 +1,17 @@
-package com.pearson.controller;
+package com.pearson.services;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.mail.BodyPart;
-import javax.mail.Multipart;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JFileChooser;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailParseException;
 import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
-
-import antlr.collections.List;
-
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeMultipart;
 
 public class JavaMailServiceImpl implements JavaMailService {
 
@@ -30,6 +20,12 @@ public class JavaMailServiceImpl implements JavaMailService {
 
 	@Autowired
 	private org.springframework.mail.javamail.JavaMailSenderImpl sender;
+	
+	@Value("${From_Email}")
+	private String from ;
+	
+	@Value("${To_Email}")
+	private String to ;
 
 	/*
 	 * @Autowired private SimpleMailMessage alertMailMessage;
@@ -44,13 +40,13 @@ public class JavaMailServiceImpl implements JavaMailService {
 
 			MimeMessage Mimemessage = sender.createMimeMessage();
 			MimeMessageHelper mail = new MimeMessageHelper(Mimemessage, true);
-			mail.setFrom("karthikcarun@gmail.com");
-			mail.addTo("karthikcarun@gmail.com");
+			mail.setFrom(from);
+			mail.addTo(to);
 
-			ArrayList<String> toddress = new ArrayList<String>();
+			ArrayList<String> toAddress = new ArrayList<String>();
 
-			if (toddress != null) {
-				for (String to : toddress) {
+			if (toAddress != null) {
+				for (String to : toAddress) {
 					mail.addTo(to);
 					mail.setTo(to);
 				}

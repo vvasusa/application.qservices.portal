@@ -1,4 +1,4 @@
-package com.pearson.controller;
+package com.pearson.services;
 
 public interface JavaMailService {
 	public void sendEmail();

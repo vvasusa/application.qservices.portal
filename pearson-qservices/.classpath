@@ -1,129 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src" />
-	<classpathentry kind="con"
-		path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7">
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.aop-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.asm-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.aspects-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.beans-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.context.support-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.context-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.core-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.expression-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.instrument.tomcat-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.instrument-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.jdbc-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.jms-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.orm-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.oxm-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.test-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.transaction-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.web.portlet-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.web.servlet-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.web.struts-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/org.springframework.web-sources-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/spring-aop-3.1.3.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/spring-beans-3.1.3.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/spring-context-3.1.3.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/spring-context-support-3.1.3.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/spring-core-3.1.3.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/spring-expression-3.1.3.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/jars/spring-webmvc-3.1.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/ehcache-core-2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-c3p0-4.1.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-core-4.1.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-ehcache-4.1.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-entitymanager-4.1.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-envers-4.1.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-infinispan-4.1.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/hibernate-proxool-4.1.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/infinispan-core-5.1.3.FINAL.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/jboss-marshalling-1.3.6.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/jboss-marshalling-river-1.3.6.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/jgroups-3.0.8.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/proxool-0.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/rhq-pluginAnnotations-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/stax2-api-3.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/298821/Desktop/hibernate jars/woodstox-core-asl-4.1.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
-			<attribute name="owner.project.facets" value="java" />
+			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con"
-		path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
-		<attributes>
-			<attribute name="owner.project.facets" value="jst.web" />
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con"
-		path="org.eclipse.jst.j2ee.internal.web.container" />
-	<classpathentry kind="con"
-		path="org.eclipse.jst.j2ee.internal.module.container" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.aop-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.asm-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.aspects-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.beans-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.context.support-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.context-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.core-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.expression-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.instrument.tomcat-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.instrument-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.jdbc-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.jms-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.orm-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.oxm-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.test-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.transaction-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.web.portlet-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.web.servlet-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.web.struts-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/org.springframework.web-sources-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/spring-aop-3.1.3.RELEASE-sources.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/spring-beans-3.1.3.RELEASE-sources.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/spring-context-3.1.3.RELEASE-sources.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/spring-context-support-3.1.3.RELEASE-sources.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/spring-core-3.1.3.RELEASE-sources.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/spring-expression-3.1.3.RELEASE-sources.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/jars/spring-webmvc-3.1.3.RELEASE.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/antlr-2.7.7.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/c3p0-0.9.1.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/dom4j-1.6.1.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/ehcache-core-2.4.3.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/gradle-wrapper.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-c3p0-4.1.2.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-commons-annotations-4.0.1.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-core-4.1.2.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-ehcache-4.1.2.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-entitymanager-4.1.2.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-envers-4.1.2.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-infinispan-4.1.2.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/hibernate-proxool-4.1.2.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/infinispan-core-5.1.3.FINAL.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/javassist-3.15.0-GA.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/jboss-logging-3.1.0.GA.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/jboss-marshalling-1.3.6.GA.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/jboss-marshalling-river-1.3.6.GA.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/jboss-transaction-api_1.1_spec-1.0.0.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/jgroups-3.0.8.Final.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/proxool-0.8.3.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/rhq-pluginAnnotations-3.0.4.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/slf4j-api-1.6.1.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/sqljdbc4.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/stax2-api-3.1.1.jar" />
-	<classpathentry kind="lib"
-		path="C:/Users/298821/Desktop/hibernate jars/woodstox-core-asl-4.1.1.jar" />
-	<classpathentry kind="output" path="build/classes" />
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 7.0/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 7.0/lib/tomcat-api.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
 </classpath>

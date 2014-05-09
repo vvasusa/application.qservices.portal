@@ -216,7 +216,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
         <div class="span-24">
             <!--Intro Image shown here, about site-->
             <div class="intro">
-            <img src="./img/services_banner.gif" alt="" />
+            <img src="${pageContext.request.contextPath}/img/services_banner.gif" alt="" />
             </div>
             <!--Close intro image-->
         </div>
@@ -254,7 +254,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>Site Analysis</h4>
                     <!--Service Image-->
-                    <p><img src="./img/icons/site_analysis.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/site_analysis.png" class="left" alt="" />
                     <!--Brief Info on Service-->
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
@@ -271,7 +271,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>Web Design</h4>
                     <!--Service Image-->
-                    <p><img src="./img/icons/design.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/design.png" class="left" alt="" />
                     <!--Brief Info on Service-->
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
@@ -289,7 +289,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>Logo Creation</h4>
                     <!--Service Image-->
-                    <p><img src="./img/icons/lc.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/lc.png" class="left" alt="" />
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
                 
@@ -307,7 +307,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>Online Marketing</h4>
                      <!--Service Image-->
-                    <p><img src="./img/icons/omar.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/omar.png" class="left" alt="" />
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
                 
@@ -322,7 +322,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>PSD Conversion</h4>
                     <!--Service Image-->
-                    <p><img src="./img/icons/psd.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/psd.png" class="left" alt="" />
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
                 
@@ -337,7 +337,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>E-Commerce</h4>
                     <!--Service Image-->
-                    <p><img src="./img/icons/ecom.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/ecom.png" class="left" alt="" />
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
                 
@@ -355,7 +355,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>Search Optimization</h4>
                     <!--Service Image-->
-                    <p><img src="./img/icons/search.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/search.png" class="left" alt="" />
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
                 
@@ -371,7 +371,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>Content Delivery</h4>
                     <!--Service Image-->
-                    <p><img src="./img/icons/cd.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/cd.png" class="left" alt="" />
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
                 
@@ -387,7 +387,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Service Title-->
                     <h4>Site Integration</h4>
                     <!--Service Image-->
-                    <p><img src="./img/icons/folder.png" class="left" alt="" />
+                    <p><img src="${pageContext.request.contextPath}/img/icons/folder.png" class="left" alt="" />
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
                     

@@ -267,6 +267,14 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
             <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Subject:</td>
             <td style="text-align:left; vertical-align:top; padding:5px;"><input type="text" name="subject" value="" /></td>
             </tr>
+            
+            <!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
+            <tr>
+            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Request:</td>
+            <td style="text-align:left; vertical-align:top; padding:5px;"><select type="text" name="subject" > <option value="volvo">Volvo</option> 
+             <option value="saab">Saab</option>  <option value="mercedes">Mercedes</option>  <option value="audi">Audi</option></select> </td>
+            </tr>
+             <!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
             <tr>
             <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Message:</td>
             <td style="text-align:left; vertical-align:top; padding:5px;"><textarea name="message" cols="40" rows="6"></textarea></td>
