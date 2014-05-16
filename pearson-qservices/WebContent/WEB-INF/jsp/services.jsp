@@ -188,6 +188,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
   			<li><a href="${pageContext.request.contextPath}/services/" id="services_front" title="Our Services"><span>our services</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/blog/" id="blog" title="The Blog"><span>the bloggery</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
+  			<li><a href="${pageContext.request.contextPath}/requestList/" id="contact" title="Request"><span>Request</span></a></li>
 		</ul><!--Navigation close-->
         
         
@@ -200,6 +201,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <li><a href="${pageContext.request.contextPath}/sub_serv/">SEO</a></li>
                     <li><a href="${pageContext.request.contextPath}/sub_serv/">Online Marketing</a></li> 
                     <li><a href="${pageContext.request.contextPath}/sub_serv/">Site Analysis</a></li> 
+                    
+                    
+                    
+                    </form>
                 </ul><!--sub-nav close-->
         
         </div>
@@ -258,6 +263,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <!--Brief Info on Service-->
                     Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
                     labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
+                    
+                    
+                <a href="${pageContext.request.contextPath}/requestList?id=${user.userId}"><b>RAISE REQUEST</b></a></td>
+                
+                ${user.email}
                 
                 </div><!--boxed_page close-->
             </div><!--span-6 close-->

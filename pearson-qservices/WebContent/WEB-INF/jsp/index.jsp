@@ -167,7 +167,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="left">
 					<h1>Member Login</h1>
 					<!-- Login Form -->
-<form action="${pageContext.request.contextPath}/login" method="get" commandName="login">
+<form action="${pageContext.request.contextPath}/login" method="get" commandName="login" modelAttribute="user">
 <%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
 					<label class="color">Username:</label> <input class="field"
 						type="text" name="log" id="log" value="" size="23" /> <label
@@ -232,7 +232,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			</div>
 			<!--Close Logo Area-->
 			
-<a href="${pageContext.servletContext.contextPath}/mail/"> Send Mail </a> <br>
+<a href="${pageContext.servletContext.contextPath}/mail/"> Send Mail </a> <br> 
 
 			<!--Begin Navigation-->
 			<ul id="navigation">
@@ -246,6 +246,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
+					<li><a href="${pageContext.request.contextPath}/requestList/"
+					id="home_front" title="Request"><span>request</span></a></li>
 			</ul>
 			<!--Navigation close-->
 

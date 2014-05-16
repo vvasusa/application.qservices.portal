@@ -38,6 +38,7 @@ public class JavaMailServiceImpl implements JavaMailService {
 		MimeMessage msg = null;
 		try {
 
+			System.out.println("welcome to mail box..");
 			MimeMessage Mimemessage = sender.createMimeMessage();
 			MimeMessageHelper mail = new MimeMessageHelper(Mimemessage, true);
 			mail.setFrom(from);

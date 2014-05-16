@@ -10,4 +10,5 @@ public final class Constants {
 	//public static final double PLANCK_CONSTANT = 6.62606896e-34;
 	public static final String LOGIN_PAGE = "login";
 	public static final String ERROR_PAGE = "error";
+	public static final String INDEX_PAGE = "index";
 }

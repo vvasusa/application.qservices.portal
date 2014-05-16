@@ -3,13 +3,11 @@ package com.pearson.model;
 public class AdminUser {
 
 	private String userId;
-
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String location;
 	private String address;
-	
 	private String phoneNo;
 
 	public String getUserId() {

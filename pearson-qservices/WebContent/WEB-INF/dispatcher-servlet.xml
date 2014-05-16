@@ -9,6 +9,7 @@
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<!-- <mvc:annotation-driven /> -->
+	
 	<context:component-scan base-package="com.pearson.controller" />
 	<context:property-placeholder location="classpath:resources/app.properties" /> 
 
@@ -37,6 +38,8 @@
 	<!-- declare beans -->
 	<bean id="LoginDao" class="com.pearson.dao.LoginDaoImpl" />
 	<bean id="LoginService" class="com.pearson.services.LoginServiceImpl" />
+	<bean id="RequestDao" class="com.pearson.dao.RequestDaoImpl" />
+	<bean id="RequestService" class="com.pearson.services.RequestServiceImpl" />
 
 
 

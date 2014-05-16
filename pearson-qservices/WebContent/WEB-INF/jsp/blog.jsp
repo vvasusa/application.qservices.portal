@@ -207,6 +207,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
   			<li><a href="${pageContext.request.contextPath}/services/" id="services" title="Our Services"><span>our services</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/blog/" id="blog_front" title="The Blog"><span>the bloggery</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
+  			<!-- CHANGES FOR ADDING REQUEST TAB START -->
+  			<li><a href="${pageContext.request.contextPath}/requestList/" id="contact" title="Request"><span>Request</span></a></li>
+		<!-- CHANGES FOR ADDING REQUEST TAB END -->
 		</ul><!--Navigation close-->
         
         <!--Sub-Navigation found directly below the main navigation bar.-->

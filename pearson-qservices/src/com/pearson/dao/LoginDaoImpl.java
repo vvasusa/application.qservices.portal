@@ -8,9 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.util.StringUtils;
 
 import com.pearson.model.Admin1;
 
@@ -19,51 +23,59 @@ public class LoginDaoImpl implements LoginDao {
 	@Autowired
 	DataSource dataSource;
 
-	public boolean getLoginDeatils(String uname,String pass) {
-		// static Logger logger = Logger.getLogger(LoginDaoImpl.class);
-		
+	@Override
+	public boolean getLoginDeatils(String uname, String pass,
+			HttpServletRequest request) {
+
+		HttpSession session = request.getSession();
+		HttpSession session1 = request.getSession();
 
 		List<Admin1> list = new ArrayList<Admin1>();
-		//String sql = "select * from ADMINUSER";
+
 		try {
+
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select *from admin1");
-
+			int i = 0;
 			while (rs.next()) {
-//list.add(rs.getString());
-//list.add(rs.getString("password"));
-				/*list.add(rs.getString("userId"));
-				list.add(rs.getString("firstName"));
-				list.add(rs.getString("lastName"));
-				list.add(rs.getString("email"));
-				list.add(rs.getString("location"));
-				list.add(rs.getString("address"));
-				list.add(rs.getString("phoneNo"));*/
-				// String str=(rs.getString(1));
-				// String str1=(rs.getString(2));
-				// System.out.println(str);
-				// System.out.println(str1);
-			}
+				System.out.println("FROM JSP PAGE  " + uname);
+				System.out.println("FROM JSP PAGE " + pass);
+				String username = (rs.getString("userId"));
+				String password = (rs.getString("password"));
+				System.out.println("FROM DATABASE userId " + username);
+				System.out.println("FROM DATABASE userId " + password);
+				i = i + 1;
 
-			if (list != null) {
-				for (Admin1 user : list) {
-					
-					/*USERNAME PASSWORD VALIDATION SECTION HERE*/
-					
-					System.out.println(user);
-					System.out.println("inside dao");
+				if (StringUtils.endsWithIgnoreCase(uname,
+						rs.getString("userId"))
+						&& StringUtils.endsWithIgnoreCase(pass,
+								rs.getString("password"))) {
+					// session.invalidate();
+					//String param = new String("loginn");
+					String value = (rs.getString("userId"));
+					//session.setAttribute("MySessionVariable", value);
+					request.getSession(true).setAttribute("MySessionVariable",value);
+					session1.setAttribute("sessionID", uname);
+					return true;
 				}
+
+				//session.removeAttribute("MySessionVariable");
+				request.getSession(false).removeAttribute("MySessionVariable");
+				System.out.println("session;;;; invalidate()");
+
 			}
 
-			statement.close();
-			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+
 		}
 
-		return true;
+		/*
+		 * String param = new String("logout");
+		 * session.setAttribute("MySessionVariable", param);
+		 */
+		return false;
 	}
 
-	
 }

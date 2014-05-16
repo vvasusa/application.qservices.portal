@@ -255,259 +255,41 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
             <a href="#" class="switch_thumb">Switch Thumb</a> 
  			
             <!--Default Style is set to thumb view showing first. -->
-    		<ul class="thumb_view">
-            	
-                <!--Begin Portfolio Entry -->
-        		<li>
-            		<div class="content_block">
-            		<!--This image uses Lightbox, please consult <head> for more information  -->
-                	<a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample.gif" alt="" /></a>
-                	<!--Title of the Entry-->
-                    <h2><a href="#">Dark Business Cards</a></h2>
-                    <!--Date-->
-                	<p class="date">Completed Feb 26th, 2010</p>
-                    <!--This description is only shown when the 'standard' view is toggled-->
-                	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                	Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled--> 
-                	<p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-            		</div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-        		
-                
-                <!--Begin Portfolio Entry -->
-                <li>
-            		<div class="content_block">
-                	<!--This image uses Lightbox, please consult <head> for more information  -->
-                	<a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample2.gif" alt="" /></a>
-                    <!--Title of the Entry-->
-                	<h2><a href="#">How To Be A Rockstar</a></h2>
-                    <!--Date-->
-                	<p class="date">Completed Feb 26th, 2010</p>
-                    <!--This description is only shown when the 'standard' view is toggled--> 
-                	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                	Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled--> 
-                	<p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-            		</div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-        		
-                
-                <!--Begin Portfolio Entry -->
-                <li>
-            		<div class="content_block">
-                	<!--This image uses Lightbox, please consult <head> for more information  -->
-                	<a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample3.gif" alt="" /></a>
-                    <!--Title of the Entry-->
-                	<h2><a href="#">G.R. Pamphlet</a></h2>
-                	<!--Date-->
-                    <p class="date">Completed Feb 26th, 2010</p>
-                	<!--This description is only shown when the 'standard' view is toggled--> 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                	Nullam pulvinar ultri malasuada quisque </p> 
-                	<!--Again these images are only shown when the 'standard' view is toggled--> 
-                    <p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-            		</div>
-                    <!--Close content_block-->
-                </li>
-                <!--Close Portfolio Entry-->
-        
-        
-        		<!--Begin Portfolio Entry -->
-                <li>
-            		<div class="content_block">
-                	<!--This image uses Lightbox, please consult <head> for more information  -->
-                	<a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample4.gif" alt="" /></a>
-                    <!--Title of the Entry-->
-                	<h2><a href="#">Rockable White Cards</a></h2>
-                    <!--Date-->
-               		<p class="date">Completed Feb 26th, 2010</p>
-                    <!--This description is only shown when the 'standard' view is toggled-->
-                	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                	Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled--> 
-                	<p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-            		</div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-                 
-                 
-        		<!--Begin Portfolio Entry -->
-                <li>
-            		<div class="content_block">
-                	<!--This image uses Lightbox, please consult <head> for more information  -->
-                	<a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample5.gif" alt="" /></a>
-                	<!--Title of the Entry-->
-                    <h2><a href="#">Moo Mini Cards</a></h2>
-               		<!--Date-->
-                    <p class="date">Completed Feb 26th, 2010</p>
-                	<!--This description is only shown when the 'standard' view is toggled-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                	Nullam pulvinar ultri malasuada quisque </p> 
-                	<!--Again these images are only shown when the 'standard' view is toggled--> 
-                    <p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-            		</div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-                
-                
-        		<!--Begin Portfolio Entry -->
-                <li>
-            		<div class="content_block">
-                	<!--This image uses Lightbox, please consult <head> for more information  -->
-                	<a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample6.gif" alt="" /></a>
-                    <!--Title of the Entry-->
-                	<h2><a href="#">Say It In Print</a></h2>
-                	<!--Date-->
-                    <p class="date">Completed Feb 26th, 2010</p>
-                	<!--This description is only shown when the 'standard' view is toggled-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                	Nullam pulvinar ultri malasuada quisque </p> 
-                	<!--Again these images are only shown when the 'standard' view is toggled--> 
-                    <p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-            		</div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-                
-                
-        		<!--Begin Portfolio Entry -->
-                <li>
-                    <div class="content_block">
-                    <!--This image uses Lightbox, please consult <head> for more information  -->
-                    <a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample7.gif" alt="" /></a>
-                    <!--Title of the Entry-->
-                    <h2><a href="#">More Business Cards</a></h2>
-                    <!--Date-->
-                    <p class="date">Completed Feb 26th, 2010</p>
-                    <!--This description is only shown when the 'standard' view is toggled-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                    Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled-->
-                    <p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-                	</div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-        
-        
-        		<!--Begin Portfolio Entry -->
-                <li>
-            		<div class="content_block">
-                	<!--This image uses Lightbox, please consult <head> for more information  -->
-                	<a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample8.gif" alt="" /></a>
-                	<!--Title of the Entry-->
-                    <h2><a href="#">Mixed Media Design</a></h2>
-                    <!--Date-->
-                	<p class="date">Completed Feb 26th, 2010</p>
-                    <!--This description is only shown when the 'standard' view is toggled-->
-                	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                	Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled-->
-                	<p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-            		</div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-        
-        
-        		<!--Begin Portfolio Entry -->
-                <li>
-            		<div class="content_block">
-                	<!--This image uses Lightbox, please consult <head> for more information  -->
-                	<a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample4.gif" alt="" /></a>
-                	<!--Title of the Entry-->
-                    <h2><a href="#">Rockable White Cards</a></h2>
-                	<!--Date-->
-                    <p class="date">Completed Feb 26th, 2010</p>
-                	<!--This description is only shown when the 'standard' view is toggled-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                	Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled-->
-                	<p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-           		 	</div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-                
-                
-        		<!--Begin Portfolio Entry -->
-                <li>
-            		<div class="content_block">
-                    <!--This image uses Lightbox, please consult <head> for more information  -->
-                    <a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample3.gif" alt="" /></a>
-                    <!--Title of the Entry-->
-                    <h2><a href="#">Graphic River Leaflet</a></h2>
-                    <!--Date-->
-                    <p class="date">Completed Feb 26th, 2010</p>
-                    <!--This description is only shown when the 'standard' view is toggled-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                    Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled-->
-                    <p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-	                </div>
-                    <!--Close content_block-->
-        		</li>
-                <!--Close Portfolio Entry-->
-                
-                
-                <!--Begin Portfolio Entry -->
-                <li>
-                    <div class="content_block">
-                    <!--This image uses Lightbox, please consult <head> for more information  -->
-                    <a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample2.gif" alt="" /></a>
-                    <!--Title of the Entry-->
-                    <h2><a href="#">How To Be A Rockstar</a></h2>
-                    <!--Date-->
-                    <p class="date">Completed Feb 26th, 2010</p>
-                    <!--This description is only shown when the 'standard' view is toggled-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                    Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled-->
-                    <p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-                    </div>
-                    <!--Close content_block-->
-                </li>
-                <!--Close Portfolio Entry-->
-                
-                
-                <!--Begin Portfolio Entry -->
-                <li>
-                    <div class="content_block">
-                    <!--This image uses Lightbox, please consult <head> for more information  -->
-                    <a href="${pageContext.request.contextPath}/img/port/lightbox.jpg" class="lightbox" title="Sample Lightbox Image"><img src="./img/port/sample.gif" alt="" /></a>
-                    <!--Title of the Entry-->
-                    <h2><a href="#">Dark Business Cards</a></h2>
-                    <!--Date-->
-                    <p class="date">Completed Feb 26th, 2010</p>
-                    <!--This description is only shown when the 'standard' view is toggled-->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                    Nullam pulvinar ultri malasuada quisque </p> 
-                    <!--Again these images are only shown when the 'standard' view is toggled-->
-                    <p><a href="#"><img src="./img/case.jpg" alt="" /></a> <a href="#"><img src="./img/live.jpg" alt="" /></a></p>
-                    </div>
-                    <!--Close content_block-->
-                </li>
-                <!--Close Portfolio Entry-->
-    		</ul>
+ <form action="" />
+            <table style="width:680px; background-color:#fff; border:1px solid #ddd; padding:10px; font-size:12px;" class="contactForm">
+            <tr>
+            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Name:</td>
+            <td style="text-align:left; vertical-align:top; padding:5px;"><input type="text" name="name" value="" /></td>
+            </tr>
+            <tr>
+            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Email:</td>
+            <td style="text-align:left; vertical-align:top; padding:5px;"><input type="text" name="email" value="" /> </td>
+            </tr>
+            <tr>
+            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Subject:</td>
+            <td style="text-align:left; vertical-align:top; padding:5px;"><input type="text" name="subject" value="" /></td>
+            </tr>
+            
+            <!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
+            <tr>
+            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Request:</td>
+            <td style="text-align:left; vertical-align:top; padding:5px;"><select type="text" name="subject" > <option value="volvo">Volvo</option> 
+             <option value="saab">Saab</option>  <option value="mercedes">Mercedes</option>  <option value="audi">Audi</option></select> </td>
+            </tr>
+             <!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
+            <tr>
+            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Message:</td>
+            <td style="text-align:left; vertical-align:top; padding:5px;"><textarea name="message" cols="40" rows="6"></textarea></td>
+            </tr>
+            
+            <tr>
+            <td colspan="2" style="text-align:left; vertical-align:middle; padding:5px; font-size:90%; font-weight:bold;">All fields are required.</td>
+            </tr>
+            <tr>
+            <td colspan="2" style="text-align:left; vertical-align:middle; padding:5px;"><input type="submit" name="submit" value="Submit" /> (Email will not be sent)</td>
+            </tr>
+            </table>
+            </form>
             <!--thumb view close-->
     		</div>
             <!--close switch -->
