@@ -25,21 +25,27 @@ var value= "<%=temp%>	";
 
 	<%-- <c:if test="${user.email==user.email}"> --%>
 	<%-- <c:if test="true"> --%>
-	<c:if test="${user.loginType=='visitor'}">
+	<c:if test="${user.loginType=='QA'}">
 		<div>
 			<form action="${pageContext.request.contextPath}/update"
 				method="post" commandName="update" modelAttribute="user">
-				${user.userId} ${user.email} ${user.loginType} ${user.email}
-				${user.email}
+				${user.userId} ${user.email} ${user.phoneNo} ${user.email}
+			
 				<H1>WELCOME TO VISITOR</H1>
 				<table
 					style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 					class="contactForm">
 					<tr>
 						<td
-							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name:</td>
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-							type="text" name="name" value="" /></td>
+							type="text" name="name" value="${user.req_Fname}" /></td>
+					</tr>
+					<tr>
+						<td
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
+						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+							type="text" name="name" value="${user.req_Lname}" /></td>
 					</tr>
 					<tr>
 						<td
@@ -102,15 +108,37 @@ var value= "<%=temp%>	";
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 
-	<c:if test="${user.loginType=='QA'}">
+	<c:if test="${user.loginType=='null'}">
 		<div>
-			
-				${detail.}
 				<H1>WELCOME TO QA</H1>
 
-
-			</form>
-
+<table border="1">
+			<tr>
+				<td class="heading">First Name</td>
+				<td class="heading">Last Name</td>
+				<td class="heading">Email</td>
+				<td class="heading">ContactNo</td>
+				<td class="heading">Req_Name</td>
+				<td class="heading">Req_ID</td>
+				<td class="heading">ACTION</td>
+				<td class="heading">ACTION</td>
+				
+			</tr>
+			<%-- <c:forEach var="user" items="${requestList}"> --%>
+			
+				<tr>
+					<td>${user.firstName}</td>
+					<td>${user.req_Lname}</td>
+					<td>${user.email}</td>
+					<td>${user.phoneNo}</td>
+					<td>${user.requesName}</td>
+					<td>${user.requesID}</td>
+					<td><a href="edit?id=${user.userId}">APPROVE</a></td>
+					<td><a href="delete?id=${user.userId}">REJECT</a></td>
+				</tr>
+			<%-- </c:forEach> --%>
+			<tr><td colspan="7"><a href="${pageContext.request.contextPath}/update"> </a></td></tr>
+		</table>
 		</div>
 	</c:if>
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->

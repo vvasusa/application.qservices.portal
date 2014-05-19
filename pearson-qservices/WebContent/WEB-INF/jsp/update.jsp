@@ -8,5 +8,39 @@
 </head>
 <body>
 YOUR DETAILS UPDATED SUSSUESFULLY.
+
+	<c:if test="${user.loginType=='null'}">
+		<div>
+				<H1>WELCOME TO QA</H1>
+
+<table border="1">
+			<tr>
+				<td class="heading">First Name</td>
+				<td class="heading">Last Name</td>
+				<td class="heading">Email</td>
+				<td class="heading">ContactNo</td>
+				<td class="heading">Req_Name</td>
+				<td class="heading">Req_ID</td>
+				<td class="heading">ACTION</td>
+				
+				
+			</tr>
+			<%-- <c:forEach var="user" items="${requestList}"> --%>
+			
+				<tr>
+					<td>${user.firstName}</td>
+					<td>${user.req_Lname}</td>
+					<td>${user.email}</td>
+					<td>${user.phoneNo}</td>
+					<td>${user.requesName}</td>
+					<td>${user.requesID}</td>
+					<td><a href="edit?id=${user.userId}">EDIT</a></td>
+					
+				</tr>
+			<%-- </c:forEach> --%>
+			<tr><td colspan="7"><a href="${pageContext.request.contextPath}/update"> </a></td></tr>
+		</table>
+		</div>
+	</c:if>
 </body>
 </html>

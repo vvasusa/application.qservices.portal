@@ -6,17 +6,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.util.StringUtils;
 
 import com.pearson.model.Admin1;
+import com.pearson.model.AdminUser;
 
 public class LoginDaoImpl implements LoginDao {
 
@@ -33,7 +32,7 @@ public class LoginDaoImpl implements LoginDao {
 		List<Admin1> list = new ArrayList<Admin1>();
 
 		try {
-
+			
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select *from admin1");
@@ -51,16 +50,18 @@ public class LoginDaoImpl implements LoginDao {
 						rs.getString("userId"))
 						&& StringUtils.endsWithIgnoreCase(pass,
 								rs.getString("password"))) {
-					// session.invalidate();
-					//String param = new String("loginn");
 					String value = (rs.getString("userId"));
-					//session.setAttribute("MySessionVariable", value);
-					request.getSession(true).setAttribute("MySessionVariable",value);
+
+					/* SET SESSION HERE THE LOGIN TYPE - VISITOR, ADMIN, QA-LEAD */
+					
+
+					request.getSession(true).setAttribute("MySessionVariable",
+							value);
 					session1.setAttribute("sessionID", uname);
 					return true;
 				}
 
-				//session.removeAttribute("MySessionVariable");
+				// session.removeAttribute("MySessionVariable");
 				request.getSession(false).removeAttribute("MySessionVariable");
 				System.out.println("session;;;; invalidate()");
 
