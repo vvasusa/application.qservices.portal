@@ -257,18 +257,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <div class="boxed_page">
                 
                     <!--Service Title-->
-                    <h4>Site Analysis</h4>
+                     <div class="texter">  
+                    <h4>Q-Assesment</h4>
                     <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/site_analysis.png" class="left" alt="" />
-                    <!--Brief Info on Service-->
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
-                    
-                    
-                <a href="${pageContext.request.contextPath}/requestList?id=${user.userId}"><b>RAISE REQUEST</b></a></td>
-                
-                ${user.email}
-                
+                   <!--  <p><img src="./img/icons/site_analysis.png" class="left" alt="" /> --> 
+                    <!--Brief Info on Service-->                   
+                    <a href="${pageContext.request.contextPath}/QAssesment/">
+                       Q- Assessment for Integrating Teams provides quality consulting to organizations undergoing integrations or consolidation such as Mergers & Acquisition. It heps QA organization achieve best in class operating levels by strategizing and redefining their QA processes.
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
                 </div><!--boxed_page close-->
             </div><!--span-6 close-->
             
@@ -279,13 +279,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <div class="boxed_page">
                 
                     <!--Service Title-->
-                    <h4>Web Design</h4>
+                     <div class="texter">   
+                    <h4>Test Program Management</h4>
                     <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/design.png" class="left" alt="" />
+                    <!-- <p><img src="./img/icons/design.png" class="left" alt="" /> -->
                     <!--Brief Info on Service-->
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
-                
+                     <a href="${pageContext.request.contextPath}/TestProgram/" >
+                      Test Program Management is an advisory service offering that helps organizations create QA Policies, Strategies, Plans and Processes. This offering enables QA teams to effectively manage multiple projects while maintaining standard deliverables.
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   
+                </div>
                 </div><!--boxed_page close-->
             </div><!--span-6 close-->
             
@@ -297,12 +302,17 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <div class="boxed_page">
                 
                     <!--Service Title-->
-                    <h4>Logo Creation</h4>
+                     <div class="texter">   
+                    <h4>Middleware / ESB Testing</h4>
                     <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/lc.png" class="left" alt="" />
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
-                
+                   <!--  <p><img src="./img/icons/lc.png" class="left" alt="" /> -->
+                    <a href="${pageContext.request.contextPath}/Middleware/">
+                        Middleware/ ESB Testing validates an organization's middleware architecture to establish a robust communication layer between the application and the back-end systems. It improves business agility by increasing the lifespan of applications ensuring quality & scalability
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   <!-- </p> -->
+                </div>
                 </div><!--Brief Info on Service-->
             </div><!--span-6 close-->
             
@@ -315,12 +325,17 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <!--Boxed style with 20px padding-->
                 <div class="boxed_page">
                     <!--Service Title-->
-                    <h4>Online Marketing</h4>
+                     <div class="texter">   
+                    <h4>DataIntegration Testing</h4>
                      <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/omar.png" class="left" alt="" />
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
-                
+                   <!--  <p><img src="./img/icons/omar.png" class="left" alt="" /> -->
+                     <a href="${pageContext.request.contextPath}/DataIntegration/" >
+                        Data Integration Testing enables organizations to maintain data integrity during transition of data from one database system to the other by performing data verification and  validation. It helps in establishing increased levels of trust for data across the organization by enuring that the integrated data is correct, complete and up-to-date 
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
                 </div><!--Brief Info on Service-->
             </div><!--span-6 close-->
             
@@ -330,12 +345,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <!--Boxed style with 20px padding-->
                 <div class="boxed_page">
                     <!--Service Title-->
-                    <h4>PSD Conversion</h4>
+                     <div class="texter">   
+                    <h4>Automated Testing</h4>
                     <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/psd.png" class="left" alt="" />
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
-                
+                    <!-- <p><img src="./img/icons/psd.png" class="left" alt="" /> -->
+                    <a href="${pageContext.request.contextPath}/Automated/" >
+                        Automated Testing helps agile centric IT organizations produce a software that is effective, efficient and faster by employing right tools, frameworks, strategy and personnel. Higher automation coverage reduces manual effort and improves the quality of testing.
+
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
                 </div><!--Brief Info on Service-->
             </div><!--span-6 close-->
             
@@ -345,12 +366,17 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <!--Boxed style with 20px padding-->
                 <div class="boxed_page">
                     <!--Service Title-->
-                    <h4>E-Commerce</h4>
+                     <div class="texter">   
+                    <h4>Mobile Testing</h4>
                     <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/ecom.png" class="left" alt="" />
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
-                
+                    <!-- <p><img src="./img/icons/ecom.png" class="left" alt="" /> -->
+                     <a href="${pageContext.request.contextPath}/Mobile/" >
+                       Mobile Testing provides an integrated solution for testing mobile native applications using agile based test framework. Testing is performed on real devices without compromising on the quality by leveraging tools  and centralized repository consisting mobile specific test scripts across all mobile platform projects.
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
                 </div><!--Brief Info on Service-->
             </div><!--span-6 close-->
             
@@ -363,12 +389,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <!--Boxed style with 20px padding-->
                 <div class="boxed_page">
                     <!--Service Title-->
-                    <h4>Search Optimization</h4>
+                     <div class="texter">   
+                    <h4>Online eCommerce & Content Management </h4>
                     <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/search.png" class="left" alt="" />
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
-                
+                    <!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
+                     <a href="${pageContext.request.contextPath}/OnlineEcommerce/">
+                        QCoE - Online ecommerce and Content Management provides testing solutions to the growing volume of e-commerce businesses requiring higher availability, scalability, and facilitates enhanced online shopping experience. Our domain-specific customized solutions along with performance, security and usability testing provides cost-effective implementations that accelerate the product life cycle,  prevent security lapses such as identity theft and ensure efficient load handling.
+
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
                 </div><!--Brief Info on Service-->
             </div><!--span-6 close-->
             
@@ -379,11 +411,155 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <!--Boxed style with 20px padding-->
                 <div class="boxed_page">
                     <!--Service Title-->
-                    <h4>Content Delivery</h4>
+                     <div class="texter">   
+                    <h4>Oracle ERP Testing</h4>
                     <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/cd.png" class="left" alt="" />
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
+                    <!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
+                    <a href="${pageContext.request.contextPath}/OracleERP/" >
+                       Oracle ERP Testing validates an organizations Oracle ERP package implementations and customizations towards a business need by testing functional coverage, performance, availability and scalability areas.
+                        It accelerates the QA process by allowing faster delivery of your business-critical Oracle ERP projects.
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
+                </div><!--Brief Info on Service-->
+            </div><!--span-6 close-->
+            
+            
+            <!--#BEGIN SERVICE BOX#-->
+            <!--Declare 230px width-->
+            <div class="span-6 last">
+                <!--Boxed style with 20px padding-->
+                <div class="boxed_page">
+                    <!--Service Title-->
+                     <div class="texter">   
+                    <h4>Sales Force Testing</h4>
+                    <!--Service Image-->
+                  <!--   <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
+                    <a href="${pageContext.request.contextPath}/SalesForce/" >
+                       Sales Force Testing provides organizations a full scale CRM testing from  opportunity creation to post-sale functionality for both standard and highly customized objects. It covers all critical testing domains of SalesForce.Com by providing a full suite of solutions 
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                    </div>
+                 </div><!--Brief Info on Service-->
+            </div><!--span-6 close-->
+            
+            <!--stupid IE 6 again-->
+            <!--[if IE 6]><hr class="space" /><![endif]-->
+      
+        
+        <hr class="space" />
+        
+        <!--#BEGIN SERVICE BOX#-->
+            <!--Declare 230px width-->
+            <div class="span-6">
+                <!--Boxed style with 20px padding-->
+                <div class="boxed_page">
+                    <!--Service Title-->
+                     <div class="texter">   
+                    <h4>Performance Testing</h4>
+                    <!--Service Image-->
+                   <!--  <p><img src="./img/icons/search.png" class="left" alt="" /> -->
+                    <a href="${pageContext.request.contextPath}/Performance/" >
+                       Performance Testing identifies performance bottlenecks in a software and helps in deploying scalable & reliable solution across Pearson applications to enhance user experience on sites and web apps. It improves the speed and  consistency of a system under a particular workload.
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
+                </div><!--Brief Info on Service-->
+            </div><!--span-6 close-->
+            
+            
+            <!--#BEGIN SERVICE BOX#-->
+            <!--Declare 230px width-->
+            <div class="span-6">
+                <!--Boxed style with 20px padding-->
+                <div class="boxed_page">
+                    <!--Service Title-->
+                     <div class="texter">   
+                    <h4>Security Testing</h4>
+                    <!--Service Image-->
+                    <!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
+                    <a href="${pageContext.request.contextPath}/Security/">
+                       Security Testing identifies risk and compliance level of an application with respect to Pearson policies & assessment. It validates security vulnerabilities in Pearson web applications and assures that these applications behave as intended
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
+                </div><!--Brief Info on Service-->
+            </div><!--span-6 close-->
+            
+            
+            <!--#BEGIN SERVICE BOX#-->
+            <!--Declare 230px width-->
+            <div class="span-6 last">
+                <!--Boxed style with 20px padding-->
+                <div class="boxed_page">
+                    <!--Service Title-->
+                     <div class="texter">   
+                    <h4>Compliance Testing </h4>
+                    <!--Service Image-->
+                   <!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
+                    <a href="${pageContext.request.contextPath}/Compliance/" >
+                       Compliance Testing implements audit activities focused on performing reviews and testing of application change activity to ensure that all changes adhere to the established process and control requirements of Pearson’s Sarbanes-Oxley (SOX) Compliance Program.  It empowers organizations to achieve conformance across the entire IT landscape. 
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                   </div> 
+                 </div><!--Brief Info on Service-->
+            </div><!--span-6 close-->
+            
+            <!--stupid IE 6 again-->
+            <!--[if IE 6]><hr class="space" /><![endif]-->
+      
+        
+        <hr class="space" />
+        
+        <!--#BEGIN SERVICE BOX#-->
+            <!--Declare 230px width-->
+            <div class="span-6">
+                <!--Boxed style with 20px padding-->
+                <div class="boxed_page">
+                    <!--Service Title-->
+                     <div class="texter">   
+                    <h4>Infrastructure Testing</h4>
+                    <!--Service Image-->
+                    <!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
+                     <a href="${pageContext.request.contextPath}/InfraStructure/" >
+                      Infrastructure Testing helps organizations to validate various infrastructure components across all the layers of its IT architecture. It ensures that the individual Infrastructure components which are interlinked and interfaced with multiple other components are effectively tested. 
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                </div>
+                </div><!--Brief Info on Service-->
+            </div><!--span-6 close-->
+            
+            
+            <!--#BEGIN SERVICE BOX#-->
+            <!--Declare 230px width-->
+            <div class="span-6">
+                <!--Boxed style with 20px padding-->
+                <div class="boxed_page">
+                    <!--Service Title-->
+                     <div class="texter">   
+                    <h4>Performance Engineering</h4>
+                    <!--Service Image-->
+                    <!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
+                    <a href="${pageContext.request.contextPath}/PerformanceEngineering/" >
+                        Performance Engineering services aid IT Organizations in designing and developing software with optimal performance, scalability, availability and accessibility by evaluating requirements of the product,  technical architecture, design,
+                         and implementation. It reduces hardware and software costs by improving overall system performance.
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </p>
+                   </div>
                 
                 </div><!--Brief Info on Service-->
             </div><!--span-6 close-->
@@ -395,11 +571,45 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <!--Boxed style with 20px padding-->
                 <div class="boxed_page">
                     <!--Service Title-->
-                    <h4>Site Integration</h4>
+                     <div class="texter">   
+                    <h4>Test Data Management</h4>
                     <!--Service Image-->
-                    <p><img src="${pageContext.request.contextPath}/img/icons/folder.png" class="left" alt="" />
-                    Lorem ipsum dolor sit amet contetur adipisicing elit, sed do eiusmodarel tempor incididunt ut 
-                    labore et dolor magna aliqua. Ut enim ad minimilo veniam, quis nostrud exercitational ullamco.</p>
+                   <!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
+                     <a href="${pageContext.request.contextPath}/TestData/">
+                       Test Data Management enables QA organizations establish standard guidelines and strategy for test data creation and maintenance. It helps in improving the quality and reusability of test data.
+                        </a>
+                    <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>
+                   </div>
+                   
+                    
+                 </div><!--Brief Info on Service-->
+            </div><!--span-6 close-->
+            
+            <!--stupid IE 6 again-->
+            <!--[if IE 6]><hr class="space" /><![endif]-->
+      
+        
+        <hr class="space" />
+        
+          <!--#BEGIN SERVICE BOX#-->
+            <!--Declare 230px width-->
+            <div class="span-6 last">
+                <!--Boxed style with 20px padding-->
+                <div class="boxed_page">
+                 <div class="texter">   
+                    <!--Service Title-->
+                    <h4 >Test Environment Management</h4>
+                    <!--Service Image-->
+                    <!-- <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
+                   <!--  <div class="texter">     -->              
+                     <a href="${pageContext.request.contextPath}/TestEnvironment/" >
+                       Test Environment Management supports an organization in establishing dedicated production-like environments for effective test execution. It ensures test environment optimization by driving environment planning, coordination, monitoring and maintenance activities. 
+                        </a><form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form>                    
+                   </p>
+                   
+                   </div>
                     
                  </div><!--Brief Info on Service-->
             </div><!--span-6 close-->

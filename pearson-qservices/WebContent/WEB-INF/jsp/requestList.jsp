@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,83 +11,108 @@
 
 <script type="text/javascript">
 
- <%String temp = (String) session.getAttribute("MySessionVariable");%>
+ <%-- <%String temp = (String) session.getAttribute("MySessionVariable");%>
 
-var value= "<%=temp%>";
-	
+var value= "<%=temp%>	";
 
-	alert(value);
+	alert(value); --%>
 </script>
 </head>
 <body>
 	<h1>List of request</h1>
-	<form action="${pageContext.request.contextPath}/update" method="post" commandName="update" modelAttribute="user">
-		${user.userId}
-		
-		<table
-			style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
-			class="contactForm">
-			<tr>
-				<td
-					style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name:</td>
-				<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-					type="text" name="name" value="" /></td>
-			</tr>
-			<tr>
-				<td
-					style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
-				<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-					type="text" name="email" value="${user.email}" /></td>
-			</tr>
-			<tr>
-				<td
-					style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
-				<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-					type="text" name="phoneno" value="${user.phoneNo}" /></td>
-			</tr>
+	<%-- <% if( value=="AD02" ) { %>
+  <DIV>....</DIV> --%>
 
-			<tr>
-				<td
-					style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject:</td>
-				<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-					type="text" name="subject" value="" /></td>
-			</tr>
+	<%-- <c:if test="${user.email==user.email}"> --%>
+	<%-- <c:if test="true"> --%>
+	<c:if test="${user.loginType=='visitor'}">
+		<div>
+			<form action="${pageContext.request.contextPath}/update"
+				method="post" commandName="update" modelAttribute="user">
+				${user.userId} ${user.email} ${user.loginType} ${user.email}
+				${user.email}
+				<H1>WELCOME TO VISITOR</H1>
+				<table
+					style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
+					class="contactForm">
+					<tr>
+						<td
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name:</td>
+						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+							type="text" name="name" value="" /></td>
+					</tr>
+					<tr>
+						<td
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
+						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+							type="text" name="email" value="${user.email}" /></td>
+					</tr>
+					<tr>
+						<td
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
+						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+							type="text" name="phoneno" value="${user.phoneNo}" /></td>
+					</tr>
 
-			<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
-			<tr>
-				<td
-					style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Request:</td>
-				<td style="text-align: left; vertical-align: top; padding: 5px;"><select
-					type="text" name="requestname">
-						<option value="volvo">Volvo</option>
-						<option value="saab">Saab</option>
-						<option value="mercedes">Mercedes</option>
-						<option value="audi">Audi</option>
-				</select></td>
-			</tr>
-			<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
-			<tr>
-				<td
-					style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
-				<td style="text-align: left; vertical-align: top; padding: 5px;"><textarea
-						name="message" cols="40" rows="6"></textarea></td>
-			</tr>
+					<tr>
+						<td
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject:</td>
+						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+							type="text" name="subject" value="" /></td>
+					</tr>
 
-			<tr>
-				<td colspan="2"
-					style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
-					fields are required.</td>
-			</tr>
-			<tr>
-				<td colspan="2"
-					style="text-align: left; vertical-align: middle; padding: 5px;"><input
-					type="submit" name="update" value="update" /> (Email will not be
-					sent)</td>
-				
-			</tr>
-		</table>
-	</form>
+					<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
+					<tr>
+						<td
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Request:</td>
+						<td style="text-align: left; vertical-align: top; padding: 5px;"><select
+							type="text" name="requestname">
+								<option value="volvo">Volvo</option>
+								<option value="saab">Saab</option>
+								<option value="mercedes">Mercedes</option>
+								<option value="audi">Audi</option>
+						</select></td>
+					</tr>
+					<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
+					<tr>
+						<td
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
+						<td style="text-align: left; vertical-align: top; padding: 5px;"><textarea
+								name="message" cols="40" rows="6"></textarea></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"
+							style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
+							fields are required.</td>
+					</tr>
+					<tr>
+						<td colspan="2"
+							style="text-align: left; vertical-align: middle; padding: 5px;"><input
+							type="submit" name="update" value="update" /> (Email will not be
+							sent)</td>
+
+					</tr>
+				</table>
+			</form>
+
+		</div>
+	</c:if>
 
 
+	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
+
+	<c:if test="${user.loginType=='QA'}">
+		<div>
+			
+				${detail.}
+				<H1>WELCOME TO QA</H1>
+
+
+			</form>
+
+		</div>
+	</c:if>
+	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
 </body>
 </html>

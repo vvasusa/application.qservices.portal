@@ -78,7 +78,7 @@ alert(value);
 	<input type="button" name="btnHide" value="HIDE" width="20"
 		onclick="hide('txtHide');">
 	<input type="button" name="btnHide" value="HIDE" width="20"
-		onclick="hide1('txtHide');">
+		onclick="hide('txtHide');">
 	<!-- <button onclick="hide()" id="clock"> clock</button>  -->
 
 </body>
