@@ -103,4 +103,102 @@ public class LoginController {
 		return "blog";
 	}
 
+	@RequestMapping(value = "/QAssesment", method = RequestMethod.GET)
+	public String QAssesmentPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "QAssesment";
+     }
+	
+	@RequestMapping(value = "/TestProgram", method = RequestMethod.GET)
+	public String TestProgramPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "TestProgram";
+     }
+	
+	@RequestMapping(value = "/Middleware", method = RequestMethod.GET)
+	public String MiddlewarePage(ModelMap model, HttpServletRequest request)
+	{		
+		return "Middleware";
+     }
+	
+	@RequestMapping(value = "/DataIntegration", method = RequestMethod.GET)
+	public String DataIntegrationPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "DataIntegration";
+     }
+	@RequestMapping(value = "/Automated", method = RequestMethod.GET)
+	public String AutomatedPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "Automated";
+     }
+	
+	@RequestMapping(value = "/Mobile", method = RequestMethod.GET)
+	public String MobilePage(ModelMap model, HttpServletRequest request)
+	{		
+		return "Mobile";
+     }
+	
+	
+	@RequestMapping(value = "/OnlineEcommerce", method = RequestMethod.GET)
+	public String OnlineEcommercePage(ModelMap model, HttpServletRequest request)
+	{		
+		return "OnlineEcommerce";
+     }
+	
+	@RequestMapping(value = "/OracleERP", method = RequestMethod.GET)
+	public String OracleERPPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "OracleERP";
+     }
+	
+	@RequestMapping(value = "/SalesForce", method = RequestMethod.GET)
+	public String SalesForcePage(ModelMap model, HttpServletRequest request)
+	{		
+		return "SalesForce";
+     }
+	
+	@RequestMapping(value = "/Performance ", method = RequestMethod.GET)
+	public String PerformancePage(ModelMap model, HttpServletRequest request)
+	{		
+		return "Performance";
+     }
+	
+	
+	@RequestMapping(value = "/Security ", method = RequestMethod.GET)
+	public String SecurityPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "Security";
+     }
+	
+	@RequestMapping(value = "/Compliance", method = RequestMethod.GET)
+	public String CompliancePage(ModelMap model, HttpServletRequest request)
+	{		
+		return "Compliance";
+     }
+	
+	@RequestMapping(value = "/Infrastructure", method = RequestMethod.GET)
+	public String InfrastructurePage(ModelMap model, HttpServletRequest request)
+	{		
+		return "Infrastructure";
+     }
+	
+	@RequestMapping(value = "/PerformanceEngineering", method = RequestMethod.GET)
+	public String PerformanceEngineeringPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "PerformanceEngineering";
+     }
+	
+	@RequestMapping(value = "/TestData", method = RequestMethod.GET)
+	public String TestDataPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "TestData";
+     }
+	
+	@RequestMapping(value = "/TestEnvironment", method = RequestMethod.GET)
+	public String TestEnvironmentPage(ModelMap model, HttpServletRequest request)
+	{		
+		return "TestEnvironment";
+     }
+	
 }
+
