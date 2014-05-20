@@ -31,10 +31,15 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public boolean updateDetails(RequestForm requestForm,HttpServletRequest request) {
+	public RequestForm updateDetails(RequestForm requestForm,HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		requestDao.updateDetails(requestForm,request);
-		return true;
+		return requestDao.updateDetails(requestForm,request);
+		 
 	}
+	@Override
+	public String approveRequest(String id) {
+		return requestDao.approveRequest(id);
+	}
+
 
 }

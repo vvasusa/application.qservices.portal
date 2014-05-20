@@ -18,9 +18,17 @@ var value= "<%=temp%>	";
 	alert(value); --%>
 </script>
 </head>
+<h1>request list</h1>
+
 <body>
-	<h1>List of request</h1>
+
+<c:if test="${user.loginType=='null'}"> 
+
+	<h1>To view data please login</h1>
+	<a href="${pageContext.request.contextPath}/index" method="post" >click here for login</a>
+	</c:if>
 	<%-- <% if( value=="AD02" ) { %>
+	
   <DIV>....</DIV> --%>
 
 	<%-- <c:if test="${user.email==user.email}"> --%>
@@ -30,22 +38,24 @@ var value= "<%=temp%>	";
 			<form action="${pageContext.request.contextPath}/update"
 				method="post" commandName="update" modelAttribute="user">
 				${user.userId} ${user.email} ${user.phoneNo} ${user.email}
+				
 			
 				<H1>WELCOME TO VISITOR</H1>
 				<table
 					style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 					class="contactForm">
 					<tr>
+					
 						<td
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-							type="text" name="name" value="${user.req_Fname}" /></td>
+							type="text" name="firstName" value="${user.req_Fname}" /></td>
 					</tr>
 					<tr>
 						<td
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-							type="text" name="name" value="${user.req_Lname}" /></td>
+							type="text" name="lastName" value="${user.req_Lname}" /></td>
 					</tr>
 					<tr>
 						<td
@@ -57,7 +67,7 @@ var value= "<%=temp%>	";
 						<td
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-							type="text" name="phoneno" value="${user.phoneNo}" /></td>
+							type="text" name="phoneNo" value="${user.phoneNo}" /></td>
 					</tr>
 
 					<tr>
@@ -101,14 +111,13 @@ var value= "<%=temp%>	";
 					</tr>
 				</table>
 			</form>
-
-		</div>
-	</c:if>
-
-
+			</div>
+</c:if>
+		
+		
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 
-	<c:if test="${user.loginType=='null'}">
+	<c:if test="${user.loginType=='QA'}">
 		<div>
 				<H1>WELCOME TO QA</H1>
 
@@ -127,14 +136,16 @@ var value= "<%=temp%>	";
 			<%-- <c:forEach var="user" items="${requestList}"> --%>
 			
 				<tr>
-					<td>${user.firstName}</td>
+					<td>${user.req_Fname}</td>
 					<td>${user.req_Lname}</td>
 					<td>${user.email}</td>
 					<td>${user.phoneNo}</td>
 					<td>${user.requesName}</td>
 					<td>${user.requesID}</td>
-					<td><a href="edit?id=${user.userId}">APPROVE</a></td>
-					<td><a href="delete?id=${user.userId}">REJECT</a></td>
+					<td><a href="${pageContext.request.contextPath}/approve" method="post" >Approve</a></td>
+					<td><a href="${pageContext.request.contextPath}/reject" method="post" >Reject</a></td>
+					<%-- <td><a href="edit?id=${user.userId}"></a></td>
+					<td><a href="delete?id=${user.userId}">REJECT</a></td> --%>
 				</tr>
 			<%-- </c:forEach> --%>
 			<tr><td colspan="7"><a href="${pageContext.request.contextPath}/update"> </a></td></tr>
@@ -142,5 +153,8 @@ var value= "<%=temp%>	";
 		</div>
 	</c:if>
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
+	
+
+
 </body>
 </html>

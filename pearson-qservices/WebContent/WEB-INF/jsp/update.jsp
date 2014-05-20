@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,40 +7,49 @@
 <title>Insert title here</title>
 </head>
 <body>
-YOUR DETAILS UPDATED SUSSUESFULLY.
+	YOUR DETAILS UPDATED SUSSUESFULLY.
 
-	<c:if test="${user.loginType=='null'}">
+	
+	${requestForm.firstName}
 		<div>
-				<H1>WELCOME TO QA</H1>
+			<H1>WELCOME TO QA</H1>
 
-<table border="1">
-			<tr>
-				<td class="heading">First Name</td>
-				<td class="heading">Last Name</td>
-				<td class="heading">Email</td>
-				<td class="heading">ContactNo</td>
-				<td class="heading">Req_Name</td>
-				<td class="heading">Req_ID</td>
-				<td class="heading">ACTION</td>
-				
-				
-			</tr>
-			<%-- <c:forEach var="user" items="${requestList}"> --%>
-			
+
+			<table border="1">
 				<tr>
-					<td>${user.firstName}</td>
-					<td>${user.req_Lname}</td>
-					<td>${user.email}</td>
-					<td>${user.phoneNo}</td>
-					<td>${user.requesName}</td>
-					<td>${user.requesID}</td>
-					<td><a href="edit?id=${user.userId}">EDIT</a></td>
+					<td class="heading">First Name</td>
+					<td class="heading">Last Name</td>
+					<td class="heading">Email</td>
+					<td class="heading">ContactNo</td>
+					<td class="heading">Req_Name</td>
+					<td class="heading">Req_ID</td>
+					<td class="heading">ACTION</td>
+
+
+				</tr>
+				<%-- <c:forEach var="user" items="${requestList}"> --%>
+
+				<tr>
+					<td>${requestForm.firstName}</td>
+					<td>${requestForm.lastName}</td>
+					<td>${requestForm.email}</td>
+					<td>${requestForm.phoneNo}</td>
+					<td>${requestForm.requestName}</td>
+					<td>${requestForm.requestId}</td>
+					<td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
+					id="home_front" title="Request"><span>Edit</span></a></td>
+					
+					<%-- <td><a href="edit?id=${user.userId}"></a></td> --%>
+
+				</tr>
+				<%-- </c:forEach> --%>
+				<tr>
 					
 				</tr>
-			<%-- </c:forEach> --%>
-			<tr><td colspan="7"><a href="${pageContext.request.contextPath}/update"> </a></td></tr>
-		</table>
+			</table>
+			
 		</div>
-	</c:if>
+	
+	
 </body>
 </html>

@@ -1,27 +1,35 @@
 package com.pearson.model;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class RequestForm {
 	
-	private String firstname;
-	private String lastname;
+	private String firstName;
+	private String lastName;
+	@NotNull   
+	@Email
+	@NotEmpty(message = "Please enter your email addresss.")
 	private String email;
-	private String phoneo;
-	private String requestid;
-	private String requestname;
+	private String phoneNo;
+	private String requestId;
+	private String requestName;
 	private String subject;
 	
-
-	public String getFirstname() {
-		return firstname;
+	
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getEmail() {
 		return email;
@@ -29,23 +37,23 @@ public class RequestForm {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoneo() {
-		return phoneo;
+	public String getPhoneNo() {
+		return phoneNo;
 	}
-	public void setPhoneo(String phoneo) {
-		this.phoneo = phoneo;
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
-	public String getRequestid() {
-		return requestid;
+	public String getRequestId() {
+		return requestId;
 	}
-	public void setRequestid(String requestid) {
-		this.requestid = requestid;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
-	public String getRequestname() {
-		return requestname;
+	public String getRequestName() {
+		return requestName;
 	}
-	public void setRequestname(String requestname) {
-		this.requestname = requestname;
+	public void setRequestName(String requestName) {
+		this.requestName = requestName;
 	}
 	public String getSubject() {
 		return subject;
@@ -53,8 +61,4 @@ public class RequestForm {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	
-	
-	
-	
 }

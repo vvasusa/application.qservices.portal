@@ -4,11 +4,13 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,22 +34,33 @@ public class LoginController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String indexPage(ModelMap model, HttpServletRequest request) {
-				return "index";
+		return "index";
 	}
+
+	/* sample */
+	/*
+	 * @RequestMapping(value = "/login", method = RequestMethod.POST) public
+	 * String doLogin(@Valid @ModelAttribute("login") Admin1 userForm,
+	 * BindingResult result, Map<String, Object> model) { if
+	 * (result.hasErrors()) { return "index"; } return "error"; }
+	 */
+
+	/* sample end */
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String Getdetails(@ModelAttribute("login") Admin1 data,
 			Map<String, Object> map, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		
+
 		HttpSession session1 = request.getSession();
 		session.getId();
 		String u_name = (data.getLog());
 		String p_word = (data.getPwd());
+
 		boolean value = loginService.loginValidation(u_name, p_word, request);
 		if (value == true)
 			return Constants.INDEX_PAGE;
-		return Constants.ERROR_PAGE;
+		return Constants.INDEX_PAGE;
 	}
 
 	/*
@@ -104,101 +117,84 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/QAssesment", method = RequestMethod.GET)
-	public String QAssesmentPage(ModelMap model, HttpServletRequest request)
-	{		
+	public String QAssesmentPage(ModelMap model, HttpServletRequest request) {
 		return "QAssesment";
-     }
-	
-	@RequestMapping(value = "/TestProgram", method = RequestMethod.GET)
-	public String TestProgramPage(ModelMap model, HttpServletRequest request)
-	{		
-		return "TestProgram";
-     }
-	
-	@RequestMapping(value = "/Middleware", method = RequestMethod.GET)
-	public String MiddlewarePage(ModelMap model, HttpServletRequest request)
-	{		
-		return "Middleware";
-     }
-	
-	@RequestMapping(value = "/DataIntegration", method = RequestMethod.GET)
-	public String DataIntegrationPage(ModelMap model, HttpServletRequest request)
-	{		
-		return "DataIntegration";
-     }
-	@RequestMapping(value = "/Automated", method = RequestMethod.GET)
-	public String AutomatedPage(ModelMap model, HttpServletRequest request)
-	{		
-		return "Automated";
-     }
-	
-	@RequestMapping(value = "/Mobile", method = RequestMethod.GET)
-	public String MobilePage(ModelMap model, HttpServletRequest request)
-	{		
-		return "Mobile";
-     }
-	
-	
-	@RequestMapping(value = "/OnlineEcommerce", method = RequestMethod.GET)
-	public String OnlineEcommercePage(ModelMap model, HttpServletRequest request)
-	{		
-		return "OnlineEcommerce";
-     }
-	
-	@RequestMapping(value = "/OracleERP", method = RequestMethod.GET)
-	public String OracleERPPage(ModelMap model, HttpServletRequest request)
-	{		
-		return "OracleERP";
-     }
-	
-	@RequestMapping(value = "/SalesForce", method = RequestMethod.GET)
-	public String SalesForcePage(ModelMap model, HttpServletRequest request)
-	{		
-		return "SalesForce";
-     }
-	
-	@RequestMapping(value = "/Performance ", method = RequestMethod.GET)
-	public String PerformancePage(ModelMap model, HttpServletRequest request)
-	{		
-		return "Performance";
-     }
-	
-	
-	@RequestMapping(value = "/Security ", method = RequestMethod.GET)
-	public String SecurityPage(ModelMap model, HttpServletRequest request)
-	{		
-		return "Security";
-     }
-	
-	@RequestMapping(value = "/Compliance", method = RequestMethod.GET)
-	public String CompliancePage(ModelMap model, HttpServletRequest request)
-	{		
-		return "Compliance";
-     }
-	
-	@RequestMapping(value = "/Infrastructure", method = RequestMethod.GET)
-	public String InfrastructurePage(ModelMap model, HttpServletRequest request)
-	{		
-		return "Infrastructure";
-     }
-	
-	@RequestMapping(value = "/PerformanceEngineering", method = RequestMethod.GET)
-	public String PerformanceEngineeringPage(ModelMap model, HttpServletRequest request)
-	{		
-		return "PerformanceEngineering";
-     }
-	
-	@RequestMapping(value = "/TestData", method = RequestMethod.GET)
-	public String TestDataPage(ModelMap model, HttpServletRequest request)
-	{		
-		return "TestData";
-     }
-	
-	@RequestMapping(value = "/TestEnvironment", method = RequestMethod.GET)
-	public String TestEnvironmentPage(ModelMap model, HttpServletRequest request)
-	{		
-		return "TestEnvironment";
-     }
-	
-}
+	}
 
+	@RequestMapping(value = "/TestProgram", method = RequestMethod.GET)
+	public String TestProgramPage(ModelMap model, HttpServletRequest request) {
+		return "TestProgram";
+	}
+
+	@RequestMapping(value = "/Middleware", method = RequestMethod.GET)
+	public String MiddlewarePage(ModelMap model, HttpServletRequest request) {
+		return "Middleware";
+	}
+
+	@RequestMapping(value = "/DataIntegration", method = RequestMethod.GET)
+	public String DataIntegrationPage(ModelMap model, HttpServletRequest request) {
+		return "DataIntegration";
+	}
+
+	@RequestMapping(value = "/Automated", method = RequestMethod.GET)
+	public String AutomatedPage(ModelMap model, HttpServletRequest request) {
+		return "Automated";
+	}
+
+	@RequestMapping(value = "/Mobile", method = RequestMethod.GET)
+	public String MobilePage(ModelMap model, HttpServletRequest request) {
+		return "Mobile";
+	}
+
+	@RequestMapping(value = "/OnlineEcommerce", method = RequestMethod.GET)
+	public String OnlineEcommercePage(ModelMap model, HttpServletRequest request) {
+		return "OnlineEcommerce";
+	}
+
+	@RequestMapping(value = "/OracleERP", method = RequestMethod.GET)
+	public String OracleERPPage(ModelMap model, HttpServletRequest request) {
+		return "OracleERP";
+	}
+
+	@RequestMapping(value = "/SalesForce", method = RequestMethod.GET)
+	public String SalesForcePage(ModelMap model, HttpServletRequest request) {
+		return "SalesForce";
+	}
+
+	@RequestMapping(value = "/Performance ", method = RequestMethod.GET)
+	public String PerformancePage(ModelMap model, HttpServletRequest request) {
+		return "Performance";
+	}
+
+	@RequestMapping(value = "/Security ", method = RequestMethod.GET)
+	public String SecurityPage(ModelMap model, HttpServletRequest request) {
+		return "Security";
+	}
+
+	@RequestMapping(value = "/Compliance", method = RequestMethod.GET)
+	public String CompliancePage(ModelMap model, HttpServletRequest request) {
+		return "Compliance";
+	}
+
+	@RequestMapping(value = "/Infrastructure", method = RequestMethod.GET)
+	public String InfrastructurePage(ModelMap model, HttpServletRequest request) {
+		return "Infrastructure";
+	}
+
+	@RequestMapping(value = "/PerformanceEngineering", method = RequestMethod.GET)
+	public String PerformanceEngineeringPage(ModelMap model,
+			HttpServletRequest request) {
+		return "PerformanceEngineering";
+	}
+
+	@RequestMapping(value = "/TestData", method = RequestMethod.GET)
+	public String TestDataPage(ModelMap model, HttpServletRequest request) {
+		return "TestData";
+	}
+
+	@RequestMapping(value = "/TestEnvironment", method = RequestMethod.GET)
+	public String TestEnvironmentPage(ModelMap model, HttpServletRequest request) {
+		return "TestEnvironment";
+	}
+
+}

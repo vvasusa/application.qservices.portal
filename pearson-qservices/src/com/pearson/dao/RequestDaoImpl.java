@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 
 import com.pearson.controller.LoginController;
 import com.pearson.model.AdminUser;
@@ -27,18 +28,20 @@ public class RequestDaoImpl implements RequestDao {
 	public AdminUser requestList(String id) {
 		System.out.println("Request Dao" + id);
 		AdminUser user = null;
-	
 
 		try {
+			if(id==null){
+				user = new AdminUser();
+				String loginType = "null";
+				user.setLoginType(loginType);
+			}
 			if (id != null) {
 				Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
-
 				ResultSet rs = statement
 						.executeQuery("select * from admin_user");
-
 				System.out.println("Request DaoImplvfdfg");
-			
+
 				while (rs.next()) {
 					user = new AdminUser();
 					// String str1=(rs.getString(1));
@@ -54,10 +57,11 @@ public class RequestDaoImpl implements RequestDao {
 					user.setLocation(rs.getString("location"));
 					user.setAddress(rs.getString("address"));
 				}
-				
+
 				/****************** Displaying list of request-start ***********************/
-				
-				ResultSet rs1 = statement.executeQuery("select * from Requestor_details");
+
+				ResultSet rs1 = statement
+						.executeQuery("select * from Requestor_details");
 				while (rs1.next()) {
 					user = new AdminUser();
 					// String str1=(rs.getString(1));
@@ -79,13 +83,11 @@ public class RequestDaoImpl implements RequestDao {
 
 				/* displaying list of request-end */
 			}
-				
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-
 		}
 		return user;
-
 	}
 
 	@Override
@@ -93,7 +95,6 @@ public class RequestDaoImpl implements RequestDao {
 		// TODO Auto-generated method stub
 
 		try {
-
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select *from admin1");
@@ -103,46 +104,45 @@ public class RequestDaoImpl implements RequestDao {
 				String password = (rs.getString("password"));
 				System.out.println("FROM DATABASE userId " + username);
 				System.out.println("FROM DATABASE userId " + password);
-
 				// Object ses_valu=session.setAttribute(h,uname);
-
 				// System.out.println(ses_valu);
-
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-
 		}
-
 		System.out.println("Request controller");
-
 	}
 
 	@Override
-	public boolean updateDetails(RequestForm requestForm,
+	public RequestForm updateDetails(RequestForm requestForm,
 			HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("MySessionVariable");
 		String email = (String) session.getAttribute("email");
-
 		System.out.println("from request controller Update details" + email);
-
 		try {
-			String firstName = requestForm.getFirstname();
-			String lastName = requestForm.getLastname();
-			String email1 = requestForm.getEmail();
-			String phoneNo = requestForm.getPhoneo();
-			String requestId = requestForm.getRequestid();
-			String requestName = requestForm.getRequestname();
+			requestForm.setFirstName(requestForm.getFirstName());
+			requestForm.setLastName(requestForm.getLastName());
+			requestForm.setEmail(requestForm.getEmail());
+			requestForm.setPhoneNo(requestForm.getPhoneNo());
+			requestForm.setRequestId(requestForm.getRequestId());
+			requestForm.setRequestName(requestForm.getRequestName());
 			System.out.println("inside update details..."
 					+ requestForm.getEmail());
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		}
-		return true;
-
+		return requestForm;
 	}
+
+	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- START */
+	@Override
+	public String approveRequest(String id) {
+		// TODO Auto-generated method stub
+		
+		return "welcome to approve";
+	}
+	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- end */
 
 }
