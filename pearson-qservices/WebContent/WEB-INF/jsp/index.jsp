@@ -17,7 +17,7 @@
 
 <title>Logical Media</title>
 
-<!-- CSS Links-->
+<!--  CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
 
 <!--6 CSS files total, listed below-->
@@ -245,7 +245,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Close Logo Area-->
 
 			<!-- FOR SAMPLE CHCEK-START -->
-			<a href="${pageContext.servletContext.contextPath}/mail/"> Send
+			<%-- <a href="${pageContext.servletContext.contextPath}/mail/"> Send
 				Mail </a> <br> <!--Begin Navigation-->
 			<table border="0" width="90%">
 				<form:form action="login" commandName="login" method="post">
@@ -267,20 +267,23 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					</tr>
 				</form:form>
 			</table>
-			
+			 --%>
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home_front" title="Home"><span>home</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
+				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
+					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/"
 					id="services" title="Our Services"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/contact/"
+				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
+					id="home_front" title="Request"><span>request</span></a></li> --%>
+				
+					<li><a href="${pageContext.request.contextPath}/requestList/"
+					id="port" title="Request "><span>Request</span></a></li>
+					<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>

@@ -9,7 +9,6 @@
 <body>
 	YOUR DETAILS UPDATED SUSSUESFULLY.
 
-	
 	${requestForm.firstName}
 		<div>
 			<H1>WELCOME TO QA</H1>

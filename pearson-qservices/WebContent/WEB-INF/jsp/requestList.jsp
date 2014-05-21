@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -7,7 +7,16 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Insert title here</title> --%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript">
 
@@ -22,10 +31,11 @@ var value= "<%=temp%>	";
 
 <body>
 
-<c:if test="${user.loginType=='null'}"> 
-
-	<h1>To view data please login</h1>
-	<a href="${pageContext.request.contextPath}/index" method="post" >click here for login</a>
+	<c:if test="${user.loginType=='null'}">
+<h2>request list</h2>
+		<h1>To view data please login</h1>
+		<a href="${pageContext.request.contextPath}/index" method="post">click
+			here for login</a>
 	</c:if>
 	<%-- <% if( value=="AD02" ) { %>
 	
@@ -33,19 +43,21 @@ var value= "<%=temp%>	";
 
 	<%-- <c:if test="${user.email==user.email}"> --%>
 	<%-- <c:if test="true"> --%>
+	
 	<c:if test="${user.loginType=='QA'}">
 		<div>
 			<form action="${pageContext.request.contextPath}/update"
-				method="post" commandName="update" modelAttribute="user">
+				method="post" commandName="requestForm" >
+				<h3>request list</h3>
+				<input	type="hidden" name=loginType value="${user.loginType}" />
 				${user.userId} ${user.email} ${user.phoneNo} ${user.email}
 				
-			
 				<H1>WELCOME TO VISITOR</H1>
 				<table
 					style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 					class="contactForm">
 					<tr>
-					
+
 						<td
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
@@ -62,6 +74,7 @@ var value= "<%=temp%>	";
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 							type="text" name="email" value="${user.email}" /></td>
+							<td> <form:errors path="email" /></td>
 					</tr>
 					<tr>
 						<td
@@ -111,30 +124,30 @@ var value= "<%=temp%>	";
 					</tr>
 				</table>
 			</form>
-			</div>
-</c:if>
-		
-		
+		</div>
+	</c:if>
+
+
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 
 	<c:if test="${user.loginType=='QA'}">
 		<div>
-				<H1>WELCOME TO QA</H1>
+			<H1>WELCOME TO QA</H1>
 
-<table border="1">
-			<tr>
-				<td class="heading">First Name</td>
-				<td class="heading">Last Name</td>
-				<td class="heading">Email</td>
-				<td class="heading">ContactNo</td>
-				<td class="heading">Req_Name</td>
-				<td class="heading">Req_ID</td>
-				<td class="heading">ACTION</td>
-				<td class="heading">ACTION</td>
-				
-			</tr>
-			<%-- <c:forEach var="user" items="${requestList}"> --%>
-			
+			<table border="1">
+				<tr>
+					<td class="heading">First Name</td>
+					<td class="heading">Last Name</td>
+					<td class="heading">Email</td>
+					<td class="heading">ContactNo</td>
+					<td class="heading">Req_Name</td>
+					<td class="heading">Req_ID</td>
+					<td class="heading">ACTION</td>
+					<td class="heading">ACTION</td>
+
+				</tr>
+				<%-- <c:forEach var="user" items="${requestList}"> --%>
+
 				<tr>
 					<td>${user.req_Fname}</td>
 					<td>${user.req_Lname}</td>
@@ -142,18 +155,23 @@ var value= "<%=temp%>	";
 					<td>${user.phoneNo}</td>
 					<td>${user.requesName}</td>
 					<td>${user.requesID}</td>
-					<td><a href="${pageContext.request.contextPath}/approve" method="post" >Approve</a></td>
-					<td><a href="${pageContext.request.contextPath}/reject" method="post" >Reject</a></td>
+					<td><a href="${pageContext.request.contextPath}/approve"
+						method="post">Approve</a></td>
+					<td><a href="${pageContext.request.contextPath}/reject"
+						method="post">Reject</a></td>
 					<%-- <td><a href="edit?id=${user.userId}"></a></td>
 					<td><a href="delete?id=${user.userId}">REJECT</a></td> --%>
 				</tr>
-			<%-- </c:forEach> --%>
-			<tr><td colspan="7"><a href="${pageContext.request.contextPath}/update"> </a></td></tr>
-		</table>
+				<%-- </c:forEach> --%>
+				<tr>
+					<td colspan="7"><a
+						href="${pageContext.request.contextPath}/update"> </a></td>
+				</tr>
+			</table>
 		</div>
 	</c:if>
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
-	
+
 
 
 </body>
