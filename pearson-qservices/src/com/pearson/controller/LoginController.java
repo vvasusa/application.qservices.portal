@@ -50,14 +50,26 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String Getdetails(@ModelAttribute("login") Admin1 data,
 			Map<String, Object> map, HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
-
-		HttpSession session1 = request.getSession();
 		session.getId();
 		String u_name = (data.getLog());
 		String p_word = (data.getPwd());
 
 		boolean value = loginService.loginValidation(u_name, p_word, request);
+		
+		String ses_Id = (String) request.getSession().getAttribute(
+				"MySessionId");
+		String ses_Type = (String) request.getSession().getAttribute(
+				"loginType");
+		String ses_Table = (String) request.getSession().getAttribute(
+				"Table");
+		System.out.println("session value in request list controller"
+				+ ses_Id);
+		System.out.println("session value in request list controller"
+				+ ses_Type);
+		System.out.println("session value in request list controller"
+				+ ses_Table);
 		if (value == true)
 			return Constants.INDEX_PAGE;
 		return Constants.INDEX_PAGE;

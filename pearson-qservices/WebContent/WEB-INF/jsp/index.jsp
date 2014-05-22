@@ -17,6 +17,9 @@
 
 <title>Logical Media</title>
 
+
+
+
 <!--  CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
 
@@ -50,7 +53,14 @@
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 <!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+<script type="text/javascript">
 
+  <%String temp = (String) session.getAttribute("MySessionId");%>
+
+var value= "<%=temp%>	";
+
+	alert(value); 
+</script>
 
 <!--jQuery-->
 <!--jQuery Tools-->

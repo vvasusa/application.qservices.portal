@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,6 +13,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 
 import com.pearson.controller.LoginController;
 import com.pearson.model.AdminUser;
@@ -25,12 +28,25 @@ public class RequestDaoImpl implements RequestDao {
 	LoginController loginController;
 
 	@Override
-	public AdminUser requestList(String id) {
+	public List<AdminUser> requestList(String id, HttpServletRequest request) {
 		System.out.println("Request Dao" + id);
 		AdminUser user = null;
-
+		
+		List<AdminUser> adminUser =  new  ArrayList<AdminUser> ();
+		String ses_Id = (String) request.getSession().getAttribute(
+				"MySessionId");
+		String ses_Type = (String) request.getSession().getAttribute(
+				"loginType");
+		String ses_Table = (String) request.getSession().getAttribute(
+				"Table");
+		System.out.println("session value in request list controller"
+				+ ses_Id);
+		System.out.println("session value in request list controller"
+				+ ses_Type);
+		System.out.println("session value in request list controller"
+				+ ses_Table);
 		try {
-			if(id==null){
+			if (id == null) {
 				user = new AdminUser();
 				String loginType = "null";
 				user.setLoginType(loginType);
@@ -38,56 +54,105 @@ public class RequestDaoImpl implements RequestDao {
 			if (id != null) {
 				Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
+				adminUser = getAdminUserFields(ses_Id, statement, request);
+
+				//if (adminUser == null) {
+					adminUser = getRequesterFields(adminUser, statement, request);
+
+				//}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return adminUser;
+	}
+
+	private List<AdminUser> getAdminUserFields(String id, Statement statement,
+			HttpServletRequest request) throws SQLException {
+		AdminUser user = null;
+		
+		String Table = (String) request.getSession().getAttribute("Table");
+		List<AdminUser> adminUser =  new  ArrayList<AdminUser> ();
+		if (id != null) {
+
+			if (Table == "admin") {
+				user = new AdminUser();
+
 				ResultSet rs = statement
-						.executeQuery("select * from admin_user");
-				System.out.println("Request DaoImplvfdfg");
+						.executeQuery("select * from adminuser ");
+				System.out.println("INSIDE select * from adminuser ");
+				// String loginType = "QA";
+				// if(loginType.equalsIgnoreCase("QA")){
 
 				while (rs.next()) {
-					user = new AdminUser();
+					
 					// String str1=(rs.getString(1));
-					String username = (rs.getString("userId"));
-					String phoneNo = (rs.getString("phoneNo"));
-					String email = (rs.getString("email"));
-					String loginType = "QA";
-					user.setLoginType(loginType);
+
+					user.setLoginType(rs.getString("loginType"));
 					user.setFirstName(rs.getString("firstName"));
 					user.setLastName(rs.getString("lastName"));
 					user.setPhoneNo(rs.getString("phoneNo"));
 					user.setEmail(rs.getString("email"));
-					user.setLocation(rs.getString("location"));
+					// user.setLocation(rs.getString("location"));
 					user.setAddress(rs.getString("address"));
+					user.setEmail(rs.getString("email"));
+					adminUser.add(user);
+
 				}
-
-				/****************** Displaying list of request-start ***********************/
-
-				ResultSet rs1 = statement
-						.executeQuery("select * from Requestor_details");
-				while (rs1.next()) {
-					user = new AdminUser();
-					// String str1=(rs.getString(1));
-					String loginType = "QA";
-					user.setLoginType(loginType);
-					String Req_Fname = (rs1.getString("firstName"));
-					String Req_Lname = (rs1.getString("lastName"));
-					String Email = (rs1.getString("email"));
-					String PhoneNo = (rs1.getString("phoneNo"));
-					String RequestName = (rs1.getString("requestName"));
-					String RequestId = (rs1.getString("requestId"));
-					user.setReq_Fname(Req_Fname);
-					user.setReq_Lname(Req_Lname);
-					user.setEmail(Email);
-					user.setPhoneNo(PhoneNo);
-					user.setRequesID(RequestId);
-					user.setRequesName(RequestName);
-				}
-
-				/* displaying list of request-end */
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-		return user;
+		return adminUser;
+	}
+
+	private List<AdminUser> getRequesterFields(List<AdminUser> adminuser, Statement statement,
+			HttpServletRequest request) throws SQLException {
+		/****************** Displaying list of request-start ***********************/
+		String Table = (String) request.getSession().getAttribute("Table");
+		List<AdminUser> adminUser =  new  ArrayList<AdminUser> ();
+		if (Table == "requestor") {
+			//ResultSet rs = statement.executeQuery("select * from Requestor");
+		
+			ResultSet rs = statement.executeQuery("select * from samplevisitor");
+			AdminUser user = new AdminUser();
+			while (rs.next()) {
+				
+
+				String ses_Id = (String) request.getSession().getAttribute(
+						"MySessionId");
+				String ses_Type = (String) request.getSession().getAttribute(
+						"loginType");
+				String ses_Table = (String) request.getSession().getAttribute(
+						"Table");
+				System.out.println("session value in request list controller"
+						+ ses_Id);
+				System.out.println("session value in request list controller"
+						+ ses_Type);
+
+				if (StringUtils.endsWithIgnoreCase(ses_Id,
+						rs.getString("requestorId"))
+						&& StringUtils.endsWithIgnoreCase(ses_Type,
+								rs.getString("loginType"))) {
+
+					// String str1=(rs.getString(1));
+					String Req_Fname = (rs.getString("firstName"));
+					String Req_Lname = (rs.getString("lastName"));
+					String Email = (rs.getString("email"));
+					String PhoneNo = (rs.getString("phoneNo"));
+					String loginType = (rs.getString("loginType"));
+					user.setFirstName(Req_Fname);
+					
+					user.setLastName(Req_Lname);
+					user.setEmail(Email);
+					user.setPhoneNo(PhoneNo);
+					user.setLoginType(loginType);
+					adminUser.add(user);
+
+				}
+			}
+
+		}
+		return adminUser;
 	}
 
 	@Override
@@ -140,7 +205,7 @@ public class RequestDaoImpl implements RequestDao {
 	@Override
 	public String approveRequest(String id) {
 		// TODO Auto-generated method stub
-		
+
 		return "welcome to approve";
 	}
 	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- end */

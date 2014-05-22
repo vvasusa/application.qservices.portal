@@ -1,7 +1,8 @@
 package com.pearson.services;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,8 +21,8 @@ public class RequestServiceImpl implements RequestService {
 	 */
 
 	@Override
-	public AdminUser requestList(String id) {
-		return requestDao.requestList(id);
+	public List<AdminUser> requestList(String id,HttpServletRequest request) {
+		return requestDao.requestList(id,request);
 	}
 
 	@Override

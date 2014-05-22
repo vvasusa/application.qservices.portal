@@ -1,5 +1,7 @@
 package com.pearson.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +10,9 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,11 +34,17 @@ public class RequestController {
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView Getdetails(
-			@ModelAttribute("update") @Valid  RequestForm requestForm,
-			Map<String, Object> map, HttpServletRequest request) {
+			@Valid @ModelAttribute("requestForm") RequestForm requestForm,
+			BindingResult result, Map<String, Object> map,
+			HttpServletRequest request, final Model model) {
+
+		/*
+		 * public String doLogin(@Valid @ModelAttribute("userForm") User
+		 * userForm, BindingResult result, Map<String, Object> model) {
+		 */
 
 		System.out.println(requestForm.getEmail());
-
+		System.out.println("Binding result  " + result.hasErrors());
 		System.out.println(requestForm.getFirstName());
 		System.out.println(requestForm.getLastName());
 		System.out.println(requestForm.getPhoneNo());
@@ -55,8 +65,10 @@ public class RequestController {
 		// public String requestList() {
 		// System.out.println("hi inside req sdfsdfsdf  controller  " + s);
 		// System.out.println(session.getAttribute("MySessionVariable"));
-
 		requestForm = requestService.updateDetails(requestForm, request);
+		if (result.hasErrors()) {
+			return new ModelAndView("requestList", "user", requestForm);
+		}
 
 		// return new ModelAndView("requestList", "requestorForm",
 		// requestorForm);
@@ -86,13 +98,13 @@ public class RequestController {
 
 		// request.getSession();
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("MySessionVariable");
-		System.out.println("id  " + id);
+		String id = (String) session.getAttribute("MySessionId");
+		System.out.println("INSIDE /requestList  " + id);
 
 		// request.getSession().setAttribute("username", "nouser");
-		user = requestService.requestList(id);
-
-		return new ModelAndView("requestList", "user", user);
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		adminUser = requestService.requestList(id, request);
+		return new ModelAndView("requestList", "adminUser", adminUser);
 		// return "requestList";
 
 	}
@@ -104,12 +116,12 @@ public class RequestController {
 		// List<Admin_user> userList = loginService.getUserList();
 		// return new ModelAndView("userList", "userList", userList);
 		// return (ModelMap) userList;
-		String id="";
+		String id = "";
 		requestService.approveRequest(id);
 		model.addAttribute("welcome");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
 	public ModelMap Reject(ModelMap model, HttpServletRequest request) {
 		// List<Admin_user> userList = loginService.getUserList();
@@ -117,6 +129,6 @@ public class RequestController {
 		// return (ModelMap) userList;
 		return model;
 	}
-	
+
 	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- END */
 }
