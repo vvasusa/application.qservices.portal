@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import com.pearson.controller.LoginController;
@@ -58,7 +59,10 @@ public class RequestDaoImpl implements RequestDao {
 				adminUser = getAdminUserFields(ses_Id, statement, request);
 
 				// if (adminUser == null) {
-				adminUser = getRequesterFields(adminUser, statement, request);
+				if(CollectionUtils.isEmpty(adminUser)){
+					adminUser = getRequesterFields(adminUser, statement, request);
+				}
+				
 
 				// }
 			}
