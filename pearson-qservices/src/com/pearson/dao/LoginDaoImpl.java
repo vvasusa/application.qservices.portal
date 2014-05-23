@@ -96,6 +96,7 @@ public class LoginDaoImpl implements LoginDao {
 					String loginType = (rs1.getString("loginType"));
 					System.out.println("user id"+userId);
 					System.out.println("loginType "+loginType);
+					
 					/* SET SESSION HERE THE LOGIN TYPE - VISITOR, ADMIN, QA-LEAD */
 					
 					String Table = "requestor";

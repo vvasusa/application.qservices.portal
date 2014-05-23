@@ -188,7 +188,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<h1>Member Login</h1>
 					<!-- Login Form -->
 					<form action="${pageContext.request.contextPath}/login"
-						method="get" commandName="login" modelAttribute="user">
+						method="post" commandName="login" modelAttribute="user">
 						<%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
 						<label class="color">Username:</label> <input class="field"
 							type="text" name="log" id="log" value="" size="23" /> <label

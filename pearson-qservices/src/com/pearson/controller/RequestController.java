@@ -50,11 +50,13 @@ public class RequestController {
 		System.out.println(requestForm.getPhoneNo());
 		System.out.println(requestForm.getRequestName());
 		System.out.println(requestForm.getRequestName());
-
 		requestForm.setFirstName(requestForm.getFirstName());
 
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("MySessionVariable");
+		/*HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("MySessionId");*/
+		String ses_Id = (String) request.getSession().getAttribute(
+				"MySessionId");
+		System.out.println("INSIDE UPDATE"+ses_Id);
 		/*
 		 * session.setAttribute("email", email); System.out.println("id  " +
 		 * id);
@@ -66,6 +68,7 @@ public class RequestController {
 		// System.out.println("hi inside req sdfsdfsdf  controller  " + s);
 		// System.out.println(session.getAttribute("MySessionVariable"));
 		requestForm = requestService.updateDetails(requestForm, request);
+		
 		if (result.hasErrors()) {
 			return new ModelAndView("requestList", "user", requestForm);
 		}
@@ -104,31 +107,11 @@ public class RequestController {
 		// request.getSession().setAttribute("username", "nouser");
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		adminUser = requestService.requestList(id, request);
+		System.out.println("THE LOGIN TYPE RETURN TO JSP"+user.getLoginType());
 		return new ModelAndView("requestList", "adminUser", adminUser);
 		// return "requestList";
 
 	}
 
-	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- START */
-
-	@RequestMapping(value = "/approve", method = RequestMethod.GET)
-	public ModelMap Approve(ModelMap model, HttpServletRequest request) {
-		// List<Admin_user> userList = loginService.getUserList();
-		// return new ModelAndView("userList", "userList", userList);
-		// return (ModelMap) userList;
-		String id = "";
-		requestService.approveRequest(id);
-		model.addAttribute("welcome");
-		return model;
-	}
-
-	@RequestMapping(value = "/reject", method = RequestMethod.GET)
-	public ModelMap Reject(ModelMap model, HttpServletRequest request) {
-		// List<Admin_user> userList = loginService.getUserList();
-		// return new ModelAndView("userList", "userList", userList);
-		// return (ModelMap) userList;
-		return model;
-	}
-
-	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- END */
+	
 }

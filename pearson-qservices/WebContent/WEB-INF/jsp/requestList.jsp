@@ -30,8 +30,19 @@ var value= "<%=temp%>";
 </head>
 <h1>request list</h1>
 
-<c:forEach var="user" items="${adminUser}">
 
+<c:if test="${user.loginType==''}">
+<a href="${pageContext.request.contextPath}/requestList" method="post">Edit YOur Profile</a>
+</c:if>
+
+
+ <c:if test="${user.loginType!='null'}"> 
+<%-- <c:forEach var="user" items="${adminUser}"> --%> 
+<%-- <c:if test="${user.loginType=='null' && user.loginType=='null'}"> --%>
+<h1>welcome inside nested if</h1>
+ <%-- <c:if test="${user.loginType!='null'}"> 
+  <c:if test="${user.loginType=='z'}">  --%>
+<table>
 				<tr>
 					<td>${user.firstName}</td>
 					<td>${user.lastName}</td>
@@ -41,7 +52,11 @@ var value= "<%=temp%>";
 					<td>${user.phoneNo}</td>
 					<td>${user.loginType}</td>
 					</tr>
-					</c:forEach>
+					</table>
+				<%--  </c:forEach>   --%>
+				</c:if>
+			
+
 
 <body>
 <c:forEach var="user" items="${adminUser}">
@@ -59,14 +74,14 @@ var value= "<%=temp%>";
 	<%-- <c:if test="${user.email==user.email}"> --%>
 	<%-- <c:if test="true"> --%>
 	<div>
-<c:forEach var="user" items="${adminUser}">
-	<c:if test="${user.loginType=='VISITOR'}">
+ <%-- <c:forEach var="user" items="${adminUser}"> --%>
+	<c:if test="${user.loginType=='QA'}">
 		
 			<form action="${pageContext.request.contextPath}/update"
 				method="post" commandName="requestForm">
 				<h3>request list</h3>
 				<input type="hidden" name=loginType value="${user.loginType}" />
-				${user.email} ${user.phoneNo} ${user.email}
+			INVALID	email ${user.email} 
 				
 				
 
@@ -144,17 +159,18 @@ var value= "<%=temp%>";
 			</form>
 		
 	</c:if>
-	</c:forEach>
+	<%--  </c:forEach>  --%>
 </div>
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 <div>
-<c:forEach var="user" items="${adminUser}">
-	<c:if test="${user.loginType=='VISITOR'}">
+
 		
 			<H1>WELCOME TO QA</H1>
 
 			<table border="1">
+			
+	
 				<tr>
 					<td class="heading">First Name</td>
 					<td class="heading">Last Name</td>
@@ -167,11 +183,14 @@ var value= "<%=temp%>";
 
 				</tr>
 				<c:forEach var="user" items="${adminUser}">
+				<c:if test="${user.loginType=='QA'}">
 
 				<tr>
 					<td>${user.firstName}</td>
 					<td>${user.lastName}</td>
 					<td>${user.email}</td>
+					<td>${user.phoneNo}</td>
+					<td>${user.phoneNo}</td>
 					<td>${user.phoneNo}</td>
 					<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
@@ -182,15 +201,16 @@ var value= "<%=temp%>";
 					<%-- <td><a href="edit?id=${user.userId}"></a></td>
 					<td><a href="delete?id=${user.userId}">REJECT</a></td> --%>
 				</tr>
-				 </c:forEach> 
+				
 				<tr>
 					<td colspan="7"><a
 						href="${pageContext.request.contextPath}/update"> </a></td>
 				</tr>
+					</c:if>
+</c:forEach>
 			</table>
 		
-	</c:if>
-</c:forEach>
+
 </div>
 <!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
 </body>

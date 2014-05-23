@@ -47,7 +47,7 @@ public class LoginController {
 
 	/* sample end */
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String Getdetails(@ModelAttribute("login") Admin1 data,
 			Map<String, Object> map, HttpServletRequest request) {
 		
