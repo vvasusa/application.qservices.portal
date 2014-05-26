@@ -31,11 +31,11 @@ public class ActionController {
 	}
 
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
-	public ModelMap Reject(ModelMap model, HttpServletRequest request) {
+	public String Reject(ModelMap model, HttpServletRequest request) {
 		// List<Admin_user> userList = loginService.getUserList();
 		// return new ModelAndView("userList", "userList", userList);
 		// return (ModelMap) userList;
-		return model;
+		return "login";
 	}
 
 	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- END */

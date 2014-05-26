@@ -31,12 +31,12 @@ var value= "<%=temp%>";
 <h1>request list</h1>
 
 
-<c:if test="${user.loginType==''}">
+<c:if test="${loginType=='VISITOR'}">
 <a href="${pageContext.request.contextPath}/requestList" method="post">Edit YOur Profile</a>
 </c:if>
 
 
- <c:if test="${user.loginType!='null'}"> 
+ <c:if test="${loginType!='null'}"> 
 <%-- <c:forEach var="user" items="${adminUser}"> --%> 
 <%-- <c:if test="${user.loginType=='null' && user.loginType=='null'}"> --%>
 <h1>welcome inside nested if</h1>
@@ -58,24 +58,44 @@ var value= "<%=temp%>";
 			
 
 
-<body>
-<c:forEach var="user" items="${adminUser}">
-	<c:if test="${user.loginType=='VISITOR'}">
+
+<c:if test="${loginType == 'null'}">
+<%-- <c:forEach var="user" items="${adminUser}"> --%>
+	<%-- <c:if test="${loginType=='VISITOR'}"> --%>
 		<h2>request list</h2>
 		<h1>To view data please login</h1>
 		<a href="${pageContext.request.contextPath}/index" method="post">click
 			here for login</a>
+	<%-- </c:if> --%>
 	</c:if>
-	</c:forEach>
+	<%-- </c:forEach> --%>
+	
+	
+	<body>
 	<%-- <% if( value=="AD02" ) { %>
 	
   <DIV>....</DIV> --%>
 
 	<%-- <c:if test="${user.email==user.email}"> --%>
 	<%-- <c:if test="true"> --%>
+	
 	<div>
- <%-- <c:forEach var="user" items="${adminUser}"> --%>
-	<c:if test="${user.loginType=='QA'}">
+	
+  <%-- <c:forEach var="user" items="${adminUser}"> 
+	<c:if test="${user.loginType=='VISITOR'}"> --%>
+	
+	 <%String temp1 = (String) session.getAttribute("MySessionId");%>
+	 <%String temp2 = (String) session.getAttribute("loginType");%>
+
+
+
+<c:if test="${loginType == 'VISITOR'}">
+    There is a user **attribute** in the session
+
+	<c:forEach var="user" items="${adminUser}"> 
+	<%-- <c:if test="${sessionScope.user != null}">
+    There is a user **attribute** in the session
+</c:if> --%>
 		
 			<form action="${pageContext.request.contextPath}/update"
 				method="post" commandName="requestForm">
@@ -158,13 +178,16 @@ var value= "<%=temp%>";
 				</table>
 			</form>
 		
-	</c:if>
-	<%--  </c:forEach>  --%>
+	<%-- </c:if>
+	 </c:forEach>   --%>
+	 
+	 </c:forEach>
+	 </c:if> 
 </div>
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 <div>
-
+<c:if test="${loginType != 'VISITOR'}">
 		
 			<H1>WELCOME TO QA</H1>
 
@@ -210,7 +233,7 @@ var value= "<%=temp%>";
 </c:forEach>
 			</table>
 		
-
+</c:if>
 </div>
 <!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
 </body>
