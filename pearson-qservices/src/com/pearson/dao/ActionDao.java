@@ -1,7 +1,17 @@
 package com.pearson.dao;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.pearson.model.AdminUser;
+import com.pearson.model.Register;
+
 public interface ActionDao {
 
-	public void approveRequest(String id) ;
+	public List<AdminUser> approveRequest(String id,HttpServletRequest request) ;
+
+	public Register newEntryDetails(Register register,
+			HttpServletRequest request);
 
 }

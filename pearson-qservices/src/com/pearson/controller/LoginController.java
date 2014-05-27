@@ -9,15 +9,19 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.Constants;
 import com.pearson.model.Admin1;
+import com.pearson.model.Register;
+import com.pearson.model.RequestForm;
 import com.pearson.services.LoginService;
 
 @Controller
@@ -36,6 +40,39 @@ public class LoginController {
 	public String indexPage(ModelMap model, HttpServletRequest request) {
 		return "index";
 	}
+	
+	/*
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public ModelAndView Getdetails(
+			@Valid @ModelAttribute("requestForm") Register register,
+			BindingResult result, Map<String, Object> map,
+			HttpServletRequest request, final Model model) {
+		
+		System.out.println(register.getFirstName());
+		System.out.println(register.getLastName());
+		System.out.println(register.getEmail());
+		System.out.println("Binding result  " + result.hasErrors());
+		System.out.println(register.getPhoneNo());
+		System.out.println(register.getAddress1());
+		System.out.println(register.getAddress2());
+		register.setFirstName(register.getAddress3());
+
+		String ses_Id = (String) request.getSession().getAttribute(
+				"MySessionId");
+		System.out.println("INSIDE UPDATE"+ses_Id);
+		
+	//	requestForm = requestService.updateDetails(requestForm, request);
+		
+		if (result.hasErrors()) {
+			return new ModelAndView("register", "user", register);
+		}
+
+		
+		return new ModelAndView("update", "requestForm", register);
+
+	}
+
+*/
 
 	/* sample */
 	/*

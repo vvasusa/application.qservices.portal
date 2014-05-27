@@ -206,7 +206,7 @@ var value= "<%=temp%>";
 
 				</tr>
 				<c:forEach var="user" items="${adminUser}">
-				<c:if test="${user.loginType=='QA'}">
+				<%-- <c:if test="${user.loginType=='QA'}"> --%>
 
 				<tr>
 					<td>${user.firstName}</td>
@@ -229,7 +229,7 @@ var value= "<%=temp%>";
 					<td colspan="7"><a
 						href="${pageContext.request.contextPath}/update"> </a></td>
 				</tr>
-					</c:if>
+					<%-- </c:if> --%>
 </c:forEach>
 			</table>
 		

@@ -207,13 +207,15 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--panel box3-->
 				<div class="left right">
 					<h1>Not a member yet? Sign Up!</h1>
+					<form action="${pageContext.request.contextPath}/register"
+						method="post" commandName="login" modelAttribute="user">
 					<label class="color" for="signup">Username:</label> <input
 						class="field" type="text" name="signup" id="signup" value=""
 						size="23" /> <label class="color" for="email">Email:</label> <input
 						class="field" type="text" name="email" id="email" size="23" /> <label>A
 						password will be e-mailed to you.</label> <input type="submit"
 						name="submit" value="Register" class="bt_register" />
-
+</form>
 				</div>
 				<!--panel box3-->
 

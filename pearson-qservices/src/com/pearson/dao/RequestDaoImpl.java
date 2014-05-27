@@ -88,8 +88,10 @@ public class RequestDaoImpl implements RequestDao {
 				// user = new AdminUser();
 				AdminUser user = null;
 				String ID = (String) request.getSession().getAttribute("MySessionId");
+				/*ResultSet rs = statement
+						.executeQuery("SELECT * FROM adminuser where userId= 'AD02'");*/
 				ResultSet rs = statement
-						.executeQuery("SELECT * FROM adminuser where userId= 'AD02'");
+						.executeQuery("SELECT * FROM adminuser");
 				System.out.println("INSIDE select * from adminuser  ");
 				// String loginType = "QA";
 				// if(loginType.equalsIgnoreCase("QA")){

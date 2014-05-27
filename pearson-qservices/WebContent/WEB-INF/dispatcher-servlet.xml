@@ -12,6 +12,7 @@
 	<mvc:annotation-driven />
 
 	<context:component-scan base-package="com.pearson.controller" />
+	
 	<context:property-placeholder location="classpath:resources/app.properties" />
 
 	<!-- Entry for View for Jsp files START -->
@@ -43,6 +44,8 @@
 	<bean id="RequestService" class="com.pearson.services.RequestServiceImpl" />
 	<bean id="ActionDao" class="com.pearson.dao.ActionDaoImpl" />
 	<bean id="ActionService" class="com.pearson.services.ActionServiceImpl" />
+	
+<!-- 	<bean id="GentrateUserId" class="com.pearson.services.ActionServiceImpl" /> -->
 
 
 

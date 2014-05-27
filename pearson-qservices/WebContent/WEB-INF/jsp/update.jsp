@@ -11,7 +11,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd"> 
 
-<html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> --%>
+<html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -269,8 +269,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 	${requestForm.firstName}
 		<div>
-			<H1>WELCOME TO QA</H1>
-
+			<h1></h1>
 
 			<table border="1">
 				<tr>

@@ -95,7 +95,7 @@ public class RequestController {
 	 * "requestList";
 	 */
 
-	@RequestMapping(value = "/requestList", method = RequestMethod.GET)
+	@RequestMapping(value = "/requestList", method = RequestMethod.POST)
 	public ModelAndView requestList(@ModelAttribute AdminUser user,
 			Map<String, Object> map, HttpServletRequest request) {
 
