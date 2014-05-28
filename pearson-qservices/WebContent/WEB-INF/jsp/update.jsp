@@ -283,7 +283,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 				</tr>
-				<%-- <c:forEach var="user" items="${requestList}"> --%>
+				<%-- <c:forEach var="user" items="${adminUser>}"> --%>
 
 				<tr>
 					<td>${requestForm.firstName}</td>

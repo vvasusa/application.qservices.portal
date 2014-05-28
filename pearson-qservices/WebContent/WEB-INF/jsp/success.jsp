@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Success login
+Password updated successfully..
 </body>
 </html>

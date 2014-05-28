@@ -21,6 +21,27 @@ var value= "<%=temp%>";
 </head>
 <h1>request list</h1>
 
+<ul id="navigation">
+				<li><a href="${pageContext.request.contextPath}/index/"
+					id="home_front" title="Home"><span>home</span></a></li>
+				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
+					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
+				<li><a href="${pageContext.request.contextPath}/services/"
+					id="services" title="Our Services"><span>our services</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"
+					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
+					id="home_front" title="Request"><span>request</span></a></li> --%>
+				
+					<li><a href="${pageContext.request.contextPath}/requestList/" 
+					id="port" title="Request" ><span>Request</span></a></li>
+					<li><a href="${pageContext.request.contextPath}/contact/"
+					id="contact" title="Contact Us"><span>contact us</span></a></li>
+
+			</ul>
+			
+			
+
 
 <c:if test="${loginType=='VISITOR'}">
 <a href="${pageContext.request.contextPath}/requestList" method="post">Edit YOur Profile</a>
@@ -200,16 +221,16 @@ var value= "<%=temp%>";
 				<%-- <c:if test="${user.loginType=='QA'}"> --%>
 
 				<tr>
-					<td>${user.loginType}</td>
+					<td>${user.firstName}</td>
 					<td>${user.lastName}</td>
 					<td>${user.email}</td>
 					<td>${user.phoneNo}</td>
-					<td>${user.phoneNo}</td>
-					<td>${user.phoneNo}</td>
+					<td>${user.loginType}</td>
+					<td>${user.loginType}</td>
 					<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
 					<td><a href="${pageContext.request.contextPath}/approve"
-						method="post">Approve</a></td>
+						method="post"></a> Approved</td>
 					<td><a href="${pageContext.request.contextPath}/reject"
 						method="post">Reject</a></td>
 					<%-- <td><a href="edit?id=${user.userId}"></a></td>

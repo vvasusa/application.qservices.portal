@@ -80,7 +80,7 @@
 					<tr>
 						<td colspan="2"
 							style="text-align: left; vertical-align: middle; padding: 5px;"><input
-							type="submit" name="update" value="update" /> (Email will not be
+							type="submit" name="update" value="Register" /> (Email will not be
 							sent)</td>
 
 					</tr>

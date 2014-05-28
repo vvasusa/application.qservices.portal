@@ -67,16 +67,17 @@ public class RequestController {
 		// public String requestList() {
 		// System.out.println("hi inside req sdfsdfsdf  controller  " + s);
 		// System.out.println(session.getAttribute("MySessionVariable"));
-		requestForm = requestService.updateDetails(requestForm, request);
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		adminUser =  requestService.updateDetails(requestForm, request);
 		
 		if (result.hasErrors()) {
-			return new ModelAndView("requestList", "user", requestForm);
+			return new ModelAndView("requestList", "adminUser", adminUser);
 		}
 
 		// return new ModelAndView("requestList", "requestorForm",
 		// requestorForm);
-		return new ModelAndView("update", "requestForm", requestForm);
-
+		/*return new ModelAndView("update", "requestForm", requestForm);*/
+		return new ModelAndView("update", "adminUser", adminUser);
 	}
 
 	/*
@@ -95,7 +96,7 @@ public class RequestController {
 	 * "requestList";
 	 */
 
-	@RequestMapping(value = "/requestList", method = RequestMethod.POST)
+	@RequestMapping(value = "/requestList", method = RequestMethod.GET)
 	public ModelAndView requestList(@ModelAttribute AdminUser user,
 			Map<String, Object> map, HttpServletRequest request) {
 

@@ -32,7 +32,7 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public RequestForm updateDetails(RequestForm requestForm,HttpServletRequest request) {
+	public List<AdminUser> updateDetails(RequestForm requestForm,HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		return requestDao.updateDetails(requestForm,request);
 		 

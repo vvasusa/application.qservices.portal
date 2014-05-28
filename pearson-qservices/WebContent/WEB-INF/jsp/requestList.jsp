@@ -39,7 +39,7 @@ var value= "<%=temp%>";
  <c:if test="${loginType!='null'}"> 
 <%-- <c:forEach var="user" items="${adminUser}"> --%> 
 <%-- <c:if test="${user.loginType=='null' && user.loginType=='null'}"> --%>
-<h1>welcome inside nested if</h1>
+
  <%-- <c:if test="${user.loginType!='null'}"> 
   <c:if test="${user.loginType=='z'}">  --%>
 <table>
@@ -92,7 +92,8 @@ var value= "<%=temp%>";
 <c:if test="${loginType == 'VISITOR'}">
     There is a user **attribute** in the session
 
-	<c:forEach var="user" items="${adminUser}"> 
+   <c:forEach var="user" items="${adminUser}">  
+   
 	<%-- <c:if test="${sessionScope.user != null}">
     There is a user **attribute** in the session
 </c:if> --%>
@@ -181,7 +182,7 @@ var value= "<%=temp%>";
 	<%-- </c:if>
 	 </c:forEach>   --%>
 	 
-	 </c:forEach>
+  </c:forEach>   
 	 </c:if> 
 </div>
 

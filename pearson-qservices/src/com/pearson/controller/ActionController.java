@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -37,10 +38,11 @@ public class ActionController {
 
 
 	@RequestMapping(value = "/approve", method = RequestMethod.GET)
-	public ModelAndView Approve(ModelMap model, HttpServletRequest request) {
+	public ModelAndView Approve( @ModelAttribute("requestForm") ModelMap model, HttpServletRequest request) {
 		// List<Admin_user> userList = loginService.getUserList();
 		// return new ModelAndView("userList", "userList", userList);
 		// return (ModelMap) userList;
+		
 		String requestId = "AD02";
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		adminUser= actionService.approveRequest(requestId,request);

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.pearson.dao.ActionDao;
 import com.pearson.model.AdminUser;
+import com.pearson.model.Password;
 import com.pearson.model.Register;
 
 public class ActionServiceImpl implements ActionService {
@@ -26,6 +27,13 @@ public class ActionServiceImpl implements ActionService {
 			HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		return actionDao.newEntryDetails(register,request);
+	}
+
+	@Override
+	public Password successNewEntry(Password password,
+			HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return actionDao.successNewEntry(password, request);
 	}
 
 }

@@ -207,26 +207,32 @@ public class RequestDaoImpl implements RequestDao {
 	}
 
 	@Override
-	public RequestForm updateDetails(RequestForm requestForm,
+	public List<AdminUser> updateDetails(RequestForm requestForm,
 			HttpServletRequest request) {
 		// TODO Auto-generated method stub
+		 List<AdminUser> adminUser = new ArrayList<AdminUser> ();
+		 AdminUser user = null;
+			// AdminUser user = new AdminUser();
+			
+				user = new AdminUser();
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("MySessionVariable");
 		String email = (String) session.getAttribute("email");
 		System.out.println("from request controller Update details" + email);
 		try {
-			requestForm.setFirstName(requestForm.getFirstName());
-			requestForm.setLastName(requestForm.getLastName());
-			requestForm.setEmail(requestForm.getEmail());
-			requestForm.setPhoneNo(requestForm.getPhoneNo());
-			requestForm.setRequestId(requestForm.getRequestId());
-			requestForm.setRequestName(requestForm.getRequestName());
+			user.setFirstName(requestForm.getFirstName());
+			user.setLastName(requestForm.getLastName());
+			user.setEmail(requestForm.getEmail());
+			user.setPhoneNo(requestForm.getPhoneNo());
+			adminUser.add(user);
+			//user.setRequestId(requestForm.getRequestId());
+			//user.setRequestName(requestForm.getRequestName());
 			System.out.println("inside update details..."
 					+ requestForm.getEmail());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return requestForm;
+		return adminUser;
 	}
 
 	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- START */

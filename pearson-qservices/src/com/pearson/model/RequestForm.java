@@ -7,13 +7,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class RequestForm {
 
+	@NotNull
+	@NotEmpty(message = "Please enter your firstName addresss.")
 	private String firstName;
+	@NotNull
+	@NotEmpty(message = "Please enter your lastName addresss.")
 	private String lastName;
 	@Email
 	@NotEmpty(message = "Please enter your email addresss.")
 	@NotNull
 	private String email;
+	@NotEmpty(message = "Please enter your PhoneNo addresss.")
+	@NotNull
 	private String phoneNo;
+	
 	private String subject;
 	private String loginType;
 	private String requestId;

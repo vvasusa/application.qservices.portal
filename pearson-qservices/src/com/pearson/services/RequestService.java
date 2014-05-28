@@ -11,7 +11,7 @@ public interface RequestService {
 	
 	void requestList();
 	public List<AdminUser> requestList(String id,HttpServletRequest request);
-	public RequestForm updateDetails(RequestForm requestForm,
+	public List<AdminUser> updateDetails(RequestForm requestForm,
 			HttpServletRequest request);
 	String approveRequest(String id);
 

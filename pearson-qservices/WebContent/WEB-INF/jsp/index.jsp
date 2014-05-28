@@ -293,8 +293,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>request</span></a></li> --%>
 				
-					<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request "><span>Request</span></a></li>
+					<li><a href="${pageContext.request.contextPath}/requestList/"  
+					id="port" title="Request"  ><span>Request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 

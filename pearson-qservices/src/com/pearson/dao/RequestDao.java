@@ -15,7 +15,7 @@ public interface RequestDao {
 
 	//public AdminUser requestList(String id);
 
-	RequestForm updateDetails(RequestForm requestForm, HttpServletRequest request);
+	List<AdminUser> updateDetails(RequestForm requestForm, HttpServletRequest request);
 
 //	public abstract ModelMap acceptAndReject();
 
