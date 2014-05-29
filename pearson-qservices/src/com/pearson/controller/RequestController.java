@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pearson.model.AdminUser;
+import com.pearson.model.RaiseRequest;
 import com.pearson.model.RequestForm;
 import com.pearson.model.Requestor;
+import com.pearson.services.RaiseRequestService;
 import com.pearson.services.RequestService;
 
 @Controller
@@ -31,6 +33,9 @@ public class RequestController {
 
 	@Autowired
 	RequestService requestService;
+
+	@Autowired
+	RaiseRequestService raiseRequestService;
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView Getdetails(
@@ -52,11 +57,13 @@ public class RequestController {
 		System.out.println(requestForm.getRequestName());
 		requestForm.setFirstName(requestForm.getFirstName());
 
-		/*HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("MySessionId");*/
+		/*
+		 * HttpSession session = request.getSession(); String id = (String)
+		 * session.getAttribute("MySessionId");
+		 */
 		String ses_Id = (String) request.getSession().getAttribute(
 				"MySessionId");
-		System.out.println("INSIDE UPDATE"+ses_Id);
+		System.out.println("INSIDE UPDATE" + ses_Id);
 		/*
 		 * session.setAttribute("email", email); System.out.println("id  " +
 		 * id);
@@ -68,15 +75,15 @@ public class RequestController {
 		// System.out.println("hi inside req sdfsdfsdf  controller  " + s);
 		// System.out.println(session.getAttribute("MySessionVariable"));
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
-		adminUser =  requestService.updateDetails(requestForm, request);
-		
+		adminUser = requestService.updateDetails(requestForm, request);
+
 		if (result.hasErrors()) {
 			return new ModelAndView("requestList", "adminUser", adminUser);
 		}
 
 		// return new ModelAndView("requestList", "requestorForm",
 		// requestorForm);
-		/*return new ModelAndView("update", "requestForm", requestForm);*/
+		/* return new ModelAndView("update", "requestForm", requestForm); */
 		return new ModelAndView("update", "adminUser", adminUser);
 	}
 
@@ -108,11 +115,60 @@ public class RequestController {
 		// request.getSession().setAttribute("username", "nouser");
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		adminUser = requestService.requestList(id, request);
-		System.out.println("THE LOGIN TYPE RETURN TO JSP"+user.getLoginType());
+		System.out
+				.println("THE LOGIN TYPE RETURN TO JSP" + user.getLoginType());
 		return new ModelAndView("requestList", "adminUser", adminUser);
 		// return "requestList";
 
 	}
 
-	
+	@ModelAttribute("requestForm")
+	@RequestMapping(value = "/doneReq", method = RequestMethod.POST)
+	public ModelAndView rasieRequestFinalpage(
+			@Valid @ModelAttribute("requestForm") RequestForm requestForm,
+			BindingResult result, Map<String, Object> map,
+			HttpServletRequest request) {
+
+		String serviceID = requestForm.getReq_ServiceID();
+		String serviceName = requestForm.getReq_ServiceName();
+
+		System.out.println(requestForm.getPhoneNo() + "" + serviceName + ""
+				+ serviceID);
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("MySessionId");
+
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		// raiseRequest = raiseRequestService.newRequest(id, request);
+		if (result.hasErrors()) {
+			return new ModelAndView("raiseReq", "adminUser", adminUser);
+		}
+		return new ModelAndView("raiseReq", "adminUser", adminUser);
+
+	}
+
+	@ModelAttribute("RequestForm")
+	@RequestMapping(value = "/raiseRequest", method = RequestMethod.POST)
+	public ModelAndView rasieRequest(@ModelAttribute RaiseRequest raiseRequest,
+			BindingResult result, Map<String, Object> map,
+			HttpServletRequest request) {
+
+		String serviceName = raiseRequest.getService();
+		String serviceID = raiseRequest.getServiceID();
+		RequestForm requestForm = new RequestForm();
+		System.out.println(requestForm.getPhoneNo());
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("MySessionId");
+		System.out.println("INSIDE /requestList  " + id);
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		adminUser = raiseRequestService.newRequestService(id, raiseRequest,
+				request);
+		// System.out.println("THE LOGIN TYPE RETURN TO JSP"+user.getLoginType());
+		if (result.hasErrors()) {
+			return new ModelAndView("raiseReq", "adminUser", adminUser);
+		}
+		return new ModelAndView("raiseReq", "adminUser", adminUser);
+		// return "requestList";
+
+	}
+
 }

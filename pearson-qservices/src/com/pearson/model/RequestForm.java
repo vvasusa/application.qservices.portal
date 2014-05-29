@@ -20,11 +20,29 @@ public class RequestForm {
 	@NotEmpty(message = "Please enter your PhoneNo addresss.")
 	@NotNull
 	private String phoneNo;
-	
-	private String subject;
 	private String loginType;
 	private String requestId;
 	private String requestName;
+	private String req_ServiceName;
+	private String req_ServiceID;
+
+	private String subject;
+
+	public String getReq_ServiceName() {
+		return req_ServiceName;
+	}
+
+	public void setReq_ServiceName(String req_ServiceName) {
+		this.req_ServiceName = req_ServiceName;
+	}
+
+	public String getReq_ServiceID() {
+		return req_ServiceID;
+	}
+
+	public void setReq_ServiceID(String req_ServiceID) {
+		this.req_ServiceID = req_ServiceID;
+	}
 
 	public String getRequestId() {
 		return requestId;

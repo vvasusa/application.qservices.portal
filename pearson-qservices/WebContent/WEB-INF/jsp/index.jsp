@@ -1,4 +1,3 @@
-
 <%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -280,6 +279,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				</form:form>
 			</table>
 			 --%>
+			 
+			 
+			 <a href="${pageContext.request.contextPath}/logout/"> logout</a>
+			 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"

@@ -39,40 +39,47 @@ public class LoginController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String indexPage(ModelMap model, HttpServletRequest request) {
 		return "index";
+		// return "aaaaaaaaa";
 	}
-	
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(ModelMap model, HttpServletRequest request) {
+		request.getSession(false).removeAttribute("MySessionId");
+		request.getSession(false).removeAttribute("Table");
+		request.getSession(false).removeAttribute("loginType");
+		return "index";
+	}
+
 	/*
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ModelAndView Getdetails(
-			@Valid @ModelAttribute("requestForm") Register register,
-			BindingResult result, Map<String, Object> map,
-			HttpServletRequest request, final Model model) {
-		
-		System.out.println(register.getFirstName());
-		System.out.println(register.getLastName());
-		System.out.println(register.getEmail());
-		System.out.println("Binding result  " + result.hasErrors());
-		System.out.println(register.getPhoneNo());
-		System.out.println(register.getAddress1());
-		System.out.println(register.getAddress2());
-		register.setFirstName(register.getAddress3());
-
-		String ses_Id = (String) request.getSession().getAttribute(
-				"MySessionId");
-		System.out.println("INSIDE UPDATE"+ses_Id);
-		
-	//	requestForm = requestService.updateDetails(requestForm, request);
-		
-		if (result.hasErrors()) {
-			return new ModelAndView("register", "user", register);
-		}
-
-		
-		return new ModelAndView("update", "requestForm", register);
-
-	}
-
-*/
+	 * @RequestMapping(value = "/register", method = RequestMethod.POST) public
+	 * ModelAndView Getdetails(
+	 * 
+	 * @Valid @ModelAttribute("requestForm") Register register, BindingResult
+	 * result, Map<String, Object> map, HttpServletRequest request, final Model
+	 * model) {
+	 * 
+	 * System.out.println(register.getFirstName());
+	 * System.out.println(register.getLastName());
+	 * System.out.println(register.getEmail());
+	 * System.out.println("Binding result  " + result.hasErrors());
+	 * System.out.println(register.getPhoneNo());
+	 * System.out.println(register.getAddress1());
+	 * System.out.println(register.getAddress2());
+	 * register.setFirstName(register.getAddress3());
+	 * 
+	 * String ses_Id = (String) request.getSession().getAttribute(
+	 * "MySessionId"); System.out.println("INSIDE UPDATE"+ses_Id);
+	 * 
+	 * // requestForm = requestService.updateDetails(requestForm, request);
+	 * 
+	 * if (result.hasErrors()) { return new ModelAndView("register", "user",
+	 * register); }
+	 * 
+	 * 
+	 * return new ModelAndView("update", "requestForm", register);
+	 * 
+	 * }
+	 */
 
 	/* sample */
 	/*
@@ -87,22 +94,20 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String Getdetails(@ModelAttribute("login") Admin1 data,
 			Map<String, Object> map, HttpServletRequest request) {
-		
+
 		HttpSession session = request.getSession();
 		session.getId();
 		String u_name = (data.getLog());
 		String p_word = (data.getPwd());
 
 		boolean value = loginService.loginValidation(u_name, p_word, request);
-		
+
 		String ses_Id = (String) request.getSession().getAttribute(
 				"MySessionId");
 		String ses_Type = (String) request.getSession().getAttribute(
 				"loginType");
-		String ses_Table = (String) request.getSession().getAttribute(
-				"Table");
-		System.out.println("session value in request list controller"
-				+ ses_Id);
+		String ses_Table = (String) request.getSession().getAttribute("Table");
+		System.out.println("session value in request list controller" + ses_Id);
 		System.out.println("session value in request list controller"
 				+ ses_Type);
 		System.out.println("session value in request list controller"

@@ -1,4 +1,5 @@
- <%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -56,13 +57,20 @@
 <!--Custom jQuery Set-->
 <!--jQuery Delay Plugin-->
 <!--jQuery Image Preloader-->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/preloader.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/delay.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
 
 
 <!--Preload Image Over Imgs-->
@@ -75,28 +83,23 @@
 	]);
 </script>
 
-<script  type="text/javascript">
-	function validation()
-	{ 
-	    if(username=" ")
-	    {   //checking if the form is empty
-	         document.getElementById('username').innerHTML="*Please enter a username*";
-                           //return false;
-	                //displaying a message if the form is empty
-	               // alert("enter required fields");
-	    }
-	    else if(password=" ")
-	    {   //checking if the form is empty
-	         document.getElementById('password').innerHTML="*Please enter password*";
-                              // return false;
-	                //displaying a message if the form is empty
-	    	 //alert("enter required fields");
-	    }
-                          //  else
-                             //return true;
+<script type="text/javascript">
+	function validation() {
+		if (username = " ") { //checking if the form is empty
+			document.getElementById('username').innerHTML = "*Please enter a username*";
+			//return false;
+			//displaying a message if the form is empty
+			// alert("enter required fields");
+		} else if (password = " ") { //checking if the form is empty
+			document.getElementById('password').innerHTML = "*Please enter password*";
+			// return false;
+			//displaying a message if the form is empty
+			//alert("enter required fields");
+		}
+		//  else
+		//return true;
 
-}
-	
+	}
 </script>
 
 <!--jQuery Sliding Login Panel Button-->
@@ -119,7 +122,8 @@
 <script src="${pageContext.request.contextPath}/js/cufon-yui.js"
 	type="text/javascript"></script>
 <script
-	src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
+	src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js"
+	type="text/javascript"></script>
 <script type="text/javascript">
 	Cufon.replace('h1');
 	Cufon.replace('h2');
@@ -138,7 +142,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 <!-- Color hover JavaScript Files -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.color.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.color.js"></script>
 <script type="text/javascript">
 	// Background color animation 
 	$(document).ready(function() {
@@ -193,23 +198,24 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<h1>Member Login</h1>
 					<!-- Login Form -->
 
-<form action="${pageContext.request.contextPath}/success/"   method="get" onclick="return validation()"> 
-<%--  <a href = "${pageContext.request.contextPath}/success/"> value </a> --%>
-					<label class="color">Username:</label> <input class="field"
-						type="text" name="log" id="log" value="" size="23" /> <label
-						class="color" for="pwd">Password:</label> <input class="field"
-						type="password" name="pwd" id="pwd" size="23" /> <label><input
-						name="rememberme" id="rememberme" type="checkbox" value="forever" />
-						&nbsp;Remember me</label>
-					<div class="clear"></div>
-					<input type="submit" name="submit" value="Login" class="bt_login" />
-					<a class="lost-pwd" href="#">Lost your password?</a>
-</form>
+					<form action="${pageContext.request.contextPath}/success/"
+						method="get" onclick="return validation()">
+						<%--  <a href = "${pageContext.request.contextPath}/success/"> value </a> --%>
+						<label class="color">Username:</label> <input class="field"
+							type="text" name="log" id="log" value="" size="23" /> <label
+							class="color" for="pwd">Password:</label> <input class="field"
+							type="password" name="pwd" id="pwd" size="23" /> <label><input
+							name="rememberme" id="rememberme" type="checkbox" value="forever" />
+							&nbsp;Remember me</label>
+						<div class="clear"></div>
+						<input type="submit" name="submit" value="Login" class="bt_login" />
+						<a class="lost-pwd" href="#">Lost your password?</a>
+					</form>
 				</div>
 				<!--panel box2 close-->
-				
-	
-	
+
+
+
 				<!--panel box3-->
 				<div class="left right">
 					<h1>Not a member yet? Sign Up!</h1>
@@ -259,13 +265,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 			</div>
 			<!--Close Logo Area-->
-			
-<a href="${pageContext.servletContext.contextPath}/mail/"> Send Mail </a> <br>
+
+
 
 			<!--Begin Navigation-->
 			<ul id="navigation">
-				<li><a href="${pageContext.request.contextPath}/index/"	
-				id="home_front" title="Home"><span>home</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/index/"
+					id="home_front" title="Home"><span>home</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/services/"
@@ -325,123 +331,155 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		</div>
 		<!--page close-->
 
+		<!-- ******************************************************************************** -->
 
-		<div class="span-24">
-		<h1 style="color:#900000">Q-Assesment for Integrating Teams </h1>
-			
-<h2 class="myNewStyle" style="color:#3399FF">  Key Features Offerings </h2>
-
-	
-	<p > Analyze and study a Q-Organizations undergoing a merger in
-		the areas of people, process and technology to assess maturity of
-		current operating levels and to identify potential impact areas.<br>
-		Deploy QCoE's proprietary QA assessment framework to evaluate maturity
-		of target Q-organization highlighting opportunity areas to improve and
-		vice-versa.<br> Refine or redefine QA process for merging organizations.
-		 <br>Build Quality Maturity Implementation Roadmap including tools
-		consolidation & environment management.</p>
-
-
-<h2 style="color:#3399FF">Tools & Accelerators</h2>
-	<p>  QCoE Maturity Framework based on CMMi and TMMi that will
-		help in assessing the current maturity of the organization.<br>
-		Templatized assessment plan that to perform multi-fold assessment and
-		derive a roadmap.<br>Reusable evaluation artifacts to ensure consistent
-		assessment methodology.</p>
-
-<h2 style="color:#3399FF">Where this service would be benefiting</h2>
-	<p>
-	 For smooth integration of Quality Organizations.<br>
-	Assessment of a prospective organization's quality practices as part
-		of Merger & Acquisition process.<br>To evaluate current maturity of the
-		quality organization towards continuous improvement.
-		</p>
-
-<h2 style="color:#3399FF">Project Names where services were offered</h2>
-	<p> 1.Wall Street English</p>
-
-<h2 style="color:#3399FF">Key Highlights from Projects Executed</h2>
-	<p>1.Clear understanding of the target quality organization's
-		strengths and improvement areas.<br>
-		2.Identification of tools,
-		accelerators & frameworks that will help improve the maturity of the
-		target organization and QCoE<br>3. Detailed transformation roadmap to
-		achieve the desired maturity level and alignment with business goals.<br>
-		4.Increased maturity of the overall Quality organization.</p>
-
-			
-
-		<!-- Declare 950px width for IE-->
-		<div class="span-24">
-			<!--add hr line-->
-			<div class="hrbg_small"></div>
+		<div class="bar bar-header bar-light">
+			<form
+				action="${pageContext.servletContext.contextPath}/raiseRequest/"
+				method="post" commandName="requestForm">
+				<input type="hidden" name="service" value="QSERVICE" /> <input
+					type="hidden" name="serviceID" value="QTEST" /> <input
+					type="submit" value="SubmitRequest" align="left">
+			</form>
 		</div>
-		<!--close hr line, 950px IE fix-->
+		<h1>
+			<spring:message code="label.requestservice.servicename" />
+		</h1>
+
+		<!-- ******************************************************************************** -->
 
 
 
-		<!-- Declare 950px width for IE, once again. Corrects positioning-->
-		<!--BEGIN Footer Area-->
+		<div class="span-24">
+			<p>
+			<h1 style="color: #900000">Q-Assesment for Integrating Teams</h1>
+			<a href="${pageContext.servletContext.contextPath}/raiseRequest/">
+			</a>
+			</p>
 
-		<div class="footer">
+			<h2 class="myNewStyle" style="color: #3399FF">Key Features
+				Offerings</h2>
 
-			<!--#BEGIN FOOTER AREA#-->
-			<!--Declare 630px width-->
-			<div class="span-16">
-				<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
-				<!-- and some brief information about the company-->
-				<div class="footer_text">
-					<p>
-						&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-						year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-						&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
-					</p>
+
+			<p>
+				Analyze and study a Q-Organizations undergoing a merger in the areas
+				of people, process and technology to assess maturity of current
+				operating levels and to identify potential impact areas.<br>
+					Deploy QCoE's proprietary QA assessment framework to evaluate
+					maturity of target Q-organization highlighting opportunity areas to
+					improve and vice-versa.
+				<br> Refine or redefine QA process for merging organizations. 
+				<br>Build Quality Maturity Implementation Roadmap including
+					tools consolidation & environment management.
+			</p>
+
+
+			<h2 style="color: #3399FF">Tools & Accelerators</h2>
+			<p>
+				QCoE Maturity Framework based on CMMi and TMMi that will help in
+				assessing the current maturity of the organization.<br>
+					Templatized assessment plan that to perform multi-fold assessment
+					and derive a roadmap.
+				<br>Reusable evaluation artifacts to ensure consistent
+					assessment methodology.
+			</p>
+
+			<h2 style="color: #3399FF">Where this service would be
+				benefiting</h2>
+			<p>
+				For smooth integration of Quality Organizations.<br> Assessment
+					of a prospective organization's quality practices as part of Merger
+					& Acquisition process.
+				<br>To evaluate current maturity of the quality organization
+					towards continuous improvement. 
+			</p>
+
+			<h2 style="color: #3399FF">Project Names where services were
+				offered</h2>
+			<p>1.Wall Street English</p>
+
+			<h2 style="color: #3399FF">Key Highlights from Projects Executed</h2>
+			<p>
+				1.Clear understanding of the target quality organization's strengths
+				and improvement areas.<br> 2.Identification of tools,
+					accelerators & frameworks that will help improve the maturity of
+					the target organization and QCoE
+				<br>3. Detailed transformation roadmap to achieve the desired
+					maturity level and alignment with business goals.
+				<br> 4.Increased maturity of the overall Quality organization.
+			</p>
+
+
+
+			<!-- Declare 950px width for IE-->
+			<div class="span-24">
+				<!--add hr line-->
+				<div class="hrbg_small"></div>
+			</div>
+			<!--close hr line, 950px IE fix-->
+
+
+
+			<!-- Declare 950px width for IE, once again. Corrects positioning-->
+			<!--BEGIN Footer Area-->
+
+			<div class="footer">
+
+				<!--#BEGIN FOOTER AREA#-->
+				<!--Declare 630px width-->
+				<div class="span-16">
+					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
+					<!-- and some brief information about the company-->
+					<div class="footer_text">
+						<p>
+							&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
+							year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
+							&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+						</p>
+					</div>
+					<!--footer_text close-->
+
 				</div>
-				<!--footer_text close-->
+				<!--footer close-->
+
+				<!--Footer navigation goes here-->
+				<!--Declare 310px width-->
+				<div class="span-8 last">
+
+					<ul id="footer-nav">
+						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
+							|</li>
+						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+							|</li>
+						<li><a href="${pageContext.request.contextPath}/services/">Services</a>
+							|</li>
+						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+							|</li>
+						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
+					</ul>
+					<!--footer-nav close-->
+
+
+					<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
+					<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
+					<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
+
+				</div>
+				<!--span8 close-->
 
 			</div>
 			<!--footer close-->
 
-			<!--Footer navigation goes here-->
-			<!--Declare 310px width-->
-			<div class="span-8 last">
 
-				<ul id="footer-nav">
-					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
-						|</li>
-					<li><a
-						href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li>
-					<li><a href="${pageContext.request.contextPath}/services/">Services</a>
-						|</li>
-					<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
-						|</li>
-					<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
-				</ul>
-				<!--footer-nav close-->
-
-
-				<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-				<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-				<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
-
-			</div>
-			<!--span8 close-->
 
 		</div>
-		<!--footer close-->
+		<!--container close-->
 
 
 
-	</div>
-	<!--container close-->
-
-
-
-	<!--IE Fix for over-shadow text replacement-->
-	<script type="text/javascript">
-		Cufon.now();
-	</script>
-
+		<!--IE Fix for over-shadow text replacement-->
+		<script type="text/javascript">
+			Cufon.now();
+		</script>
 </body>
 </html>

@@ -44,6 +44,8 @@
 	<bean id="RequestService" class="com.pearson.services.RequestServiceImpl" />
 	<bean id="ActionDao" class="com.pearson.dao.ActionDaoImpl" />
 	<bean id="ActionService" class="com.pearson.services.ActionServiceImpl" />
+	<bean id="RaiseRequestDao" class="com.pearson.dao.RaiseRequestDaoImpl" />
+	<bean id="RaiseRequestService" class="com.pearson.services.RaiseRequestServiceImpl" />
 	
 <!-- 	<bean id="GentrateUserId" class="com.pearson.services.ActionServiceImpl" /> -->
 

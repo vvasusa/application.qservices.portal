@@ -91,7 +91,7 @@ public class RequestDaoImpl implements RequestDao {
 				/*ResultSet rs = statement
 						.executeQuery("SELECT * FROM adminuser where userId= 'AD02'");*/
 				ResultSet rs = statement
-						.executeQuery("SELECT * FROM adminuser");
+						.executeQuery("SELECT * FROM adminuser ");
 				System.out.println("INSIDE select * from adminuser  ");
 				// String loginType = "QA";
 				// if(loginType.equalsIgnoreCase("QA")){

@@ -56,7 +56,7 @@ public class RegistrationController {
 				"MySessionId");
 		System.out.println("INSIDE UPDATE"+ses_Id);
 		
-		register = actionService.userEntryDetails(register, request);
+		//register = actionService.userEntryDetails(register, request);
 		
 		/*if (result.hasErrors()) {
 			return new ModelAndView("register", "user", register);
@@ -95,6 +95,7 @@ public class RegistrationController {
 			return new ModelAndView("register", "register", register);
 		}
 
+		/*send mail with password -- QUERY*/
 		
 		return new ModelAndView("confirmPass", "register", register);
 

@@ -261,12 +261,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                     <h4>Q-Assesment</h4>
                     <!--Service Image-->
                    <!--  <p><img src="./img/icons/site_analysis.png" class="left" alt="" /> --> 
-                    <!--Brief Info on Service-->                   
+                    <!--Brief Info on Service-->     
+                                  
                     <a href="${pageContext.request.contextPath}/QAssesment/">
                        Q- Assessment for Integrating Teams provides quality consulting to organizations undergoing integrations or consolidation such as Mergers & Acquisition. It heps QA organization achieve best in class operating levels by strategizing and redefining their QA processes.
                         </a>
-                    <form action="${pageContext.request.contextPath}/request/" method="get">
-                     <input type="submit" value="Request" ></form>
+                    <%-- <form action="${pageContext.request.contextPath}/request/" method="get">
+                     <input type="submit" value="Request" ></form> --%>
                    </p>
                 </div>
                 </div><!--boxed_page close-->
