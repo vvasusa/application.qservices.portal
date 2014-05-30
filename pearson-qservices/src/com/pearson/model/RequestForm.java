@@ -1,11 +1,15 @@
 package com.pearson.model;
 
+
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+
 public class RequestForm {
+	private @Valid RequestForm requestForm;
 
 	@NotNull
 	@NotEmpty(message = "Please enter your firstName addresss.")
@@ -17,7 +21,7 @@ public class RequestForm {
 	@NotEmpty(message = "Please enter your email addresss.")
 	@NotNull
 	private String email;
-	@NotEmpty(message = "Please enter your PhoneNo addresss.")
+	@NotEmpty(message = "{form.email.NotNull}")
 	@NotNull
 	private String phoneNo;
 	private String loginType;
@@ -25,6 +29,7 @@ public class RequestForm {
 	private String requestName;
 	private String req_ServiceName;
 	private String req_ServiceID;
+	
 
 	private String subject;
 

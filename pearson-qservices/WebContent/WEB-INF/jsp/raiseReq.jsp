@@ -13,7 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1> outside </h1>
 <c:forEach var="user" items="${adminUser}">
+<h1> inside </h1>
 	<form action="${pageContext.request.contextPath}/doneReq"
 						method="post" commandName="requestForm" modelAttribute="requestForm">
 		<table
@@ -54,7 +56,7 @@
 				<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 					type="text" name="email" value="${user.email}" />
 				<form:errors path="email" /></td>
-				<td><form:errors path="email" /></td>
+				<td><form:errors path="email" /></td> 
 			</tr>
 			<tr>
 				<td

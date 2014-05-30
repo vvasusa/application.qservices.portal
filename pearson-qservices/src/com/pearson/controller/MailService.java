@@ -31,7 +31,7 @@ public class MailService {
 	 * @Autowired private SimpleMailMessage alertMailMessage;
 	 */
 
-	public void sendEmail(String email, String password) {
+	public void sendEmail(String email,String requestorID, String password) {
 		// private final static Logger LOGGER =
 		// Logger.getLogger(UseLogger.class.getName());
 
@@ -72,6 +72,27 @@ public class MailService {
 			SimpleMailMessage message = new SimpleMailMessage();
 			message.setTo(email);
 			message.setSubject("your details" + password);
+			message.setText("welcome");
+			// sending the message
+			mailSender.send(message);
+		}
+
+		catch (Exception e) {
+			System.out.println(e);
+			throw new MailParseException(e);
+
+		}
+
+	}
+	
+	public void sendRequestID(String email, String reqid) {
+		
+		try {
+
+
+			SimpleMailMessage message = new SimpleMailMessage();
+			message.setTo(email);
+			message.setSubject("your details" + reqid);
 			message.setText("welcome");
 			// sending the message
 			mailSender.send(message);

@@ -33,8 +33,6 @@ public class ActionDaoImpl implements ActionDao {
 
 	@Autowired
 	JavaMailService javaMailService;
-	
-	
 
 	/*
 	 * @Autowired GentrateUserId gentrateUserId;
@@ -129,36 +127,50 @@ public class ActionDaoImpl implements ActionDao {
 	}
 
 	@Override
-	public Register newEntryDetails(Register register,
+	public Register newRegistrationDetails(Register register,
 			HttpServletRequest request) {
 		try {
-			
+
 			MailService mailService = new MailService();
-			
+
 			GentrateUserId Obj = new GentrateUserId();
 			String requestorID = Obj.getUniqueID();
-			
-			String password = Obj.getPassword();
+			String tempPass = Obj.getPassword();
+
 			String firstName = register.getFirstName();
-			String lasttName = register.getLastName();
+			String lastName = register.getLastName();
 			String email = register.getEmail();
 			String phone = register.getPhoneNo();
 			String address = register.getAddress1();
-			
-			System.out.println("UNIQUE ID" + requestorID);
-			System.out.println("UNIQUE ID" + password);
-			
-			
-			mailService.sendEmail(email,password);
-			
+
+			System.out.println("UNIQUE ID  " + requestorID);
+			System.out.println("Temp pass  " + tempPass);
+
+			/******************* sending email with uniqueid and temp password ************************************/
+			// mailService.sendEmail(email, requestorID, tempPass);
+			/******************* sending email with uniqueid and temp password ************************************/
+
+			request.getSession(true).setAttribute("RequestorId", requestorID);
+			request.getSession(true)
+					.setAttribute("TempPass", Obj.getPassword());
 
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
-		//	ResultSet rs = statement.executeQuery("");
-
-			/* Query for inset data into database Temp table */
+			int rs = statement
+					.executeUpdate("INSERT INTO TempDetails(requestorId,tempPassword,firstName,lastName,address,phoneNo,email)VALUES('"
+							+ requestorID
+							+ "','"
+							+ tempPass
+							+ "','"
+							+ firstName
+							+ "','"
+							+ lastName
+							+ "','"
+							+ email
+							+ "','" + phone + "','" + address + "')");
 
 		} catch (Exception e) {
+
 			System.out.println(e);
 		}
 		return null;
@@ -174,24 +186,76 @@ public class ActionDaoImpl implements ActionDao {
 			System.out.println(password.getEmail());
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from TempDetails");
-			while(rs.next()){
-			if (StringUtils.endsWithIgnoreCase(password.getCurrentPass(),
-					rs.getString("tempPassword"))
-					&& StringUtils.endsWithIgnoreCase(password.getNewPass(),
-								password.getConfirmPass())) {
-			/*query for update password here*/
-				ResultSet rs1= statement.executeQuery("select * from adminuser");
-			/*write query for delete temp table entry  where temp pass== current pass*/
-			 
-			 System.out.println("SUCCESSFULLY EXCUTING THE PASSWORD FLOW");
+			String ReqId = (String) request.getSession().getAttribute(
+					"RequestorId");
+			if (ReqId != null) {
+				// ResultSet rs =
+				// statement.executeQuery("select * from tempdetails where="+ReqId);
+				System.out.println("inside if loop");
+				String ID = (String) request.getSession().getAttribute(
+						"MySessionId");
+				/*
+				 * ResultSet rs1 = statement
+				 * .executeQuery("select * from samplevisitor where requestorId="
+				 * + ID); System.out.println("Step 1"); ResultSet rs =
+				 * statement.
+				 * executeQuery("select * from tempdetails where requestorId="+
+				 * ReqId);
+				 */
+				ResultSet rs = statement
+						.executeQuery("select * from TempDetails where requestorId='"+ ReqId+"'");
+				System.out.println("Step 2");
+				// select * from samplevisitor where requestorId="+ ID
+				while (rs.next()) {
+					if (StringUtils.endsWithIgnoreCase(
+							password.getCurrentPass(),
+							rs.getString("tempPassword"))
+							&& StringUtils.endsWithIgnoreCase(
+									password.getNewPass(),
+									password.getConfirmPass())) {
+						/* query for update password here */
+
+						int rset = statement
+								.executeUpdate("INSERT INTO samplevisitor(requestorId,PASSWORD,firstName,lastName,address,phoneNo,email,loginType)VALUES('"
+										+ ReqId
+										+ "','"
+										+ password.getNewPass()
+										+ "','"
+										+ rs.getString("firstName")
+										+ "','"
+										+ rs.getString("lastName")
+										+ "','"
+										+ rs.getString("address")
+										+ "','"
+										+ rs.getString("phoneNo")
+										+ "','"
+										+ rs.getString("email")
+										+ "','"
+										+ "VISITOR" + "')");
+						/*
+						 * write query for delete temp table entry where temp
+						 * pass== current pass
+						 */
+
+						System.out
+								.println("SUCCESSFULLY EXCUTING THE PASSWORD FLOW");
+					}
+				}
+
+				/* query for delete temp data */
 			}
-			}
-			
+
 		} catch (Exception e) {
-			System.out.println("Exception "+ e);
+			System.out.println("Exception " + e);
 		}
 
+		return null;
+	}
+
+	@Override
+	public Register newEntryDetails(Register register,
+			HttpServletRequest request) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

@@ -10,6 +10,7 @@ import com.pearson.dao.LoginDao;
 import com.pearson.dao.RaiseRequestDao;
 import com.pearson.model.AdminUser;
 import com.pearson.model.RaiseRequest;
+import com.pearson.model.RequestForm;
 
 
 public class RaiseRequestServiceImpl implements RaiseRequestService {
@@ -20,5 +21,12 @@ public class RaiseRequestServiceImpl implements RaiseRequestService {
 		// TODO Auto-generated method stub
 		return raiseRequestDao.newRequestService(id, raiseRequest,request);
 	}
+	@Override
+	public List<AdminUser> newRequestServiceFinal(String id,
+			RequestForm requestForm, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return raiseRequestDao.newRequestServiceFinal(id, requestForm, request);
+	}
+	
 
 }

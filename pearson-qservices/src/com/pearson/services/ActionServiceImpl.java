@@ -36,4 +36,11 @@ public class ActionServiceImpl implements ActionService {
 		return actionDao.successNewEntry(password, request);
 	}
 
+	@Override
+	public Register newRegistrationDetails(Register register,
+			HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return actionDao.newRegistrationDetails(register,request);
+	}
+
 }

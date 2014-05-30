@@ -29,53 +29,41 @@ public class RegistrationController {
 
 	@Autowired
 	ActionService actionService;
-	
+
 	@Autowired
 	RequestService requestService;
 
 	@Value("${From_Email}")
 	private String from;
 
-	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String Getdetail(
+	public ModelAndView Getdetail(
 			@Valid @ModelAttribute("requestForm") Register register,
 			BindingResult result, Map<String, Object> map,
 			HttpServletRequest request, final Model model) {
-		
-		System.out.println(register.getFirstName());
-		System.out.println(register.getLastName());
-		System.out.println(register.getEmail());
-		System.out.println("Binding result  " + result.hasErrors());
-		System.out.println(register.getPhoneNo());
-		System.out.println(register.getAddress1());
-		System.out.println(register.getAddress2());
-		register.setFirstName(register.getAddress3());
 
 		String ses_Id = (String) request.getSession().getAttribute(
 				"MySessionId");
-		System.out.println("INSIDE UPDATE"+ses_Id);
-		
-		//register = actionService.userEntryDetails(register, request);
-		
-		/*if (result.hasErrors()) {
-			return new ModelAndView("register", "user", register);
-		}
+		System.out.println("INSIDE UPDATE" + ses_Id);
 
-		
-		return new ModelAndView("update", "requestForm", register);*/
-		
-		return "register";
+		// register = actionService.userEntryDetails(register, request);
 
+		/*
+		 * if (result.hasErrors()) { return new ModelAndView("register", "user",
+		 * register); }
+		 */
+
+		/********************** sendmail here with temp pass ********************************/
+		return new ModelAndView("register", "user", register);
 	}
-
 	
-	@RequestMapping(value = "/done", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/register/done", method = RequestMethod.POST)
 	public ModelAndView Getdetails(
-			 @ModelAttribute("requestForm") @Valid Register register,
+			@ModelAttribute("requestForm") @Valid Register register,
 			BindingResult result, Map<String, Object> map,
 			HttpServletRequest request, final Model model) {
-		
+
 		System.out.println(register.getFirstName());
 		System.out.println(register.getLastName());
 		System.out.println(register.getEmail());
@@ -87,46 +75,33 @@ public class RegistrationController {
 
 		String ses_Id = (String) request.getSession().getAttribute(
 				"MySessionId");
-		System.out.println("INSIDE UPDATE"+ses_Id);
-		
-		register = actionService.userEntryDetails(register, request);
-		
+		System.out.println("INSIDE UPDATE" + ses_Id);
+
 		if (result.hasErrors()) {
 			return new ModelAndView("register", "register", register);
 		}
-
-		/*send mail with password -- QUERY*/
-		
+		register = actionService.newRegistrationDetails(register, request);
 		return new ModelAndView("confirmPass", "register", register);
-
 	}
 
-	
 	@RequestMapping(value = "/success", method = RequestMethod.POST)
 	public ModelAndView successNewEntry(
-			 @ModelAttribute("password") @Valid Password password,
+			@ModelAttribute("password") @Valid Password password,
 			BindingResult result, Map<String, Object> map,
 			HttpServletRequest request, final Model model) {
-		
+
 		System.out.println(password.getCurrentPass());
 		System.out.println(password.getNewPass());
 		System.out.println(password.getConfirmPass());
 		System.out.println(password.getEmail());
 		System.out.println("Binding result  " + result.hasErrors());
-		
-		
-		password = actionService.successNewEntry(password, request);
-		
+
 		if (result.hasErrors()) {
 			return new ModelAndView("confirmPass", "register", password);
 		}
-
-		
+		password = actionService.successNewEntry(password, request);
 		return new ModelAndView("success", "register", password);
-
 	}
-
-
 
 	/* sample */
 	/*
@@ -138,7 +113,6 @@ public class RegistrationController {
 
 	/* sample end */
 
-	
 	/*
 	 * Working example
 	 * 
@@ -162,5 +136,5 @@ public class RegistrationController {
 	 * (value == true) return Constants.LOGIN_PAGE; return Constants.LOGIN_PAGE;
 	 * }
 	 */
-	
+
 }

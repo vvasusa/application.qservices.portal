@@ -22,5 +22,10 @@ public interface ActionService {
 	public Password successNewEntry(Password password,
 			HttpServletRequest request);
 
+
+
+	public Register newRegistrationDetails(Register register,
+			HttpServletRequest request);
+
 	
 }

@@ -14,7 +14,7 @@
   </style> 
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/done"	method="post" commandName="login" modelAttribute="user">
+<form action="${pageContext.request.contextPath}/register/done"	method="post" commandName="login" modelAttribute="user">
 <table
 					style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 					class="contactForm">

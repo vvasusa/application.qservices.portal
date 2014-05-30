@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,29 +124,7 @@ public class RequestController {
 
 	}
 
-	@ModelAttribute("requestForm")
-	@RequestMapping(value = "/doneReq", method = RequestMethod.POST)
-	public ModelAndView rasieRequestFinalpage(
-			@Valid @ModelAttribute("requestForm") RequestForm requestForm,
-			BindingResult result, Map<String, Object> map,
-			HttpServletRequest request) {
-
-		String serviceID = requestForm.getReq_ServiceID();
-		String serviceName = requestForm.getReq_ServiceName();
-
-		System.out.println(requestForm.getPhoneNo() + "" + serviceName + ""
-				+ serviceID);
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("MySessionId");
-
-		List<AdminUser> adminUser = new ArrayList<AdminUser>();
-		// raiseRequest = raiseRequestService.newRequest(id, request);
-		if (result.hasErrors()) {
-			return new ModelAndView("raiseReq", "adminUser", adminUser);
-		}
-		return new ModelAndView("raiseReq", "adminUser", adminUser);
-
-	}
+	
 
 	@ModelAttribute("RequestForm")
 	@RequestMapping(value = "/raiseRequest", method = RequestMethod.POST)
@@ -163,12 +143,50 @@ public class RequestController {
 		adminUser = raiseRequestService.newRequestService(id, raiseRequest,
 				request);
 		// System.out.println("THE LOGIN TYPE RETURN TO JSP"+user.getLoginType());
-		if (result.hasErrors()) {
-			return new ModelAndView("raiseReq", "adminUser", adminUser);
-		}
-		return new ModelAndView("raiseReq", "adminUser", adminUser);
+		/*if (result.hasErrors()) {
+			return new ModelAndView("", "adminUser", adminUser);
+		}*/
+		return new ModelAndView("confirmPass", "adminUser", adminUser);
 		// return "requestList";
 
 	}
 
+	
+	
+	@ModelAttribute("requestForm")
+	@RequestMapping(value = "/doneReq", method = RequestMethod.POST)
+	public ModelAndView rasieRequestFinalpage(
+			@Valid @ModelAttribute("requestForm") RequestForm requestForm,
+			BindingResult result, Map<String, Object> map,
+			HttpServletRequest request) {
+
+		String serviceID = requestForm.getReq_ServiceID();
+		String serviceName = requestForm.getReq_ServiceName();
+
+		System.out.println(requestForm.getPhoneNo() + "" + serviceName + ""
+				+ serviceID);
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("MySessionId");
+
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		
+		if (result.hasErrors()) {
+			AdminUser user = null;
+			// AdminUser user = new AdminUser();
+			user = new AdminUser();
+			user.setFirstName(requestForm.getFirstName());
+			user.setLastName(requestForm.getLastName());
+			user.setEmail(requestForm.getEmail());
+			user.setPhoneNo(requestForm.getPhoneNo());
+			user.setPhoneNo(requestForm.getSubject());
+			user.setAddress(requestForm.getEmail());
+			adminUser.add(user);
+			
+			return new ModelAndView("raiseReq", "adminUser", adminUser);
+		}
+		adminUser = raiseRequestService.newRequestServiceFinal(id, requestForm,request);
+		return new ModelAndView("success", "adminUser", adminUser);
+
+	}
+	
 }
