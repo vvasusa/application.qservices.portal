@@ -7,21 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 import com.pearson.controller.ActionController;
-import com.pearson.controller.LoginController;
 import com.pearson.controller.MailService;
 import com.pearson.model.AdminUser;
 import com.pearson.model.Password;
 import com.pearson.model.Register;
 import com.pearson.services.JavaMailService;
-import com.pearson.services.JavaMailServiceImpl;
-import com.pearson.controller.*;
 
 public class ActionDaoImpl implements ActionDao {
 
@@ -134,8 +130,10 @@ public class ActionDaoImpl implements ActionDao {
 			MailService mailService = new MailService();
 
 			GentrateUserId Obj = new GentrateUserId();
-			String requestorID = Obj.getUniqueID();
+			StringBuilder requestorID=Obj.getUniqueID();
 			String tempPass = Obj.getPassword();
+			System.out.println("**********************"+Obj.getUniqueID());
+			System.out.println("**********************"+requestorID.toString());
 
 			String firstName = register.getFirstName();
 			String lastName = register.getLastName();
@@ -143,7 +141,7 @@ public class ActionDaoImpl implements ActionDao {
 			String phone = register.getPhoneNo();
 			String address = register.getAddress1();
 
-			System.out.println("UNIQUE ID  " + requestorID);
+			//System.out.println("UNIQUE ID  " + requestorID.toString());
 			System.out.println("Temp pass  " + tempPass);
 
 			/******************* sending email with uniqueid and temp password ************************************/
@@ -187,7 +185,7 @@ public class ActionDaoImpl implements ActionDao {
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
 			String ReqId = (String) request.getSession().getAttribute(
-					"RequestorId");
+					"RequestorId").toString();
 			if (ReqId != null) {
 				// ResultSet rs =
 				// statement.executeQuery("select * from tempdetails where="+ReqId);
@@ -203,7 +201,8 @@ public class ActionDaoImpl implements ActionDao {
 				 * ReqId);
 				 */
 				ResultSet rs = statement
-						.executeQuery("select * from TempDetails where requestorId='"+ ReqId+"'");
+						.executeQuery("select * from TempDetails where requestorId='"
+								+ ReqId + "'");
 				System.out.println("Step 2");
 				// select * from samplevisitor where requestorId="+ ID
 				while (rs.next()) {
@@ -214,8 +213,9 @@ public class ActionDaoImpl implements ActionDao {
 									password.getNewPass(),
 									password.getConfirmPass())) {
 						/* query for update password here */
-
-						int rset = statement
+						Connection connection1 = dataSource.getConnection();
+						Statement statement1 = connection1.createStatement();
+						int rs1 = statement1
 								.executeUpdate("INSERT INTO samplevisitor(requestorId,PASSWORD,firstName,lastName,address,phoneNo,email,loginType)VALUES('"
 										+ ReqId
 										+ "','"

@@ -16,6 +16,10 @@
 <h1> outside </h1>
 <c:forEach var="user" items="${adminUser}">
 <h1> inside </h1>
+
+<a href="${pageContext.request.contextPath}/index/">HomePage</span></a> <a href="${pageContext.request.contextPath}/logout/"> logout</a>
+
+
 	<form action="${pageContext.request.contextPath}/doneReq"
 						method="post" commandName="requestForm" modelAttribute="requestForm">
 		<table

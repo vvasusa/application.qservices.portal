@@ -146,7 +146,7 @@ public class RequestController {
 		/*if (result.hasErrors()) {
 			return new ModelAndView("", "adminUser", adminUser);
 		}*/
-		return new ModelAndView("confirmPass", "adminUser", adminUser);
+		return new ModelAndView("raiseReq", "adminUser", adminUser);
 		// return "requestList";
 
 	}
