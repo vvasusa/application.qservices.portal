@@ -16,7 +16,7 @@
 
 <title>Logical Media</title>
 
-
+ <%-- <a href="${pageContext.request.contextPath}/logout/"> <img src="${pageContext.request.contextPath}/img/logout.jpg"></img></a> --%>
 
 
 <!--  CSS Links-->
@@ -41,8 +41,11 @@
 	href="${pageContext.request.contextPath}/css/site_styles.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-	media="screen, projection" charset="utf-8" />
+		href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
+	media="screen, projection" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"
+	type="text/css" media="screen, projection" />
 
 <!-- jQuery Slider declarations are made in this file. The slider is found at the top of the index/ page-->
 <link rel="stylesheet"
@@ -132,6 +135,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 <![endif]-->
 
 
+<!--LIGHTBOX USAGE -->
+<!--This template makes use of jQuery Lightbox plugin, found here: http://leandrovieira.com/projects/jquery/lightbox/ -->
+<!--To use Lightbox, simply reference "lightbox" as a class in the link to the picture. ex below: -->
+<!-- <a href="image_large.gif" CLASS="lightbox"><img src="image.gif"></a> -->
+<!--For many more uses, consult http://leandrovieira.com/projects/jquery/lightbox/  -->
+<script type="text/javascript">
+	$(function() {
+		$('.lightbox').lightBox();
+	});
+</script>
 <!-- Color hover JavaScript Files -->
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery.color.js"></script>
@@ -224,7 +237,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	</div>
 	<!--panel -->
 
-
+<a href="${pageContext.request.contextPath}/logout/"><b>LOGOUT</b></a>
 
 	<!--The Container class centers design in the center of the screen, -->
 	<!-- 950px width centered-->
@@ -238,7 +251,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<li id="toggle"><a id="open" class="open" href="#">Log In |
 						Register</a> <a id="close" style="display: none;" class="close"
 					href="#">Close Panel</a></li>
+
 			</ul>
+			
 
 
 		</div>
@@ -281,7 +296,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			 --%>
 			 
 			 
-			 <a href="${pageContext.request.contextPath}/logout/"> logout</a>
+			
 			 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
@@ -646,9 +661,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						aliqua.</p>
 					<p class="more">
 						<a href="#"><img
-							src="{pageContext.request.contextPath}/img/readmore.jpg" alt="" /></a>
+							src="${pageContext.request.contextPath}/img/readmore.jpg" alt="" /></a>
 						<a href="#"><img
-							src="{pageContext.request.contextPath}/img/seemore.jpg" alt="" /></a>
+							src="${pageContext.request.contextPath}/img/seemore.jpg" alt="" /></a>
 					</p>
 				</div>
 			</div>

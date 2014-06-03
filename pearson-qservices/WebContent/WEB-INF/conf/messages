@@ -1,0 +1,8 @@
+NotEmpty.register.name=User Name can not be blank.
+Size.register.name=User Name must be between 5 to 20 characters
+Min.register.age= Minimum age must be 5 years
+Size.register.location=Location must be between 5 to 50 characters
+NotEmpty.register.email=User Name can not be blank.
+NotEmpty.register.phoneNo=User Name can not be blank.
+
+

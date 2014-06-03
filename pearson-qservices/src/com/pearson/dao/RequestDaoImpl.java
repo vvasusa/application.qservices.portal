@@ -134,7 +134,7 @@ public class RequestDaoImpl implements RequestDao {
 			// ResultSet rs = statement.executeQuery("select * from Requestor");
 			String ID = (String) request.getSession().getAttribute("MySessionId");
 			ResultSet rs = statement
-					.executeQuery("select * from samplevisitor where password="+ ID);
+					.executeQuery("select * from REQUESTOR where password="+ ID);
 			
 			/*(SELECT * FROM adminuser where userId="+"id)*/
 			/*("select * from samplevisitor where requestorId= :ID")*/
@@ -264,7 +264,7 @@ public class RequestDaoImpl implements RequestDao {
 				Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
 				ResultSet rs = statement
-						.executeQuery("select * from samplevisitor where requestorId="
+						.executeQuery("select * from REQUESTOR where requestorId="
 								+ ID);
 
 				/* (SELECT * FROM adminuser where userId="+"id) */

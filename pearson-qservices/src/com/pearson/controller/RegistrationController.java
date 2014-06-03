@@ -46,28 +46,21 @@ public class RegistrationController {
 				"MySessionId");
 		System.out.println("INSIDE UPDATE" + ses_Id);
 
-		// register = actionService.userEntryDetails(register, request);
-
-		/*
-		 * if (result.hasErrors()) { return new ModelAndView("register", "user",
-		 * register); }
-		 */
-
 		/********************** sendmail here with temp pass ********************************/
 		return new ModelAndView("register", "user", register);
 	}
 	
 
 	@RequestMapping(value = "/register/done", method = RequestMethod.POST)
-	/*public ModelAndView Getdetails(
+	public ModelAndView Getdetails(
 			@ModelAttribute("register") @Valid Register register,
 			BindingResult result, Map<String, Object> map,
 			HttpServletRequest request,  Model model) {
-*/
+
 	
-	public ModelAndView Getdetails(
+	/*public ModelAndView Getdetails(
 			@ModelAttribute("register") @Valid Register register,
-			BindingResult result, Model model) {
+			BindingResult result, Model model) {*/
 
 		System.out.println(register.getFirstName());
 		System.out.println(register.getLastName());
@@ -76,11 +69,9 @@ public class RegistrationController {
 		System.out.println(register.getPhoneNo());
 		System.out.println(register.getAddress1());
 		System.out.println(register.getAddress2());
-		register.setFirstName(register.getAddress3());
 
 	//	String ses_Id = (String) request.getSession().getAttribute(				"MySessionId");
-		//System.out.println("INSIDE UPDATE" + ses_Id);
-
+		
 		if (result.hasErrors()) {
 			
 			System.out.println("**********************************************************");
@@ -90,13 +81,18 @@ public class RegistrationController {
 			System.out.println("***********************************************************");
 			register.setPhoneNo(register.getPhoneNo());
 			register.setEmail(register.getEmail());
+			model.addAttribute("email",register.getEmail());
+			model.addAttribute("age",register.getPhoneNo());
+			
 			return new ModelAndView("register", "register", register);
 		}
-	//	register = actionService.newRegistrationDetails(register, request);
+	register = actionService.newRegistrationDetails(register, request);
 		return new ModelAndView("confirmPass", "register", register);
 		//return "confirmPass";
 	}
 
+	
+	
 	@RequestMapping(value = "/success", method = RequestMethod.POST)
 	public ModelAndView successNewEntry(
 			@ModelAttribute("password") @Valid Password password,

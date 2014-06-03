@@ -14,6 +14,11 @@
 	<context:component-scan base-package="com.pearson.controller" />
 	
 	<context:property-placeholder location="classpath:resources/app.properties" />
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/conf/messages" />
+   </bean>
+	
 
 	<!-- Entry for View for Jsp files START -->
 	<bean id="viewResolver"

@@ -185,7 +185,9 @@ public class RequestController {
 			return new ModelAndView("raiseReq", "adminUser", adminUser);
 		}
 		adminUser = raiseRequestService.newRequestServiceFinal(id, requestForm,request);
-		return new ModelAndView("success", "adminUser", adminUser);
+		//return new ModelAndView("success", "adminUser", adminUser);
+		
+		return new ModelAndView("successRequestList", "adminUser", adminUser);
 
 	}
 	

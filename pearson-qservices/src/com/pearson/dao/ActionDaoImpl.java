@@ -17,6 +17,7 @@ import com.pearson.controller.MailService;
 import com.pearson.model.AdminUser;
 import com.pearson.model.Password;
 import com.pearson.model.Register;
+import com.pearson.model.RequestForm;
 import com.pearson.services.JavaMailService;
 
 public class ActionDaoImpl implements ActionDao {
@@ -172,8 +173,8 @@ public class ActionDaoImpl implements ActionDao {
 							+ "','"
 							+ lastName
 							+ "','"
-							+ email
-							+ "','" + phone + "','" + address + "')");
+							+ address
+							+ "','" + phone + "','" + email + "')");
 
 		} catch (Exception e) {
 
@@ -186,6 +187,7 @@ public class ActionDaoImpl implements ActionDao {
 	public Password successNewEntry(Password password,
 			HttpServletRequest request) {
 		try {
+		
 			System.out.println(password.getCurrentPass());
 			System.out.println(password.getNewPass());
 			System.out.println(password.getConfirmPass());
@@ -224,7 +226,7 @@ public class ActionDaoImpl implements ActionDao {
 						Connection connection1 = dataSource.getConnection();
 						Statement statement1 = connection1.createStatement();
 						int rs1 = statement1
-								.executeUpdate("INSERT INTO samplevisitor(requestorId,PASSWORD,firstName,lastName,address,phoneNo,email,loginType)VALUES('"
+								.executeUpdate("INSERT INTO REQUESTOR(requestorId,PASSWORD,firstName,lastName,address,phoneNo,email,loginType)VALUES('"
 										+ ReqId
 										+ "','"
 										+ password.getNewPass()
@@ -240,13 +242,17 @@ public class ActionDaoImpl implements ActionDao {
 										+ rs.getString("email")
 										+ "','"
 										+ "VISITOR" + "')");
-						/*
-						 * write query for delete temp table entry where temp
-						 * pass== current pass
-						 */
-
+						
 						System.out
 								.println("SUCCESSFULLY EXCUTING THE PASSWORD FLOW");
+						
+					
+						password.setFirstName(rs.getString("firstName"));
+						password.setLastName(rs.getString("lastName"));
+						password.setPhoneNo(rs.getString("phoneNo"));
+						password.setAddress(rs.getString("address"));
+						
+						
 					}
 				}
 
@@ -257,7 +263,7 @@ public class ActionDaoImpl implements ActionDao {
 			System.out.println("Exception " + e);
 		}
 
-		return null;
+		return password;
 	}
 
 	@Override
@@ -266,4 +272,6 @@ public class ActionDaoImpl implements ActionDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 }

@@ -324,7 +324,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		</div>
 		<!--page close-->
-
+		
+<div class="bar bar-header bar-light" align="right">
+			<form
+				action="${pageContext.servletContext.contextPath}/raiseRequest/"
+				method="post" commandName="requestForm">
+				<input type="hidden" name="service" value="QSERVICE" /> <input
+					type="hidden" name="serviceID" value="QTEST" /> <input
+					type="submit" value="SubmitRequest" align="right">
+			</form>
+		</div>
 
 		<div class="span-24">
 		<H1 style="color:#900000">Test program Management</H1>

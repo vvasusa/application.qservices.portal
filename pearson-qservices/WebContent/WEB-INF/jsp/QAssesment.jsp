@@ -179,11 +179,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--panel box1-->
 				<div class="left">
 					<h1>Welcome to Logical Media</h1>
-					<h2>Are you a new client? Let's Begin.</h2>
+					<h3>Are you a new client? Let's Begin.</h3>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 						dolore magna aliqua.</p>
-					<h2>It's Simple and Cost-Effective!</h2>
+					<h3>It's Simple and Cost-Effective!</h3>
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
 							&raquo;</a>
@@ -333,32 +333,29 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<!-- ******************************************************************************** -->
 
-		<div class="bar bar-header bar-light">
+		<div class="bar bar-header bar-light" align="right">
 			<form
 				action="${pageContext.servletContext.contextPath}/raiseRequest/"
 				method="post" commandName="requestForm">
 				<input type="hidden" name="service" value="QSERVICE" /> <input
 					type="hidden" name="serviceID" value="QTEST" /> <input
-					type="submit" value="SubmitRequest" align="left">
+					type="submit" value="SubmitRequest" align="right">
 			</form>
 		</div>
-		<h1>
+		<!-- <h1>
 			<spring:message code="label.requestservice.servicename" />
-		</h1>
+		</h1> -->
 
 		<!-- ******************************************************************************** -->
-
-
-
 		<div class="span-24">
 			<p>
-			<h1 style="color: #900000">Q-Assesment for Integrating Teams</h1>
+			<h3 style="color: #900000">Q-Assesment for Integrating Teams</h3>
 			<a href="${pageContext.servletContext.contextPath}/raiseRequest/">
 			</a>
 			</p>
 
-			<h2 class="myNewStyle" style="color: #3399FF">Key Features
-				Offerings</h2>
+			<h3 class="myNewStyle" style="color: #3399FF">Key Features
+				Offerings</h3>
 
 
 			<p>
@@ -374,7 +371,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			</p>
 
 
-			<h2 style="color: #3399FF">Tools & Accelerators</h2>
+			<h3 style="color: #3399FF">Tools & Accelerators</h3>
 			<p>
 				QCoE Maturity Framework based on CMMi and TMMi that will help in
 				assessing the current maturity of the organization.<br>
@@ -384,8 +381,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					assessment methodology.
 			</p>
 
-			<h2 style="color: #3399FF">Where this service would be
-				benefiting</h2>
+			<h3 style="color: #3399FF">Where this service would be
+				benefiting</h3>
 			<p>
 				For smooth integration of Quality Organizations.<br> Assessment
 					of a prospective organization's quality practices as part of Merger
@@ -394,11 +391,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					towards continuous improvement. 
 			</p>
 
-			<h2 style="color: #3399FF">Project Names where services were
-				offered</h2>
+			<h3 style="color: #3399FF">Project Names where services were
+				offered</h3>
 			<p>1.Wall Street English</p>
 
-			<h2 style="color: #3399FF">Key Highlights from Projects Executed</h2>
+			<h3 style="color: #3399FF">Key Highlights from Projects Executed</h3>
 			<p>
 				1.Clear understanding of the target quality organization's strengths
 				and improvement areas.<br> 2.Identification of tools,

@@ -3,6 +3,7 @@ package com.pearson.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 				Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
 				ResultSet rs = statement
-						.executeQuery("select * from samplevisitor where requestorId="
+						.executeQuery("select * from REQUESTOR where requestorId="
 								+ ID);
 
 				/* (SELECT * FROM adminuser where userId="+"id) */
@@ -102,16 +103,47 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 		GentrateUserId Obj = new GentrateUserId();
 		String reqid = Obj.getRequestID();
 		Obj.getPassword();
+		Timestamp date=Obj.dateAndTime();
 		System.out.println(reqid);
 
+		
 		/******* UPDATE QUERY FOR NEW ENTRY DETAILS IN DB **********/
 		/*request.getSession(true).setAttribute("RequestorId",reqid);
 		request.getSession(true).setAttribute("TempPass",Obj.getPassword());
 		*/
+		String ses_Id = (String) request.getSession().getAttribute(
+				"MySessionId");
+		String ses_Type = (String) request.getSession()
+				.getAttribute("loginType");
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		AdminUser user=null;
+		user = new AdminUser();
 		try {
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
+			
+
+/*INSERT INTO REQUEST(Request_Id ,Requestor_Id , Service_Id ,Last_Updated_Date  , Status_Id )
+ VALUES("1100","12001","TP001",'2013-08-09 12:32:45',"1001");*/
+			
+			
 			int rs = statement
+					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,LastUpdatedOn,ApprovedBy,Status_Id)VALUES('"
+							+ reqid
+							+ "','"
+							+ ses_Id
+							+ "','"
+							+ sid
+							+ "','"
+							+ date
+							+ "','"
+							+ ses_Type
+							+ "','"
+							+ "1" + "')");
+			
+			
+			
+			/*int rs = statement
 					.executeUpdate("INSERT INTO TempInsert(requestorId,requestId,firstName,lastName,email,phoneNo,address)VALUES('"
 							+ reqid
 							+ "','"
@@ -125,8 +157,15 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 							+ "','"
 							+ requestForm.getPhoneNo()
 							+ "','"
-							+ reqid + "')");
-			
+							+ reqid + "')");*/
+			user.setFirstName(requestForm.getFirstName());
+			user.setEmail(requestForm.getEmail());
+			user.setLastName(requestForm.getLastName());
+			user.setPhoneNo(requestForm.getPhoneNo());
+			user.setRequestID(requestForm.getReq_ServiceID());
+			user.setRequestName(requestForm.getReq_ServiceName());
+			user.setRequestID(requestForm.getRequestId());
+			adminUser.add(user);
 
 			/* Send request id to user via mail */
 			MailService mailService = new MailService();
@@ -136,7 +175,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			System.out.println(e);
 		}
 
-		return null;
+		return adminUser;
 	}
 	
 	

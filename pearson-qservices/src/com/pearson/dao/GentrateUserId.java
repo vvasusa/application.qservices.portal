@@ -59,4 +59,10 @@ public class GentrateUserId {
 		return new String(buf);
 	}
 
+	public Timestamp dateAndTime(){
+	java.util.Date date = new java.util.Date();
+	Timestamp TymStamp = new Timestamp(date.getTime());
+	System.out.println(TymStamp);
+	return TymStamp;
+}
 }

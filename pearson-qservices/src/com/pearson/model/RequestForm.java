@@ -32,6 +32,46 @@ public class RequestForm {
 	private String approveID;
 	private String rejectID;
 	
+	private String currentPass;
+
+	private String newPass;
+	private String confirmPass;
+	private String alteremail;
+	
+	public String getCurrentPass() {
+		return currentPass;
+	}
+
+	public void setCurrentPass(String currentPass) {
+		this.currentPass = currentPass;
+	}
+
+	public String getNewPass() {
+		return newPass;
+	}
+
+	public void setNewPass(String newPass) {
+		this.newPass = newPass;
+	}
+
+	public String getConfirmPass() {
+		return confirmPass;
+	}
+
+	public void setConfirmPass(String confirmPass) {
+		this.confirmPass = confirmPass;
+	}
+
+	public String getAlteremail() {
+		return alteremail;
+	}
+
+	public void setAlteremail(String alteremail) {
+		this.alteremail = alteremail;
+	}
+
+
+	
 	public RequestForm getRequestForm() {
 		return requestForm;
 	}

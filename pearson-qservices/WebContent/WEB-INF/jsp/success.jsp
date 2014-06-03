@@ -306,9 +306,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		
-	YOUR DETAILS UPDATED SUSSUESFULLY.
-
-	${requestForm.firstName}
+	${password.firstName} YOUR DETAILS AND REQUEST SUBMITTED SUSSUESFULLY...
+	${adminUser.firstName}
+	
+<c:forEach var="user" items="${adminUser}">
+${user.firstName}
+</c:forEach>
+	
 		<div>
 			<h1></h1>
 
@@ -316,23 +320,21 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<tr>
 					<td class="heading">First Name</td>
 					<td class="heading">Last Name</td>
-					<td class="heading">Email</td>
 					<td class="heading">ContactNo</td>
-					<td class="heading">Req_Name</td>
-					<td class="heading">Req_ID</td>
-					<td class="heading">ACTION</td>
-
-
-				</tr>
+					<td class="heading">Email</td>
+					<td class="heading">Address</td>
+					<td class="heading">ReqID</td>
+					<td class="heading">ReqName</td>
+					
+					</tr>
 				<%-- <c:forEach var="user" items="${adminUser>}"> --%>
 
 				<tr>
-					<td>${requestForm.firstName}</td>
-					<td>${requestForm.lastName}</td>
-					<td>${requestForm.email}</td>
-					<td>${requestForm.phoneNo}</td>
-					<%-- <td>${requestForm.requestName}</td> --%>
-					<%-- <td>${requestForm.requestId}</td> --%>
+					<td>${password.firstName}</td>
+					<td>${password.lastName}</td>
+					<td>${password.phoneNo}</td>
+					<td>${password.email}</td>
+					<td>${password.address}</td>
 					<td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>Edit</span></a></td>
 					

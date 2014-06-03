@@ -77,7 +77,7 @@ public class LoginDaoImpl implements LoginDao {
 
 			/* for requestor table user/pass validation */
 			ResultSet rs1 = statement
-					.executeQuery("select * from  samplevisitor");
+					.executeQuery("select * from  REQUESTOR");
 			while (rs1.next()) {
 				System.out.println("FROM JSP PAGE  " + uname);
 				System.out.println("FROM JSP PAGE " + pass);
