@@ -51,6 +51,8 @@ public class ActionDaoImpl implements ActionDao {
 			/* UPDATE QUERY FOR APPROVED REQUEST ID */
 			ResultSet rs = null;
 			// javaMailService.sendEmail();
+			String id = (String) request.getSession().getAttribute(
+					"MySessionId");
 
 			if (loginType.equals("QA")) {
 
@@ -58,19 +60,25 @@ public class ActionDaoImpl implements ActionDao {
 				 * WRITE QUERY FOR TABLE WHERE STATUS APPROVED BY QA, WHERE
 				 * STATUS =="APPROVED BY QA"
 				 *********/
+				String value="QLEAD";
+				
+				/*change table request Table*/
+				statement.executeQuery("update tempinsert SET ApprovedBy = '"+ value
+										+ "',Status = '"+ "pending"
+										+ "', where requestID = '"
+										+ id
+										+ "'");
+				//statement.executeQuery("update tempinsert SET status = '"+ value+ "' where requestID = '"+ id	+ "'");
+				
 				/******
 				 * WRITE QUERY UPDATE TABLE- COLUMN APPROVED BY
 				 * =="APPROVED BY QA"
 				 *********/
-				rs = statement.executeQuery("select * from adminuser");
+				rs = statement.executeQuery("select * from tempinsert ");
 
 				/* call email method here for sending email */
 
-				/*
-				 * statement
-				 * .executeQuery("SELECT * FROM adminuser where Status = "
-				 * AdminUser user = null; + "");
-				 */
+				
 
 			}
 

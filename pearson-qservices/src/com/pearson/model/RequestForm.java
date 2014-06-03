@@ -29,6 +29,34 @@ public class RequestForm {
 	private String requestName;
 	private String req_ServiceName;
 	private String req_ServiceID;
+	private String approveID;
+	private String rejectID;
+	
+	public RequestForm getRequestForm() {
+		return requestForm;
+	}
+
+	public void setRequestForm(RequestForm requestForm) {
+		this.requestForm = requestForm;
+	}
+
+	public String getApproveID() {
+		return approveID;
+	}
+
+	public void setApproveID(String approveID) {
+		this.approveID = approveID;
+	}
+
+	public String getRejectID() {
+		return rejectID;
+	}
+
+	public void setRejectID(String rejectID) {
+		this.rejectID = rejectID;
+	}
+
+
 	
 
 	private String subject;

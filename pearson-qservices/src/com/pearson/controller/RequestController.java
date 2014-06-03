@@ -189,4 +189,42 @@ public class RequestController {
 
 	}
 	
+	
+	@ModelAttribute("requestForm")
+	@RequestMapping(value = "/userRequestList", method = RequestMethod.GET)
+	public ModelAndView UserRequestList(
+			@Valid @ModelAttribute("requestForm") RequestForm requestForm,
+			BindingResult result, Map<String, Object> map,
+			HttpServletRequest request) {
+
+		String serviceID = requestForm.getReq_ServiceID();
+		String serviceName = requestForm.getReq_ServiceName();
+
+		System.out.println(requestForm.getPhoneNo() + "" + serviceName + ""
+				+ serviceID);
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("MySessionId");
+
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		
+		/*if (result.hasErrors()) {
+			AdminUser user = null;
+			// AdminUser user = new AdminUser();
+			user = new AdminUser();
+			user.setFirstName(requestForm.getFirstName());
+			user.setLastName(requestForm.getLastName());
+			user.setEmail(requestForm.getEmail());
+			user.setPhoneNo(requestForm.getPhoneNo());
+			user.setPhoneNo(requestForm.getSubject());
+			user.setAddress(requestForm.getEmail());
+			adminUser.add(user);
+			
+			return new ModelAndView("raiseReq", "adminUser", adminUser);
+		}*/
+		adminUser = requestService.UserRequestList(id, requestForm,request);
+		return new ModelAndView("userRequestList", "adminUser", adminUser);
+
+	}
+	
+	
 }

@@ -11,9 +11,9 @@ public class Register {
 	private String firstName;
 	@NotNull
 	private String lastName;
-	@Email
+	@Email(message = "Please enter your email addresss.")
 	@NotEmpty(message = "Please enter your email addresss.")
-	@NotNull
+	@NotNull(message = "Please enter your email addresss.")
 	private String email;
 	@NotNull
 	private String phoneNo;

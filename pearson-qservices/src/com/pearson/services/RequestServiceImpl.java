@@ -42,5 +42,12 @@ public class RequestServiceImpl implements RequestService {
 		return requestDao.approveRequest(id);
 	}
 
+	@Override
+	public List<AdminUser> UserRequestList(String id, RequestForm requestForm,
+			HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return requestDao.UserRequestList(id,requestForm,request);
+	}
+
 
 }

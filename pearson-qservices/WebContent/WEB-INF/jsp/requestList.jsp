@@ -23,8 +23,8 @@
 <script type="text/javascript">
   <%String temp = (String) session.getAttribute("MySessionId");%>
 
-var value= "<%=temp%>
-	";
+var value= "<%=temp%>";
+	
 
 	alert(value);
 </script>
@@ -108,7 +108,7 @@ var value= "<%=temp%>
 					<input type="hidden" name=loginType value="${user.loginType}" />
 
 
-					<H1>WELCOME TO VISITOR</H1>
+					<H1>Please update your profile before seeing list of request..</H1>
 					<table
 						style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 						class="contactForm">
@@ -182,8 +182,9 @@ var value= "<%=temp%>
 					</table>
 				</form>
 
-				<%-- </c:if>
-	 </c:forEach>   --%>
+				<h2> click here for seeing list of request rasied by you ..</h2>
+				<a href="${pageContext.request.contextPath}/userRequestList" method="post">click
+		here</a>
 
 			</c:forEach>
 		</c:if>
@@ -221,13 +222,23 @@ var value= "<%=temp%>
 						<td>${user.phoneNo}</td>
 						<td>${user.phoneNo}</td>
 						<td>${user.phoneNo}</td>
+						
+						
 						<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
-						<td><a href="${pageContext.request.contextPath}/approve"
-							method="post">Approve</a></td>
-						<td><a href="${pageContext.request.contextPath}/reject"
-							method="post">Reject</a></td>
-						<%-- <td><a href="edit?id=${user.userId}"></a></td>
+					
+						<td><a href="${pageContext.request.contextPath}/approve?id=${user.firstName}"
+							value="<c:out value="${user.email}"></c:out>"  name="approveID" method="post">Approve</a></td>
+							
+						<td><a href="${pageContext.request.contextPath}/reject?id=${user.firstName}"
+							value="<c:out value="${user.email}"></c:out>" id="${user.email}"  method="post" name="rejectID">Reject</a></td>
+							
+							
+							<%-- <a href="edit?id=${user.userId}">Edit</a> --%>
+
+						<c:out value="${user.email}"></c:out>
+							
+												<%-- <td><a href="edit?id=${user.userId}"></a></td>
 					<td><a href="delete?id=${user.userId}">REJECT</a></td> --%>
 					</tr>
 

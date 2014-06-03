@@ -88,8 +88,8 @@
 <script type="text/javascript">
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
-			'{pageContext.request.contextPath}/img/img_over/main_image2.jpg', '{pageContext.request.contextPath}/img/img_over/main_image3.jpg',
-			'{pageContext.request.contextPath}/img/img_over/main_image4.jpg'
+			'./img/img_over/main_image2.jpg', './img/img_over/main_image3.jpg',
+			'./img/img_over/main_image4.jpg'
 
 	]);
 </script>
@@ -164,58 +164,23 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 	<!--This panel is hidden until the 'Login | Register' button is pressed-->
-		<!--This panel is hidden until the 'Login | Register' button is pressed-->
 	<div id="toppanel">
 		<div id="panel">
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
-					<h2>Are you a new client? Let's Begin.</h2>
-					<p class="color">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-						dolore magna aliqua.</p>
-					<h2>It's Simple and Cost-Effective!</h2>
-					<p class="color">
-						See a demo of our client tools in action <a href="#">here
-							&raquo;</a>
-					</p>
+					
 				</div>
 				<!--panel box1 close-->
 
 				<!--panel box2-->
 				<div class="left">
-					<h1>Member Login</h1>
-					<!-- Login Form -->
-					<form action="${pageContext.request.contextPath}/login"
-						method="post" commandName="login" modelAttribute="user">
-						<%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
-						<label class="color">Username:</label> <input class="field"
-							type="text" name="log" id="log" value="" size="23" /> <label
-							class="color" for="pwd">Password:</label> <input class="field"
-							type="password" name="pwd" id="pwd" size="23" />
-						
-						<label><input name ="rememberme" id="rememberme"
-								type="checkbox" value="forever" />&nbsp;Remember me</label>
-						<div class="clear"></div>
-						<input type="submit" name="submit" value="Login" class="bt_login" />
-						<a class="lost-pwd" href="#">Lost your password?</a>
-					</form>
-				</div>
+					
 				<!--panel box2 close-->
 
 				<!--panel box3-->
 				<div class="left right">
-					<h1>Not a member yet? Sign Up!</h1>
-					<form action="${pageContext.request.contextPath}/register"
-						method="post" commandName="login" modelAttribute="user">
-					<label class="color" for="signup">Username:</label> <input
-						class="field" type="text" name="signup" id="signup" value=""
-						size="23" /> <label class="color" for="email">Email:</label> <input
-						class="field" type="text" name="email" id="email" size="23" /> <label>A
-						password will be e-mailed to you.</label> <input type="submit"
-						name="submit" value="Register" class="bt_register" />
-</form>
+					
 				</div>
 				<!--panel box3-->
 
@@ -234,12 +199,6 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<!-- The tab on top -->
 		<div class="tab">
-			<ul class="login">
-				<!--Button For Login Panel-->
-				<li id="toggle"><a id="open" class="open" href="#">Log In |
-						Register</a> <a id="close" style="display: none;" class="close"
-					href="#">Close Panel</a></li>
-			</ul>
 			
 		</div>
 		<!-- close tab -->
@@ -306,47 +265,42 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		
-	YOUR DETAILS UPDATED SUSSUESFULLY.
+<div>
 
-	${requestForm.firstName}
-		<div>
-			<h1></h1>
-
-			<table border="1">
-				<tr>
-					<td class="heading">First Name</td>
-					<td class="heading">Last Name</td>
-					<td class="heading">Email</td>
-					<td class="heading">ContactNo</td>
-					<td class="heading">Req_Name</td>
-					<td class="heading">Req_ID</td>
-					<td class="heading">ACTION</td>
+			<c:if test="${loginType == 'VISITOR'}">
+				<table border="1">
 
 
-				</tr>
-				<%-- <c:forEach var="user" items="${adminUser>}"> --%>
+					<tr>
+						<td class="heading">First Name</td>
+						<td class="heading">Last Name</td>
+						<td class="heading">Email</td>
+						<td class="heading">ContactNo</td>
+						<td class="heading">Req_Name</td>
+						<td class="heading">Req_ID</td>
+						<td class="heading">ACTION</td>
+						<td class="heading">ACTION</td>
 
-				<tr>
-					<td>${requestForm.firstName}</td>
-					<td>${requestForm.lastName}</td>
-					<td>${requestForm.email}</td>
-					<td>${requestForm.phoneNo}</td>
-					<%-- <td>${requestForm.requestName}</td> --%>
-					<%-- <td>${requestForm.requestId}</td> --%>
-					<td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>Edit</span></a></td>
-					
-					<%-- <td><a href="edit?id=${user.userId}"></a></td> --%>
+					</tr>
+					<c:forEach var="user" items="${adminUser}">
+						<%-- <c:if test="${user.loginType=='QA'}"> --%>
 
-				</tr>
-				<%-- </c:forEach> --%>
-				<tr>
-					
-				</tr>
-			</table>
-			
-		</div>
-	
+						<tr>
+							<td>${user.firstName}</td>
+							<td>${user.lastName}</td>
+							<td>${user.email}</td>
+							<td>${user.phoneNo}</td>
+							<td>${user.phoneNo}</td>
+							<td>${user.phoneNo}</td>
+						</tr>
+					</c:forEach>
+				</table>
+		</form>
+
+
+
+		</c:if>
+	</div>
 	
 		<!-- Declare 950px width for IE-->
 		<div class="span-24">

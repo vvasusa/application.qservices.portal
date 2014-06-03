@@ -2,6 +2,9 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,7 +17,13 @@
   </style> 
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/register/done"	method="post" commandName="login" modelAttribute="user">
+
+
+
+
+
+
+<form action="${pageContext.request.contextPath}/register/done"	method="post" commandName="register" modelAttribute="user">
 <table
 					style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 					class="contactForm">
@@ -23,26 +32,26 @@
 						<td
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-							type="text" name="firstName" value="${user.firstName}" /></td>
+							type="text" name="firstName" value="${register.firstName}"  <form:errors path="firstName" cssClass="error"/>/></td> <form:errors path="firstName" cssClass="error"/>
 					</tr>
 					<tr>
 						<td
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-							type="text" name="lastName" value="${user.lastName}" /></td>
+							type="text" name="lastName" value="${register.lastName}"  <form:errors path="lastName" cssClass="error"/>/></td> <form:errors path="lastName" cssClass="error"/>
 					</tr>
 					<tr>
 						<td
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-							type="text" name="email" value="${user.email}" <form:errors path="email" /> /></td>
+							type="text" name="email" value="${register.email}" <form:errors path="email" /> /></td>
 						<td><form:errors path="email" cssClass="error"/></td>
 					</tr>
 					<tr>
 						<td
 							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-							type="text" name="phoneNo" value="${user.phoneNo}" /></td>
+							type="text" name="phoneNo" value="${register.phoneNo}" /></td>
 					</tr>
 
 					<tr>
@@ -86,6 +95,7 @@
 					</tr>
 				</table>
 				</form>
+			
 
 </body>
 </html>
