@@ -125,6 +125,119 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	});
 </script>
 
+
+
+<style>
+#contact label {
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+}
+
+#contact_submit {
+	padding-left: 100px;
+}
+
+#contact div {
+	margin-top: 1em;
+}
+
+textarea {
+	vertical-align: top;
+	height: 5em;
+}
+
+.errordis {
+
+background-color: #FFD9D9  !important;
+	border: 1px solid #F00 !important
+ 
+}
+
+.error_show {
+	color: red;
+	margin-left: 10px;
+}
+
+input.invalid,textarea.invalid {
+	border: 2px solid red;
+}
+
+input.valid,textarea.valid {
+	border: 2px solid green;
+}
+</style>
+
+
+
+<!-- ****************************************************************************************************** -->
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#form1').on("submit", function(e){
+		$("#firstName").addClass('#error');
+		alert('jhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjh!');
+		var val_first_name = $("#firstName").val();
+		var val_last_name = $("#lastName").val();
+		var val_phoneNo = $("#phoneNo").val();
+		var val_emailadd = $("#emailadd").val();
+
+		
+		$("#firstName").removeClass('errordis');	
+		$("#lastName").removeClass('errordis');	
+		$("#phoneNo").removeClass('errordis');
+		$("#emailadd").removeClass('errordis');
+
+		if( $.trim(val_first_name) === '' )
+		{
+			
+			$("#firstName").addClass("errordis");
+			
+			$("#firstName").focus();
+			addedClass = "green";
+			e.preventDefault();
+		}
+
+		
+		
+		 if( $.trim(val_last_name) === '' )
+		{
+				
+			$("#lastName").addClass('errordis');
+			$("#lastName").focus();	
+			e.preventDefault();
+		}	
+		
+		
+		if( $.trim(val_phoneNo) === '' )
+		{
+				
+			
+			$("#phoneNo").addClass('errordis');
+			$("#phoneNo").focus();	
+			e.preventDefault();
+		}	
+		
+		if( $.trim(val_emailadd) === '' )
+		{
+			
+			
+			$("#emailadd").addClass('errordis');
+			$("#emailadd").focus();	
+			e.preventDefault();
+		}	
+		else{return true;}
+
+	});		
+
+});
+
+</script>
+<!-- ************************************************************************************************************** -->
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -249,9 +362,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		<form action="${pageContext.request.contextPath}/doneReq"
-			method="post" commandName="requestForm" modelAttribute="requestForm">
+			method="post" commandName="requestForm" id="form1" modelAttribute="requestForm">
 			<table
-				style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
+				style="width: 0px; background-color: #fff; border: 1px solid #ddd; padding: 500px; font-size: 12px;"
 				class="contactForm">
 
 				<tr>
@@ -259,7 +372,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">ServiceName:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="req_ServiceName" value="REQNAME" readonly /></td>
+						type="text" name="req_ServiceName" value="${user.requestName}" readonly /></td>
 				</tr>
 
 				<tr>
@@ -267,26 +380,26 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">ServiceID:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="req_ServiceID" value="REQ ID" readonly /></td>
+						type="text" name="req_ServiceID" value="${user.requestID}" readonly /></td>
 				</tr>
 				<tr>
 
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="firstName" value="${user.firstName}" /></td>
+						type="text" name="firstName" id="firstName" value="${user.firstName}" /></td>
 				</tr>
 				<tr>
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="lastName" value="${user.lastName}" /></td>
+						type="text" name="lastName"  id="lastName" value="${user.lastName}" /></td>
 				</tr>
 				<tr>
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="email" value="${user.email}" /> <form:errors
+						type="text" name="email"  id="emailadd"  value="${user.email}" /> <form:errors
 							path="email" /></td>
 					
 				</tr>
@@ -294,7 +407,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="phoneNo" value="${user.phoneNo}" /></td>
+						type="text" name="phoneNo" id="phoneNo" value="${user.phoneNo}" /></td>
 				</tr>
 
 				<tr>
@@ -308,13 +421,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<tr>
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><select
-						type="text" name="requestname">
-							<option value="volvo">INDIA</option>
-							<option value="saab">CHINA</option>
-							<option value="mercedes">US</option>
-							<option value="audi">UK</option>
-					</select></td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+						type="text" name="address"/>
+							</td>
 				</tr>
 				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
 				<tr>

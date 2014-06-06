@@ -3,6 +3,7 @@ package com.pearson.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class ActionDaoImpl implements ActionDao {
 	/*
 	 * @Autowired GentrateUserId gentrateUserId;
 	 */
+	GentrateUserId obj = new GentrateUserId();
 
 	@Override
 	public List<AdminUser> approveRequest(String requestId,
@@ -44,6 +46,7 @@ public class ActionDaoImpl implements ActionDao {
 		System.out.println(loginType);
 
 		AdminUser user = null;
+		Timestamp Dt = obj.dateAndTime();
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		try {
 
@@ -61,73 +64,116 @@ public class ActionDaoImpl implements ActionDao {
 				 * WRITE QUERY FOR TABLE WHERE STATUS APPROVED BY QA, WHERE
 				 * STATUS =="APPROVED BY QA"
 				 *********/
-				String value="QLEAD";
-				
-				/*change table request Table*/
-				statement.executeQuery("update tempinsert SET ApprovedBy = '"+ value
-										+ "',Status = '"+ "pending"
-										+ "', where requestID = '"
-										+ id
-										+ "'");
-				//statement.executeQuery("update tempinsert SET status = '"+ value+ "' where requestID = '"+ id	+ "'");
-				
-				/******
-				 * WRITE QUERY UPDATE TABLE- COLUMN APPROVED BY
-				 * =="APPROVED BY QA"
-				 *********/
-				rs = statement.executeQuery("select * from tempinsert ");
+				String value = "QA";
+				int sts = 2;
+				try {
+					/*
+					 * statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+					 * + value + "',Status_id = '"+ sts +
+					 * "', where requestId = '" + requestId + "'");
+					 */
 
-				/* call email method here for sending email */
+					statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+							+ value + "',Status_id = '" + sts
+							+ "',LastUpdatedOn = '" + Dt
+							+ "' where RequestId ='" + requestId + "'");
 
-				
+					// update REQUEST SET ApprovedBy = "QLEAD",Status_id = "2"
+					// where requestID = "2COXMP92TX";
+
+					// statement.executeQuery("update tempinsert SET status = '"+
+					// value+ "' where requestID = '"+ id + "'");
+
+					/******
+					 * WRITE QUERY UPDATE TABLE- COLUMN APPROVED BY
+					 * =="APPROVED BY QA"
+					 *********/
+					rs = statement
+							.executeQuery("select * from request where ApprovedBy ='"
+									+ value + "'");
+				} catch (Exception e) {
+					System.out.println(e);
+				}
 
 			}
 
-			else if (loginType.equals("")) {
-
-				statement
-						.executeQuery("SELECT * FROM adminuser where Status = "
-								+ "");
+			else if (loginType.equals("PL")) {
+				String value = "PL";
+				int sts = 3;
+				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+						+ value + "',Status_id = '" + sts
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");
+				rs = statement
+						.executeQuery("select * from request where ApprovedBy ='"
+								+ value + "'");
 			}
 
-			else if (loginType.equals("")) {
-				statement
-						.executeQuery("SELECT * FROM adminuser where Status = "
-								+ "");
+			else if (loginType.equals("SLM")) {
+				int sts = 3;
+				String value = "SLM";
+				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+						+ value + "',Status_id = '" + sts
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");
+				rs = statement
+						.executeQuery("select * from request where ApprovedBy ='"
+								+ value + "'");
 			}
 
-			else if (loginType.equals("")) {
+			else if (loginType.equals("ADM")) {
+				int sts = 3;
+				String value = "ADM";
+				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+						+ value + "',Status_id = '" + sts
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");
+				rs = statement
+						.executeQuery("select * from request where ApprovedBy ='"
+								+ value + "'");
 
-				statement
-						.executeQuery("SELECT * FROM adminuser where Status = "
-								+ "");
 			} else if (loginType.equals("")) {
+				int sts = 3;
+				String value = "ADM";
+				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+						+ value + "',Status_id = '" + sts
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");
+				rs = statement
+						.executeQuery("select * from request where ApprovedBy ='"
+								+ value + "'");
 
-				statement
-						.executeQuery("SELECT * FROM adminuser where Status = "
-								+ "");
 			} else {
 			}
 			while (rs.next()) {
 				user = new AdminUser();
 				// rs.getString(rs.get)
-				String value = rs.getString("loginType");
-				user.setLoginType(rs.getString("loginType"));
-				user.setEmail(rs.getString("email"));
-				user.setFirstName(rs.getString("firstName"));
-				user.setLastName(rs.getString("lastName"));
-				user.setPhoneNo(rs.getString("phoneNo"));
+				/*
+				 * String value = rs.getString("loginType");
+				 * System.out.println(value);
+				 * user.setLoginType(rs.getString("loginType"));
+				 * user.setEmail(rs.getString("email"));
+				 * user.setFirstName(rs.getString("firstName"));
+				 * user.setLastName(rs.getString("lastName"));
+				 * user.setPhoneNo(rs.getString("phoneNo"));
+				 */
+				user.setApprovedBy(rs.getString("ApprovedBy"));
+				user.setRaisedReqId(rs.getString("RequestId"));
+				user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
+				// user.setLastUpdatedOn(Dt.toString());
+				user.setServiceId(rs.getString("ServiceId"));
+				user.setStatus_Id(rs.getString("Status_Id"));
+
 				adminUser.add(user);
 				System.out.println("inside rs");
-				System.out.println(value);
 
 			}
 
 		}
 
 		catch (Exception e) {
+			System.out.println(e);
 		}
-
 		return adminUser;
 	}
 
@@ -139,10 +185,11 @@ public class ActionDaoImpl implements ActionDao {
 			MailService mailService = new MailService();
 
 			GentrateUserId Obj = new GentrateUserId();
-			StringBuilder requestorID=Obj.getUniqueID();
+			StringBuilder requestorID = Obj.getUniqueID();
 			String tempPass = Obj.getPassword();
-			System.out.println("**********************"+Obj.getUniqueID());
-			System.out.println("**********************"+requestorID.toString());
+			System.out.println("**********************" + Obj.getUniqueID());
+			System.out.println("**********************"
+					+ requestorID.toString());
 
 			String firstName = register.getFirstName();
 			String lastName = register.getLastName();
@@ -150,7 +197,7 @@ public class ActionDaoImpl implements ActionDao {
 			String phone = register.getPhoneNo();
 			String address = register.getAddress1();
 
-			//System.out.println("UNIQUE ID  " + requestorID.toString());
+			// System.out.println("UNIQUE ID  " + requestorID.toString());
 			System.out.println("Temp pass  " + tempPass);
 
 			/******************* sending email with uniqueid and temp password ************************************/
@@ -187,15 +234,15 @@ public class ActionDaoImpl implements ActionDao {
 	public Password successNewEntry(Password password,
 			HttpServletRequest request) {
 		try {
-		
+
 			System.out.println(password.getCurrentPass());
 			System.out.println(password.getNewPass());
 			System.out.println(password.getConfirmPass());
 			System.out.println(password.getEmail());
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
-			String ReqId = (String) request.getSession().getAttribute(
-					"RequestorId").toString();
+			String ReqId = (String) request.getSession()
+					.getAttribute("RequestorId").toString();
 			if (ReqId != null) {
 				// ResultSet rs =
 				// statement.executeQuery("select * from tempdetails where="+ReqId);
@@ -242,17 +289,15 @@ public class ActionDaoImpl implements ActionDao {
 										+ rs.getString("email")
 										+ "','"
 										+ "VISITOR" + "')");
-						
+
 						System.out
 								.println("SUCCESSFULLY EXCUTING THE PASSWORD FLOW");
-						
-					
+
 						password.setFirstName(rs.getString("firstName"));
 						password.setLastName(rs.getString("lastName"));
 						password.setPhoneNo(rs.getString("phoneNo"));
 						password.setAddress(rs.getString("address"));
-						
-						
+
 					}
 				}
 
@@ -273,5 +318,4 @@ public class ActionDaoImpl implements ActionDao {
 		return null;
 	}
 
-	
 }

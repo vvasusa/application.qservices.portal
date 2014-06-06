@@ -92,8 +92,8 @@ public class RequestDaoImpl implements RequestDao {
 				/*ResultSet rs = statement
 						.executeQuery("SELECT * FROM adminuser where userId= 'AD02'");*/
 				ResultSet rs = statement
-						.executeQuery("SELECT * FROM adminuser ");
-				System.out.println("INSIDE select * from adminuser  ");
+						.executeQuery("SELECT * FROM REQUEST");
+				System.out.println("INSIDfrom adminuser  ");
 				// String loginType = "QA";
 				// if(loginType.equalsIgnoreCase("QA")){
 
@@ -101,7 +101,7 @@ public class RequestDaoImpl implements RequestDao {
 					user = new AdminUser();
 					// String str1=(rs.getString(1));
 					// user.setUserId("userId");
-					user.setLoginType(rs.getString("loginType"));
+					/*user.setLoginType(rs.getString("loginType"));
 					user.setFirstName(rs.getString("firstName"));
 					user.setLastName(rs.getString("lastName"));
 					user.setPhoneNo(rs.getString("phoneNo"));
@@ -110,9 +110,20 @@ public class RequestDaoImpl implements RequestDao {
 					user.setUserId(userId);
 					// user.setLocation(rs.getString("location"));
 					user.setAddress(rs.getString("address"));
-					user.setEmail(rs.getString("email"));
+					user.setEmail(rs.getString("email"));*/
+					String ses_Type = (String) request.getSession().getAttribute(
+							"loginType");
+					if(!(rs.getString("ApprovedBy").equalsIgnoreCase(ses_Type))){
+						
+					user.setRaisedReqId(rs.getString("RequestId"));
+					user.setRequestorId(rs.getString("RequestorId"));
+					user.setServiceId(rs.getString("ServiceId"));
+				//	user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
+					user.setLastUpdatedOn(rs.getString("Date"));
+					user.setApprovedBy(rs.getString("ApprovedBy"));
+					user.setStatus_Id(rs.getString("Status_Id"));
 					adminUser.add(user);
-
+					}
 				}
 			}
 
@@ -173,6 +184,7 @@ public class RequestDaoImpl implements RequestDao {
 					user.setEmail(Email);
 					user.setPhoneNo(PhoneNo);
 					user.setLoginType(loginType);
+					
 					adminUser.add(user);
 
 				}
@@ -264,7 +276,7 @@ public class RequestDaoImpl implements RequestDao {
 				Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
 				ResultSet rs = statement
-						.executeQuery("select * from REQUESTOR where requestorId="
+						.executeQuery("select * from REQUEST where requestorId="
 								+ ID);
 
 				/* (SELECT * FROM adminuser where userId="+"id) */
@@ -290,9 +302,9 @@ public class RequestDaoImpl implements RequestDao {
 					if (StringUtils.endsWithIgnoreCase(ses_Id,
 							rs.getString("requestorId"))
 							&& StringUtils.endsWithIgnoreCase(ses_Type,
-									rs.getString("loginType"))) {
-
-						// String str1=(rs.getString(1));
+									ses_Type)) {
+/*
+						 String str1=(rs.getString(1));
 						String Req_Fname = (rs.getString("firstName"));
 						String Req_Lname = (rs.getString("lastName"));
 						String Email = (rs.getString("email"));
@@ -307,11 +319,23 @@ public class RequestDaoImpl implements RequestDao {
 						user.setPhoneNo(PhoneNo);
 						user.setLoginType(loginType);
 						adminUser.add(user);
-
+*/
+						
+						user.setApprovedBy(rs.getString("ApprovedBy"));
+						user.setRequestorId(rs.getString("RequestorId"));
+						user.setStatus_Id(rs.getString("Status_Id"));
+						user.setRequestID(rs.getString("RequestId"));
+						user.setRaisedDate(rs.getString("Date"));
+						user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
+						user.setServiceId(rs.getString("ServiceId"));
+						adminUser.add(user);
+						
+						
 					}
 				}
 			}
 		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return adminUser;
 	}

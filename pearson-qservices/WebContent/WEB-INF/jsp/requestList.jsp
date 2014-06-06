@@ -158,7 +158,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-
+<a href="${pageContext.request.contextPath}/logout/"><b>LOGOUT</b></a>
 <body>
 
 
@@ -419,11 +419,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<input type="hidden" name=loginType value="${user.loginType}" />
 
 
-					<H1>Please update your profile before seeing list of request..</H1>
+				<p>	<h3>Welcome <b>${user.firstName}</b> Please update your profile before seeing your request...</h3></p>
 					<table
 						style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 						class="contactForm">
 						<tr>
+						
+					<%-- 	
 
 							<td
 								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
@@ -436,6 +438,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 								type="text" name="lastName" value="${user.lastName}" /></td>
 						</tr>
+						
+						
+						 --%>
+						
 						<tr>
 							<td
 								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
@@ -451,14 +457,19 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 								type="text" name="phoneNo" value="${user.phoneNo}" /></td>
 						</tr>
 
+
+
 						<tr>
 							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject:</td>
+								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">address:</td>
 							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 								type="text" name="subject" value="" /></td>
 						</tr>
+						
+						
+						<!-- 
 
-						<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
+						CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START
 						<tr>
 							<td
 								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Request:</td>
@@ -470,14 +481,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 									<option value="audi">Audi</option>
 							</select></td>
 						</tr>
-						<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
+						CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END
 						<tr>
 							<td
 								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
 							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 								type="text" name="subject" value="" /></td>
 						</tr>
-
+ -->
 						<tr>
 							<td colspan="2"
 								style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
@@ -513,35 +524,33 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 				<tr>
-					<td class="heading">First Name</td>
-					<td class="heading">Last Name</td>
-					<td class="heading">Email</td>
-					<td class="heading">ContactNo</td>
-					<td class="heading">Req_Name</td>
-					<td class="heading">Req_ID</td>
-					<td class="heading">ACTION</td>
-					<td class="heading">ACTION</td>
-
+					<td class="heading">REQUEST ID</td>
+					<td class="heading">REQUESTORID</td>
+					<td class="heading">SERVICEID</td>
+					<td class="heading">RAISED DATE</td>
+					<td class="heading">APPROVEDBY</td>
+					<td class="heading">STATUS</td>
+					
 				</tr>
 				<c:forEach var="user" items="${adminUser}">
 					<%-- <c:if test="${user.loginType=='QA'}"> --%>
 
+
 					<tr>
-						<td>${user.firstName}</td>
-						<td>${user.lastName}</td>
-						<td>${user.email}</td>
-						<td>${user.phoneNo}</td>
-						<td>${user.phoneNo}</td>
-						<td>${user.phoneNo}</td>
-						
+						<td>${user.raisedReqId}</td>
+						<td>${user.requestorId}</td>
+						<td>${user.serviceId}</td>
+						<td>${user.lastUpdatedOn}</td>
+						<td>${user.approvedBy}</td>
+						<td>${user.status_Id}</td>
 						
 						<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
 					
-						<td><a href="${pageContext.request.contextPath}/approve?id=${user.firstName}"
+						<td><a href="${pageContext.request.contextPath}/approve?id=${user.raisedReqId}"
 							value="<c:out value="${user.email}"></c:out>"  name="approveID" method="post">Approve</a></td>
 							
-						<td><a href="${pageContext.request.contextPath}/reject?id=${user.firstName}"
+						<td><a href="${pageContext.request.contextPath}/reject?id=${user.raisedReqId}"
 							value="<c:out value="${user.email}"></c:out>" id="${user.email}"  method="post" name="rejectID">Reject</a></td>
 							
 							

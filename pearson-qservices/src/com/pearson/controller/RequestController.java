@@ -134,6 +134,8 @@ public class RequestController {
 
 		String serviceName = raiseRequest.getService();
 		String serviceID = raiseRequest.getServiceID();
+		
+		System.out.println(serviceName +  serviceID);
 		RequestForm requestForm = new RequestForm();
 		System.out.println(requestForm.getPhoneNo());
 		HttpSession session = request.getSession();
@@ -146,6 +148,7 @@ public class RequestController {
 		/*if (result.hasErrors()) {
 			return new ModelAndView("", "adminUser", adminUser);
 		}*/
+		
 		return new ModelAndView("raiseReq", "adminUser", adminUser);
 		// return "requestList";
 

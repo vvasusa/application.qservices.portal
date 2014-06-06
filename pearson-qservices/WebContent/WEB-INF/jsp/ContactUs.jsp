@@ -1,28 +1,10 @@
-<!-- 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 
 <html lang="en">
 <head>
- -->
- 
- 
- 
-<?xml version="1.0"?>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd"> 
-
-<html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd"> -->
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<?xml version="1.0"?>
 <title>Contact Us - Logical Media</title>
 
 <!-- CSS Links-->
@@ -241,24 +223,24 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<!--Logo Area-->
 			<div class="logo">
 				<a href="${pageContext.request.contextPath}/index/"><img
-					src="./img/logo.jpg" alt="" /></a>
+					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
 			</div>
 			<!--Close Logo Area-->
-			
+
 
 			<!--Begin Navigation-->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/services/"
+					<li><a href="${pageContext.request.contextPath}/services/"
 					id="services" title="Our Services"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
+					<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request"><span>Request</span></a></li>
+					id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
+				
 				<li><a href="${pageContext.request.contextPath}/contact/"
-					id="contact" title="Contact Us"><span>contact us</span></a></li>
-
+					id="contact_front" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
 			<!--Navigation close-->
 
@@ -268,24 +250,26 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 		</div>
 		<!--Header Close-->
 
+<h2> Your Query was submitted successfully,  We will contact you soon..... ThankYou</h2>
 
+<h3>Visit Again</h3>
 		<!--Begin Page Area, below header navigation-->
-		<div class="page">
+		<%-- <div class="page">
 			<!--Declare 950px width w/ right border-->
 			<div class="span-24">
 				<!--Intro Image shown here, about site-->
 				<div class="intro">
-					<img src="./img/contact_banner.gif" alt="" />
+					<img src="${pageContext.request.contextPath}/img/contact_banner.gif" alt="" />
 				</div>
 				<!--Close intro image-->
-			</div>
+			</div> --%>
 			<!--Close 950px width-->
 
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
-			<div class="span-24">
+			<!-- <div class="span-24">
 				<div class="hrbg_small"></div>
-			</div>
+			</div> -->
 			<!--Close span-24-->
 
 			<!--#BEGIN LEFT CONTENT PAGE#-->
@@ -306,73 +290,6 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<!--This form below is exactly how it is viewed as a php handler-->
 
 					<!--Replace Code Below for PHP Integration-->
-					
-					
-					
-					
-					
-					
-					
-					
-						
-	${password.firstName} YOUR DETAILS AND REQUEST SUBMITTED SUSSUESFULLY...
-	
-	
-<c:forEach var="user" items="${adminUser}">
-${user.firstName}
-
-	
-		<div>
-			<h1></h1>
-
-			<table border="1">
-				<tr>
-					<td class="heading">First Name</td>
-					<td class="heading">Last Name</td>
-					<td class="heading">ContactNo</td>
-					<td class="heading">Email</td>
-					<td class="heading">Address</td>
-					<td class="heading">ReqID</td>
-					<td class="heading">ReqName</td>
-					
-					</tr>
-				<%-- <c:forEach var="user" items="${adminUser>}"> --%>
-
-				<tr>
-					<td>${user.firstName}</td>
-					<td>${user.lastName}</td>
-					<td>${user.phoneNo}</td>
-					<td>${user.email}</td>
-					<td>${user.address}</td>
-					 <td>${user.requestID}</td>
-					<td>${user.requestName}</td> 
-					<td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>Edit</span></a></td>
-					
-					<%-- <td><a href="edit?id=${user.userId}"></a></td> --%>
-
-				</tr>
-				<%-- </c:forEach> --%>
-				<tr>
-					
-				</tr>
-			</table>
-			</c:forEach>
-		</div>
-	
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
 					
 					
 					<!--END FORM -->
@@ -398,89 +315,88 @@ ${user.firstName}
 			<!--#BEGIN SIDEBAR#-->
 			<!--This area is found to the right of the page content-->
 			<!--Declare 230px width-->
-			<div class="span-6 last">
-				<!--Sidebar Boxed Style with 20px padding-->
+<!-- 			<div class="span-6 last">
+				Sidebar Boxed Style with 20px padding
 				<div class="boxed_top"></div>
 				<div class="boxed">
 
-					<!--#Begin Latest News Title-->
+					#Begin Latest News Title
 					<h3 class="grey">Latest News</h3>
-					<!--add spacing-->
+					add spacing
 					<hr class="space" />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
-					<!--add hr line-->
+					add hr line
 					<hr />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
-					<!--add hr line-->
+					add hr line
 					<hr />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
 
 				</div>
-				<!--boxed close-->
+				boxed close
 
-				<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-				<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-				<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
+				This is an IE6 workaround for problems rendering jquery sliding text-overs.
+				WIthout this fix, IE6 renders "Visit Site" outside of the last image
+				[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]
 				<div class="boxed_bottom"></div>
 
-				<!--add spacing-->
+				add spacing
 				<hr class="space" />
 
 
 
 
 			</div>
-			<!--span-6 close-->
-			<!--#CLOSE SIDEBAR#-->
+			span-6 close
+			#CLOSE SIDEBAR#
 
 
 
 
 
 		</div>
-		<!--page close-->
+		page close
 
 
-		<!-- Declare 950px width for IE-->
+		Declare 950px width for IE
 		<div class="span-24">
-			<!--add hr line-->
+			add hr line
 			<div class="hrbg_small"></div>
-		</div>
+		</div> -->
 		<!--close hr line, 950px IE fix-->
-
 
 
 		<!-- Declare 950px width for IE, once again. Corrects positioning-->
@@ -504,6 +420,7 @@ ${user.firstName}
 
 				</div>
 				<!--footer close-->
+
 
 				<!--Footer navigation goes here-->
 				<!--Declare 310px width-->

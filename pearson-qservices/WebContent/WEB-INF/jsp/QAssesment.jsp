@@ -5,14 +5,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-
-<html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
 <title>Logical Media</title>
@@ -198,8 +200,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<h1>Member Login</h1>
 					<!-- Login Form -->
 
-					<form action="${pageContext.request.contextPath}/success/"
-						method="get" onclick="return validation()">
+					<form action="${pageContext.request.contextPath}/login/"
+						method="post" onclick="return validation()">
 						<%--  <a href = "${pageContext.request.contextPath}/success/"> value </a> --%>
 						<label class="color">Username:</label> <input class="field"
 							type="text" name="log" id="log" value="" size="23" /> <label
@@ -332,16 +334,21 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<!--page close-->
 
 		<!-- ******************************************************************************** -->
+		<c:if test="${!empty loginType}">
+			<c:if test="${loginType=='VISITOR'}">
 
-		<div class="bar bar-header bar-light" align="right">
-			<form
-				action="${pageContext.servletContext.contextPath}/raiseRequest/"
-				method="post" commandName="requestForm">
-				<input type="hidden" name="service" value="QSERVICE" /> <input
-					type="hidden" name="serviceID" value="QTEST" /> <input
-					type="submit" value="SubmitRequest" align="right">
-			</form>
-		</div>
+				<div class="bar bar-header bar-light" align="right">
+					<form
+						action="${pageContext.servletContext.contextPath}/raiseRequest/"
+						method="post" commandName="requestForm">
+						<input type="hidden" name="service" value="QSERVICE" /> <input
+							type="hidden" name="serviceID" value="QT001" /> <input
+							type="submit" value="SubmitRequest" align="right">
+					</form>
+
+				</div>
+			</c:if>
+		</c:if>
 		<!-- <h1>
 			<spring:message code="label.requestservice.servicename" />
 		</h1> -->
@@ -364,10 +371,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				operating levels and to identify potential impact areas.<br>
 					Deploy QCoE's proprietary QA assessment framework to evaluate
 					maturity of target Q-organization highlighting opportunity areas to
-					improve and vice-versa.
+					improve and vice-versa. 
 				<br> Refine or redefine QA process for merging organizations. 
 				<br>Build Quality Maturity Implementation Roadmap including
-					tools consolidation & environment management.
+					tools consolidation & environment management. 
 			</p>
 
 
@@ -376,9 +383,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				QCoE Maturity Framework based on CMMi and TMMi that will help in
 				assessing the current maturity of the organization.<br>
 					Templatized assessment plan that to perform multi-fold assessment
-					and derive a roadmap.
+					and derive a roadmap. 
 				<br>Reusable evaluation artifacts to ensure consistent
-					assessment methodology.
+					assessment methodology. 
 			</p>
 
 			<h3 style="color: #3399FF">Where this service would be
@@ -386,7 +393,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<p>
 				For smooth integration of Quality Organizations.<br> Assessment
 					of a prospective organization's quality practices as part of Merger
-					& Acquisition process.
+					& Acquisition process. 
 				<br>To evaluate current maturity of the quality organization
 					towards continuous improvement. 
 			</p>
@@ -400,10 +407,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				1.Clear understanding of the target quality organization's strengths
 				and improvement areas.<br> 2.Identification of tools,
 					accelerators & frameworks that will help improve the maturity of
-					the target organization and QCoE
+					the target organization and QCoE 
 				<br>3. Detailed transformation roadmap to achieve the desired
-					maturity level and alignment with business goals.
+					maturity level and alignment with business goals. 
 				<br> 4.Increased maturity of the overall Quality organization.
+				
 			</p>
 
 

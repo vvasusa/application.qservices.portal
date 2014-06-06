@@ -37,7 +37,16 @@ public class RequestForm {
 	private String newPass;
 	private String confirmPass;
 	private String alteremail;
+	private String address;
 	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getCurrentPass() {
 		return currentPass;
 	}

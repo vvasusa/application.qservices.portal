@@ -12,6 +12,76 @@ public class AdminUser {
 	private String loginType;
 	private String requestID;
 	private String requestName;
+	
+
+
+	/* FOR DISPLAYING REQUEST lIST RASIED BY USER .. */
+	private String raisedReqId;
+	private String requestorId;
+	private String serviceId;
+	private String lastUpdatedOn;
+	private String approvedBy;
+	private String raisedDate;
+	private String status_Id;
+	
+	public String getRaisedDate() {
+		return raisedDate;
+	}
+
+	public void setRaisedDate(String raisedDate) {
+		this.raisedDate = raisedDate;
+	}
+
+
+
+	/* FOR DISPLAYING REQUEST lIST RASIED BY USER .. */
+	public String getRaisedReqId() {
+		return raisedReqId;
+	}
+
+	public void setRaisedReqId(String raisedReqId) {
+		this.raisedReqId = raisedReqId;
+	}
+
+	public String getRequestorId() {
+		return requestorId;
+	}
+
+	public void setRequestorId(String requestorId) {
+		this.requestorId = requestorId;
+	}
+
+	public String getServiceId() {
+		return serviceId;
+	}
+
+	public void setServiceId(String serviceId) {
+		this.serviceId = serviceId;
+	}
+
+	public String getLastUpdatedOn() {
+		return lastUpdatedOn;
+	}
+
+	public void setLastUpdatedOn(String lastUpdatedOn) {
+		this.lastUpdatedOn = lastUpdatedOn;
+	}
+
+	public String getApprovedBy() {
+		return approvedBy;
+	}
+
+	public void setApprovedBy(String approvedBy) {
+		this.approvedBy = approvedBy;
+	}
+
+	public String getStatus_Id() {
+		return status_Id;
+	}
+
+	public void setStatus_Id(String status_Id) {
+		this.status_Id = status_Id;
+	}
 
 	public String getUserId() {
 		return userId;

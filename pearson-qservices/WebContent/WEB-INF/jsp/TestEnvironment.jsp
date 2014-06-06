@@ -193,7 +193,7 @@ $(".image_placeset img").hover(function() {
 			<h1>Member Login</h1>
 			<!-- Login Form -->
 
-<form action="${pageContext.request.contextPath}/success/"   method="get" onclick="return validation()"> 
+<form action="${pageContext.request.contextPath}/login/"   method="post" onclick="return validation()"> 
 <%--  <a href = "${pageContext.request.contextPath}/success/"> value </a> --%>
 			<label class="color">Username:</label> <input class="field"
 				type="text" name="log" id="log" value="" size="23" /> <label

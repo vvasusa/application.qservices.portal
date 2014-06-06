@@ -323,8 +323,8 @@ ${user.firstName}
 					<td class="heading">ContactNo</td>
 					<td class="heading">Email</td>
 					<td class="heading">Address</td>
-					<td class="heading">ReqID</td>
-					<td class="heading">ReqName</td>
+					<!-- <td class="heading">ReqID</td>
+					<td class="heading">ReqName</td> -->
 					
 					</tr>
 				<%-- <c:forEach var="user" items="${adminUser>}"> --%>

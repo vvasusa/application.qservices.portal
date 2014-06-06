@@ -7,9 +7,15 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +42,11 @@ public class RegistrationController {
 	@Value("${From_Email}")
 	private String from;
 
+	// @Autowired private RegistrationValidation registrationValidation;
+	 
+	// @InitBinder private void initBinder(WebDataBinder binder) {
+	// binder.setValidator(registrationValidation); }
+	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView Getdetail(
 			@Valid @ModelAttribute("requestForm") Register register,
@@ -49,18 +60,24 @@ public class RegistrationController {
 		/********************** sendmail here with temp pass ********************************/
 		return new ModelAndView("register", "user", register);
 	}
-	
 
 	@RequestMapping(value = "/register/done", method = RequestMethod.POST)
 	public ModelAndView Getdetails(
-			@ModelAttribute("register") @Valid Register register,
-			BindingResult result, Map<String, Object> map,
-			HttpServletRequest request,  Model model) {
 
-	
-	/*public ModelAndView Getdetails(
-			@ModelAttribute("register") @Valid Register register,
-			BindingResult result, Model model) {*/
+	@ModelAttribute("register") @Valid Register register, BindingResult result,
+			Map<String, Object> map, HttpServletRequest request,
+			ModelAndView model) {
+
+		/*
+		 * public ModelAndView Getdetails(
+		 * 
+		 * @ModelAttribute("register") @Valid Register register, BindingResult
+		 * result, Model model) {
+		 */
+		
+		
+		// public ModelAndView save(@Valid Register register, BindingResult
+		// result, HttpServletRequest request, ModelAndView model)
 
 		System.out.println(register.getFirstName());
 		System.out.println(register.getLastName());
@@ -70,29 +87,80 @@ public class RegistrationController {
 		System.out.println(register.getAddress1());
 		System.out.println(register.getAddress2());
 
-	//	String ses_Id = (String) request.getSession().getAttribute(				"MySessionId");
-		
+		String ses_Id = (String) request.getSession().getAttribute(
+				"MySessionId");
+
 		if (result.hasErrors()) {
-			
-			System.out.println("**********************************************************");
+			model.setViewName("register");
+
+			System.out
+					.println("**********************************************************");
 			System.out.println(result.hasErrors());
 			System.out.println(result.getAllErrors());
 			System.out.println(result.hasFieldErrors(register.getEmail()));
-			System.out.println("***********************************************************");
+			System.out
+					.println("***********************************************************");
 			register.setPhoneNo(register.getPhoneNo());
 			register.setEmail(register.getEmail());
-			model.addAttribute("email",register.getEmail());
-			model.addAttribute("age",register.getPhoneNo());
-			
-			return new ModelAndView("register", "register", register);
+
+			/*
+			 * model.addAttribute("email", register.getEmail());
+			 * model.addAttribute("age", register.getPhoneNo());
+			 * model.addAttribute("errors", result.getFieldErrors());
+			 */
+			model.addObject("errors", result.getFieldErrors());
+			//model.addObject("register", register);
+			// Add errors to the Model so that they can be used in the view
+
+			model.addObject("errors", result.getFieldErrors());
+
+			System.out.println(model.getViewName());
+
+			for (FieldError error : result.getFieldErrors()) {
+				System.out.println(error.getField() + " - "
+						+ error.getDefaultMessage());
+				model.addObject("errors",
+						result.getFieldErrors());
+				register.setError(error.getDefaultMessage());
+				register.setPnoerror(error.getDefaultMessage());
+				register.setEmailerror(error.getDefaultMessage());
+
+				model.addAllObjects(result.getModel());
+			}
+			// return new ModelAndView("register");
+			// return new ModelAndView("register", "register", register);
+			return model;
 		}
-	register = actionService.newRegistrationDetails(register, request);
+		register = actionService.newRegistrationDetails(register, request);
 		return new ModelAndView("confirmPass", "register", register);
-		//return "confirmPass";
+		
 	}
 
-	
-	
+	/* Sample check */
+
+	public ModelAndView save(@Valid Register register,
+			BindingResult bindingResults) {
+		ModelAndView mv = new ModelAndView();
+		// Check for validation errors
+		if (bindingResults.hasErrors()) {
+			mv.setViewName("register");
+			mv.addObject("register", register);
+			// Add errors to the Model so that they can be used in the view
+
+			mv.addObject("errors", bindingResults.getFieldErrors());
+			// Print the errors to the console
+			System.out.println("Validation errors:");
+			for (FieldError error : bindingResults.getFieldErrors()) {
+				System.out.println(error.getField() + " - "
+						+ error.getDefaultMessage());
+				mv.addAllObjects(bindingResults.getModel());
+			}
+			return mv;
+		}
+		
+		return new ModelAndView("confirmPass", "register", register);
+	}
+
 	@RequestMapping(value = "/success", method = RequestMethod.POST)
 	public ModelAndView successNewEntry(
 			@ModelAttribute("password") @Valid Password password,
@@ -145,5 +213,12 @@ public class RegistrationController {
 	 * (value == true) return Constants.LOGIN_PAGE; return Constants.LOGIN_PAGE;
 	 * }
 	 */
+
+	@Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+		messageSource.setBasename("messages");
+		return messageSource;
+	}
 
 }

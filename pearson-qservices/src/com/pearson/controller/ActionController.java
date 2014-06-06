@@ -47,8 +47,9 @@ public class ActionController {
 		// return (ModelMap) userList;
 		
 		System.out.println("APPROVED ID *************"+requestForm.getApproveID());
+		System.out.println("APPROVED ID *************"+id);
 	
-		String requestId = "AD02";
+		String requestId = id;
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		adminUser= actionService.approveRequest(requestId,request);
 		//model.addAttribute("welcome");
@@ -56,10 +57,12 @@ public class ActionController {
 	}
 
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
-	public String Reject(@RequestParam String id,ModelMap model, HttpServletRequest request) {
+	public String reject(@RequestParam String id, @ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
 		// List<Admin_user> userList = loginService.getUserList();
 		// return new ModelAndView("userList", "userList", userList);
 		// return (ModelMap) userList;
+		
+		
 	System.out.println("rejected value"+id);
 	
 		return "login";

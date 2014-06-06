@@ -1,10 +1,21 @@
 package com.pearson.model;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Password {
 
+	@NotNull
 	private String currentPass;
+	@NotNull
 	private String newPass;
+	@NotNull
 	private String confirmPass;
+	@Email(message = "Please enter your email addresss.")
+	@NotEmpty(message = "Please enter your email addresss.")
+	@NotNull(message = "Please enter your email addresss.")
 	private String email;
 
 	private String lastName;

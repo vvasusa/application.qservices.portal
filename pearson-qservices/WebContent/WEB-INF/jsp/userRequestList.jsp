@@ -272,29 +272,40 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 					<tr>
-						<td class="heading">First Name</td>
-						<td class="heading">Last Name</td>
-						<td class="heading">Email</td>
-						<td class="heading">ContactNo</td>
-						<td class="heading">Req_Name</td>
+						<td class="heading">REQUEST ID</td>
+						<td class="heading">USER ID</td>
+						<td class="heading">SERVICE ID</td>
+						<td class="heading">DATE</td>
+						<td class="heading"></td>
+						<td class="heading">STATUS</td>
+						
+					<!--	<td class="heading">Req_Name</td>
 						<td class="heading">Req_ID</td>
-						<td class="heading">ACTION</td>
-						<td class="heading">ACTION</td>
+						 <td class="heading">ACTION</td>
+						<td class="heading">ACTION</td> -->
 
 					</tr>
 					<c:forEach var="user" items="${adminUser}">
 						<%-- <c:if test="${user.loginType=='QA'}"> --%>
 
 						<tr>
-							<td>${user.firstName}</td>
-							<td>${user.lastName}</td>
-							<td>${user.email}</td>
-							<td>${user.phoneNo}</td>
-							<td>${user.phoneNo}</td>
-							<td>${user.phoneNo}</td>
+							<td>${user.requestID}</td>
+							<td>${user.requestorId}</td>
+							<td>${user.serviceId}</td>
+							<td>${user.raisedDate}</td>
+							<td>${user.lastUpdatedOn}</td>
+							<td>${user.status_Id}</td>
+							
+							<%-- <td>${user.statusId}</td> --%>
+							<%-- <td>${user.req_ServiceName}</td>
+							<td>${user.req_ServiceID}</td> --%>
 						</tr>
 					</c:forEach>
 				</table>
+				
+				<h2> click here for seeing list of request rasied by you ..<a href="${pageContext.request.contextPath}/userRequestList" method="post">click
+		here</a></h2>
+				
 		</form>
 
 

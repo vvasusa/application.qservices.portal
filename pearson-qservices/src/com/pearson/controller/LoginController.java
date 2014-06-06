@@ -49,6 +49,13 @@ public class LoginController {
 		request.getSession(false).removeAttribute("loginType");
 		return "index";
 	}
+	
+	@RequestMapping(value = "/contactUs", method = RequestMethod.POST)
+	public String contact(ModelMap model, HttpServletRequest request) {
+		model.addAttribute("contact", "we ill contact you");
+		return "ContactUs";
+		// return "aaaaaaaaa";
+	}
 
 	/*
 	 * @RequestMapping(value = "/register", method = RequestMethod.POST) public

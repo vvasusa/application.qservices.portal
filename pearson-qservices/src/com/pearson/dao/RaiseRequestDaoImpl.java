@@ -80,6 +80,8 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 						user.setEmail(Email);
 						user.setPhoneNo(PhoneNo);
 						user.setLoginType(loginType);
+						user.setRequestID(raiseRequest.getServiceID());
+						user.setRequestName(raiseRequest.getService());
 						adminUser.add(user);
 
 					}
@@ -96,6 +98,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 		// TODO Auto-generated method stub
 		String pn = requestForm.getPhoneNo();
 		String sid = requestForm.getReq_ServiceID();
+	String Reqname=	requestForm.getReq_ServiceName();
 		System.out.println(pn);
 		System.out.println(sid);
 
@@ -128,7 +131,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			
 			
 			int rs = statement
-					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,LastUpdatedOn,ApprovedBy,Status_Id)VALUES('"
+					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,Date,ApprovedBy,Status_Id)VALUES('"
 							+ reqid
 							+ "','"
 							+ ses_Id
@@ -137,7 +140,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 							+ "','"
 							+ date
 							+ "','"
-							+ ses_Type
+							+ "null"
 							+ "','"
 							+ "1" + "')");
 			
@@ -164,7 +167,8 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			user.setPhoneNo(requestForm.getPhoneNo());
 			user.setRequestID(requestForm.getReq_ServiceID());
 			user.setRequestName(requestForm.getReq_ServiceName());
-			user.setRequestID(requestForm.getRequestId());
+			user.setAddress(requestForm.getAddress());
+			user.setRequestID(reqid);
 			adminUser.add(user);
 
 			/* Send request id to user via mail */

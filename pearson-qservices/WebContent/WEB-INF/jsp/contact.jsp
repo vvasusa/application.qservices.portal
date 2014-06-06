@@ -49,10 +49,10 @@
 <!--jQuery Slider-->
 <!--Custom jQuery Set-->
 <!--jQuery Lightbox-->
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="./js/custom.js"></script>
-<script type="text/javascript" src="./js/slider.js"></script>
-<script type="text/javascript" src="./js/lightbox.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.js"></script>
 
 
 <!--jQuery Sliding Login Panel Button-->
@@ -72,8 +72,8 @@
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
 <!--I have included 2 different Titillium font weights, 400 and 800 respectively.-->
 <!--If you want to use the much bolder, 800 weight, simply change the "400" below to "800"-->
-<script src="./js/cufon-yui.js" type="text/javascript"></script>
-<script src="./js/TitilliumText15L_400.font.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/cufon-yui.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
 <script type="text/javascript">
 	Cufon.replace('h1');
 	Cufon.replace('h2');
@@ -223,7 +223,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<!--Logo Area-->
 			<div class="logo">
 				<a href="${pageContext.request.contextPath}/index/"><img
-					src="./img/logo.jpg" alt="" /></a>
+					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
 			</div>
 			<!--Close Logo Area-->
 
@@ -232,12 +232,13 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/services/"
+					<li><a href="${pageContext.request.contextPath}/services/"
 					id="services" title="Our Services"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
+					<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/"
+					id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
+				
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact_front" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
@@ -256,7 +257,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<div class="span-24">
 				<!--Intro Image shown here, about site-->
 				<div class="intro">
-					<img src="./img/contact_banner.gif" alt="" />
+					<img src="${pageContext.request.contextPath}/img/contact_banner.gif" alt="" />
 				</div>
 				<!--Close intro image-->
 			</div>
@@ -287,7 +288,8 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<!--This form below is exactly how it is viewed as a php handler-->
 
 					<!--Replace Code Below for PHP Integration-->
-					<form action="" />
+					<form action="${pageContext.request.contextPath}/contactUs"
+					method="post" commandName="contact">
 					<table
 						style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 						class="contactForm">
@@ -343,6 +345,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 						</tr>
 					</table>
 					</form>
+					
 					<!--END FORM -->
 					<!--Replace Code Above for PHP Integration-->
 

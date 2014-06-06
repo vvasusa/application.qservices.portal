@@ -492,32 +492,30 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			
 				<tr>
 					<td class="heading">Req_ID</td>
-					<td class="heading">Req_Name</td>
-					<td class="heading">First Name</td>
-					<td class="heading">Last Name</td>
-					<td class="heading">Email</td>
-					<td class="heading">ContactNo</td>
-					<td class="heading">ApprovedBy</td>
+					<!-- <td class="heading">Req_Name</td> -->
+					<td class="heading">Approved Date </td>
 					<td class="heading">Status</td>
-					<td class="heading">Updated</td>
+					<td class="heading">ApprovedBy</td>
+					
 
 				</tr>
 				<c:forEach var="user" items="${adminUser}">
 				<%-- <c:if test="${user.loginType=='QA'}"> --%>
 
 				<tr>
-					<td>${user.firstName}</td>
-					<td>${user.lastName}</td>
-					<td>${user.email}</td>
-					<td>${user.phoneNo}</td>
-					<td>${user.loginType}</td>
-					<td>${user.loginType}</td>
+					
+					<td>${user.raisedReqId}</td>
+				<%-- 	<td>${user.requestName}</td> --%>
+					<td>${user.lastUpdatedOn}</td>
+					<td>Approved</td>
+					<td>${user.approvedBy}</td>
+					
 					<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
 					<td><a href="${pageContext.request.contextPath}/approve"
-						method="post"></a> Approved</td>
+						method="post"></a> </td>
 					<td><a href="${pageContext.request.contextPath}/reject"
-						method="post">Reject</a></td>
+						method="post"></a></td>
 					<%-- <td><a href="edit?id=${user.userId}"></a></td>
 					<td><a href="delete?id=${user.userId}">REJECT</a></td> --%>
 				</tr>

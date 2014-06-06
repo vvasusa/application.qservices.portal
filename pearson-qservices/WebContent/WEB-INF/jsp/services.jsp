@@ -48,10 +48,10 @@
 <!--jQuery Slider-->
 <!--Custom jQuery Set-->
 <!--jQuery Lightbox-->
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="./js/custom.js"></script>
-<script type="text/javascript" src="./js/slider.js"></script>
-<script type="text/javascript" src="./js/lightbox.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.js"></script>
 
 
 <!--jQuery Sliding Login Panel Button-->
@@ -71,8 +71,8 @@
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
 <!--I have included 2 different Titillium font weights, 400 and 800 respectively.-->
 <!--If you want to use the much bolder, 800 weight, simply change the "400" below to "800"-->
-<script src="./js/cufon-yui.js" type="text/javascript"></script>
-<script src="./js/TitilliumText15L_400.font.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/cufon-yui.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
 <script type="text/javascript">
 	Cufon.replace('h1');
 	Cufon.replace('h2');
@@ -188,14 +188,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		</div>
 		<!-- close tab -->
-
+<a href="${pageContext.request.contextPath}/logout/"><b>LOGOUT</b></a>
 
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
 			<div class="logo">
 				<a href="${pageContext.request.contextPath}/index/"><img
-					src="./img/logo.jpg" alt="" /></a>
+					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
 			</div>
 			<!--Close Logo Area-->
 
