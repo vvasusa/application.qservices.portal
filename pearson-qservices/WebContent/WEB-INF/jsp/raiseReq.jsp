@@ -142,6 +142,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	margin-top: 1em;
 }
 
+
 textarea {
 	vertical-align: top;
 	height: 5em;

@@ -210,6 +210,7 @@ $(".image_placeset img").hover(function() {
 		
 
 
+
 		<!--panel box3-->
 		<div class="left right">
 			<h1>Not a member yet? Sign Up!</h1>

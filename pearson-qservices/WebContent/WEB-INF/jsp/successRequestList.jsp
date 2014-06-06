@@ -358,10 +358,12 @@ ${user.firstName}
 				</tr>
 			</table>
 			</c:forEach>
+			
 		</div>
 	
 					
 					
+				
 					
 					
 					

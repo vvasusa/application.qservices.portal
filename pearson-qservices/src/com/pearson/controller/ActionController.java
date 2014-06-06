@@ -56,6 +56,7 @@ public class ActionController {
 		return new ModelAndView("approve", "adminUser", adminUser);
 	}
 
+	
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
 	public String reject(@RequestParam String id, @ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
 		// List<Admin_user> userList = loginService.getUserList();

@@ -7,6 +7,7 @@
 // https://github.com/GarethElms/jQuery.formError
  
 (function( $ )
+
 {
    $.fn.formError =
       function( message, options)

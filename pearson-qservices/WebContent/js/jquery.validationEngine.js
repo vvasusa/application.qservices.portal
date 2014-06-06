@@ -1,6 +1,7 @@
 /*
  * Inline Form Validation Engine 1.7, jQuery plugin
  * 
+
  * Copyright(c) 2010, Cedric Dugas
  * http://www.position-relative.net
  *	

@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Password {
 
+	
 	@NotNull
 	private String currentPass;
 	@NotNull

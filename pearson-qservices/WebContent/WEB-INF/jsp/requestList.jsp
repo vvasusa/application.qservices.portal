@@ -176,6 +176,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				</div>
 				<!--panel box1 close-->
 
+
 				<!--panel box2-->
 				<div class="left">
 					<h1>Member Login</h1>

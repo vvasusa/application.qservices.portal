@@ -13,6 +13,7 @@
 
 	<context:component-scan base-package="com.pearson.controller" />
 
+	
 	<context:property-placeholder location="classpath:resources/app.properties" />
 
 	<bean id="messageSource"
@@ -28,6 +29,7 @@
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
 	</bean> -->
+
 
 
 	<!-- Entry for View for Jsp files START -->

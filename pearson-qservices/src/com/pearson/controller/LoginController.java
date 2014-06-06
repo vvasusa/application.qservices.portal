@@ -57,6 +57,7 @@ public class LoginController {
 		// return "aaaaaaaaa";
 	}
 
+	
 	/*
 	 * @RequestMapping(value = "/register", method = RequestMethod.POST) public
 	 * ModelAndView Getdetails(

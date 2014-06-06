@@ -8,6 +8,7 @@ import org.springframework.validation.Validator;
 import com.pearson.model.Register;
 
 
+
 @Component
 public class RegistrationValidation implements Validator {
 	private final static String FIRSTNAME = "firstName";

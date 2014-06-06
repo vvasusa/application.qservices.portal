@@ -144,6 +144,7 @@ public class RequestController {
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		adminUser = raiseRequestService.newRequestService(id, raiseRequest,
 				request);
+	
 		// System.out.println("THE LOGIN TYPE RETURN TO JSP"+user.getLoginType());
 		/*if (result.hasErrors()) {
 			return new ModelAndView("", "adminUser", adminUser);

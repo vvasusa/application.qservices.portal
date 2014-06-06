@@ -202,6 +202,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						name="rememberme" id="rememberme" type="checkbox" value="forever" />
 						&nbsp;Remember me</label>
 					<div class="clear"></div>
+		
 					<input type="submit" name="submit" value="Login" class="bt_login" />
 					<a class="lost-pwd" href="#">Lost your password?</a>
 </form>

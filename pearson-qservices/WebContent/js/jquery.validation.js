@@ -1,5 +1,6 @@
 (function($) {
 
+
 $.fn.validation = function() {		
 
     var error = 0;

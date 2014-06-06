@@ -97,6 +97,7 @@ public class RequestDaoImpl implements RequestDao {
 				// String loginType = "QA";
 				// if(loginType.equalsIgnoreCase("QA")){
 
+		
 				while (rs.next()) {
 					user = new AdminUser();
 					// String str1=(rs.getString(1));
