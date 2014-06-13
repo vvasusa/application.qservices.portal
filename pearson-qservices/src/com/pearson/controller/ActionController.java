@@ -58,16 +58,18 @@ public class ActionController {
 
 	
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
-	public String reject(@RequestParam String id, @ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
-		// List<Admin_user> userList = loginService.getUserList();
-		// return new ModelAndView("userList", "userList", userList);
-		// return (ModelMap) userList;
-		
-		
-	System.out.println("rejected value"+id);
-	
-		return "login";
+	public ModelAndView reject(@RequestParam String id, @ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		adminUser= actionService.rejectrequest(id,request);
+    	System.out.println("rejected value"+id);
+    	return new ModelAndView("requestList", "adminUser", adminUser);
 	}
 
-	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- END */
+	@RequestMapping(value = "/viewAllRequest", method = RequestMethod.GET)
+	public ModelAndView viewAllRequest(RequestForm requestForm, HttpServletRequest request) {
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		adminUser= actionService.viewAllRequest(request);
+    	return new ModelAndView("viewAllRequest", "adminUser", adminUser);
+	}
+
 }

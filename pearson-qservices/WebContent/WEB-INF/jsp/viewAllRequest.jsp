@@ -1,11 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Insert title here</title> --%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<?xml version="1.0"?>
+
+<title>Logical Media</title>
+<%-- <script type="text/javascript">
+  <%String temp = (String) session.getAttribute("MySessionId");%>
+
+var value= "<%=temp%>";
+	
+
+	alert(value);
+</script> --%>
 </head>
+
+
+<%-- 
+<a href="${pageContext.request.contextPath}/index/">HomePage</span></a>
+ <a href="${pageContext.request.contextPath}/logout/"> logout</a> --%>
+
+<c:if test="${!empty loginType}">
+<a href="${pageContext.request.contextPath}/logout/"> </a></c:if>
+<!-- =======================********************************************************************************** -->
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/framework.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
@@ -20,15 +53,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/slider.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
-	
-	
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/validationEngine.jquery.css"
-	type="text/css" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/template.css"
-	type="text/css" charset="utf-8" />
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -62,38 +86,8 @@ var value= "<%=temp%>	";
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
 
-<script type=text/javascript
-	src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
-
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.formError.js"></script>
-
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.validation.js"></script>
-
 
 <!--Preload Image Over Imgs-->
-
-<script type="text/javascript">
-
-<%String Login = (String) session.getAttribute("loginType");%>
-var Login= "<%=Login%>	"; 
-
-var temp= null;
-$(document).ready(function() {
-	
-	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
-	
-if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
-
-	});
-</script>
-
 <script type="text/javascript">
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
@@ -164,159 +158,38 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 
-
-<!-- Mychanges for validation part START-->
-
-
-
-<style>
-#contact label {
-	display: inline-block;
-	width: 100px;
-	text-align: right;
-}
-
-#contact_submit {
-	padding-left: 100px;
-}
-
-#contact div {
-	margin-top: 1em;
-}
-
-textarea {
-	vertical-align: top;
-	height: 5em;
-}
-
-.errordis {
-	background-color: #FFD9D9 !important;
-	border: 1px solid #F00 !important
-}
-
-.error_show {
-	color: red;
-	margin-left: 10px;
-}
-
-input.invalid,textarea.invalid {
-	border: 2px solid red;
-}
-
-input.valid,textarea.valid {
-	border: 2px solid green;
-}
-</style>
-
-
-
-
 <script type="text/javascript">
 
-$(document).ready(function(){
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
 	
-
-	$('#form1').on("submit", function(e){
-		
-		$("#currentPass").addClass('#error');
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
 	
-		var val_currentPass = $("#currentPass").val();
-	
-		var val_newPass = $("#newPass").val();
-		var val_confirmPass = $("#confirmPass").val();
-		var val_emailadd = $("#emailadd").val();
-		
-		$("#currentPass").removeClass('errordis');	
-		$("#newPass").removeClass('errordis');	
-		$("#confirmPass").removeClass('errordis');
-		$("#emailadd").removeClass('errordis');
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
 
-		
-		$( "#errorcur" ).empty();
-		$( "#errornew" ).empty();
-		$( "#errorconfirm" ).empty();
-		$( "#erroremail" ).empty();
-		
-		
-		
-		if( $.trim(val_newPass) === '' )
-		{
-			$("#newPass").addClass('errordis');
-			$("#newPass").focus();
-			$("#errornew").text("Enter New Password");
-			
-			e.preventDefault();
-		}	
-		
-		if( $.trim(val_confirmPass) === '' )
-		{
-			$("#confirmPass").addClass("errordis");
-			$("#confirmPass").focus();
-			$("#errorconfirm").text("Enter Conform Password");
-			
-			e.preventDefault();
-		} 
-		
-		if( $.trim(val_emailadd) === '' )
-		{
-			$("#emailadd").addClass('errordis');
-			$("#emailadd").focus();	
-			$("#erroremail").text("Enter Email Address");
-			
-			e.preventDefault();
-		}	
-		else{
-		
-			var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-			/* var email = document.getElementById("emailadd").value;  */
-			if (reg.test(val_emailadd)){ 
-				
-				} else{
-					
-					$("#emailadd").addClass('errordis');
-					$("#emailadd").focus();	
-					$("#erroremail").text("Invalid Email Format");
-					e.preventDefault();
-					
-					 }
-		}
-		
-		
-		if(!(val_newPass===val_confirmPass)){
-			$("#newPass").addClass('errordis');
-			$("#confirmPass").addClass("errordis");
-			alert("New and Confirm password Does't match.");
-			return false;
-				}
-		
-		 if( $.trim(val_currentPass) === '' )
-			{
-				$("#currentPass").addClass('errordis');
-				$("#currentPass").focus();	
-				$("#errorcur").text("Enter Current Password");
-				
-				e.preventDefault();
-			}	
-			
-
-	});		
-
-});
-
+	});
 </script>
 
 
 
+<style>
+#approve a:visited {
+    background: green !important;
+}
 
-<!-- Mychanges for validation part END-->
+#reject a:visited {
+    background: red !important;
+}
 
-
-
+</style>
 
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-
+<a href="${pageContext.request.contextPath}/logout/"><b></b></a>
 <body>
 
 
@@ -333,6 +206,7 @@ $(document).ready(function(){
 					</p>
 				</div>
 				<!--panel box1 close-->
+
 
 				<!--panel box2-->
 				<div class="left">
@@ -391,14 +265,13 @@ $(document).ready(function(){
 						Register</a> <a id="close" style="display: none;" class="close"
 					href="#">Close Panel</a></li>
 			</ul>
-
+			
  <ul class="logout">
  <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
  </ul>
-
 		</div>
-		<!-- close tab -->
 
+		<!-- close tab -->
 
 		<!--Begin Header-->
 		<div class="header">
@@ -435,8 +308,7 @@ $(document).ready(function(){
 			</table>
 			 --%>
 			 
-			 
-			 <a href="${pageContext.request.contextPath}/logout/"> logout</a>
+			
 			 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
@@ -448,9 +320,6 @@ $(document).ready(function(){
 					id="services" title="Our Services"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li> --%>
-				
 					<li><a href="${pageContext.request.contextPath}/requestList/"  
 					id="port" title="Request"  ><span>Request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
@@ -490,49 +359,6 @@ $(document).ready(function(){
 					
 				</div> -->
 				<!--Close Site Slogan Area-->
-				
-				
-				
-				<div id="form1">
-				
-				<form action="${pageContext.request.contextPath}/success" method="post" id="form1" commandName="password" modelAttribute="user">
-
-<table style="width: 600px; background-color: #fff; border: 5px solid #ddd; padding: 20px; font-size: 12px;"
-					class="contactForm">
-					<tr>
-
-						<td	style="width: 20%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Old Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"> <input	type="password" name="currentPass" id="currentPass" value="${user.firstName}" /> <p id="errorcur"/>
-						</td> 
-						</tr>
-					<tr>
-						<td	style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">New Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"><input	type="password" name="newPass"  id="newPass" value="${user.lastName}" /> <p id="errornew"/> 
-						</td></tr>
-					<tr>
-						<td	style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Confirm Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"><input	type="password" name="confirmPass"  id="confirmPass" value="${user.email}" /><p id="errorconfirm"/>
-						</td>
-					</tr>
-					<tr>
-						<td	style="width: 25%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Alternative Email *</td> <td style="text-align: left; vertical-align: top; padding: 5px;"> <input	type="text" name="email" id="emailadd" value="${user.phoneNo}" /> <p id="erroremail"/>
-						</td>
-					</tr>
-
-					<tr>
-						<td colspan="2"
-							style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
-							(*)fields are required.</td>
-					</tr>
-					<tr>
-						<td colspan="2"
-							style="text-align: left; vertical-align: middle; padding: 5px;"><input
-							type="submit" name="update" value="Submit" /> (Email will not be
-							sent)</td>
-
-					</tr>
-				</table>
-				</form>
-				
-				</div>
-				
 			</div>
 			<!--Close 350px width-->
 
@@ -548,19 +374,292 @@ $(document).ready(function(){
 		</div>
 		<!--page close-->
 
+<!-- =======================********************************************************************************** -->
 
+
+<c:if test="${!empty loginType}">
+<c:if test="${loginType=='VISITOR'}">
+
+	<a href="${pageContext.request.contextPath}/requestList" method="post">            </a>
+	
+	
+</c:if>
+</c:if>
+
+<c:if test="${empty loginType}">
+	<%-- <c:forEach var="user" items="${adminUser}"> --%>
+	<%-- <c:if test="${user.loginType=='null' && user.loginType=='null'}"> --%>
+
+	<%-- <c:if test="${user.loginType!='null'}"> 
+  <c:if test="${user.loginType=='z'}">  --%>
+	<table>
+		<tr>
 		
 
+		</tr>
+	</table>
+	<%--  </c:forEach>   --%>
+</c:if>
 
-<!-- My change -->
+
+
+
+<c:if test="${empty loginType}">
+	<%-- <c:forEach var="user" items="${adminUser}"> --%>
+	<%-- <c:if test="${loginType=='VISITOR'}"> --%>
+
+	<h3>To view data please loginHere .. <a href="${pageContext.request.contextPath}/index" method="post">click
+		here..</a></h3>
+	
+	<%-- </c:if> --%>
+</c:if>
+<%-- </c:forEach> --%>
+
+
 <body>
-<div class="page">
+	<%-- <% if( value=="AD02" ) { %>
+	
+  <DIV>....</DIV> --%>
+
+	<%-- <c:if test="${user.email==user.email}"> --%>
+	<%-- <c:if test="true"> --%>
+
+	<div>
+
+		<%-- <c:forEach var="user" items="${adminUser}"> 
+	<c:if test="${user.loginType=='VISITOR'}"> --%>
+
+		<%
+			String temp1 = (String) session.getAttribute("MySessionId");
+		%>
+		<%
+			String temp2 = (String) session.getAttribute("loginType");
+		%>
 
 
 
+		<c:if test="${loginType == 'VISITOR'}">
+
+			<c:forEach var="user" items="${adminUser}">
+
+				<%-- <c:if test="${sessionScope.user != null}">
+    There is a user **attribute** in the session
+</c:if> --%>
+
+				<form action="${pageContext.request.contextPath}/update"
+					method="post" commandName="requestForm">
+				
+					<input type="hidden" name=loginType value="${user.loginType}" />
 
 
+				<p>	<h3>Welcome <b>${user.firstName}</b> Please update your profile before seeing your request...</h3></p>
+					<table
+						style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
+						class="contactForm">
+						<tr>
+						
+					<%-- 	
+
+							<td
+								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
+							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+								type="text" name="firstName" value="${user.firstName}" /></td>
+						</tr>
+						<tr>
+							<td
+								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
+							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+								type="text" name="lastName" value="${user.lastName}" /></td>
+						</tr>
+						
+						
+						 --%>
+						
+						<tr>
+							<td
+								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
+							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+								type="text" name="email" value="${user.email}"
+								<form:errors path="email" /> /></td>
+							<td><form:errors path="email" /></td>
+						</tr>
+						<tr>
+							<td
+								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
+							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+								type="text" name="phoneNo" value="${user.phoneNo}" /></td>
+						</tr>
+
+
+
+						<tr>
+							<td
+								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">address:</td>
+							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+								type="text" name="address" value="${user.address}" /></td>
+						</tr>
+						
+						
+						<!-- 
+
+						CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START
+						<tr>
+							<td
+								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Request:</td>
+							<td style="text-align: left; vertical-align: top; padding: 5px;"><select
+								type="text" name="requestname">
+									<option value="volvo">Volvo</option>
+									<option value="saab">Saab</option>
+									<option value="mercedes">Mercedes</option>
+									<option value="audi">Audi</option>
+							</select></td>
+						</tr>
+						CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END
+						<tr>
+							<td
+								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
+							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+								type="text" name="subject" value="" /></td>
+						</tr>
+ -->
+						<tr>
+							<td colspan="2"
+								style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
+								fields are required.</td>
+						</tr>
+						<tr>
+							<td colspan="2"
+								style="text-align: left; vertical-align: middle; padding: 5px;"><input
+								type="submit" name="update" value="update" /> (Email will not
+								be sent)</td>
+
+						</tr>
+					</table>
+				</form>
+
+				<h2> click here for seeing list of request rasied by you ..<a href="${pageContext.request.contextPath}/userRequestList" method="post">click
+		here</a></h2>
+				
+
+			</c:forEach>
+		</c:if>
+	</div>
+
+	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
+	<div class="container">
+	
+		<%-- <c:if test="${loginType != 'VISITOR'}"> --%>
+
+		<c:if test="${loginType != 'VISITOR' && !empty loginType}">
+
+			<h3> <a href="${pageContext.request.contextPath}/viewAllRequest" method="post"><u>
+		</u></a></h3>
+	
+			<table border="1">
+
+
+				<tr>
+					<td class="heading">REQUEST ID</td>
+					<td class="heading">FIRSTNAME</td>
+					<td class="heading">LASTNAME</td>
+					<td class="heading">REQUESTORID</td>
+					<td class="heading">SERVICEID</td>
+					<td class="heading">RAISED DATE</td>
+					<td class="heading">REVIEW BY</td>
+					<td class="heading">STATUS</td>
+					
+				</tr>
+				<c:forEach var="user" items="${adminUser}">
+					<%-- <c:if test="${user.loginType=='QA'}"> --%>
+					<tr>
+						<td>${user.raisedReqId}</td>
+						<td>${user.firstName}</td>
+						<td>${user.lastName}</td>
+						<td>${user.requestorId}</td>
+						<td>${user.serviceId}</td>
+						<td>${user.lastUpdatedOn}</td>
+						<td>${user.approvedBy}</td>
+						<td>${user.status_Id}</td>
+						
+						<%-- <td>${user.requestName}</td>
+					<td>${user.requestID}</td> --%>
+				 
+						<td>
+						<div id ="approve">
+						<a href="${pageContext.request.contextPath}/approve?id=${user.raisedReqId}"
+							value="<c:out value="${user.email}"></c:out>"  name="approveID" method="post"></a></div></td>
+							
+						<td> <div id ="reject">
+						<a href="${pageContext.request.contextPath}/reject?id=${user.raisedReqId}"
+							value="<c:out value="${user.email}"></c:out>" id="${user.email}"  method="post" name="rejectID"></a></div></td>
+							
+					</tr>
+
+					<tr>
+						<td colspan="7"><a
+							href="${pageContext.request.contextPath}/update"> </a></td>
+					</tr>
+					<%-- </c:if> --%>
+				</c:forEach>
+			</table>
 </div>
+		</c:if>
+	</div>
+	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
+
+
+	<!-- ************************PART THREE Start************************************* -->
+
+	<div>
+
+		<%--  <c:forEach var="user" items="${adminUser}">  --%>
+
+		<%-- <form action="${pageContext.request.contextPath}/update" method="post"
+			commandName="requestForm">
+
+			<input type="hidden" name=loginType value="${user.loginType}" />
+
+
+			<c:if test="${loginType == 'VISITOR'}">
+				<table border="1">
+
+
+					<tr>
+						<td class="heading">First Name</td>
+						<td class="heading">Last Name</td>
+						<td class="heading">Email</td>
+						<td class="heading">ContactNo</td>
+						<td class="heading">Req_Name</td>
+						<td class="heading">Req_ID</td>
+						<td class="heading">ACTION</td>
+						<td class="heading">ACTION</td>
+
+					</tr>
+					<c:forEach var="user" items="${adminUser}">
+						<c:if test="${user.loginType=='QA'}">
+
+						<tr>
+							<td>${user.firstName}</td>
+							<td>${user.lastName}</td>
+							<td>${user.email}</td>
+							<td>${user.phoneNo}</td>
+							<td>${user.phoneNo}</td>
+							<td>${user.phoneNo}</td>
+						</tr>
+					</c:forEach>
+				</table>
+		</form>
+
+
+
+		</c:if> --%>
+	</div>
+
+
+	<!-- ************************PART THREE END************************************* -->
+
+
+
 
 <div class="footer">
 
@@ -621,7 +720,6 @@ $(document).ready(function(){
 	<script type="text/javascript">
 		Cufon.now();
 	</script>
-	
 	
 </body>
 </html>

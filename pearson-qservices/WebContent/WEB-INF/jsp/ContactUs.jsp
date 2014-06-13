@@ -57,6 +57,25 @@
 
 
 <!--jQuery Sliding Login Panel Button-->
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+	});
+</script>
+
+
+
+
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -214,6 +233,9 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					href="#">Close Panel</a></li>
 			</ul>
 
+ <ul class="logout">
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ </ul>
 
 		</div>
 		<!-- close tab -->
@@ -430,12 +452,13 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li>
+						<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+							|</li> --%>
 						<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 							|</li>
+							   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 					</ul>
 					<!--footer-nav close-->

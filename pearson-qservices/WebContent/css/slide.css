@@ -223,3 +223,59 @@ Version: 1.0
 	text-decoration: underline;
 }
 
+
+
+/* My chages for logout - Start */
+
+.tab1 {
+  	
+	position: relative;
+    top: 0;
+    z-index: 999;
+}
+
+
+
+
+
+.tab ul.logout {
+	display: block;
+	position: relative;
+  	float: right;
+  	clear: right;
+  	height: 42px;
+	width: auto;
+  	font-weight: normal;
+	line-height: 42px;
+	margin: 0;
+	right: 0px;
+  	color: white;
+  	font-size: 11px;
+	text-align: center;
+}
+
+
+
+
+.tab ul.logout li {
+ 	text-align: left;
+  	padding: 0 0px 0 20px;
+	display: block;
+	float: left;
+	height: 40px;
+  	background: url(../img/btn-slider.png) top no-repeat;
+}
+
+.tab ul.logout li a {
+	color: #fff;
+}
+
+.tab ul.logout li a:hover {
+	color: #56BFF8;
+}
+
+
+
+
+/* My chages for logout - End */
+

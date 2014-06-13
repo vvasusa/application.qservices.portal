@@ -44,4 +44,16 @@ public class ActionServiceImpl implements ActionService {
 		return actionDao.newRegistrationDetails(register,request);
 	}
 
+	@Override
+	public List<AdminUser> rejectrequest(String id, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return actionDao.rejectrequest(id,request);
+	}
+
+	@Override
+	public List<AdminUser> viewAllRequest(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return actionDao.viewAllRequest(request);
+	}
+
 }

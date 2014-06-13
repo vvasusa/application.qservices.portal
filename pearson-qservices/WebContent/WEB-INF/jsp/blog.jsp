@@ -46,6 +46,23 @@
 
 <!--jQuery Sliding Login Panel Button-->
 <script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+	});
+</script>
+
+
+
+<script type="text/javascript">
 $(document).ready(function(){
 
 	$(".btn-slide").click(function(){
@@ -139,6 +156,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="left">
             	<h1>Member Login</h1>
 				<!-- Login Form -->
+				
+					<form action="${pageContext.request.contextPath}/login"
+						method="post" commandName="login" modelAttribute="user">
 					<label class="color">Username:</label>
 					<input class="field" type="text" name="log" id="log" value="" size="23" />
 					<label class="color" for="pwd">Password:</label>
@@ -147,7 +167,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
         			<div class="clear"></div>
 					<input type="submit" name="submit" value="Login" class="bt_login" />
 					<a class="lost-pwd" href="#">Lost your password?</a>
-                  
+                  </form>
 			</div>
             <!--panel box2 close-->
             
@@ -186,6 +206,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			</li>
 		</ul> 
         
+ <ul class="logout">
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ </ul>
         
 	</div>
     <!-- close tab -->
@@ -193,6 +216,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 	<!--Begin Header-->
     <div class="header">
+    
     	<!--Logo Area-->
     	<div class="logo">
         <a href="${pageContext.request.contextPath}/index/"><img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
@@ -457,9 +481,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 
                 <ul id="footer-nav">
                     <li><a href="${pageContext.request.contextPath}/index/">Home</a> |</li>
-                    <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a> |</li>
+                   <%--  <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a> |</li> --%>
                     <li><a href="${pageContext.request.contextPath}/services/">Services</a> |</li>
                     <li><a href="${pageContext.request.contextPath}/blog/">Blog</a> |</li>
+                    <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
                     <li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li> 
                 </ul><!--footer-nav close-->
                 

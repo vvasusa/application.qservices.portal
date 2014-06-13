@@ -21,8 +21,8 @@ import com.pearson.model.RaiseRequest;
 import com.pearson.model.RequestForm;
 
 public class RequestDaoImpl implements RequestDao {
-	
-	//List<AdminUser> adminUser = new ArrayList<AdminUser>();
+
+	// List<AdminUser> adminUser = new ArrayList<AdminUser>();
 
 	@Autowired
 	DataSource dataSource;
@@ -48,7 +48,7 @@ public class RequestDaoImpl implements RequestDao {
 				+ ses_Table);
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		try {
-			
+
 			if (id == null) {
 				user = new AdminUser();
 				String loginType = "null";
@@ -60,10 +60,10 @@ public class RequestDaoImpl implements RequestDao {
 				adminUser = getAdminUserFields(ses_Id, statement, request);
 
 				// if (adminUser == null) {
-				if(CollectionUtils.isEmpty(adminUser)){
-					adminUser = getRequesterFields(adminUser, statement, request);
+				if (CollectionUtils.isEmpty(adminUser)) {
+					adminUser = getRequesterFields(adminUser, statement,
+							request);
 				}
-				
 
 				// }
 			}
@@ -80,56 +80,84 @@ public class RequestDaoImpl implements RequestDao {
 		// AdminUser user = null;
 
 		String Table = (String) request.getSession().getAttribute("Table");
+		String loginType = (String) request.getSession().getAttribute(
+				"loginType");
 		// List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
-		
+		try{
+		ResultSet rs=null;
 		if (id != null) {
 
 			if (Table == "admin") {
 				// user = new AdminUser();
 				AdminUser user = null;
-				String ID = (String) request.getSession().getAttribute("MySessionId");
-				/*ResultSet rs = statement
-						.executeQuery("SELECT * FROM adminuser where userId= 'AD02'");*/
-				ResultSet rs = statement
-						.executeQuery("SELECT * FROM REQUEST");
-				System.out.println("INSIDfrom adminuser  ");
-				// String loginType = "QA";
-				// if(loginType.equalsIgnoreCase("QA")){
+				String ID = (String) request.getSession().getAttribute(
+						"MySessionId");
+				
+				if (loginType.equals("QA")) {
+					String value= null;
+					rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+				}
+				
+				if (loginType.equals("PL")) {
+					String value ="QA";
+					// rs = statement.executeQuery("select * from request where ApprovedBy ='"+ value + "'");
+					rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+				}
+				if (loginType.equals("SLM")) {
+					String value ="PL";
+					// rs = statement.executeQuery("select * from request where ApprovedBy ='"+ value + "'");
+					rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+				}
+				if (loginType.equals("ADM")) {
+					String value ="SLM";
+					// rs = statement.executeQuery("select * from request where ApprovedBy ='"+ value + "'");
+					rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+				}
 
-		
+				
+				
+				
+				
 				while (rs.next()) {
 					user = new AdminUser();
 					// String str1=(rs.getString(1));
 					// user.setUserId("userId");
-					/*user.setLoginType(rs.getString("loginType"));
-					user.setFirstName(rs.getString("firstName"));
-					user.setLastName(rs.getString("lastName"));
-					user.setPhoneNo(rs.getString("phoneNo"));
-					user.setEmail(rs.getString("email"));
-					String userId = rs.getString("userId");
-					user.setUserId(userId);
-					// user.setLocation(rs.getString("location"));
-					user.setAddress(rs.getString("address"));
-					user.setEmail(rs.getString("email"));*/
-					String ses_Type = (String) request.getSession().getAttribute(
-							"loginType");
-					if(!(rs.getString("ApprovedBy").equalsIgnoreCase(ses_Type))){
-						
-					user.setRaisedReqId(rs.getString("RequestId"));
-					user.setRequestorId(rs.getString("RequestorId"));
-					user.setServiceId(rs.getString("ServiceId"));
-				//	user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
-					user.setLastUpdatedOn(rs.getString("Date"));
-					user.setApprovedBy(rs.getString("ApprovedBy"));
-					user.setStatus_Id(rs.getString("Status_Id"));
-					adminUser.add(user);
+					/*
+					 * user.setLoginType(rs.getString("loginType"));
+					 * user.setFirstName(rs.getString("firstName"));
+					 * user.setLastName(rs.getString("lastName"));
+					 * user.setPhoneNo(rs.getString("phoneNo"));
+					 * user.setEmail(rs.getString("email")); String userId =
+					 * rs.getString("userId"); user.setUserId(userId); //
+					 * user.setLocation(rs.getString("location"));
+					 * user.setAddress(rs.getString("address"));
+					 * user.setEmail(rs.getString("email"));
+					 */
+					String ses_Type = (String) request.getSession()
+							.getAttribute("loginType");
+					if (!(rs.getString("ApprovedBy").equalsIgnoreCase(ses_Type))) {
+
+						user.setRaisedReqId(rs.getString("RequestId"));
+						user.setRequestorId(rs.getString("RequestorId"));
+						user.setServiceId(rs.getString("ServiceId"));
+						// user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
+						user.setLastUpdatedOn(rs.getString("Date"));
+						user.setApprovedBy(rs.getString("ApprovedBy"));
+						user.setStatus_Id(rs.getString("Status_Id"));
+						user.setFirstName(rs.getString("firstName"));
+						user.setLastName(rs.getString("lastName"));
+						adminUser.add(user);
 					}
 				}
 			}
 
 		}
+		}
+
+catch(Exception e){System.out.println( e);}
 		return adminUser;
+		
 	}
 
 	/*********************** FOR DISPLAYING ALL THE REQUEST WHICH IS RAISED BY USER-END ***********************/
@@ -141,16 +169,18 @@ public class RequestDaoImpl implements RequestDao {
 			throws SQLException {
 
 		String Table = (String) request.getSession().getAttribute("Table");
-		 List<AdminUser> adminUser = new ArrayList<AdminUser> ();
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		if (Table == "requestor") {
 			// ResultSet rs = statement.executeQuery("select * from Requestor");
-			String ID = (String) request.getSession().getAttribute("MySessionId");
+			String ID = (String) request.getSession().getAttribute(
+					"MySessionId");
 			ResultSet rs = statement
-					.executeQuery("select * from REQUESTOR where password="+ ID);
-			
-			/*(SELECT * FROM adminuser where userId="+"id)*/
-			/*("select * from samplevisitor where requestorId= :ID")*/
-			
+					.executeQuery("select * from REQUESTOR where password="
+							+ ID);
+
+			/* (SELECT * FROM adminuser where userId="+"id) */
+			/* ("select * from samplevisitor where requestorId= :ID") */
+
 			AdminUser user = null;
 			// AdminUser user = new AdminUser();
 			while (rs.next()) {
@@ -178,6 +208,7 @@ public class RequestDaoImpl implements RequestDao {
 					String PhoneNo = (rs.getString("phoneNo"));
 					String loginType = (rs.getString("loginType"));
 					String requestorId = rs.getString("requestorId");
+					
 					user.setUserId(requestorId);
 					// user.setUserId("requestorId");
 					user.setFirstName(Req_Fname);
@@ -185,7 +216,8 @@ public class RequestDaoImpl implements RequestDao {
 					user.setEmail(Email);
 					user.setPhoneNo(PhoneNo);
 					user.setLoginType(loginType);
-					
+					user.setAddress(rs.getString("address"));
+
 					adminUser.add(user);
 
 				}
@@ -224,25 +256,55 @@ public class RequestDaoImpl implements RequestDao {
 	public List<AdminUser> updateDetails(RequestForm requestForm,
 			HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		 List<AdminUser> adminUser = new ArrayList<AdminUser> ();
-		 AdminUser user = null;
-			// AdminUser user = new AdminUser();
-			
-				user = new AdminUser();
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		AdminUser user = null;
+		// AdminUser user = new AdminUser();
+
+		user = new AdminUser();
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("MySessionVariable");
+		//String id = (String) session.getAttribute("MySessionVariable");
+		String id = (String) request.getSession().getAttribute(
+				"MySessionId");
 		String email = (String) session.getAttribute("email");
 		System.out.println("from request controller Update details" + email);
 		try {
-			user.setFirstName(requestForm.getFirstName());
-			user.setLastName(requestForm.getLastName());
-			user.setEmail(requestForm.getEmail());
-			user.setPhoneNo(requestForm.getPhoneNo());
-			adminUser.add(user);
-			//user.setRequestId(requestForm.getRequestId());
-			//user.setRequestName(requestForm.getRequestName());
-			System.out.println("inside update details..."
-					+ requestForm.getEmail());
+
+			if (id != null) {
+				Connection connection = dataSource.getConnection();
+				Statement statement = connection.createStatement();
+				
+				statement.executeUpdate("update requestor SET address = '"
+						+ requestForm.getAddress() + "',phoneNo = '" + requestForm.getPhoneNo()
+						+ "',email = '" + requestForm.getEmail()
+						+ "' where requestorId ='" + id + "'");
+				
+				ResultSet rs = statement
+						.executeQuery("select * from requestor where requestorId="
+								+ id);
+				
+
+				while (rs.next()) {
+
+					/*user.setFirstName(requestForm.getFirstName());
+					user.setLastName(requestForm.getLastName());
+					user.setEmail(requestForm.getEmail());
+					user.setPhoneNo(requestForm.getPhoneNo());
+					user.setAddress(requestForm.getAddress());*/
+					// user.setRequestId(requestForm.getRequestId());
+					// user.setRequestName(requestForm.getRequestName());
+					
+					user.setFirstName(rs.getString("firstName"));
+					user.setLastName(rs.getString("lastName"));
+					user.setEmail(requestForm.getEmail());
+					user.setPhoneNo(requestForm.getPhoneNo());
+					user.setAddress(requestForm.getAddress());
+					
+					adminUser.add(user);
+					
+					System.out.println("inside update details..."
+							+ requestForm.getEmail());
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -256,21 +318,18 @@ public class RequestDaoImpl implements RequestDao {
 
 		return "welcome to approve";
 	}
+
 	/* TO APPROVE AND REJECT REQUEST BY ACCESS-LEVEL USER- end */
-	
-	
-	
-	
-	
+
 	@Override
-	public List<AdminUser> UserRequestList(String id,
-			RequestForm requestForm, HttpServletRequest request) {
+	public List<AdminUser> UserRequestList(String id, RequestForm requestForm,
+			HttpServletRequest request) {
 		// String Table = (String) request.getSession().getAttribute("My");
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 
 		try {
-			//requestForm.getService();
-			//requestForm.getServiceID();
+			// requestForm.getService();
+			// requestForm.getServiceID();
 			String ID = (String) request.getSession().getAttribute(
 					"MySessionId");
 			if (ID != null) {
@@ -304,24 +363,22 @@ public class RequestDaoImpl implements RequestDao {
 							rs.getString("requestorId"))
 							&& StringUtils.endsWithIgnoreCase(ses_Type,
 									ses_Type)) {
-/*
-						 String str1=(rs.getString(1));
-						String Req_Fname = (rs.getString("firstName"));
-						String Req_Lname = (rs.getString("lastName"));
-						String Email = (rs.getString("email"));
-						String PhoneNo = (rs.getString("phoneNo"));
-						String loginType = (rs.getString("loginType"));
-						String requestorId = rs.getString("requestorId");
-						user.setUserId(requestorId);
-						// user.setUserId("requestorId");
-						user.setFirstName(Req_Fname);
-						user.setLastName(Req_Lname);
-						user.setEmail(Email);
-						user.setPhoneNo(PhoneNo);
-						user.setLoginType(loginType);
-						adminUser.add(user);
-*/
-						
+						/*
+						 * String str1=(rs.getString(1)); String Req_Fname =
+						 * (rs.getString("firstName")); String Req_Lname =
+						 * (rs.getString("lastName")); String Email =
+						 * (rs.getString("email")); String PhoneNo =
+						 * (rs.getString("phoneNo")); String loginType =
+						 * (rs.getString("loginType")); String requestorId =
+						 * rs.getString("requestorId");
+						 * user.setUserId(requestorId); //
+						 * user.setUserId("requestorId");
+						 * user.setFirstName(Req_Fname);
+						 * user.setLastName(Req_Lname); user.setEmail(Email);
+						 * user.setPhoneNo(PhoneNo);
+						 * user.setLoginType(loginType); adminUser.add(user);
+						 */
+
 						user.setApprovedBy(rs.getString("ApprovedBy"));
 						user.setRequestorId(rs.getString("RequestorId"));
 						user.setStatus_Id(rs.getString("Status_Id"));
@@ -330,8 +387,7 @@ public class RequestDaoImpl implements RequestDao {
 						user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
 						user.setServiceId(rs.getString("ServiceId"));
 						adminUser.add(user);
-						
-						
+
 					}
 				}
 			}
@@ -340,6 +396,5 @@ public class RequestDaoImpl implements RequestDao {
 		}
 		return adminUser;
 	}
-
 
 }

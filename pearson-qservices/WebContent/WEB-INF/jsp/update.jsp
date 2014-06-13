@@ -85,6 +85,26 @@
 
 
 <!--Preload Image Over Imgs-->
+
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+	});
+</script>
+
+
+
+
 <script type="text/javascript">
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
@@ -199,7 +219,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<!-- The tab on top -->
 		<div class="tab">
-			
+		<ul class="login">
+					<!--Button For Login Panel-->
+					<li id="toggle"><a id="open" class="open" href="#">Log In
+							| Register</a> <a id="close" style="display: none;" class="close"
+						href="#">Close Panel</a></li>
+				</ul>
+				
+				<ul class="logout">
+                <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+			</ul>
 		</div>
 		<!-- close tab -->
 
@@ -265,9 +294,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		
-	YOUR DETAILS UPDATED SUSSUESFULLY.
 
-	${requestForm.firstName}
+
+
+	<c:forEach var="user" items="${adminUser}">
+	<h4> Mr.${user.firstName}  YOUR DETAILS UPDATED SUSSUESFULLY.</h4>
 		<div>
 			<h1></h1>
 
@@ -277,19 +308,23 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<td class="heading">Last Name</td>
 					<td class="heading">Email</td>
 					<td class="heading">ContactNo</td>
-					<td class="heading">Req_Name</td>
+					<td class="heading">Address</td>
+					<!-- <td class="heading">Req_Name</td>
 					<td class="heading">Req_ID</td>
-					<td class="heading">ACTION</td>
+					<td class="heading">ACTION</td> -->
 
 
 				</tr>
 				<%-- <c:forEach var="user" items="${adminUser>}"> --%>
 
 				<tr>
-					<td>${requestForm.firstName}</td>
-					<td>${requestForm.lastName}</td>
+					<%-- <td>${requestForm.firstName}</td>
+					<td>${requestForm.lastName}</td> --%>
+					<td>${user.firstName}</td>
+					<td>${user.lastName}</td>
 					<td>${requestForm.email}</td>
 					<td>${requestForm.phoneNo}</td>
+					<td>${requestForm.address}</td>
 					<%-- <td>${requestForm.requestName}</td> --%>
 					<%-- <td>${requestForm.requestId}</td> --%>
 					<td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
@@ -305,8 +340,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			</table>
 			
 		</div>
-	
-	
+		</c:forEach>
+<h2> click here for seeing list of request rasied by you ..<a href="${pageContext.request.contextPath}/userRequestList" method="post">click
+		here</a></h2>
 		<!-- Declare 950px width for IE-->
 		<div class="span-24">
 			<!--add hr line-->
@@ -341,12 +377,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<ul id="footer-nav">
 					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 						|</li>
-					<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li>
+					<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+						|</li> --%>
 					<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 						|</li>
 					<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 						|</li>
+						   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
 					<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 				</ul>
 				<!--footer-nav close-->

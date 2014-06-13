@@ -53,6 +53,7 @@ public class RequestController {
 		System.out.println(requestForm.getEmail());
 		System.out.println("Binding result  " + result.hasErrors());
 		System.out.println(requestForm.getFirstName());
+		System.out.println(requestForm.getAddress());
 		System.out.println(requestForm.getLastName());
 		System.out.println(requestForm.getPhoneNo());
 		System.out.println(requestForm.getRequestName());

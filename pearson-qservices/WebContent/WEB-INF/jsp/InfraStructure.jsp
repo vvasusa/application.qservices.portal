@@ -66,6 +66,25 @@ type="text/css" media="screen, projection" charset="utf-8" />
 
 
 <!--Preload Image Over Imgs-->
+
+
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+alert(Login);
+var temp= null;
+$(document).ready(function() {
+	
+	if(Login.match(new RegExp(temp))){$('.tab').show(); $('.tab1').hide();}
+	
+	if(!Login.match(new RegExp(temp))){ $('.tab').hide(); $('.tab1').show();} 
+ 
+	});
+</script>
+
+
 <script type="text/javascript">
 $.preLoadImages([
 	'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
@@ -252,6 +271,8 @@ $(".image_placeset img").hover(function() {
 
 <!--Begin Header-->
 <div class="header">
+
+
 	<!--Logo Area-->
 	<div class="logo">
 
@@ -401,13 +422,14 @@ Infrastructure testing should be used in the event of new hardware deployment or
 		<ul id="footer-nav">
 			<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 				|</li>
-			<li><a
+			<%-- <li><a
 				href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-				|</li>
+				|</li> --%>
 			<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 				|</li>
 			<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 				|</li>
+				   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
 			<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 		</ul>
 		<!--footer-nav close-->

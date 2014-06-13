@@ -45,6 +45,28 @@
 
 
 <!--jQuery Sliding Login Panel Button-->
+
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+
+	});
+</script>
+
+
+
+
+
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -61,8 +83,8 @@ $(document).ready(function(){
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
 <!--I have included 2 different Titillium font weights, 400 and 800 respectively.-->
 <!--If you want to use the much bolder, 800 weight, simply change the "400" below to "800"-->
-<script src="./js/cufon-yui.js" type="text/javascript"></script>
-<script src="./js/TitilliumText15L_400.font.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/cufon-yui.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
 <script type="text/javascript">
         Cufon.replace('h1');
         Cufon.replace('h2');
@@ -181,7 +203,9 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
 				<a id="close" style="display: none;" class="close" href="#">Close Panel</a>			
 			</li>
 		</ul> 
-        
+        <ul class="logout">
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ </ul>
         
 	</div>
     <!-- close tab -->
@@ -191,7 +215,7 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
     <div class="header">
     	<!--Logo Area-->
     	<div class="logo">
-        <a href="${pageContext.request.contextPath}/index/"><img src="./img/logo.jpg" alt="" /></a>
+        <a href="${pageContext.request.contextPath}/index/"><img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
         </div>
         <!--Close Logo Area-->
     
@@ -199,9 +223,9 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
         <!--Begin Navigation-->    
         <ul id="navigation">
   			<li><a href="${pageContext.request.contextPath}/index/" id="home" title="Home"><span>home</span></a></li>
-  			<li><a href="${pageContext.request.contextPath}/portfolio/" id="port_front" title="Work Portfolio"><span>work portfolio</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/services/" id="services" title="Our Services"><span>our services</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/blog/" id="blog" title="The Blog"><span>the bloggery</span></a></li>
+  			<li><a href="${pageContext.request.contextPath}/requestList/" id="port_front" title="Work Portfolio"><span>RequestList</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
 		</ul><!--Navigation close-->
         
@@ -230,7 +254,7 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
         <div class="span-24">
             <!--Intro Image shown here, about site-->
             <div class="intro">
-            <img src="./img/port_topper.gif" alt="" />
+            <img src="${pageContext.request.contextPath}/img/port_topper.gif" alt="" />
             </div>
             <!--Close intro image-->
         </div>
@@ -255,41 +279,7 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
             <a href="#" class="switch_thumb">Switch Thumb</a> 
  			
             <!--Default Style is set to thumb view showing first. -->
- <form action="" />
-            <table style="width:680px; background-color:#fff; border:1px solid #ddd; padding:10px; font-size:12px;" class="contactForm">
-            <tr>
-            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Name:</td>
-            <td style="text-align:left; vertical-align:top; padding:5px;"><input type="text" name="name" value="" /></td>
-            </tr>
-            <tr>
-            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Email:</td>
-            <td style="text-align:left; vertical-align:top; padding:5px;"><input type="text" name="email" value="" /> </td>
-            </tr>
-            <tr>
-            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Subject:</td>
-            <td style="text-align:left; vertical-align:top; padding:5px;"><input type="text" name="subject" value="" /></td>
-            </tr>
-            
-            <!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
-            <tr>
-            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Request:</td>
-            <td style="text-align:left; vertical-align:top; padding:5px;"><select type="text" name="subject" > <option value="volvo">Volvo</option> 
-             <option value="saab">Saab</option>  <option value="mercedes">Mercedes</option>  <option value="audi">Audi</option></select> </td>
-            </tr>
-             <!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
-            <tr>
-            <td style="width:10%; text-align:left; vertical-align:top; padding:10px 5px 5px 5px; font-weight:bold; ">Message:</td>
-            <td style="text-align:left; vertical-align:top; padding:5px;"><textarea name="message" cols="40" rows="6"></textarea></td>
-            </tr>
-            
-            <tr>
-            <td colspan="2" style="text-align:left; vertical-align:middle; padding:5px; font-size:90%; font-weight:bold;">All fields are required.</td>
-            </tr>
-            <tr>
-            <td colspan="2" style="text-align:left; vertical-align:middle; padding:5px;"><input type="submit" name="submit" value="Submit" /> (Email will not be sent)</td>
-            </tr>
-            </table>
-            </form>
+
             <!--thumb view close-->
     		</div>
             <!--close switch -->
@@ -310,11 +300,11 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
     	<!--Left Column Bottom Box-->
         <div class="span-7 colborder">
         	<div class="box1">
-        	<img src="./img/latest_blog.jpg" alt="" />
+        	<img src="${pageContext.request.contextPath}/img/latest_blog.jpg" alt="" />
             <h4><a href="${pageContext.request.contextPath}/blog/">New Phone Icon Set Available</a></h4>
             <div class="meta">Feb 26th, 2010</div>
     		<p>List ipsum dolor sit amet, consectetur enim ad adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p class="more"><a href="#"><img src="./img/readmore_port.jpg" alt="" /></a></p>
+            <p class="more"><a href="#"><img src="${pageContext.request.contextPath}/img/readmore_port.jpg" alt="" /></a></p>
     		</div>
         </div>
         <!--Left Column Bottom Box Close-->
@@ -323,10 +313,10 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
         <!--Middle Column Bottom Box-->
         <div class="span-7 colborder">
     		<div class="box2">
-        	<img src="./img/client.jpg" alt="" />
+        	<img src="${pageContext.request.contextPath}/img/client.jpg" alt="" />
             <h4>George Smith of CyberSellers says, </h4>
     		<p class="quote">&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua...&quot;</p>
-            <p class="other"><a href="#"><img src="./img/click.jpg" alt="" /></a>to see what others are saying</p>
+            <p class="other"><a href="#"><img src="${pageContext.request.contextPath}/img/click.jpg" alt="" /></a>to see what others are saying</p>
             
     		</div>
         </div> 
@@ -391,9 +381,10 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
                 
                 <ul id="footer-nav">
                     <li><a href="${pageContext.request.contextPath}/index/">Home</a> |</li>
-                    <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a> |</li>
+                  <%--   <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a> |</li> --%>
                     <li><a href="${pageContext.request.contextPath}/services/">Services</a> |</li>
                     <li><a href="${pageContext.request.contextPath}/blog/">Blog</a> |</li>
+                       <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
                     <li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li> 
                 </ul><!--footer-nav close-->
                  

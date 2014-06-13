@@ -4,14 +4,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-
-<html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
 <title>Logical Media</title>
@@ -66,6 +68,26 @@
 
 
 <!--Preload Image Over Imgs-->
+
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+	});
+</script>
+
+
+
+
 <script type="text/javascript">
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
@@ -245,7 +267,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						Register</a> <a id="close" style="display: none;" class="close"
 					href="#">Close Panel</a></li>
 			</ul>
-
+   
+ <ul class="logout">
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ </ul>
 
 		</div>
 		<!-- close tab -->
@@ -261,18 +286,19 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			</div>
 			<!--Close Logo Area-->
 			
-<a href="${pageContext.servletContext.contextPath}/mail/"> Send Mail </a> <br>
+
 
 			<!--Begin Navigation-->
 			<ul id="navigation">
-				<li><a href="${pageContext.request.contextPath}/index/"	
-				id="home_front" title="Home"><span>home</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/index/"
+					id="home" title="Home"><span>home</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services_front" title="Our Services"><span>our
+							services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/"
+					id="port" title="Request"><span>Request</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
@@ -326,15 +352,22 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		</div>
 		<!--page close-->
 		
-<div class="bar bar-header bar-light" align="right">
-			<form
-				action="${pageContext.servletContext.contextPath}/raiseRequest/"
-				method="post" commandName="requestForm">
-				<input type="hidden" name="service" value="QSERVICE" /> <input
-					type="hidden" name="serviceID" value="QTEST" /> <input
-					type="submit" value="SubmitRequest" align="right">
-			</form>
-		</div>
+<c:if test="${!empty loginType}">
+			<c:if test="${loginType=='VISITOR'}">
+
+					<div class="bar bar-header bar-light" align="right">
+					<form
+						action="${pageContext.servletContext.contextPath}/raiseRequest/"
+						method="post" commandName="requestForm">
+						<input type="hidden" name="service" value="QSERVICE" /> 
+						<input type="hidden" name="serviceID" value="QT001" /> 
+						<!-- <input type="submit" value="Submit Request" align="right"/> -->
+					<input type="image" src="${pageContext.request.contextPath}/img/button.jpg" alt="Raise Your Request Here.." />
+						
+					</form>
+					</div>
+			</c:if>
+		</c:if>
 
 		<div class="span-24">
 		<H1 style="color:#900000">Test program Management</H1>
@@ -422,13 +455,14 @@ Expertise to bring in best practices and standards to achieve quality output
 				<ul id="footer-nav">
 					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 						|</li>
-					<li><a
+					<%-- <li><a
 						href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li>
+						|</li> --%>
 					<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 						|</li>
 					<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 						|</li>
+						   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
 					<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 				</ul>
 				<!--footer-nav close-->

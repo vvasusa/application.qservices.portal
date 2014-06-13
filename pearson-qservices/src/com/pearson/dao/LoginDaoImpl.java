@@ -68,9 +68,11 @@ public class LoginDaoImpl implements LoginDao {
 				}
 
 				// session.removeAttribute("MySessionVariable");
+			/*	
 				request.getSession(false).removeAttribute("MySessionId");
 				request.getSession(false).removeAttribute("Table");
-				request.getSession(false).removeAttribute("loginType");
+				request.getSession(false).removeAttribute("loginType");*/
+				
 				System.out.println("session;;;; invalidate()");
 
 			}

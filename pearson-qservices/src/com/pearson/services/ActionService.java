@@ -28,5 +28,13 @@ public interface ActionService {
 	public Register newRegistrationDetails(Register register,
 			HttpServletRequest request);
 
+
+
+	public List<AdminUser> rejectrequest(String id, HttpServletRequest request);
+
+
+
+	public List<AdminUser> viewAllRequest(HttpServletRequest request);
+
 	
 }

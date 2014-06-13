@@ -58,14 +58,11 @@
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 <!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+
+
 <script type="text/javascript">
-
-  <%String temp = (String) session.getAttribute("MySessionId");%>
-
-var value= "<%=temp%>
-	";
-
-	alert(value);
+<%String temp = (String) session.getAttribute("MySessionId");%>
+var value= "<%=temp%>";
 </script>
 
 <!--jQuery-->
@@ -101,9 +98,9 @@ var value= "<%=temp%>
 	src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery.validation.js"></script>
-	
-	
-	
+
+
+
 <%-- 
 
 <script type="text/javascript"
@@ -127,6 +124,24 @@ var value= "<%=temp%>
 	src="${pageContext.request.contextPath}/js/jquery-1.8.2.min.js"></script>
 
 <!--Preload Image Over Imgs-->
+
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+	});
+</script>
+
+
 <script type="text/javascript">
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
@@ -222,10 +237,8 @@ textarea {
 }
 
 .errordis {
-
-background-color: #FFD9D9  !important;
+	background-color: #FFD9D9 !important;
 	border: 1px solid #F00 !important
- 
 }
 
 .error_show {
@@ -309,7 +322,7 @@ jQuery(document).ready(function(){
 		<!--Email must be an email -->
 	/* 	$('#contact_email').on("input", function() { */
 		
-		$('#lastName').click(function() {
+		$('#').click(function() {
 			alert("uuuuuuuuuuuuu");
 			var input=$(this);
 			var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -318,7 +331,7 @@ jQuery(document).ready(function(){
 			else{input.removeClass("valid").addClass("invalid");}
 		});
 		
-		<!--Website must be a website -->
+	
 		$('#emailadd').click(function() {
 			var input=$(this);
 			if (input.val().substring(0,4)=='www.'){input.val('http://www.'+input.val().substring(4));}
@@ -352,18 +365,112 @@ jQuery(document).ready(function(){
 			event.preventDefault(); 
 		}
 		else{
-			alert('No errors: Form will be submitted');
+			
 		}
 	});
 		
 });
 
- */
+ 
 	
 </script>
 
 
 <!-- ************************************************************************************************************************************ -->
+
+<!-- <script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#form1').on("submit", function(e){
+				
+		var val_first_name = $("#firstName").val();
+		var val_last_name = $("#lastName").val();
+		var val_phoneNo = $("#phoneNo").val();
+		var val_emailadd = $("#emailadd").val();
+		
+		$("#firstName").removeClass('errordis');	
+		$("#lastName").removeClass('errordis');	
+		$("#phoneNo").removeClass('errordis');
+		$("#emailadd").removeClass('errordis');
+
+		var mobile = document.getElementById("phoneNo").value;      
+		var pattern = /^\d{10}$/; 
+		
+		
+		 if( $.trim(val_last_name) === '' )
+		{
+		
+			$("#lastName").addClass('errordis');
+			$("#lastName").focus();	
+    		$("#plastname").text(" Enter LastName");
+			$( "#lastName" ).empty();
+			e.preventDefault();
+		}	
+		
+		
+		if( $.trim(val_phoneNo) === '' )
+		{
+			
+			$("#phoneNo").addClass('errordis');
+			$("#phoneNo").focus();
+		    $("#phoneNo").text('Enter PhoneNo.'); 
+			e.preventDefault();
+		}	
+		
+		if( $.trim(val_first_name) === '' )
+		{
+			
+			$("#firstName").addClass('errordis');
+			$("#firstName").focus();
+		    $("#firstName").text('Enter PhoneNo.'); 
+			e.preventDefault();
+		}	
+				
+		
+		
+		if (!pattern.test(val_phoneNo)) {         
+					$("#phoneNo").addClass('errordis');
+					$("#phoneNo").focus();	
+					$("#phoneNo").text('Enter 10 digit PhoneNo');
+					e.preventDefault();  
+					} 
+		
+		if( $.trim(val_emailadd) === '' )
+		{
+			$("#emailadd").addClass('errordis');
+			$("#emailadd").text('Enter EmailId.');
+			$("#emailadd").focus();	
+			e.preventDefault();
+		}	
+		
+		 else{
+		
+			var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+			
+			if (reg.test(val_emailadd)){ 
+				
+				} else{
+					
+					$("#emailadd").addClass('errordis');
+					$("#emailadd").focus();	
+					$("#emailadd").text('Invalid Email Format.');
+					e.preventDefault();
+					
+					 } 
+		}
+		
+		
+
+
+		
+	});
+
+});
+
+</script> -->
+
+
 
 <script type="text/javascript">
 
@@ -371,37 +478,45 @@ $(document).ready(function(){
 
 	$('#form1').on("submit", function(e){
 		$("#firstName").addClass('#error');
-		alert('jhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjh!');
+		
 		var val_first_name = $("#firstName").val();
 		var val_last_name = $("#lastName").val();
 		var val_phoneNo = $("#phoneNo").val();
 		var val_emailadd = $("#emailadd").val();
-
+		/* $("lastName").remove(".text"); */
+		
+		var mobile = document.getElementById("phoneNo").value;      
+		var pattern = /^\d{10}$/; 
+		
+	
+		
 		
 		$("#firstName").removeClass('errordis');	
 		$("#lastName").removeClass('errordis');	
 		$("#phoneNo").removeClass('errordis');
 		$("#emailadd").removeClass('errordis');
-
-		if( $.trim(val_first_name) === '' )
-		{
-			
-			$("#firstName").addClass("errordis");
-			
-			$("#firstName").focus();
-			addedClass = "green";
-			e.preventDefault();
-		}
-
 		
+		$( "#plastname" ).empty();
+		$( "#errorPno" ).empty();
+		$( "#errorEmail" ).empty();
+		$( "#pfirstName" ).empty();
+		/* validator.resetForm(); $('lastName.error').remove();
+		
+		
+		$(this).replaceWith("<h1>enter lastname</h1>");*/
 		
 		 if( $.trim(val_last_name) === '' )
 		{
-				
+		
 			$("#lastName").addClass('errordis');
 			$("#lastName").focus();	
+		    $("#plastname").text("Enter LastName");
+			$( "#lastName" ).empty();
+			
 			e.preventDefault();
+			
 		}	
+		
 		
 		
 		if( $.trim(val_phoneNo) === '' )
@@ -409,9 +524,22 @@ $(document).ready(function(){
 				
 			
 			$("#phoneNo").addClass('errordis');
-			$("#phoneNo").focus();	
+			$("#errorPno").text('Enter PhoneNo.');
+			$("#phoneNo").focus();
 			e.preventDefault();
 		}	
+		
+
+		
+		
+		if (!pattern.test(val_phoneNo)) {         
+			/* 		alert("It is not valid mobile number. Enter 10 digits number!");    */
+					$("#phoneNo").addClass('errordis');
+					$("#phoneNo").focus();	
+					$("#errorPno").text('Enter 10 digit PhoneNo');
+					e.preventDefault();  
+					      
+					} 
 		
 		if( $.trim(val_emailadd) === '' )
 		{
@@ -419,9 +547,36 @@ $(document).ready(function(){
 			
 			$("#emailadd").addClass('errordis');
 			$("#emailadd").focus();	
+			$("#errorEmail").text('Enter Email Id.');
 			e.preventDefault();
 		}	
-		else{return true;}
+		
+		else{
+		
+			var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+			/* var email = document.getElementById("emailadd").value;  */
+			if (reg.test(val_emailadd)){ 
+				
+				} else{
+					
+					$("#emailadd").addClass('errordis');
+					$("#emailadd").focus();	
+					$("#errorEmail").text('Invalid Email Id');
+					e.preventDefault();
+					
+					 }
+		}
+		
+		
+		if( $.trim(val_first_name) === '' )
+		{
+			
+			$("#firstName").addClass("errordis");
+			$("#firstName").focus();
+		    $("#pfirstName").text("Enter FirstName");
+			e.preventDefault();
+		}
+
 
 	});		
 
@@ -432,18 +587,11 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
-
-
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
-<body>
+<body background="white">
 
 
 	<div id="toppanel">
@@ -517,6 +665,9 @@ $(document).ready(function(){
 					href="#">Close Panel</a></li>
 			</ul>
 
+ <ul class="logout">
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ </ul>
 
 		</div>
 		<!-- close tab -->
@@ -559,9 +710,6 @@ $(document).ready(function(){
 
 
 			<a href="${pageContext.request.contextPath}/logout/"> logout</a>
-
-
-			<h1>welcomr</h1>
 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
@@ -615,6 +763,107 @@ $(document).ready(function(){
 					
 				</div> -->
 			<!--Close Site Slogan Area-->
+			
+			
+
+		<form action="${pageContext.request.contextPath}/register/done"
+			method="post" id="form1" class="my_form_class" commandName="register"
+			modelAttribute="user">
+
+
+			<table
+				style="width: 400px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
+				class="contactForm">
+				<tr>
+
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 15px 5px 5px; font-weight: bold;">FirstName:*</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+						type="text" name="firstName" id="firstName"
+						value="${register.firstName}"
+						 /> <p id="pfirstName" /></td>
+					
+				</tr>
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:*</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+						type="text" name="lastName" id="lastName"
+						value="${register.lastName}"
+						<form:errors path="lastName" cssClass="error"/> />
+						<p id="plastname" />
+						
+						</td>
+						
+					<form:errors path="lastName" cssClass="error" />
+				</tr>
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:*</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+						type="text" name="email" id="emailadd" value="${register.email}" /> <p id="errorEmail" /></td>
+					
+				</tr>
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:*</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+						type="text" name="phoneNo" id="phoneNo" maxlength="10"
+						value="${register.phoneNo}" /> <p id="errorPno" /></td>
+					
+				</tr>
+
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address1:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+						type="text" name="address1" value="" /></td>
+				</tr>
+
+				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
+
+				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address3:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+						type="text" name="address3" value="" /></td>
+				</tr>
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address2:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><select
+						type="text" name="address1">
+							<option value="volvo">INDIA</option>
+							<option value="saab">US</option>
+							<option value="mercedes">UK</option>
+							<option value="audi">CHINA</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"
+						style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All * 
+						fields are required.</td>
+				</tr>
+				<tr>
+
+					<td colspan="2"
+						style="text-align: middle; vertical-align: middle; padding: 5px;"><div
+							id="btn">
+							<input type="submit" id="submit" name="update" value="Register" />
+						</div> (Email will be sent with Temporary Password)</td>
+				</tr>
+			</table>
+		</form>
+			
+			
+			
+			
+			
+			
+			
+			
 		</div>
 		<!--Close 350px width-->
 
@@ -684,99 +933,12 @@ $(document).ready(function(){
 
 
 
-	<div id="form">
+	<div class="span-24" id="form" >
 
 
 
 
-			
-		<form action="${pageContext.request.contextPath}/register/done"
-			method="post" id="form1"  class="my_form_class" commandName="register" modelAttribute="user">
-			
-			
-			<table
-				style="width: 400px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
-				class="contactForm">
-				<tr>
 
-					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="firstName" id="firstName"
-						value="${register.firstName}"
-						<form:errors path="firstName" cssClass="error" /> /></td>
-					<form:errors path="firstName" cssClass="error" />
-				</tr>
-				<tr>
-					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="lastName" id="lastName"
-						value="${register.lastName}"
-						<form:errors path="lastName" cssClass="error"/> /></td>
-					<form:errors path="lastName" cssClass="error" />
-				</tr>
-				<tr>
-					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="email" id="emailadd" value="${register.email}"
-						<form:errors path="email" /> /></td>
-					<td><form:errors path="email" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="phoneNo" id="phoneNo"
-						value="${register.phoneNo}"
-						<form:errors path="phoneNo" cssClass="error" /> /></td>
-					<form:errors path="phoneNo" cssClass="error" />
-				</tr>
-
-				<tr>
-					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address1:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="address1" value="" /></td>
-				</tr>
-
-				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
-
-				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
-				<tr>
-					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address3:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="address3" value="" /></td>
-				</tr>
-				<tr>
-					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address2:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><select
-						type="text" name="address1">
-							<option value="volvo">INDIA</option>
-							<option value="saab">US</option>
-							<option value="mercedes">UK</option>
-							<option value="audi">CHINA</option>
-					</select></td>
-				</tr>
-
-				<tr>
-					<td colspan="2"
-						style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
-						fields are required.</td>
-				</tr>
-				<tr>
-
-					<td colspan="2"
-						style="text-align: middle; vertical-align: middle; padding: 5px;"><div
-							id="btn">
-							<input type="submit" id="submit" name="update" value="Register" />
-						</div> (Email will not be sent)</td>
-				</tr>
-			</table>
-		</form>
 
 	</div>
 
@@ -786,7 +948,7 @@ $(document).ready(function(){
 
 
 
-<%-- 
+	<%-- 
 
 	<form id="contact" method="post" action="">
 		<!-- Name -->
@@ -968,12 +1130,13 @@ $(document).ready(function(){
 			<ul id="footer-nav">
 				<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 					|</li>
-				<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-					|</li>
+				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+					|</li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 					|</li>
 				<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 					|</li>
+					   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
 				<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 			</ul>
 			<!--footer-nav close-->

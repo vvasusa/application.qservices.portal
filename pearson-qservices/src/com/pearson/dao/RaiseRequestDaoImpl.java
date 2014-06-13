@@ -172,9 +172,10 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			user.setRequestID(reqid);
 			adminUser.add(user);
 
-			/* Send request id to user via mail */
+			/**************** Send request id to user via mail ************/
 			MailService mailService = new MailService();
-			mailService.sendRequestID(requestForm.getEmail(), reqid);
+			
+		//	mailService.sendRequestID(requestForm.getEmail(), reqid);
 			
 		} catch (Exception e) {
 			System.out.println(e);

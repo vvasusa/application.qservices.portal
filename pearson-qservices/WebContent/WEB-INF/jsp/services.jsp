@@ -47,13 +47,163 @@
 <!--jQuery Slider-->
 <!--Custom jQuery Set-->
 <!--jQuery Lightbox-->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/custom.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/lightbox.js"></script>
 
-
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.expander.js">
+	
+</script>
 <!--jQuery Sliding Login Panel Button-->
+
+
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+
+	/* if(!Login.match(new RegExp(temp))){
+		$( ".tab1" ).replaceWith( $( ".tab" ) );
+		}
+	if(Login.match(new RegExp(temp))){$( ".tab" ).replaceWith( $( ".tab1" ));} */
+	});
+</script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+
+		/* 
+		$('#t1').text(function() {
+		    return $(this).text().substring(0, 50);
+		});
+		 */
+
+		/*  $('#t1').expander({
+			    slicePoint:       100,  // default is 100
+			    expandPrefix:     ' ', // default is '... '
+			    expandText:       '[...]', // default is 'read more'
+			    collapseTimer:    5000, // re-collapses after 5 seconds; default is 0, so no re-collapsing
+			    userCollapseText: '[-hide]'  // default is 'read less'
+			  }); */
+
+		$('#txt1').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt2').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt3').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt4').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt5').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt6').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt7').expander({
+			slicePoint : 85,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt8').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt9').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt10').expander({
+			slicePoint : 90,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt11').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt12').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt13').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt14').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt15').expander({
+			slicePoint : 95,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+		$('#txt16').expander({
+			slicePoint : 85,
+			collapseTimer:5000,
+			expandText : '+ More',
+			userCollapseText : '[ -Hide]'
+		});
+
+	});
+</script>
+
+
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -67,12 +217,17 @@
 </script>
 
 
+
+
 <!--CUFON Text Replacement-->
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
 <!--I have included 2 different Titillium font weights, 400 and 800 respectively.-->
 <!--If you want to use the much bolder, 800 weight, simply change the "400" below to "800"-->
-<script src="${pageContext.request.contextPath}/js/cufon-yui.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/cufon-yui.js"
+	type="text/javascript"></script>
+<script
+	src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js"
+	type="text/javascript"></script>
 <script type="text/javascript">
 	Cufon.replace('h1');
 	Cufon.replace('h2');
@@ -99,6 +254,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		$('.lightbox').lightBox();
 	});
 </script>
+
+
 
 
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
@@ -137,15 +294,21 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="left">
 					<h1>Member Login</h1>
 					<!-- Login Form -->
-					<label class="color">Username:</label> <input class="field"
-						type="text" name="log" id="log" value="" size="23" /> <label
-						class="color" for="pwd">Password:</label> <input class="field"
-						type="password" name="pwd" id="pwd" size="23" /> <label><input
-						name="rememberme" id="rememberme" type="checkbox" value="forever" />
-						&nbsp;Remember me</label>
-					<div class="clear"></div>
-					<input type="submit" name="submit" value="Login" class="bt_login" />
-					<a class="lost-pwd" href="#">Lost your password?</a>
+
+					<form action="${pageContext.request.contextPath}/login"
+						method="post" commandName="login" modelAttribute="user">
+
+						<label class="color">Username:</label> <input class="field"
+							type="text" name="log" id="log" value="" size="23" /> <label
+							class="color" for="pwd">Password:</label> <input class="field"
+							type="password" name="pwd" id="pwd" size="23" /> <label><input
+							name="rememberme" id="rememberme" type="checkbox" value="forever" />
+							&nbsp;Remember me</label>
+
+						<div class="clear"></div>
+						<input type="submit" name="submit" value="Login" class="bt_login" />
+						<a class="lost-pwd" href="#">Lost your password?</a>
+					</form>
 				</div>
 				<!--panel box2 close-->
 
@@ -177,22 +340,25 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	<div class="container">
 
 		<!-- The tab on top -->
-		<div class="tab">
-			<ul class="login">
-				<!--Button For Login Panel-->
-				<li id="toggle"><a id="open" class="open" href="#">Log In |
-						Register</a> <a id="close" style="display: none;" class="close"
-					href="#">Close Panel</a></li>
+		
+        <div class="tab">
+				<ul class="login">
+					<!--Button For Login Panel-->
+					<li id="toggle"><a id="open" class="open" href="#">Log In
+							| Register</a> <a id="close" style="display: none;" class="close"
+						href="#">Close Panel</a></li>
+				</ul>
+				
+				<ul class="logout">
+                <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
 			</ul>
+			</div>
 
-
-		</div>
 		<!-- close tab -->
-<a href="${pageContext.request.contextPath}/logout/"><b>LOGOUT</b></a>
-
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
+
 			<div class="logo">
 				<a href="${pageContext.request.contextPath}/index/"><img
 					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
@@ -202,12 +368,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 			<!--Begin Navigation-->
 			<ul id="navigation">
-				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home" title="Home"><span>home</span></a></li>
+				
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
+				<li><a href="${pageContext.request.contextPath}/index/"
+					id="home" title="Home"><span>home</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services_front" title="Our Services"><span>our services</span></a></li>
+					id="services_front" title="Our Services"><span>our
+							services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/requestList/"
@@ -252,11 +420,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Declare 950px width w/ right border-->
 			<div class="span-24">
 				<!--Intro Image shown here, about site-->
-				<div class="intro">
+				<%-- <div class="intro">
 					<img
 						src="${pageContext.request.contextPath}/img/services_banner.gif"
 						alt="" />
-				</div>
+				</div> --%>
 				<!--Close intro image-->
 			</div>
 			<!--Close 950px width-->
@@ -276,10 +444,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 					<!--#PAGE INTRO#-->
 					<!--Brief Info -->
-					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
-						eiusmodarel tempor incididunt ut labore et dolor magna aliqua. Ut
-						enim ad minimilo veniam, quis nostrud exercitational ullamco lorem
-						ipsum</p>
+					<p>
+					<h2>The Q-service portal is providing the following services
+						for customers.. For more information please click on services...</h2>
+					</p>
 
 				</div>
 				<!--boxed close-->
@@ -292,28 +460,26 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="span-6">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
-
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Q-Assesment</h5>
-							<!--Service Image-->
-							<!--  <p><img src="./img/icons/site_analysis.png" class="left" alt="" /> -->
-							<!--Brief Info on Service-->
-
-							<a href="${pageContext.request.contextPath}/QAssesment/"> Q-
-								Assessment for Integrating Teams provides quality consulting to
-								organizations undergoing integrations or consolidation such as
-								Mergers & Acquisition. It heps QA organization achieve best in
-								class operating levels by strategizing and redefining their QA
-								processes. </a>
-							<%-- <form action="${pageContext.request.contextPath}/request/" method="get">
-                     <input type="submit" value="Request" ></form> --%>
-							</p>
-						</div>
+                        <!--Service Image-->
+						<!--  <p><img src="./img/icons/site_analysis.png" class="left" alt="" /> -->
+						<!--Brief Info on Service-->
+                  <div class="serhead"> 
+						<a href="${pageContext.request.contextPath}/QAssesment/">Q-Assessment</a></div>
+						
+						<div id="txt1" class="text" style="text-align:justify">
+							Q- Assessment for Integrating Teams provides quality
+								consulting to organizations undergoing integrations or
+								consolidation such as Mergers & Acquisition. It heps QA
+								organization achieve best in class operating levels by
+								strategizing and redefining their QA processes.
+							</div>
 					</div>
 					<!--boxed_page close-->
 				</div>
 				<!--span-6 close-->
+
+
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
@@ -322,22 +488,17 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<div class="boxed_page">
 
 						<!--Service Title-->
-						<div class="texter">
-							<!-- <h5>Test Program Management</h5> -->
-							<h5>Test Program..</h5>
+					
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/design.png" class="left" alt="" /> -->
 							<!--Brief Info on Service-->
-							<a href="${pageContext.request.contextPath}/TestProgram/">
+							
+							<div class="serhead"> <a href="${pageContext.request.contextPath}/TestProgram/">Test Program</a></div>
+							<div id="txt2" class="texter" style="text-align:justify">
 								Test Program Management is an advisory service offering that
 								helps organizations create QA Policies, Strategies, Plans and
 								Processes. This offering enables QA teams to effectively manage
-								multiple projects while maintaining standard deliverables. </a>
-							<form action="${pageContext.request.contextPath}/request/"
-								method="get">
-								
-							</form>
-
+								multiple projects while maintaining standard deliverables. 
 						</div>
 					</div>
 					<!--boxed_page close-->
@@ -352,25 +513,22 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<div class="boxed_page">
 
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Middleware / ESB Testing</h5>
+						
+							<div class="serhead"><a href="${pageContext.request.contextPath}/Middleware/">Middleware/ESB</a></div>
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/lc.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/Middleware/">
+							<div id="txt3" class="texter" style="text-align:justify">
 								Middleware/ ESB Testing validates an organization's middleware
 								architecture to establish a robust communication layer between
 								the application and the back-end systems. It improves business
 								agility by increasing the lifespan of applications ensuring
-								quality & scalability </a>
-							<form action="${pageContext.request.contextPath}/request/"
-								method="get">
-								
-							</form>
+								quality & scalability</div>
+							
 							<!-- </p> -->
 						</div>
 					</div>
 					<!--Brief Info on Service-->
-				</div>
+				
 				<!--span-6 close-->
 
 				<!--add spacing-->
@@ -382,22 +540,17 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>DataIntegration Testing</h5>
+				
+							<div class="serhead"><a href="${pageContext.request.contextPath}/DataIntegration/">DataIntegration Testing</a></div>
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/omar.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/DataIntegration/">
+								<div id="txt4" class="texter" style="text-align:justify">
 								Data Integration Testing enables organizations to maintain data
 								integrity during transition of data from one database system to
 								the other by performing data verification and validation. It
 								helps in establishing increased levels of trust for data across
 								the organization by enuring that the integrated data is correct,
 								complete and up-to-date </a>
-							<form action="${pageContext.request.contextPath}/request/"
-								method="get">
-								
-							</form>
-							</p>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -410,21 +563,15 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Automated Testing</h5>
-							<!--Service Image-->
+						<div class="serhead"><a href="${pageContext.request.contextPath}/Automated/">Automated Testing</div>
+					        <!--Service Image-->
 							<!-- <p><img src="./img/icons/psd.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/Automated/">
+							<div id="txt5"  class="texter" style="text-align:justify">
 								Automated Testing helps agile centric IT organizations produce a
 								software that is effective, efficient and faster by employing
 								right tools, frameworks, strategy and personnel. Higher
 								automation coverage reduces manual effort and improves the
 								quality of testing. </a>
-							<form action="${pageContext.request.contextPath}/request/"
-								method="get">
-								
-							</form>
-							</p>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -437,21 +584,15 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Mobile Testing</h5>
+							<div class="serhead"><a href="${pageContext.request.contextPath}/Mobile/"> Mobile Testing</div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/ecom.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/Mobile/"> Mobile
-								Testing provides an integrated solution for testing mobile
+							<div id="txt6"  class="texter" style="text-align:justify">
+							 Mobile	Testing provides an integrated solution for testing mobile
 								native applications using agile based test framework. Testing is
 								performed on real devices without compromising on the quality by
 								leveraging tools and centralized repository consisting mobile
 								specific test scripts across all mobile platform projects. </a>
-							<form action="${pageContext.request.contextPath}/request/"
-								method="get">
-								
-							</form>
-							</p>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -467,11 +608,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Online eCommerce & Content Management</h5>
+					
+						<div class="serhead"><a href="${pageContext.request.contextPath}/OnlineEcommerce/">Online eCommerce & Content Management</a></div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/OnlineEcommerce/">
+							<div id="txt7" class="texter" style="text-align:justify">
 								QCoE - Online ecommerce and Content Management provides testing
 								solutions to the growing volume of e-commerce businesses
 								requiring higher availability, scalability, and facilitates
@@ -480,11 +621,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 								usability testing provides cost-effective implementations that
 								accelerate the product life cycle, prevent security lapses such
 								as identity theft and ensure efficient load handling. </a>
-							<form action="${pageContext.request.contextPath}/request/"
-								method="get">
-								
-							</form>
-							</p>
+							
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -497,22 +634,15 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="span-6">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
-						<!--Service Title-->
-						<div class="texter">
-							<h5>Oracle ERP Testing</h5>
+						<!--Service Title--><div class="serhead"><a href="${pageContext.request.contextPath}/OracleERP/">Oracle ERP Testing</a></div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/OracleERP/">
+							<div id="txt8"  class="texter" style="text-align:justify">
 								Oracle ERP Testing validates an organizations Oracle ERP package
 								implementations and customizations towards a business need by
 								testing functional coverage, performance, availability and
 								scalability areas. It accelerates the QA process by allowing
 								faster delivery of your business-critical Oracle ERP projects. </a>
-							<form action="${pageContext.request.contextPath}/request/"
-								method="get">
-								
-							</form>
-							</p>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -526,21 +656,15 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Sales Force Testing</h5>
+						<div class="serhead"><a href="${pageContext.request.contextPath}/SalesForce/">Sales Force Testing</a></div>
 							<!--Service Image-->
 							<!--   <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/SalesForce/">
+							<div id="txt9"  class="texter" style="text-align:justify">
 								Sales Force Testing provides organizations a full scale CRM
 								testing from opportunity creation to post-sale functionality for
 								both standard and highly customized objects. It covers all
 								critical testing domains of SalesForce.Com by providing a full
-								suite of solutions </a>
-							<form action="${pageContext.request.contextPath}/request/"
-								method="get">
-								
-							</form>
-							</p>
+								suite of solutions 
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -559,22 +683,19 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Performance Testing</h5>
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/search.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/Performance/">
+							<div class="serhead">	<a href="${pageContext.request.contextPath}/Performance/">Performance Testing</a></div>
+							<div id="txt10"  class="texter" style="text-align:justify">
 								Performance Testing identifies performance bottlenecks in a
 								software and helps in deploying scalable & reliable solution
 								across Pearson applications to enhance user experience on sites
 								and web apps. It improves the speed and consistency of a system
-								under a particular workload. </a>
-							
-							</p>
+								under a particular workload. </div>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
-				</div>
+				
 				<!--span-6 close-->
 
 
@@ -584,21 +705,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Security Testing</h5>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/Security/">
+							<div class="serhead"><a href="${pageContext.request.contextPath}/Security/">Security Testing</a></div>
+							<div id="txt11"  class="texter" style="text-align:justify">
 								Security Testing identifies risk and compliance level of an
 								application with respect to Pearson policies & assessment. It
 								validates security vulnerabilities in Pearson web applications
-								and assures that these applications behave as intended </a>
-							
-							</p>
+								and assures that these applications behave as intended </div>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
-				</div>
+			
 				<!--span-6 close-->
 
 
@@ -608,21 +726,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Compliance Testing</h5>
+						
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/Compliance/">
+							<div class="serhead"><a href="${pageContext.request.contextPath}/Compliance/">Compliance Testing</a></div>
+							<div id="txt12"  class="texter" style="text-align:justify">
 								Compliance Testing implements audit activities focused on
 								performing reviews and testing of application change activity to
 								ensure that all changes adhere to the established process and
-								control requirements of Pearson’s Sarbanes-Oxley (SOX)
+								control requirements of PearsonÂ’s Sarbanes-Oxley (SOX)
 								Compliance Program. It empowers organizations to achieve
-								conformance across the entire IT landscape. </a>
-							
-							</p>
+								conformance across the entire IT landscape. </div>
 						</div>
-					</div>
 					<!--Brief Info on Service-->
 				</div>
 				<!--span-6 close-->
@@ -635,26 +750,29 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
+				
+				
+				
 				<div class="span-6">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Infrastructure Testing</h5>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/InfraStructure/">
+						<div class="serhead"><a href="${pageContext.request.contextPath}/InfraStructure/">Infrastructure Testing</a></div>
+						<div id="txt13"  class="texter" style="text-align:justify">
 								Infrastructure Testing helps organizations to validate various
 								infrastructure components across all the layers of its IT
 								architecture. It ensures that the individual Infrastructure
 								components which are interlinked and interfaced with multiple
-								other components are effectively tested. </a>
-							
-							</p>
+								other components are effectively tested. </div>
 						</div>
 					</div>
+					
+					
+					
 					<!--Brief Info on Service-->
-				</div>
+				
 				<!--span-6 close-->
 
 
@@ -664,23 +782,19 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Performance Engineering</h5>
+						
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
-							<a
-								href="${pageContext.request.contextPath}/PerformanceEngineering/">
+						<div class="serhead">	<a href="${pageContext.request.contextPath}/PerformanceEngineering/">Performance Engineering</a></div>
+						<div id="txt14"  class="texter" style="text-align:justify">
 								Performance Engineering services aid IT Organizations in
 								designing and developing software with optimal performance,
 								scalability, availability and accessibility by evaluating
 								requirements of the product, technical architecture, design, and
 								implementation. It reduces hardware and software costs by
-								improving overall system performance. </a>
-							
-							</p>
+								improving overall system performance. </div>
 						</div>
-
-					</div>
+				
 					<!--Brief Info on Service-->
 				</div>
 				<!--span-6 close-->
@@ -692,22 +806,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="texter">
-							<h5>Test Data Management</h5>
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
-							<a href="${pageContext.request.contextPath}/TestData/"> Test
+							<div class="serhead"> <a href="${pageContext.request.contextPath}/TestData/">Test Data Management</a></div>
+							<div id="txt15"  class="texter" style="text-align:justify"> Test
 								Data Management enables QA organizations establish standard
 								guidelines and strategy for test data creation and maintenance.
 								It helps in improving the quality and reusability of test data.
-							</a>
-							
 						</div>
-
-
+						</div>
 					</div>
 					<!--Brief Info on Service-->
-				</div>
+				
 				<!--span-6 close-->
 
 				<!--stupid IE 6 again-->
@@ -721,26 +831,24 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="span-6 last">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
-						<div class="texter">
+						
 							<!--Service Title-->
-							<h5>Test Environment Management</h5>
+							
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<!--  <div class="texter">     -->
-							<a href="${pageContext.request.contextPath}/TestEnvironment/">
+							<div class="serhead"><a href="${pageContext.request.contextPath}/TestEnvironment/">Test Environment Management</a></div>
+							<div id="txt16"  class="texter" style="text-align:justify">
 								Test Environment Management supports an organization in
 								establishing dedicated production-like environments for
 								effective test execution. It ensures test environment
 								optimization by driving environment planning, coordination,
-								monitoring and maintenance activities. </a>
-							
-							</p>
-
+								monitoring and maintenance activities. </div>
 						</div>
 
 					</div>
 					<!--Brief Info on Service-->
-				</div>
+				
 				<!--span-6 close-->
 
 				<!--stupid IE 6 again-->
@@ -749,7 +857,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 				<hr class="space" />
 
-			</div>
+		</div>
+		</div>
 			<!--span-18 close-->
 			<!--#LEFT CONTENT CLOSE#-->
 
@@ -764,54 +873,54 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="boxed_top"></div>
 				<div class="boxed">
 
-					<!--#Begin Latest News Title-->
+					#Begin Latest News Title
 					<h3 class="grey">Latest News</h3>
-					<!--add spacing-->
+					add spacing
 					<hr class="space" />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
-					<!--add hr line-->
+					add hr line
 					<hr />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
-					<!--add hr line-->
+					add hr line
 					<hr />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
 
 				</div>
 				<!--boxed close-->
-				<div class="boxed_bottom"></div>
+			<div class="boxed_bottom"></div> 
 
 				<!--add spacing-->
 				<hr class="space" />
@@ -819,20 +928,20 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--Sidebar Boxed Style with 20px padding-->
 				<div class="boxed_top"></div>
 				<div class="boxed">
-					<!--Sub Sidebar Title-->
+					Sub Sidebar Title
 					<h2>PDF Available</h2>
-					<!--text-->
+					text
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt ut labore et dolor magna aliqua. Ut
 						enim ad minimilo veniam, quis nostrud exercitational ullamco lorem
 						ipsum</p>
-				</div>
+				</div> 
 				<!--boxed close-->
 				<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
 				<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
 				<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
 
-				<div class="boxed_bottom"></div>
+				<!-- <div class="boxed_bottom"></div>
 
 
 				<!--add spacing-->
@@ -847,7 +956,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 
-		</div>
+	
 		<!--page close-->
 
 
@@ -889,11 +998,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li>
+						<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+							|</li> --%>
 						<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+							|</li>
+						<li><a href="${pageContext.request.contextPath}/requestList/">Request</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 					</ul>
@@ -915,7 +1026,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	</div>
 	<!--container close-->
 
-
+	
 
 	<!--IE Fix for over-shadow text replacement-->
 	<script type="text/javascript">

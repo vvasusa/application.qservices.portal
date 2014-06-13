@@ -9,14 +9,14 @@
 <?xml version="1.0"?>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
 
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
 <title>Logical Media</title>
 
- <%-- <a href="${pageContext.request.contextPath}/logout/"> <img src="${pageContext.request.contextPath}/img/logout.jpg"></img></a> --%>
+<%-- <a href="${pageContext.request.contextPath}/logout/"> <img src="${pageContext.request.contextPath}/img/logout.jpg"></img></a> --%>
 
 
 <!--  CSS Links-->
@@ -41,7 +41,7 @@
 	href="${pageContext.request.contextPath}/css/site_styles.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
 <link rel="stylesheet"
-		href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
+	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
 	media="screen, projection" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"
@@ -55,14 +55,7 @@
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 <!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
-<script type="text/javascript">
 
-  <%String temp = (String) session.getAttribute("MySessionId");%>
-
-var value= "<%=temp%>	";
-
-	alert(value); 
-</script>
 
 <!--jQuery-->
 <!--jQuery Tools-->
@@ -84,6 +77,20 @@ var value= "<%=temp%>	";
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
 
+<script type=text/javascript
+	src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.formError.js"></script>
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.validation.js"></script>
+
 
 <!--Preload Image Over Imgs-->
 <script type="text/javascript">
@@ -96,10 +103,95 @@ var value= "<%=temp%>	";
 </script>
 
 
-<!--jQuery Sliding Login Panel Button-->
-<script type="text/javascript">
-	$(document).ready(function() {
 
+
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+
+	/* if(!Login.match(new RegExp(temp))){
+		$( ".tab1" ).replaceWith( $( ".tab" ) );
+		}
+	if(Login.match(new RegExp(temp))){$( ".tab" ).replaceWith( $( ".tab1" ));} */
+	});
+</script>
+
+
+<!--jQuery Sliding Login Panel Button-->
+
+<style>
+
+.errordis {
+	background-color: #FFD9D9 !important;
+	border: 1px solid #F00 !important
+}
+</style>
+
+<!-- LOGIN LOGOUT VALIDATION  START-->
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#form1').on("submit", function(e){
+		
+		var val_id = $("#log").val();
+		var val_pass = $("#pwd").val();
+		
+		$("#log").removeClass('errordis');	
+		$("#pwd").removeClass('errordis');	
+		
+		 if( $.trim(val_id) === '' )
+		{
+		
+			$("#log").addClass('errordis');
+			$("#log").focus();	
+		    $("#log").text(" Enter LastName");
+		
+			/*  $('ul.login').show();
+			 $('#panel').toggleClass("active"); */
+			 /* $("#panel").slideToggle("slow");
+				$('#panel').toggleClass("active"); */
+				$('#form').show();
+				return false;
+				
+		}	
+		
+		if( $.trim(val_pass) === '' )
+		{
+			 alert("dsfsdf");
+			$("#pwd").addClass('errordis');
+			$("#pwd").focus();
+		    $("#pwd").text('Enter PhoneNo.'); 
+		    $('#form').show();
+			e.preventDefault();
+			
+		}	
+	});		
+
+});
+
+</script>
+
+<!-- LOGIN LOGOUT VALIDATION  START-->
+
+
+
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+	
 		$(".btn-slide").click(function() {
 			$("#panel").slideToggle("slow");
 			$(this).toggleClass("active");
@@ -151,6 +243,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 <script type="text/javascript">
 	// Background color animation 
 	$(document).ready(function() {
+	
 		$(".image_placeset img").hover(function() {
 			$(this).stop().animate({
 				backgroundColor : "#56BFF8"
@@ -163,6 +256,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	});
 </script>
 
+
+<script type="text/javascript">
+<%String temp = (String) session.getAttribute("MySessionId");%>
+var value= "<%=temp%>	";
+</script>
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -200,15 +298,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<h1>Member Login</h1>
 					<!-- Login Form -->
 					<form action="${pageContext.request.contextPath}/login"
-						method="post" commandName="login" modelAttribute="user">
+						method="post" commandName="login" id="form" modelAttribute="user">
 						<%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
 						<label class="color">Username:</label> <input class="field"
 							type="text" name="log" id="log" value="" size="23" /> <label
 							class="color" for="pwd">Password:</label> <input class="field"
-							type="password" name="pwd" id="pwd" size="23" />
-						
-						<label><input name ="rememberme" id="rememberme"
-								type="checkbox" value="forever" />&nbsp;Remember me</label>
+							type="password" name="pwd" id="pwd" size="23" /> <label><input
+							name="rememberme" id="rememberme" type="checkbox" value="forever" />&nbsp;Remember
+							me</label>
 						<div class="clear"></div>
 						<input type="submit" name="submit" value="Login" class="bt_login" />
 						<a class="lost-pwd" href="#">Lost your password?</a>
@@ -220,14 +317,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="left right">
 					<h1>Not a member yet? Sign Up!</h1>
 					<form action="${pageContext.request.contextPath}/register"
-						method="post" commandName="login" modelAttribute="user">
-					<label class="color" for="signup">Username:</label> <input
-						class="field" type="text" name="signup" id="signup" value=""
-						size="23" /> <label class="color" for="email">Email:</label> <input
-						class="field" type="text" name="email" id="email" size="23" /> <label>A
-						password will be e-mailed to you.</label> <input type="submit"
-						name="submit" value="Register" class="bt_register" />
-</form>
+						method="post" commandName="login" id="form" modelAttribute="user">
+						<label class="color" for="signup">Username:</label> <input
+							class="field" type="text" name="signup" id="signup" value=""
+							size="23" /> <label class="color" for="email">Email:</label> <input
+							class="field" type="text" name="email" id="email" size="23" /> <label>A
+							password will be e-mailed to you.</label> <input type="submit"
+							name="submit" value="Register" class="bt_register" />
+					</form>
 				</div>
 				<!--panel box3-->
 
@@ -237,68 +334,43 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	</div>
 	<!--panel -->
 
-<a href="${pageContext.request.contextPath}/logout/"><b>LOGOUT</b></a>
+
 
 	<!--The Container class centers design in the center of the screen, -->
 	<!-- 950px width centered-->
 	<!-- Panel -->
 	<div class="container">
 
-		<!-- The tab on top -->
-		<div class="tab">
-			<ul class="login">
-				<!--Button For Login Panel-->
-				<li id="toggle"><a id="open" class="open" href="#">Log In |
-						Register</a> <a id="close" style="display: none;" class="close"
-					href="#">Close Panel</a></li>
-
+        <div class="tab">
+				<ul class="login">
+					<!--Button For Login Panel-->
+					<li id="toggle"><a id="open" class="open" href="#">Log In
+							| Register</a> <a id="close" style="display: none;" class="close"
+						href="#">Close Panel</a></li>
+				</ul>
+				
+				<ul class="logout">
+                <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
 			</ul>
-			
+			</div>
 
-
-		</div>
 		<!-- close tab -->
 
 
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
+
+			<!-- The tab on top -->
+	
 			<div class="logo">
 
 				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
 
 			</div>
+			
 			<!--Close Logo Area-->
 
-			<!-- FOR SAMPLE CHCEK-START -->
-			<%-- <a href="${pageContext.servletContext.contextPath}/mail/"> Send
-				Mail </a> <br> <!--Begin Navigation-->
-			<table border="0" width="90%">
-				<form:form action="login" commandName="login" method="post">
-					<tr>
-						<td align="left" width="20%">Email:</td>
-						<td align="left" width="40%"><form:input path="email"
-								size="30" /></td>
-						<td align="left"><form:errors path="email" cssClass="error" /></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-						<td><form:password path="password" size="30" /></td>
-						<td><form:errors path="password" cssClass="error" /></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td align="center"><input type="submit" value="Login" /></td>
-						<td></td>
-					</tr>
-				</form:form>
-			</table>
-			 --%>
-			 
-			 
-			
-			 
-			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home_front" title="Home"><span>home</span></a></li>
@@ -310,10 +382,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>request</span></a></li> --%>
-				
-					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port" title="Request"  ><span>Request</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/contact/"
+
+				<li><a href="${pageContext.request.contextPath}/requestList/"
+					id="port" title="Request"><span>Request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
@@ -740,12 +812,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<ul id="footer-nav">
 					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 						|</li>
-					<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li>
+					<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+						|</li> --%>
 					<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 						|</li>
 					<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 						|</li>
+					<li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
 					<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 				</ul>
 				<!--footer-nav close-->

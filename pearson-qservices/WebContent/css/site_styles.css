@@ -49,6 +49,10 @@ ul#navigation li a#services_front {background: url(../img/services.png) 0 -50px 
 ul#navigation li a#blog_front {background: url(../img/blog.png) 0 -50px no-repeat;}
 ul#navigation li a#contact_front {background: url(../img/contact.png) 0 -50px no-repeat;}
 
+/* FOr request button */
+ul#navigation li a#request {background: url(../img/request.png) 0 -50px no-repeat;}
+ul#navigation li a#request_front {background: url(../img/request_front.png) 0 -50px no-repeat;}
+/* FOr request button */
 ul#navigation li a#home:hover,
 ul#navigation li a#port:hover,
 ul#navigation li a#services:hover,
@@ -287,12 +291,26 @@ blog_.entrynotes li{list-style:none; padding:2px 0 5px 2px}
 
 /* static Pages Changes -start */
 
-.texter{padding-top:20px; color:#000;}
+.texter{padding-top:20px; color:#383838;}
 .texter a{color:#000; font-weight:none;}
-.texter a:hover{color:#33CCFF;}
+.texter a:hover{color:#003399;}
 #texter-nav{float:right; padding-right:0; margin-right:0; font-size:11px;}
 #texter-nav li{list-style:none; float:left; padding-left:5px; color:#ccc;}
-.texter_text {padding:0; margin:0; font-size:11px;}
+.texter_text {padding:0; margin:0; color:#000;font-size:11px;}
 
 /* static Pages Changes -end */
+
+
+
+.serhead{color:#999; font-size:18px;}
+.serhead a{color:#999; font-weight:none;}
+.serhead a:hover{color:#33CCFF;}
+
+.text{padding-top:20px; color:#383838; }
+.text a{color:#000; font-weight:none;}
+.text a:hover{color:#33CCFF;}
+#texter-nav{float:right; padding-right:0; margin-right:0; font-size:11px;}
+#texter-nav li{list-style:none; float:left; padding-left:5px; color:#ccc;}
+.text_text {padding:0; margin:0; font-size:11px;}
+
 

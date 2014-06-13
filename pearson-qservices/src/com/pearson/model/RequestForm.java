@@ -11,19 +11,19 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class RequestForm {
 	private @Valid RequestForm requestForm;
 
-	@NotNull
-	@NotEmpty(message = "Please enter your firstName addresss.")
+	/*@NotNull
+	@NotEmpty(message = "Please enter your firstName addresss.")*/
 	private String firstName;
-	@NotNull
-	@NotEmpty(message = "Please enter your lastName addresss.")
+	/*@NotNull
+	@NotEmpty(message = "Please enter your lastName addresss.")*/
 	private String lastName;
 	@Email
 	@NotEmpty(message = "Please enter your email addresss.")
 	@NotNull
 	private String email;
-	@NotEmpty(message = "{form.email.NotNull}")
 	@NotNull
 	private String phoneNo;
+
 	private String loginType;
 	private String requestId;
 	private String requestName;
@@ -31,12 +31,11 @@ public class RequestForm {
 	private String req_ServiceID;
 	private String approveID;
 	private String rejectID;
-	
 	private String currentPass;
-
 	private String newPass;
 	private String confirmPass;
 	private String alteremail;
+	@NotNull
 	private String address;
 	
 	

@@ -44,12 +44,17 @@ public class LoginController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model, HttpServletRequest request) {
-		request.getSession(false).removeAttribute("MySessionId");
-		request.getSession(false).removeAttribute("Table");
-		request.getSession(false).removeAttribute("loginType");
+
+		try {
+			request.getSession(false).removeAttribute("MySessionId");
+			request.getSession(false).removeAttribute("Table");
+			request.getSession(false).removeAttribute("loginType");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "/contactUs", method = RequestMethod.POST)
 	public String contact(ModelMap model, HttpServletRequest request) {
 		model.addAttribute("contact", "we ill contact you");
@@ -57,7 +62,6 @@ public class LoginController {
 		// return "aaaaaaaaa";
 	}
 
-	
 	/*
 	 * @RequestMapping(value = "/register", method = RequestMethod.POST) public
 	 * ModelAndView Getdetails(
@@ -257,6 +261,13 @@ public class LoginController {
 	@RequestMapping(value = "/TestEnvironment", method = RequestMethod.GET)
 	public String TestEnvironmentPage(ModelMap model, HttpServletRequest request) {
 		return "TestEnvironment";
+	}
+	
+	
+	
+	@RequestMapping(value = "/InfraStructure", method = RequestMethod.GET)
+	public String InfraStructure(ModelMap model, HttpServletRequest request) {
+		return "InfraStructure";
 	}
 
 }

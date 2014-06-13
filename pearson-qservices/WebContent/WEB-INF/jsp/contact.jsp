@@ -48,13 +48,33 @@
 <!--jQuery Slider-->
 <!--Custom jQuery Set-->
 <!--jQuery Lightbox-->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/custom.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/lightbox.js"></script>
 
 
 <!--jQuery Sliding Login Panel Button-->
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+	});
+</script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -71,8 +91,11 @@
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
 <!--I have included 2 different Titillium font weights, 400 and 800 respectively.-->
 <!--If you want to use the much bolder, 800 weight, simply change the "400" below to "800"-->
-<script src="${pageContext.request.contextPath}/js/cufon-yui.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/cufon-yui.js"
+	type="text/javascript"></script>
+<script
+	src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js"
+	type="text/javascript"></script>
 <script type="text/javascript">
 	Cufon.replace('h1');
 	Cufon.replace('h2');
@@ -163,16 +186,19 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 				<div class="left">
 					<h1>Member Login</h1>
 					<!-- Login Form -->
-					<label class="color">Username:</label> <input class="field"
-						type="text" name="log" id="log" value="" size="23" /> <label
-						class="color" for="pwd">Password:</label> <input class="field"
-						type="password" name="pwd" id="pwd" size="23" /> <label><input
-						name="rememberme" id="rememberme" type="checkbox" value="forever" />
-						&nbsp;Remember me</label>
-					<div class="clear"></div>
-					<input type="submit" name="submit" value="Login" class="bt_login" />
-					<a class="lost-pwd" href="#">Lost your password?</a>
 
+					<form action="${pageContext.request.contextPath}/login"
+						method="post" commandName="login" modelAttribute="user">
+						<label class="color">Username:</label> <input class="field"
+							type="text" name="log" id="log" value="" size="23" /> <label
+							class="color" for="pwd">Password:</label> <input class="field"
+							type="password" name="pwd" id="pwd" size="23" /> <label><input
+							name="rememberme" id="rememberme" type="checkbox" value="forever" />
+							&nbsp;Remember me</label>
+						<div class="clear"></div>
+						<input type="submit" name="submit" value="Login" class="bt_login" />
+						<a class="lost-pwd" href="#">Lost your password?</a>
+					</form>
 				</div>
 				<!--panel box2 close-->
 
@@ -213,6 +239,10 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			</ul>
 
 
+ <ul class="logout">
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ </ul>
+ 
 		</div>
 		<!-- close tab -->
 
@@ -220,6 +250,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
+
 			<div class="logo">
 				<a href="${pageContext.request.contextPath}/index/"><img
 					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
@@ -231,13 +262,13 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/services/"
+				<li><a href="${pageContext.request.contextPath}/services/"
 					id="services" title="Our Services"><span>our services</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/blog/"
+				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/requestList/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
-				
+
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact_front" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
@@ -256,7 +287,9 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<div class="span-24">
 				<!--Intro Image shown here, about site-->
 				<div class="intro">
-					<img src="${pageContext.request.contextPath}/img/contact_banner.gif" alt="" />
+					<img
+						src="${pageContext.request.contextPath}/img/contact_banner.gif"
+						alt="" />
 				</div>
 				<!--Close intro image-->
 			</div>
@@ -288,63 +321,63 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 					<!--Replace Code Below for PHP Integration-->
 					<form action="${pageContext.request.contextPath}/contactUs"
-					method="post" commandName="contact">
-					<table
-						style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
-						class="contactForm">
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="name" value="" /></td>
-						</tr>
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="email" value="" /></td>
-						</tr>
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="subject" value="" /></td>
-						</tr>
+						method="post" commandName="contact">
+						<table
+							style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
+							class="contactForm">
+							<tr>
+								<td
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name:</td>
+								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+									type="text" name="name" value="" /></td>
+							</tr>
+							<tr>
+								<td
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
+								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+									type="text" name="email" value="" /></td>
+							</tr>
+							<tr>
+								<td
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject:</td>
+								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+									type="text" name="subject" value="" /></td>
+							</tr>
 
-						<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Request:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><select
-								type="text" name="subject">
-									<option value="volvo">Volvo</option>
-									<option value="saab">Saab</option>
-									<option value="mercedes">Mercedes</option>
-									<option value="audi">Audi</option>
-							</select></td>
-						</tr>
-						<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><textarea
-									name="message" cols="40" rows="6"></textarea></td>
-						</tr>
+							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
+							<tr>
+								<td
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Request:</td>
+								<td style="text-align: left; vertical-align: top; padding: 5px;"><select
+									type="text" name="subject">
+										<option value="volvo">Volvo</option>
+										<option value="saab">Saab</option>
+										<option value="mercedes">Mercedes</option>
+										<option value="audi">Audi</option>
+								</select></td>
+							</tr>
+							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
+							<tr>
+								<td
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
+								<td style="text-align: left; vertical-align: top; padding: 5px;"><textarea
+										name="message" cols="40" rows="6"></textarea></td>
+							</tr>
 
-						<tr>
-							<td colspan="2"
-								style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
-								fields are required.</td>
-						</tr>
-						<tr>
-							<td colspan="2"
-								style="text-align: left; vertical-align: middle; padding: 5px;"><input
-								type="submit" name="submit" value="Submit" /> (Email will not
-								be sent)</td>
-						</tr>
-					</table>
+							<tr>
+								<td colspan="2"
+									style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
+									fields are required.</td>
+							</tr>
+							<tr>
+								<td colspan="2"
+									style="text-align: left; vertical-align: middle; padding: 5px;"><input
+									type="submit" name="submit" value="Submit" /> (Email will not
+									be sent)</td>
+							</tr>
+						</table>
 					</form>
-					
+
 					<!--END FORM -->
 					<!--Replace Code Above for PHP Integration-->
 
@@ -482,11 +515,11 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li>
 						<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+							|</li>
+						<li><a href="${pageContext.request.contextPath}/requestList/">Request</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 					</ul>

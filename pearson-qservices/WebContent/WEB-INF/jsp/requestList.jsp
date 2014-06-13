@@ -36,7 +36,7 @@ var value= "<%=temp%>";
  <a href="${pageContext.request.contextPath}/logout/"> logout</a> --%>
 
 <c:if test="${!empty loginType}">
-<a href="${pageContext.request.contextPath}/logout/"> logout</a></c:if>
+<a href="${pageContext.request.contextPath}/logout/"> </a></c:if>
 <!-- =======================********************************************************************************** -->
 
 <link rel="stylesheet"
@@ -155,10 +155,41 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	});
 </script>
 
+
+
+
+<script type="text/javascript">
+
+<%String Login = (String) session.getAttribute("loginType");%>
+var Login= "<%=Login%>	"; 
+
+var temp= null;
+$(document).ready(function() {
+	
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
+	
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
+	});
+</script>
+
+
+
+<style>
+#approve a:visited {
+    background: green !important;
+}
+
+#reject a:visited {
+    background: red !important;
+}
+
+</style>
+
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-<a href="${pageContext.request.contextPath}/logout/"><b>LOGOUT</b></a>
+<a href="${pageContext.request.contextPath}/logout/"><b></b></a>
 <body>
 
 
@@ -234,11 +265,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						Register</a> <a id="close" style="display: none;" class="close"
 					href="#">Close Panel</a></li>
 			</ul>
-
-
+			
+ <ul class="logout">
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ </ul>
 		</div>
-		<!-- close tab -->
 
+		<!-- close tab -->
 
 		<!--Begin Header-->
 		<div class="header">
@@ -287,9 +320,6 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					id="services" title="Our Services"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li> --%>
-				
 					<li><a href="${pageContext.request.contextPath}/requestList/"  
 					id="port" title="Request"  ><span>Request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
@@ -349,8 +379,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 <c:if test="${!empty loginType}">
 <c:if test="${loginType=='VISITOR'}">
-	<a href="${pageContext.request.contextPath}/requestList" method="post">Edit
-		YOur Profile</a>
+
+	<a href="${pageContext.request.contextPath}/requestList" method="post">            </a>
+	
+	
 </c:if>
 </c:if>
 
@@ -464,7 +496,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<td
 								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">address:</td>
 							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="subject" value="" /></td>
+								type="text" name="address" value="${user.address}" /></td>
 						</tr>
 						
 						
@@ -519,26 +551,29 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<c:if test="${loginType != 'VISITOR' && !empty loginType}">
 
-			<H1>WELCOME TO QA</H1>
-
+			<h3> To view all the request for this Q-Service Portal.<a href="${pageContext.request.contextPath}/viewAllRequest" method="post"><u>click
+		here</u></a></h3>
+	
 			<table border="1">
 
 
 				<tr>
 					<td class="heading">REQUEST ID</td>
+					<td class="heading">FIRSTNAME</td>
+					<td class="heading">LASTNAME</td>
 					<td class="heading">REQUESTORID</td>
 					<td class="heading">SERVICEID</td>
 					<td class="heading">RAISED DATE</td>
-					<td class="heading">APPROVEDBY</td>
+					<td class="heading">REVIEW BY</td>
 					<td class="heading">STATUS</td>
 					
 				</tr>
 				<c:forEach var="user" items="${adminUser}">
 					<%-- <c:if test="${user.loginType=='QA'}"> --%>
-
-
 					<tr>
 						<td>${user.raisedReqId}</td>
+						<td>${user.firstName}</td>
+						<td>${user.lastName}</td>
 						<td>${user.requestorId}</td>
 						<td>${user.serviceId}</td>
 						<td>${user.lastUpdatedOn}</td>
@@ -547,20 +582,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						
 						<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
-					
-						<td><a href="${pageContext.request.contextPath}/approve?id=${user.raisedReqId}"
-							value="<c:out value="${user.email}"></c:out>"  name="approveID" method="post">Approve</a></td>
+				 
+						<td>
+						<div id ="approve">
+						<a href="${pageContext.request.contextPath}/approve?id=${user.raisedReqId}"
+							value="<c:out value="${user.email}"></c:out>"  name="approveID" method="post">Approve</a></div></td>
 							
-						<td><a href="${pageContext.request.contextPath}/reject?id=${user.raisedReqId}"
-							value="<c:out value="${user.email}"></c:out>" id="${user.email}"  method="post" name="rejectID">Reject</a></td>
+						<td> <div id ="reject">
+						<a href="${pageContext.request.contextPath}/reject?id=${user.raisedReqId}"
+							value="<c:out value="${user.email}"></c:out>" id="${user.email}"  method="post" name="rejectID">Reject</a></div></td>
 							
-							
-							<%-- <a href="edit?id=${user.userId}">Edit</a> --%>
-
-						<%-- <c:out value="${user.email}"></c:out> --%>
-							
-												<%-- <td><a href="edit?id=${user.userId}"></a></td>
-					<td><a href="delete?id=${user.userId}">REJECT</a></td> --%>
 					</tr>
 
 					<tr>
@@ -570,7 +601,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<%-- </c:if> --%>
 				</c:forEach>
 			</table>
-
+</div>
 		</c:if>
 	</div>
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
@@ -655,12 +686,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<ul id="footer-nav">
 					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 						|</li>
-					<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li>
+					<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+						|</li> --%>
 					<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 						|</li>
 					<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 						|</li>
+						   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
 					<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 				</ul>
 				<!--footer-nav close-->
