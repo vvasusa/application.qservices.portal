@@ -225,6 +225,7 @@ $(document).ready(function(){
 		var val_newPass = $("#newPass").val();
 		var val_confirmPass = $("#confirmPass").val();
 		var val_emailadd = $("#emailadd").val();
+		var val_temp = $("#temp").val();
 		
 		$("#currentPass").removeClass('errordis');	
 		$("#newPass").removeClass('errordis');	
@@ -236,33 +237,32 @@ $(document).ready(function(){
 		$( "#errornew" ).empty();
 		$( "#errorconfirm" ).empty();
 		$( "#erroremail" ).empty();
+		$( "#errorConfirm" ).empty();
+		$( "#errorTemp" ).empty();
 		
 		
 		
 		if( $.trim(val_newPass) === '' )
 		{
 			$("#newPass").addClass('errordis');
-			$("#newPass").focus();
 			$("#errornew").text("Enter New Password");
-			
+			$("#newPass").focus();
 			e.preventDefault();
 		}	
 		
 		if( $.trim(val_confirmPass) === '' )
 		{
 			$("#confirmPass").addClass("errordis");
-			$("#confirmPass").focus();
 			$("#errorconfirm").text("Enter Conform Password");
-			
+			$("#confirmPass").focus();
 			e.preventDefault();
 		} 
 		
 		if( $.trim(val_emailadd) === '' )
 		{
 			$("#emailadd").addClass('errordis');
-			$("#emailadd").focus();	
 			$("#erroremail").text("Enter Email Address");
-			
+			$("#emailadd").focus();
 			e.preventDefault();
 		}	
 		else{
@@ -274,44 +274,49 @@ $(document).ready(function(){
 				} else{
 					
 					$("#emailadd").addClass('errordis');
-					$("#emailadd").focus();	
 					$("#erroremail").text("Invalid Email Format");
+					$("#emailadd").focus();	
 					e.preventDefault();
 					
 					 }
 		}
 		
 		
-		if(!(val_newPass===val_confirmPass)){
-			$("#newPass").addClass('errordis');
-			$("#confirmPass").addClass("errordis");
-			alert("New and Confirm password Does't match.");
-			return false;
-				}
-		
 		 if( $.trim(val_currentPass) === '' )
 			{
 				$("#currentPass").addClass('errordis');
-				$("#currentPass").focus();	
 				$("#errorcur").text("Enter Current Password");
-				
+				$("#currentPass").focus();	
 				e.preventDefault();
 			}	
 			
-
+		 
+		 if( !($.trim(val_currentPass) === '' )) { 
+		
+		 if(!(val_currentPass== val_temp)){
+			 $("#currentPass").addClass('errordis');
+				$("#errorTemp").text("Wrong Password.. For correct password Check ur email");
+				$("#currentPass").focus();
+				e.preventDefault();
+		 }
+		 }
+		 if(($.trim(val_confirmPass) === '' && $.trim(val_newPass) === '')) { }
+		 else{
+			
+				if(!(val_newPass===val_confirmPass)){
+					$("#newPass").addClass('errordis');
+					$("#confirmPass").addClass("errordis");
+					$("#errorConfirm").text("New and Confirm password Does't match");
+					e.preventDefault();
+						}
+				}
 	});		
 
 });
 
 </script>
 
-
-
-
 <!-- Mychanges for validation part END-->
-
-
-
 
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -319,6 +324,7 @@ $(document).ready(function(){
 
 <body>
 
+<div id="dialog" title="Basic dialog">  <p></p></div>
 
 <div id="toppanel">
 		<div id="panel">
@@ -495,20 +501,23 @@ $(document).ready(function(){
 				
 				<div id="form1">
 				
+		
 				<form action="${pageContext.request.contextPath}/success" method="post" id="form1" commandName="password" modelAttribute="user">
 
-<table style="width: 600px; background-color: #fff; border: 5px solid #ddd; padding: 20px; font-size: 12px;"
-					class="contactForm">
-					<tr>
+                <input type="hidden" id="temp" value="${register.tempPass }" /> 
 
-						<td	style="width: 20%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Old Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"> <input	type="password" name="currentPass" id="currentPass" value="${user.firstName}" /> <p id="errorcur"/>
+                 <table style="width: 600px; background-color: #fff; border: 5px solid #ddd; padding: 20px; font-size: 12px;"class="contactForm">
+					
+					<tr>
+						<td	style="width: 20%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Old Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"> <input	type="password" name="currentPass" id="currentPass" value="${user.firstName}" /> <p id="errorcur"/><p id="errorTemp"/>
 						</td> 
 						</tr>
+						
 					<tr>
-						<td	style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">New Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"><input	type="password" name="newPass"  id="newPass" value="${user.lastName}" /> <p id="errornew"/> 
+						<td	style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">New Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"><input	type="password" name="newPass"  id="newPass" value="${user.lastName}" /> <p id="errornew"/>  
 						</td></tr>
 					<tr>
-						<td	style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Confirm Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"><input	type="password" name="confirmPass"  id="confirmPass" value="${user.email}" /><p id="errorconfirm"/>
+						<td	style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Confirm Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"><input	type="password" name="confirmPass"  id="confirmPass" value="${user.email}" /><p id="errorconfirm"/><p id="errorConfirm"/> 
 						</td>
 					</tr>
 					<tr>

@@ -327,7 +327,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		
-	${password.firstName} YOUR DETAILS AND REQUEST SUBMITTED SUSSUESFULLY...
+	${password.firstName} YOU ARE REGISTERED SUSSUESFULLY...  THANKYOU 
 	${adminUser.firstName}
 	
 <c:forEach var="user" items="${adminUser}">

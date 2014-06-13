@@ -26,8 +26,18 @@ public class Register {
 	private String address1;
 	private String address2;
 	private String address3;
-
+	private String tempPass;
 	private String fnerror;
+	
+	public String getTempPass() {
+		return tempPass;
+	}
+
+	public void setTempPass(String tempPass) {
+		this.tempPass = tempPass;
+	}
+
+	
 	public String getFnerror() {
 		return fnerror;
 	}

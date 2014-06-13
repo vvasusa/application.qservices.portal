@@ -199,7 +199,7 @@ public class ActionDaoImpl implements ActionDao {
 
 			// System.out.println("UNIQUE ID  " + requestorID.toString());
 			System.out.println("Temp pass  " + tempPass);
-
+			register.setTempPass(tempPass);
 			/******************* sending email with uniqueid and temp password ************************************/
 			// mailService.sendEmail(email, requestorID, tempPass);
 			/******************* sending email with uniqueid and temp password ************************************/
@@ -227,7 +227,7 @@ public class ActionDaoImpl implements ActionDao {
 
 			System.out.println(e);
 		}
-		return null;
+		return register;
 	}
 
 	@Override
@@ -244,24 +244,11 @@ public class ActionDaoImpl implements ActionDao {
 			String ReqId = (String) request.getSession()
 					.getAttribute("RequestorId").toString();
 			if (ReqId != null) {
-				// ResultSet rs =
-				// statement.executeQuery("select * from tempdetails where="+ReqId);
-				System.out.println("inside if loop");
 				String ID = (String) request.getSession().getAttribute(
 						"MySessionId");
-				/*
-				 * ResultSet rs1 = statement
-				 * .executeQuery("select * from samplevisitor where requestorId="
-				 * + ID); System.out.println("Step 1"); ResultSet rs =
-				 * statement.
-				 * executeQuery("select * from tempdetails where requestorId="+
-				 * ReqId);
-				 */
 				ResultSet rs = statement
 						.executeQuery("select * from TempDetails where requestorId='"
 								+ ReqId + "'");
-				System.out.println("Step 2");
-				// select * from samplevisitor where requestorId="+ ID
 				while (rs.next()) {
 					if (StringUtils.endsWithIgnoreCase(
 							password.getCurrentPass(),
@@ -294,6 +281,7 @@ public class ActionDaoImpl implements ActionDao {
 								.println("SUCCESSFULLY EXCUTING THE PASSWORD FLOW");
 
 						password.setFirstName(rs.getString("firstName"));
+						password.setEmail(rs.getString("email"));
 						password.setLastName(rs.getString("lastName"));
 						password.setPhoneNo(rs.getString("phoneNo"));
 						password.setAddress(rs.getString("address"));
