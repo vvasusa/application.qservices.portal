@@ -338,8 +338,8 @@ $(".image_placeset img").hover(function() {
 					<form
 						action="${pageContext.servletContext.contextPath}/raiseRequest/"
 						method="post" commandName="requestForm">
-						<input type="hidden" name="service" value="QSERVICE" /> 
-						<input type="hidden" name="serviceID" value="QT001" /> 
+						<input type="hidden" name="service" value="PERFORMANCE ENG" /> 
+						<input type="hidden" name="serviceID" value="PE14" /> 
 						<!-- <input type="submit" value="Submit Request" align="right"/> -->
 					<input type="image" src="${pageContext.request.contextPath}/img/button.jpg" alt="Raise Your Request Here.." />
 						

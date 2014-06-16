@@ -188,7 +188,7 @@ input.valid,textarea.valid {
 
 
 <!-- ****************************************************************************************************** -->
-
+<!-- 
 
 <script type="text/javascript">
 
@@ -252,7 +252,130 @@ $(document).ready(function(){
 
 });
 
+</script> -->
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#form1').on("submit", function(e){
+		$("#firstName").addClass('#error');
+		
+		var val_first_name = $("#firstName").val();
+		var val_last_name = $("#lastName").val();
+		var val_phoneNo = $("#phoneNo").val();
+		var val_emailadd = $("#emailadd").val();
+		/* $("lastName").remove(".text"); */
+		
+		var mobile = document.getElementById("phoneNo").value;      
+		var pattern = /^\d{10}$/; 
+		
+	
+		
+		
+		$("#firstName").removeClass('errordis');	
+		$("#lastName").removeClass('errordis');	
+		$("#phoneNo").removeClass('errordis');
+		$("#emailadd").removeClass('errordis');
+		
+		$( "#plastname" ).empty();
+		$( "#errorPno" ).empty();
+		$( "#errorEmail" ).empty();
+		$( "#pfirstName" ).empty();
+		/* validator.resetForm(); $('lastName.error').remove();
+		
+		
+		$(this).replaceWith("<h1>enter lastname</h1>");*/
+		
+		 if( $.trim(val_last_name) === '' )
+		{
+		
+			$("#lastName").addClass('errordis');
+			$("#lastName").focus();	
+		    $("#plastname").text("Enter LastName");
+			$( "#lastName" ).empty();
+			
+			e.preventDefault();
+			
+		}	
+		
+		
+		
+		if( $.trim(val_phoneNo) === '' )
+		{
+				
+			
+			$("#phoneNo").addClass('errordis');
+			$("#errorPno").text('Enter PhoneNo.');
+			$("#phoneNo").focus();
+			e.preventDefault();
+		}	
+		
+
+		
+		
+		if (!pattern.test(val_phoneNo)) {         
+			/* 		alert("It is not valid mobile number. Enter 10 digits number!");    */
+					$("#phoneNo").addClass('errordis');
+					$("#phoneNo").focus();	
+					$("#errorPno").text('Enter 10 digit PhoneNo');
+					e.preventDefault();  
+					      
+					} 
+		
+		if( $.trim(val_emailadd) === '' )
+		{
+			
+			
+			$("#emailadd").addClass('errordis');
+			$("#emailadd").focus();	
+			$("#errorEmail").text('Enter Email Id.');
+			e.preventDefault();
+		}	
+		
+		else{
+		
+			var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+			/* var email = document.getElementById("emailadd").value;  */
+			if (reg.test(val_emailadd)){ 
+				
+				} else{
+					
+					$("#emailadd").addClass('errordis');
+					$("#emailadd").focus();	
+					$("#errorEmail").text('Invalid Email Id');
+					e.preventDefault();
+					
+					 }
+		}
+		
+		
+		if( $.trim(val_first_name) === '' )
+		{
+			
+			$("#firstName").addClass("errordis");
+			$("#firstName").focus();
+		    $("#pfirstName").text("Enter FirstName");
+			e.preventDefault();
+		}
+
+
+	});		
+
+});
+
 </script>
+
+
+
+
 <!-- ************************************************************************************************************** -->
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -354,11 +477,11 @@ $(document).ready(function(){
 			<!-- FOR SAMPLE CHECK-END -->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home_front" title="Home"><span>home</span></a></li>
+					id="home" title="Home"><span>home</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services_front" title="Our Services"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
@@ -382,16 +505,16 @@ $(document).ready(function(){
   
 
 	<c:forEach var="user" items="${adminUser}">
-		<h1>RaiseRequest</h1>
+		
 
-		<a href="${pageContext.request.contextPath}/index/">HomePage</span></a>
+		<%-- <a href="${pageContext.request.contextPath}/index/">HomePage</span></a>
 		<a href="${pageContext.request.contextPath}/logout/"> logout</a>
 
-
+ --%>
 		<form action="${pageContext.request.contextPath}/doneReq"
 			method="post" commandName="requestForm" id="form1" modelAttribute="requestForm">
 			<table
-				style="width: 0px; background-color: #fff; border: 1px solid #ddd; padding: 500px; font-size: 12px;"
+				style="width: 0px; background-color: #fff; border: 1px solid #ddd; padding: 50px; font-size: 12px;"
 				class="contactForm">
 
 				<tr>
@@ -434,7 +557,7 @@ $(document).ready(function(){
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="phoneNo" id="phoneNo" value="${user.phoneNo}" /></td>
+						type="text" name="phoneNo" id="phoneNo" value="${user.phoneNo}" maxlength="10" /></td>
 				</tr>
 
 				<tr>

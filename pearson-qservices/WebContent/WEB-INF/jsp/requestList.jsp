@@ -63,7 +63,7 @@ var value= "<%=temp%>";
 
 var value= "<%=temp%>	";
 
-	alert(value); 
+	/* alert(value);  */
 </script>
 
 <!--jQuery-->
@@ -371,7 +371,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 
 
-		</div>
+		
 		<!--page close-->
 
 <!-- =======================********************************************************************************** -->
@@ -654,7 +654,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 		</c:if> --%>
 	</div>
 
-
+</div>
 	<!-- ************************PART THREE END************************************* -->
 
 

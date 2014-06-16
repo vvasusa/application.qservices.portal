@@ -75,6 +75,100 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 	});
 </script>
 
+
+
+<!-- ************************************************************************************************************************ -->
+
+
+<style>
+.errordis {
+	background-color: FF8080 !important;
+	border: 1px solid #F00 !important
+}
+</style>
+
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#form1').on("submit", function(e){
+		
+		
+		var val_first_name = $("#name").val();
+		var val_message = $("#message").val();
+		var val_emailadd = $("#emailadd").val();
+		
+		$("#name").removeClass('errordis');	
+		$("#emailadd").removeClass('errordis');	
+		$("#message").removeClass('errordis');
+	
+		 if( $.trim(val_first_name) === '' )
+		{
+		
+			$("#name").addClass('errordis');
+			$("#name").focus();	
+			
+			e.preventDefault();
+			
+		}	
+		
+		
+		if( $.trim(val_emailadd) === '' )
+		{
+			
+			$("#emailadd").addClass('errordis');
+			$("#emailadd").focus();	
+			
+			e.preventDefault();
+		}	
+		
+		else{
+			
+			var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+			
+			if (reg.test(val_emailadd)){ 
+				
+				} else{
+					
+					$("#emailadd").addClass('errordis');
+					$("#emailadd").focus();	
+					e.preventDefault();
+					 }
+		}
+		
+		
+		if( $.trim(val_message) === '' )
+		{
+			
+			$("#message").addClass("errordis");
+			$("#message").focus();
+		   /*  $("#pfirstName").text("Enter FirstName"); */
+			e.preventDefault();
+		}
+
+
+	});		
+
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+<!-- ************************************************************************************************************************ -->
+
+
+
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -321,7 +415,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 					<!--Replace Code Below for PHP Integration-->
 					<form action="${pageContext.request.contextPath}/contactUs"
-						method="post" commandName="contact">
+						method="post" id="form1">
 						<table
 							style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 							class="contactForm">
@@ -329,31 +423,31 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 								<td
 									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name:</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-									type="text" name="name" value="" /></td>
+									type="text" name="name" value="" id="name"/></td>
 							</tr>
 							<tr>
 								<td
 									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-									type="text" name="email" value="" /></td>
+									type="text" name="email" value="" id="emailadd"/></td>
 							</tr>
 							<tr>
 								<td
 									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject:</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-									type="text" name="subject" value="" /></td>
+									type="text" name="subject" value="" id="subject" /></td>
 							</tr>
 
 							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Request:</td>
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Country:</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><select
 									type="text" name="subject">
-										<option value="volvo">Volvo</option>
-										<option value="saab">Saab</option>
-										<option value="mercedes">Mercedes</option>
-										<option value="audi">Audi</option>
+										<option value="volvo">UK</option>
+										<option value="saab">US</option>
+										<option value="mercedes">INDIA</option>
+										<option value="audi">CHINA</option>
 								</select></td>
 							</tr>
 							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
@@ -361,7 +455,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 								<td
 									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><textarea
-										name="message" cols="40" rows="6"></textarea></td>
+										name="message" cols="40" rows="6" id ="message"></textarea></td>
 							</tr>
 
 							<tr>

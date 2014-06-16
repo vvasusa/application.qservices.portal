@@ -22,6 +22,8 @@ import com.Constants;
 import com.pearson.model.Admin1;
 import com.pearson.model.Register;
 import com.pearson.model.RequestForm;
+import com.pearson.model.ServiceIntro;
+import com.pearson.services.ActionService;
 import com.pearson.services.LoginService;
 
 @Controller
@@ -32,6 +34,9 @@ public class LoginController {
 
 	@Autowired
 	LoginService loginService;
+	
+	@Autowired
+	ActionService actionService;
 
 	@Value("${From_Email}")
 	private String from;
@@ -163,8 +168,11 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/services", method = RequestMethod.GET)
-	public String servicePage(ModelMap model, HttpServletRequest request) {
-		return "services";
+	public ModelAndView servicePage(ModelMap model, HttpServletRequest request) {
+		ServiceIntro serviceIntro;
+		serviceIntro=actionService.getAllServiceIntro();
+		
+		return new ModelAndView("services", "serviceIntro", serviceIntro);
 	}
 
 	@RequestMapping(value = "/portfolio", method = RequestMethod.GET)
@@ -174,6 +182,8 @@ public class LoginController {
 
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	public String contactPage(ModelMap model, HttpServletRequest request) {
+		
+		/*MAIL OR SAVE DATA IN DATABASE */
 		return "contact";
 	}
 

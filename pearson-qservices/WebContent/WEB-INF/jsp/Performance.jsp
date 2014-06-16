@@ -342,8 +342,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<form
 						action="${pageContext.servletContext.contextPath}/raiseRequest/"
 						method="post" commandName="requestForm">
-						<input type="hidden" name="service" value="QSERVICE" /> 
-						<input type="hidden" name="serviceID" value="QT001" /> 
+						<input type="hidden" name="service" value="PERFORMANCE" /> 
+						<input type="hidden" name="serviceID" value="PT10" /> 
 						<!-- <input type="submit" value="Submit Request" align="right"/> -->
 					<input type="image" src="${pageContext.request.contextPath}/img/button.jpg" alt="Raise Your Request Here.." />
 						

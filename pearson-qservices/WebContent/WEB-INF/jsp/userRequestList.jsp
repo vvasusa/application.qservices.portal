@@ -331,9 +331,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					</c:forEach>
 				</table>
 				
+				
+	<%-- 			
+				
 				<h2> click here for seeing list of request rasied by you ..<a href="${pageContext.request.contextPath}/userRequestList" method="post">click
 		here</a></h2>
 				
+	
+	 --%>
+	
+	
+	
+	
 		</form>
 
 

@@ -73,16 +73,17 @@ type="text/css" media="screen, projection" charset="utf-8" />
 
 <%String Login = (String) session.getAttribute("loginType");%>
 var Login= "<%=Login%>	"; 
-alert(Login);
+
 var temp= null;
 $(document).ready(function() {
 	
-	if(Login.match(new RegExp(temp))){$('.tab').show(); $('.tab1').hide();}
+	 if(Login.match(new RegExp(temp))){$('ul.login').show(); $('ul.logout').hide();}
 	
-	if(!Login.match(new RegExp(temp))){ $('.tab').hide(); $('.tab1').show();} 
- 
+if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
+
 	});
 </script>
+
 
 
 <script type="text/javascript">
@@ -92,30 +93,6 @@ $.preLoadImages([
 	'./img/img_over/main_image4.jpg'
 
 ]);
-</script>
-
-<script  type="text/javascript">
-function validation()
-{ 
-if(username=" ")
-{   //checking if the form is empty
-	 document.getElementById('username').innerHTML="*Please enter a username*";
-				   //return false;
-			//displaying a message if the form is empty
-		   // alert("enter required fields");
-}
-else if(password=" ")
-{   //checking if the form is empty
-	 document.getElementById('password').innerHTML="*Please enter password*";
-					  // return false;
-			//displaying a message if the form is empty
-	 //alert("enter required fields");
-}
-				  //  else
-					 //return true;
-
-}
-
 </script>
 
 <!--jQuery Sliding Login Panel Button-->
@@ -264,6 +241,9 @@ $(".image_placeset img").hover(function() {
 			href="#">Close Panel</a></li>
 	</ul>
 
+ <ul class="logout">
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ </ul>
 
 </div>
 <!-- close tab -->
@@ -281,18 +261,18 @@ $(".image_placeset img").hover(function() {
 	</div>
 	<!--Close Logo Area-->
 	
-<a href="${pageContext.servletContext.contextPath}/mail/"> Send Mail </a> <br>
+<a href="${pageContext.servletContext.contextPath}/mail/">  </a> <br>
 
 	<!--Begin Navigation-->
 	<ul id="navigation">
 		<li><a href="${pageContext.request.contextPath}/index/"	
 		id="home_front" title="Home"><span>home</span></a></li>
-		<li><a href="${pageContext.request.contextPath}/portfolio/"
-			id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
 		<li><a href="${pageContext.request.contextPath}/services/"
 			id="services" title="Our Services"><span>our services</span></a></li>
 		<li><a href="${pageContext.request.contextPath}/blog/"
 			id="blog" title="The Blog"><span>the bloggery</span></a></li>
+			<li><a href="${pageContext.request.contextPath}/requestList/"
+			id="port" title="Work Portfolio"><span>Request</span></a></li>
 		<li><a href="${pageContext.request.contextPath}/contact/"
 			id="contact" title="Contact Us"><span>contact us</span></a></li>
 	</ul>
@@ -345,7 +325,23 @@ $(".image_placeset img").hover(function() {
 
 </div>
 <!--page close-->
+<!-- ******************************************************************************** -->
+		<c:if test="${!empty loginType}">
+			<c:if test="${loginType=='VISITOR'}">
 
+					<div class="bar bar-header bar-light" align="right">
+					<form
+						action="${pageContext.servletContext.contextPath}/raiseRequest/"
+						method="post" commandName="requestForm">
+						<input type="hidden" name="service" value="INFRASTRUCTURE" /> 
+						<input type="hidden" name="serviceID" value="IT13" /> 
+						<!-- <input type="submit" value="Submit Request" align="right"/> -->
+					<input type="image" src="${pageContext.request.contextPath}/img/button.jpg" alt="Raise Your Request Here.." />
+						
+					</form>
+					</div>
+			</c:if>
+		</c:if>
 
 <div class="span-24">
 <H1 style="color:#900000">Infrastructure Testing</H1>

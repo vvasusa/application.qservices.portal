@@ -5,12 +5,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 
 import com.pearson.controller.ActionController;
@@ -19,6 +21,7 @@ import com.pearson.model.AdminUser;
 import com.pearson.model.Password;
 import com.pearson.model.Register;
 import com.pearson.model.RequestForm;
+import com.pearson.model.ServiceIntro;
 import com.pearson.services.JavaMailService;
 
 public class ActionDaoImpl implements ActionDao {
@@ -441,15 +444,12 @@ public class ActionDaoImpl implements ActionDao {
 		return adminUser;
 	}
 
-	
-	
 	@Override
 	public List<AdminUser> viewAllRequest(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 
 		String loginType = (String) request.getSession().getAttribute(
 				"loginType");
-		
 
 		AdminUser user = null;
 		Timestamp Dt = obj.dateAndTime();
@@ -457,51 +457,100 @@ public class ActionDaoImpl implements ActionDao {
 		try {
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
-			
+
 			ResultSet rs = null;
-			
+
 			String uid = (String) request.getSession().getAttribute(
 					"MySessionId");
 
-			
+			rs = statement
+					.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req LEFT OUTER JOIN requestor AS restr on req.RequestorId=restr.requestorId");
 
-				rs = statement
-						.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req LEFT OUTER JOIN requestor AS restr on req.RequestorId=restr.requestorId");
+			while (rs.next()) {
+				user = new AdminUser();
+				// rs.getString(rs.get)
+				/*
+				 * String value = rs.getString("loginType");
+				 * System.out.println(value);
+				 * user.setLoginType(rs.getString("loginType"));
+				 * user.setEmail(rs.getString("email"));
+				 * user.setFirstName(rs.getString("firstName"));
+				 * user.setLastName(rs.getString("lastName"));
+				 * user.setPhoneNo(rs.getString("phoneNo"));
+				 */
+				user.setApprovedBy(rs.getString("RejectedBy"));
+				user.setRaisedReqId(rs.getString("RequestId"));
+				// user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
+				// user.setLastUpdatedOn(Dt.toString());
+				user.setServiceId(rs.getString("ServiceId"));
+				user.setStatus_Id(rs.getString("Status_Id"));
 
-				while (rs.next()) {
-					user = new AdminUser();
-					// rs.getString(rs.get)
-					/*
-					 * String value = rs.getString("loginType");
-					 * System.out.println(value);
-					 * user.setLoginType(rs.getString("loginType"));
-					 * user.setEmail(rs.getString("email"));
-					 * user.setFirstName(rs.getString("firstName"));
-					 * user.setLastName(rs.getString("lastName"));
-					 * user.setPhoneNo(rs.getString("phoneNo"));
-					 */
-					user.setApprovedBy(rs.getString("RejectedBy"));
-					user.setRaisedReqId(rs.getString("RequestId"));
-					// user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
-					// user.setLastUpdatedOn(Dt.toString());
-					user.setServiceId(rs.getString("ServiceId"));
-					user.setStatus_Id(rs.getString("Status_Id"));
-
-					user.setRaisedReqId(rs.getString("RequestId"));
-					user.setRequestorId(rs.getString("RequestorId"));
-					user.setServiceId(rs.getString("ServiceId"));
-					// user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
-					user.setLastUpdatedOn(rs.getString("Date"));
-					user.setApprovedBy(rs.getString("ApprovedBy"));
-					user.setStatus_Id(rs.getString("Status_Id"));
-					user.setFirstName(rs.getString("firstName"));
-					user.setLastName(rs.getString("lastName"));
-					adminUser.add(user);
-				}
+				user.setRaisedReqId(rs.getString("RequestId"));
+				user.setRequestorId(rs.getString("RequestorId"));
+				user.setServiceId(rs.getString("ServiceId"));
+				// user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
+				user.setLastUpdatedOn(rs.getString("Date"));
+				user.setApprovedBy(rs.getString("ApprovedBy"));
+				user.setStatus_Id(rs.getString("Status_Id"));
+				user.setFirstName(rs.getString("firstName"));
+				user.setLastName(rs.getString("lastName"));
+				adminUser.add(user);
+			}
 		} catch (Exception e) {
 		}
 		return adminUser;
 	}
-	
-	
+
+	@Override
+	public  ServiceIntro  getAllServiceIntro() {
+		// TODO Auto-generated method stub
+		
+		ServiceIntro serviceIntro=null;
+		
+		try {
+			
+			
+			Connection connection = dataSource.getConnection();
+			Statement statement = connection.createStatement();
+
+			ResultSet rs = null;
+
+			
+			rs = statement
+					.executeQuery("select * from service");
+		String[] row= new String[16];
+		
+		
+					
+			serviceIntro= new ServiceIntro();
+			boolean j;
+			for(int i=0;j=rs.next();i++){
+				row[i]=rs.getObject(3).toString();
+				System.out.println(row[i]);
+			}
+				serviceIntro.setAutomatedTesting(row[0]);
+				serviceIntro.setComplianceTesting(row[1]);
+				serviceIntro.setDataIntegrationTesting(row[2]);
+				serviceIntro.setInfrastructureTesting(row[3]);
+				serviceIntro.setMiddlewareESB(row[4]);
+				serviceIntro.setMobileTesting(row[5]);
+				serviceIntro.setOnlineeCommerce(row[6]);
+				serviceIntro.setOracleERPTesting(row[7]);
+				serviceIntro.setPerformancEngineering(row[8]);
+				serviceIntro.setPerformanceTesting(row[9]);
+				serviceIntro.setQass(row[10]);
+				serviceIntro.setSalesForceTesting(row[11]);
+				serviceIntro.setSecurityTesting(row[12]);
+				serviceIntro.setTestDataManagement(row[13]);
+				serviceIntro.setTestEnvironment(row[14]);
+				serviceIntro.setTestprogram(row[15]);
+		}
+
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return serviceIntro;
+	}
+
 }

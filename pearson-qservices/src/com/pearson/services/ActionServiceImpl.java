@@ -5,12 +5,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 
 import com.pearson.dao.ActionDao;
 import com.pearson.model.AdminUser;
 import com.pearson.model.Password;
 import com.pearson.model.Register;
-import com.pearson.model.RequestForm;
+import com.pearson.model.ServiceIntro;
 
 public class ActionServiceImpl implements ActionService {
 	@Autowired
@@ -54,6 +55,12 @@ public class ActionServiceImpl implements ActionService {
 	public List<AdminUser> viewAllRequest(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		return actionDao.viewAllRequest(request);
+	}
+
+	@Override
+	public ServiceIntro getAllServiceIntro() {
+		// TODO Auto-generated method stub
+		return actionDao.getAllServiceIntro();
 	}
 
 }

@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.ui.ModelMap;
+
 import com.pearson.model.AdminUser;
 import com.pearson.model.Password;
 import com.pearson.model.Register;
 import com.pearson.model.RequestForm;
+import com.pearson.model.ServiceIntro;
 
 public interface ActionDao {
 
@@ -25,5 +28,7 @@ public interface ActionDao {
 	public List<AdminUser> rejectrequest(String id, HttpServletRequest request);
 
 	public List<AdminUser> viewAllRequest(HttpServletRequest request);
+
+	public ServiceIntro getAllServiceIntro();
 
 }

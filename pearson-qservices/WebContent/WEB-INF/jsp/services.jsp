@@ -430,7 +430,6 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Close 950px width-->
 
 
-
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
 			<div class="span-24">
 				<div class="hrbg_small"></div>
@@ -468,11 +467,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						<a href="${pageContext.request.contextPath}/QAssesment/">Q-Assessment</a></div>
 						
 						<div id="txt1" class="text" style="text-align:justify">
-							Q- Assessment for Integrating Teams provides quality
-								consulting to organizations undergoing integrations or
-								consolidation such as Mergers & Acquisition. It heps QA
-								organization achieve best in class operating levels by
-								strategizing and redefining their QA processes.
+							${serviceIntro.qass}
 							</div>
 					</div>
 					<!--boxed_page close-->
@@ -495,10 +490,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							
 							<div class="serhead"> <a href="${pageContext.request.contextPath}/TestProgram/">Test Program</a></div>
 							<div id="txt2" class="texter" style="text-align:justify">
-								Test Program Management is an advisory service offering that
-								helps organizations create QA Policies, Strategies, Plans and
-								Processes. This offering enables QA teams to effectively manage
-								multiple projects while maintaining standard deliverables. 
+								${serviceIntro.testprogram}
 						</div>
 					</div>
 					<!--boxed_page close-->
@@ -518,11 +510,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/lc.png" class="left" alt="" /> -->
 							<div id="txt3" class="texter" style="text-align:justify">
-								Middleware/ ESB Testing validates an organization's middleware
-								architecture to establish a robust communication layer between
-								the application and the back-end systems. It improves business
-								agility by increasing the lifespan of applications ensuring
-								quality & scalability</div>
+								${serviceIntro.middlewareESB}</div>
 							
 							<!-- </p> -->
 						</div>
@@ -545,12 +533,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/omar.png" class="left" alt="" /> -->
 								<div id="txt4" class="texter" style="text-align:justify">
-								Data Integration Testing enables organizations to maintain data
-								integrity during transition of data from one database system to
-								the other by performing data verification and validation. It
-								helps in establishing increased levels of trust for data across
-								the organization by enuring that the integrated data is correct,
-								complete and up-to-date </a>
+								
+								${serviceIntro.dataIntegrationTesting}
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -567,11 +551,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					        <!--Service Image-->
 							<!-- <p><img src="./img/icons/psd.png" class="left" alt="" /> -->
 							<div id="txt5"  class="texter" style="text-align:justify">
-								Automated Testing helps agile centric IT organizations produce a
-								software that is effective, efficient and faster by employing
-								right tools, frameworks, strategy and personnel. Higher
-								automation coverage reduces manual effort and improves the
-								quality of testing. </a>
+								 ${serviceIntro.automatedTesting}</a>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -584,15 +564,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-							<div class="serhead"><a href="${pageContext.request.contextPath}/Mobile/"> Mobile Testing</div>
+							<div class="serhead"><a href="${pageContext.request.contextPath}/Mobile/"> Mobile Testing</a></div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/ecom.png" class="left" alt="" /> -->
 							<div id="txt6"  class="texter" style="text-align:justify">
-							 Mobile	Testing provides an integrated solution for testing mobile
-								native applications using agile based test framework. Testing is
-								performed on real devices without compromising on the quality by
-								leveraging tools and centralized repository consisting mobile
-								specific test scripts across all mobile platform projects. </a>
+							 
+								${serviceIntro.mobileTesting}
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -613,14 +590,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
 							<div id="txt7" class="texter" style="text-align:justify">
-								QCoE - Online ecommerce and Content Management provides testing
-								solutions to the growing volume of e-commerce businesses
-								requiring higher availability, scalability, and facilitates
-								enhanced online shopping experience. Our domain-specific
-								customized solutions along with performance, security and
-								usability testing provides cost-effective implementations that
-								accelerate the product life cycle, prevent security lapses such
-								as identity theft and ensure efficient load handling. </a>
+							${serviceIntro.onlineeCommerce}	 </a>
 							
 						</div>
 					</div>
@@ -638,11 +608,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
 							<div id="txt8"  class="texter" style="text-align:justify">
-								Oracle ERP Testing validates an organizations Oracle ERP package
-								implementations and customizations towards a business need by
-								testing functional coverage, performance, availability and
-								scalability areas. It accelerates the QA process by allowing
-								faster delivery of your business-critical Oracle ERP projects. </a>
+								${serviceIntro.oracleERPTesting}</a>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -660,11 +626,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!--   <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<div id="txt9"  class="texter" style="text-align:justify">
-								Sales Force Testing provides organizations a full scale CRM
-								testing from opportunity creation to post-sale functionality for
-								both standard and highly customized objects. It covers all
-								critical testing domains of SalesForce.Com by providing a full
-								suite of solutions 
+								${serviceIntro.salesForceTesting}
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -687,11 +649,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--  <p><img src="./img/icons/search.png" class="left" alt="" /> -->
 							<div class="serhead">	<a href="${pageContext.request.contextPath}/Performance/">Performance Testing</a></div>
 							<div id="txt10"  class="texter" style="text-align:justify">
-								Performance Testing identifies performance bottlenecks in a
-								software and helps in deploying scalable & reliable solution
-								across Pearson applications to enhance user experience on sites
-								and web apps. It improves the speed and consistency of a system
-								under a particular workload. </div>
+								${serviceIntro.performanceTesting}
+								 </div>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -709,10 +668,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
 							<div class="serhead"><a href="${pageContext.request.contextPath}/Security/">Security Testing</a></div>
 							<div id="txt11"  class="texter" style="text-align:justify">
-								Security Testing identifies risk and compliance level of an
-								application with respect to Pearson policies & assessment. It
-								validates security vulnerabilities in Pearson web applications
-								and assures that these applications behave as intended </div>
+							${serviceIntro.securityTesting} </div>
+						
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -731,12 +688,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<div class="serhead"><a href="${pageContext.request.contextPath}/Compliance/">Compliance Testing</a></div>
 							<div id="txt12"  class="texter" style="text-align:justify">
-								Compliance Testing implements audit activities focused on
-								performing reviews and testing of application change activity to
-								ensure that all changes adhere to the established process and
-								control requirements of Pearsons Sarbanes-Oxley (SOX)
-								Compliance Program. It empowers organizations to achieve
-								conformance across the entire IT landscape. </div>
+									${serviceIntro.complianceTesting} </div>
+						
 						</div>
 					<!--Brief Info on Service-->
 				</div>
@@ -761,11 +714,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
 						<div class="serhead"><a href="${pageContext.request.contextPath}/InfraStructure/">Infrastructure Testing</a></div>
 						<div id="txt13"  class="texter" style="text-align:justify">
-								Infrastructure Testing helps organizations to validate various
-								infrastructure components across all the layers of its IT
-								architecture. It ensures that the individual Infrastructure
-								components which are interlinked and interfaced with multiple
-								other components are effectively tested. </div>
+								${serviceIntro.infrastructureTesting} </div>
+						
 						</div>
 					</div>
 					
@@ -787,12 +737,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
 						<div class="serhead">	<a href="${pageContext.request.contextPath}/PerformanceEngineering/">Performance Engineering</a></div>
 						<div id="txt14"  class="texter" style="text-align:justify">
-								Performance Engineering services aid IT Organizations in
-								designing and developing software with optimal performance,
-								scalability, availability and accessibility by evaluating
-								requirements of the product, technical architecture, design, and
-								implementation. It reduces hardware and software costs by
-								improving overall system performance. </div>
+									${serviceIntro.performancEngineering}</div>
+				
 						</div>
 				
 					<!--Brief Info on Service-->
@@ -809,10 +755,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<div class="serhead"> <a href="${pageContext.request.contextPath}/TestData/">Test Data Management</a></div>
-							<div id="txt15"  class="texter" style="text-align:justify"> Test
-								Data Management enables QA organizations establish standard
-								guidelines and strategy for test data creation and maintenance.
-								It helps in improving the quality and reusability of test data.
+							<div id="txt15"  class="texter" style="text-align:justify">${serviceIntro.testDataManagement}
+							
 						</div>
 						</div>
 					</div>
@@ -839,11 +783,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--  <div class="texter">     -->
 							<div class="serhead"><a href="${pageContext.request.contextPath}/TestEnvironment/">Test Environment Management</a></div>
 							<div id="txt16"  class="texter" style="text-align:justify">
-								Test Environment Management supports an organization in
-								establishing dedicated production-like environments for
-								effective test execution. It ensures test environment
-								optimization by driving environment planning, coordination,
-								monitoring and maintenance activities. </div>
+								${serviceIntro.testEnvironment}	</div>
+				
 						</div>
 
 					</div>
