@@ -54,6 +54,12 @@ var value= "<%=temp%>";
 	href="${pageContext.request.contextPath}/css/slider.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
 
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/slider.css"
+	type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 <!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -86,6 +92,8 @@ var value= "<%=temp%>	";
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
 
+<script src="//code.jquery.com/jquery-1.10.2.js"></script> 
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <!--Preload Image Over Imgs-->
 <script type="text/javascript">
@@ -172,6 +180,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 	});
 </script>
+
 
 
 
@@ -313,7 +322,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home_front" title="Home"><span>home</span></a></li>
+					id="home" title="Home"><span>home</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/"
@@ -321,7 +330,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port" title="Request"  ><span>Request</span></a></li>
+					id="port_front" title="Request"  ><span>Request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -380,7 +389,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 <c:if test="${!empty loginType}">
 <c:if test="${loginType=='VISITOR'}">
 
-	<a href="${pageContext.request.contextPath}/requestList" method="post">            </a>
+	<a href="${pageContext.request.contextPath}/requestList" method="post"></a>
 	
 	
 </c:if>
@@ -553,10 +562,13 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 			<h3> To view all the request for this Q-Service Portal.<a href="${pageContext.request.contextPath}/viewAllRequest" method="post"><u>click
 		here</u></a></h3>
-	
+		
+		
+	<c:if test="${empty adminUser}">
+	<h1> There is no new services for you..</h1>
+	</c:if>
+				<c:if test="${!empty adminUser}">
 			<table border="1">
-
-
 				<tr>
 					<td class="heading">REQUEST ID</td>
 					<td class="heading">FIRSTNAME</td>
@@ -565,6 +577,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 					<td class="heading">SERVICEID</td>
 					<td class="heading">RAISED DATE</td>
 					<td class="heading">REVIEW BY</td>
+					<td class="heading">REVIEWER ID</td>
 					<td class="heading">STATUS</td>
 					
 				</tr>
@@ -578,11 +591,9 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 						<td>${user.serviceId}</td>
 						<td>${user.lastUpdatedOn}</td>
 						<td>${user.approvedBy}</td>
+						<td>${user.userId}</td>
 						<td>${user.status_Id}</td>
 						
-						<%-- <td>${user.requestName}</td>
-					<td>${user.requestID}</td> --%>
-				 
 						<td>
 						<div id ="approve">
 						<a href="${pageContext.request.contextPath}/approve?id=${user.raisedReqId}"
@@ -591,7 +602,6 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 						<td> <div id ="reject">
 						<a href="${pageContext.request.contextPath}/reject?id=${user.raisedReqId}"
 							value="<c:out value="${user.email}"></c:out>" id="${user.email}"  method="post" name="rejectID">Reject</a></div></td>
-							
 					</tr>
 
 					<tr>
@@ -601,9 +611,10 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 					<%-- </c:if> --%>
 				</c:forEach>
 			</table>
+				</c:if></c:if>
 </div>
-		</c:if>
-	</div>
+		
+	
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
 
 
@@ -654,7 +665,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 		</c:if> --%>
 	</div>
 
-</div>
+
 	<!-- ************************PART THREE END************************************* -->
 
 
@@ -707,9 +718,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 		</div>
 		<!--footer close-->
-
-
-
+ 
 	</div>
 	<!--container close-->
 

@@ -90,7 +90,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 		} catch (Exception e) {
 		}
 		return adminUser;
-		
+
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 		// TODO Auto-generated method stub
 		String pn = requestForm.getPhoneNo();
 		String sid = requestForm.getReq_ServiceID();
-	String Reqname=	requestForm.getReq_ServiceName();
+		String Reqname = requestForm.getReq_ServiceName();
 		System.out.println(pn);
 		System.out.println(sid);
 
@@ -107,32 +107,33 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 		GentrateUserId Obj = new GentrateUserId();
 		String reqid = Obj.getRequestID();
 		Obj.getPassword();
-		Timestamp date=Obj.dateAndTime();
+		Timestamp date = Obj.dateAndTime();
 		System.out.println(reqid);
 
-		
 		/******* UPDATE QUERY FOR NEW ENTRY DETAILS IN DB **********/
-		/*request.getSession(true).setAttribute("RequestorId",reqid);
-		request.getSession(true).setAttribute("TempPass",Obj.getPassword());
-		*/
+		/*
+		 * request.getSession(true).setAttribute("RequestorId",reqid);
+		 * request.getSession(true).setAttribute("TempPass",Obj.getPassword());
+		 */
 		String ses_Id = (String) request.getSession().getAttribute(
 				"MySessionId");
-		String ses_Type = (String) request.getSession()
-				.getAttribute("loginType");
+		String ses_Type = (String) request.getSession().getAttribute(
+				"loginType");
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
-		AdminUser user=null;
+		AdminUser user = null;
 		user = new AdminUser();
 		try {
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
-			
 
-/*INSERT INTO REQUEST(Request_Id ,Requestor_Id , Service_Id ,Last_Updated_Date  , Status_Id )
- VALUES("1100","12001","TP001",'2013-08-09 12:32:45',"1001");*/
-			
-			
+			/*
+			 * INSERT INTO REQUEST(Request_Id ,Requestor_Id , Service_Id
+			 * ,Last_Updated_Date , Status_Id )
+			 * VALUES("1100","12001","TP001",'2013-08-09 12:32:45',"1001");
+			 */
+
 			int rs = statement
-					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,Date,ApprovedBy,Status_Id)VALUES('"
+					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,Date,ApprovedBy,Status_Id,LastUpdatedOn)VALUES('"
 							+ reqid
 							+ "','"
 							+ ses_Id
@@ -143,25 +144,18 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 							+ "','"
 							+ "null"
 							+ "','"
-							+ "1" + "')");
-			
-			
-			
-			/*int rs = statement
-					.executeUpdate("INSERT INTO TempInsert(requestorId,requestId,firstName,lastName,email,phoneNo,address)VALUES('"
-							+ reqid
+							+ "1"
 							+ "','"
-							+ requestForm.getReq_ServiceID()
-							+ "','"
-							+ requestForm.getFirstName()
-							+ "','"
-							+ requestForm.getLastName()
-							+ "','"
-							+ requestForm.getEmail()
-							+ "','"
-							+ requestForm.getPhoneNo()
-							+ "','"
-							+ reqid + "')");*/
+							+ date + "')");
+
+			/*
+			 * int rs = statement .executeUpdate(
+			 * "INSERT INTO TempInsert(requestorId,requestId,firstName,lastName,email,phoneNo,address)VALUES('"
+			 * + reqid + "','" + requestForm.getReq_ServiceID() + "','" +
+			 * requestForm.getFirstName() + "','" + requestForm.getLastName() +
+			 * "','" + requestForm.getEmail() + "','" + requestForm.getPhoneNo()
+			 * + "','" + reqid + "')");
+			 */
 			user.setFirstName(requestForm.getFirstName());
 			user.setEmail(requestForm.getEmail());
 			user.setLastName(requestForm.getLastName());
@@ -174,16 +168,14 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 
 			/**************** Send request id to user via mail ************/
 			MailService mailService = new MailService();
-			
-		//	mailService.sendRequestID(requestForm.getEmail(), reqid);
-			
+
+			// mailService.sendRequestID(requestForm.getEmail(), reqid);
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 
 		return adminUser;
 	}
-	
-	
-	
+
 }

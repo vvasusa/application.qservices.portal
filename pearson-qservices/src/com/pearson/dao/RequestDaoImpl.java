@@ -84,6 +84,7 @@ public class RequestDaoImpl implements RequestDao {
 				"loginType");
 		// List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		RequestForm requestForm=null;
 		try{
 		ResultSet rs=null;
 		if (id != null) {
@@ -96,23 +97,30 @@ public class RequestDaoImpl implements RequestDao {
 				
 				if (loginType.equals("QA")) {
 					String value= null;
-					rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+					//rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+					
+				//	rs = statement.executeQuery("SELECT t1.RequestId, t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId, t3.Service_Id,t3.UserId	FROM request as t1	LEFT JOIN requestor as t2 	ON t1.RequestorId = t2.requestorId	LEFT JOIN service as t3	ON t1.ServiceId = t3.Service_Id  where UserId='"+ value + "'");
+				
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "' order by date desc" );
 				}
 				
 				if (loginType.equals("PL")) {
 					String value ="QA";
-					// rs = statement.executeQuery("select * from request where ApprovedBy ='"+ value + "'");
-					rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+				
+					//rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "'");
 				}
 				if (loginType.equals("SLM")) {
 					String value ="PL";
-					// rs = statement.executeQuery("select * from request where ApprovedBy ='"+ value + "'");
-					rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+					
+				//	rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "'");
 				}
 				if (loginType.equals("ADM")) {
 					String value ="SLM";
 					// rs = statement.executeQuery("select * from request where ApprovedBy ='"+ value + "'");
-					rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+					//rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "'");
 				}
 
 				
@@ -121,6 +129,7 @@ public class RequestDaoImpl implements RequestDao {
 				
 				while (rs.next()) {
 					user = new AdminUser();
+					requestForm =new RequestForm();
 					// String str1=(rs.getString(1));
 					// user.setUserId("userId");
 					/*
@@ -137,17 +146,21 @@ public class RequestDaoImpl implements RequestDao {
 					String ses_Type = (String) request.getSession()
 							.getAttribute("loginType");
 					if (!(rs.getString("ApprovedBy").equalsIgnoreCase(ses_Type))) {
-
-						user.setRaisedReqId(rs.getString("RequestId"));
+						user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
 						user.setRequestorId(rs.getString("RequestorId"));
-						user.setServiceId(rs.getString("ServiceId"));
-						// user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
-						user.setLastUpdatedOn(rs.getString("Date"));
 						user.setApprovedBy(rs.getString("ApprovedBy"));
+						user.setRaisedReqId(rs.getString("RequestId"));
 						user.setStatus_Id(rs.getString("Status_Id"));
 						user.setFirstName(rs.getString("firstName"));
+						user.setServiceId(rs.getString("ServiceId"));
 						user.setLastName(rs.getString("lastName"));
+						user.setDesc(rs.getString("descreption"));
+						user.setPhoneNo(rs.getString("phoneNo"));
+						user.setUserId(rs.getString("UserId"));
+						user.setEmail(rs.getString("email"));
+						user.setDate(rs.getString("Date"));
 						adminUser.add(user);
+						
 					}
 				}
 			}
@@ -175,7 +188,7 @@ catch(Exception e){System.out.println( e);}
 			String ID = (String) request.getSession().getAttribute(
 					"MySessionId");
 			ResultSet rs = statement
-					.executeQuery("select * from REQUESTOR where password="
+					.executeQuery("select * from REQUESTOR where requestorId="
 							+ ID);
 
 			/* (SELECT * FROM adminuser where userId="+"id) */

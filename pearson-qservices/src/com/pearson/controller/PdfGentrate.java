@@ -52,7 +52,7 @@ public class PdfGentrate {
 		PdfWriter writer = PdfWriter.getInstance
                 (document, new FileOutputStream("C:\\my.pdf"));
                 document.open();               
-                // create a chunk object using chunk class      of itext library.
+                // create a chunk object using chunk class  of itext library.
 		Chunk underlined = new Chunk("This is   sample pdf file created by : ");	
 		// set the distance between text and line.
 		underlined.setTextRise(8.0f);		

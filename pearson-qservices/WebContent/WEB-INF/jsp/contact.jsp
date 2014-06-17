@@ -38,6 +38,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/slider.css"
 	type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -56,7 +57,8 @@
 	src="${pageContext.request.contextPath}/js/slider.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/lightbox.js"></script>
-
+ <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <!--jQuery Sliding Login Panel Button-->
 
@@ -86,8 +88,6 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 	border: 1px solid #F00 !important
 }
 </style>
-
-
 
 
 
@@ -448,6 +448,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 										<option value="saab">US</option>
 										<option value="mercedes">INDIA</option>
 										<option value="audi">CHINA</option>
+										
 								</select></td>
 							</tr>
 							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
@@ -456,6 +457,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><textarea
 										name="message" cols="40" rows="6" id ="message"></textarea></td>
+										
 							</tr>
 
 							<tr>
@@ -463,6 +465,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 									style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
 									fields are required.</td>
 							</tr>
+							
 							<tr>
 								<td colspan="2"
 									style="text-align: left; vertical-align: middle; padding: 5px;"><input
@@ -470,6 +473,8 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 									be sent)</td>
 							</tr>
 						</table>
+						
+						
 					</form>
 
 					<!--END FORM -->

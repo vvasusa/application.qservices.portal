@@ -62,7 +62,8 @@ public class ActionController {
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		adminUser= actionService.rejectrequest(id,request);
     	System.out.println("rejected value"+id);
-    	return new ModelAndView("requestList", "adminUser", adminUser);
+    	//return new ModelAndView("requestList", "adminUser", adminUser);
+    	return new ModelAndView("rejectedList", "adminUser", adminUser);
 	}
 
 	@RequestMapping(value = "/viewAllRequest", method = RequestMethod.GET)

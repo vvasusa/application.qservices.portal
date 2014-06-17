@@ -346,12 +346,16 @@ public class ActionDaoImpl implements ActionDao {
 
 					statement.executeUpdate("update REQUEST SET RejectedBy = '"
 							+ value + "',Status_id = '" + sts
+							+ "',ApprovedBy = '" + "-"
 							+ "',LastUpdatedOn = '" + Dt
 							+ "' where RequestId ='" + id + "'");
 
-					rs = statement
+					/*rs = statement
 							.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  Status_Id= '"
-									+ Status + "'");
+									+ Status + "'");*/
+					rs = statement
+							.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"
+									+value+"'");
 				} catch (Exception e) {
 					System.out.println(e);
 				}
@@ -418,22 +422,22 @@ public class ActionDaoImpl implements ActionDao {
 				 * user.setLastName(rs.getString("lastName"));
 				 * user.setPhoneNo(rs.getString("phoneNo"));
 				 */
-				user.setApprovedBy(rs.getString("RejectedBy"));
+				user.setRejectedBy(rs.getString("RejectedBy"));
 				user.setRaisedReqId(rs.getString("RequestId"));
-				// user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
-				// user.setLastUpdatedOn(Dt.toString());
+				user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
 				user.setServiceId(rs.getString("ServiceId"));
 				user.setStatus_Id(rs.getString("Status_Id"));
-
+				user.setServiceName(rs.getString("Service_Name"));
 				user.setRaisedReqId(rs.getString("RequestId"));
 				user.setRequestorId(rs.getString("RequestorId"));
 				user.setServiceId(rs.getString("ServiceId"));
-				// user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
-				user.setLastUpdatedOn(rs.getString("Date"));
+				user.setDate(rs.getString("Date"));
 				user.setApprovedBy(rs.getString("ApprovedBy"));
 				user.setStatus_Id(rs.getString("Status_Id"));
 				user.setFirstName(rs.getString("firstName"));
 				user.setLastName(rs.getString("lastName"));
+		     	user.setStatus(rs.getString("StatusDesc"));
+		     	user.setUserId(rs.getString("UserId"));
 				adminUser.add(user);
 			}
 		}

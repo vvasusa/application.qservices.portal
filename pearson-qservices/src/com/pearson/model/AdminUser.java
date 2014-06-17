@@ -12,9 +12,6 @@ public class AdminUser {
 	private String loginType;
 	private String requestID;
 	private String requestName;
-	
-	
-
 
 	/* FOR DISPLAYING REQUEST lIST RASIED BY USER .. */
 	private String raisedReqId;
@@ -24,7 +21,52 @@ public class AdminUser {
 	private String approvedBy;
 	private String raisedDate;
 	private String status_Id;
-	
+	private String desc;
+	private String date;
+	private String rejectedBy;
+	private String status;
+	public String getServiceName() {
+		return serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+	}
+
+	private String serviceName;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getRejectedBy() {
+		return rejectedBy;
+	}
+
+	public void setRejectedBy(String rejectedBy) {
+		this.rejectedBy = rejectedBy;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
 	public String getRaisedDate() {
 		return raisedDate;
 	}
@@ -32,8 +74,6 @@ public class AdminUser {
 	public void setRaisedDate(String raisedDate) {
 		this.raisedDate = raisedDate;
 	}
-
-
 
 	/* FOR DISPLAYING REQUEST lIST RASIED BY USER .. */
 	public String getRaisedReqId() {

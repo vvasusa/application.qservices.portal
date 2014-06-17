@@ -513,12 +513,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			
 				<tr>
 					<td class="heading">Req_ID</td>
-					<!-- <td class="heading">Req_Name</td> -->
-					<td class="heading">Approved Date </td>
+					<td class="heading">Req_Name</td>
+					<td class="heading">Rejected On </td>
 					<td class="heading">Status</td>
-					<td class="heading">ApprovedBy</td>
+					<td class="heading">RejectBy</td>
+					<td class="heading">User ID</td>
 					
-
 				</tr>
 				<c:forEach var="user" items="${adminUser}">
 				<%-- <c:if test="${user.loginType=='QA'}"> --%>
@@ -526,10 +526,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<tr>
 					
 					<td>${user.raisedReqId}</td>
-				<%-- 	<td>${user.requestName}</td> --%>
+			     	<td>${user.serviceName}</td> 
 					<td>${user.lastUpdatedOn}</td>
-					<td>Approved</td>
-					<td>${user.approvedBy}</td>
+					<td>${user.status}</td>
+					<td>${user.rejectedBy}</td>
+					<td>${user.userId}</td>
+					
 					
 					<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
@@ -552,6 +554,6 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 </c:if>
 </div>
 </div>
-<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
+
 </body>
 </html>

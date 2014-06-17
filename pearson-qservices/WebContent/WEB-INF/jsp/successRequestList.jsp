@@ -272,7 +272,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services_front" title="Our Services"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/requestList/"
