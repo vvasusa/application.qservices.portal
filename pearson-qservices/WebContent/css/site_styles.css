@@ -314,3 +314,11 @@ blog_.entrynotes li{list-style:none; padding:2px 0 5px 2px}
 .text_text {padding:0; margin:0; font-size:11px;}
 
 
+/* requset button */
+
+
+
+
+ul#navigation li a#request {background: url(../img/home.png) 0 0 no-repeat;}
+ul#navigation li a#request _front {background: url(../img/home.png) 0 -50px no-repeat;}
+ul#navigation li a#request:hover,

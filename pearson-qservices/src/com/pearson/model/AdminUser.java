@@ -25,6 +25,54 @@ public class AdminUser {
 	private String date;
 	private String rejectedBy;
 	private String status;
+	private String serviceName;
+	/* FOR DISPLAYING REQUEST lIST RASIED BY USER .. */
+	
+	private String commandsByQA;
+	private String commandsByPL;
+	private String commandsBySLM;
+	private String commandsByADM;
+
+	
+	public String getCommandsByQA() {
+		return commandsByQA;
+	}
+
+	public void setCommandsByQA(String commandsByQA) {
+		this.commandsByQA = commandsByQA;
+	}
+
+	public String getCommandsByPL() {
+		return commandsByPL;
+	}
+
+	public void setCommandsByPL(String commandsByPL) {
+		this.commandsByPL = commandsByPL;
+	}
+
+	public String getCommandsBySLM() {
+		return commandsBySLM;
+	}
+
+	public void setCommandsBySLM(String commandsBySLM) {
+		this.commandsBySLM = commandsBySLM;
+	}
+
+	public String getCommandsByADM() {
+		return commandsByADM;
+	}
+
+	public void setCommandsByADM(String commandsByADM) {
+		this.commandsByADM = commandsByADM;
+	}
+
+
+	
+	
+	
+	
+	
+	
 	public String getServiceName() {
 		return serviceName;
 	}
@@ -33,7 +81,7 @@ public class AdminUser {
 		this.serviceName = serviceName;
 	}
 
-	private String serviceName;
+
 
 	public String getStatus() {
 		return status;

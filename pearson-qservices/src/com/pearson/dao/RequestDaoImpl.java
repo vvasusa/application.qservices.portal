@@ -101,7 +101,7 @@ public class RequestDaoImpl implements RequestDao {
 					
 				//	rs = statement.executeQuery("SELECT t1.RequestId, t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId, t3.Service_Id,t3.UserId	FROM request as t1	LEFT JOIN requestor as t2 	ON t1.RequestorId = t2.requestorId	LEFT JOIN service as t3	ON t1.ServiceId = t3.Service_Id  where UserId='"+ value + "'");
 				
-					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "' order by date desc" );
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t1.descreption FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "' order by date desc" );
 				}
 				
 				if (loginType.equals("PL")) {
@@ -159,8 +159,9 @@ public class RequestDaoImpl implements RequestDao {
 						user.setUserId(rs.getString("UserId"));
 						user.setEmail(rs.getString("email"));
 						user.setDate(rs.getString("Date"));
+						user.setDesc(rs.getString("descreption"));
 						adminUser.add(user);
-						
+					
 					}
 				}
 			}
@@ -183,19 +184,13 @@ catch(Exception e){System.out.println( e);}
 
 		String Table = (String) request.getSession().getAttribute("Table");
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		try{
 		if (Table == "requestor") {
-			// ResultSet rs = statement.executeQuery("select * from Requestor");
-			String ID = (String) request.getSession().getAttribute(
-					"MySessionId");
-			ResultSet rs = statement
-					.executeQuery("select * from REQUESTOR where requestorId="
-							+ ID);
-
-			/* (SELECT * FROM adminuser where userId="+"id) */
-			/* ("select * from samplevisitor where requestorId= :ID") */
-
+			
+			String ID = (String) request.getSession().getAttribute("MySessionId");
+			//ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Date,t1.ApprovedBy,t1.Status_Id,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = '"+ ID + "'");
+			ResultSet rs = statement.executeQuery("select * from REQUESTOR where RequestorId="	+ ID);
 			AdminUser user = null;
-			// AdminUser user = new AdminUser();
 			while (rs.next()) {
 				user = new AdminUser();
 				String ses_Id = (String) request.getSession().getAttribute(
@@ -214,29 +209,25 @@ catch(Exception e){System.out.println( e);}
 						&& StringUtils.endsWithIgnoreCase(ses_Type,
 								rs.getString("loginType"))) {
 
-					// String str1=(rs.getString(1));
 					String Req_Fname = (rs.getString("firstName"));
 					String Req_Lname = (rs.getString("lastName"));
 					String Email = (rs.getString("email"));
 					String PhoneNo = (rs.getString("phoneNo"));
 					String loginType = (rs.getString("loginType"));
 					String requestorId = rs.getString("requestorId");
-					
 					user.setUserId(requestorId);
-					// user.setUserId("requestorId");
 					user.setFirstName(Req_Fname);
 					user.setLastName(Req_Lname);
 					user.setEmail(Email);
 					user.setPhoneNo(PhoneNo);
 					user.setLoginType(loginType);
 					user.setAddress(rs.getString("address"));
-
 					adminUser.add(user);
 
 				}
-			}// return adminUser;
-
+			}
 		}
+		}catch(Exception e){System.out.println(e);}
 		return adminUser;
 	}
 
@@ -348,12 +339,10 @@ catch(Exception e){System.out.println( e);}
 			if (ID != null) {
 				Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet rs = statement
-						.executeQuery("select * from REQUEST where requestorId="
-								+ ID);
+				//ResultSet rs = statement.executeQuery("select * from REQUEST where requestorId="+ ID);
 
-				/* (SELECT * FROM adminuser where userId="+"id) */
-				/* ("select * from samplevisitor where requestorId= :ID") */
+				//ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Date,t1.ApprovedBy,t1.Status_Id,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = '"+ ID + "'");
+				ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Date,t1.ApprovedBy,t1.Status_Id,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = t2.requestorId  where t1.RequestorId = '"+ ID + "'order by date desc");
 
 				AdminUser user = null;
 				// AdminUser user = new AdminUser();
@@ -399,6 +388,10 @@ catch(Exception e){System.out.println( e);}
 						user.setRaisedDate(rs.getString("Date"));
 						user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
 						user.setServiceId(rs.getString("ServiceId"));
+						user.setCommandsByADM(rs.getString("commandsByADM"));
+						user.setCommandsByPL(rs.getString("commandsByPL"));
+						user.setCommandsByQA(rs.getString("commandsByQA"));
+						user.setCommandsBySLM(rs.getString("commandsBySLM"));
 						adminUser.add(user);
 
 					}

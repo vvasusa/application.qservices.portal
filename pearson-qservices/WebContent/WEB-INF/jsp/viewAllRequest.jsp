@@ -313,7 +313,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home_front" title="Home"><span>home</span></a></li>
+					id="home" title="Home"><span>home</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/"
@@ -321,7 +321,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 				<li><a href="${pageContext.request.contextPath}/blog/"
 					id="blog" title="The Blog"><span>the bloggery</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port" title="Request"  ><span>Request</span></a></li>
+					id="port_front" title="Request"  ><span>Request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 

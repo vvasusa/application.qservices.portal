@@ -11,6 +11,8 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
 
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
@@ -398,7 +400,8 @@ var value= "<%=temp%>	";
 
 		<!--Begin Page Area, below header navigation-->
 		<div class="page">
-
+		
+		
 			<!--Declare 550px width w/ right border-->
 			<div class="span-14 colborder">
 				<!--Intro Image shown here, about site-->

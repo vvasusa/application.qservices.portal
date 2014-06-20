@@ -279,7 +279,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			 --%>
 			 
 			 
-			 <a href="${pageContext.request.contextPath}/logout/"> logout</a>
+			
 			 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
@@ -339,7 +339,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
 			<div class="span-24">
+			<a href="${pageContext.request.contextPath}/requestList"><u> <b>Go Back</b></u></a>
 				<div class="hrbg_small"></div>
+				
 			</div>
 			<!--Close span-24-->
 
@@ -506,14 +508,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 <div>
-<a href="${pageContext.request.contextPath}/requestList"><u> <b>Back</b></u></a>
+
 <c:if test="${loginType != 'VISITOR'}">
 		
 			<table border="1">
 			
 				<tr>
 					<td class="heading">Req_ID</td>
-					<!-- <td class="heading">Req_Name</td> -->
+					<td class="heading">Service_Name</td>
 					<td class="heading">Approved Date </td>
 					<td class="heading">Status</td>
 					<td class="heading">ApprovedBy</td>
@@ -526,19 +528,21 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<tr>
 					
 					<td>${user.raisedReqId}</td>
-				<%-- 	<td>${user.requestName}</td> --%>
+					<td>${user.serviceName}</td>
 					<td>${user.lastUpdatedOn}</td>
 					<td>Approved</td>
 					<td>${user.approvedBy}</td>
-					
 					<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
+					
 					<td><a href="${pageContext.request.contextPath}/approve"
 						method="post"></a> </td>
 					<td><a href="${pageContext.request.contextPath}/reject"
 						method="post"></a></td>
+						
 					<%-- <td><a href="edit?id=${user.userId}"></a></td>
 					<td><a href="delete?id=${user.userId}">REJECT</a></td> --%>
+					
 				</tr>
 				
 				<tr>

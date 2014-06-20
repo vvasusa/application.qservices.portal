@@ -6,9 +6,29 @@ public final class Constants {
 		// restrict instantiation
 	}
 
-	//public static final double PI = 3.14159;
-	//public static final double PLANCK_CONSTANT = 6.62606896e-34;
+	/**********     JSP PAGE NAMES          ********/
 	public static final String LOGIN_PAGE = "login";
 	public static final String ERROR_PAGE = "error";
 	public static final String INDEX_PAGE = "index";
+
+
+
+/**************  ACCESS LEVEL PERSON    *************************/
+	
+	public static final String LEVEL_1 = "QA";
+	public static final String LEVEL_2 = "PL";
+	public static final String LEVEL_3 = "SLM";
+	public static final String LEVEL_4 = "ADM";
+	public static final String LEVEL_5 = "A";
+
+	/**************  STATUS    *************************/
+	
+	public static final int STATUS_ONE = 1;
+	public static final int STATUS_TWO= 2;
+	public static final int STATUS_THREE = 3;
+	public static final int STATUS_FOUR = 4;
+	public static final int STATUS_FIVE = 5;
+	
+	
+
 }

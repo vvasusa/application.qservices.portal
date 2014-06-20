@@ -14,7 +14,7 @@ import com.pearson.model.ServiceIntro;
 
 public interface ActionService {
 
-	public   List<AdminUser> approveRequest(String id,HttpServletRequest request);
+	public   List<AdminUser> approveRequest(String id,HttpServletRequest request,RequestForm requestForm);
 
 	
 

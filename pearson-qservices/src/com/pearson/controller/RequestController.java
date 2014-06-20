@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javassist.bytecode.stackmap.TypeData.ClassName;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,13 +41,17 @@ public class RequestController {
 
 	@Autowired
 	RaiseRequestService raiseRequestService;
+	
+	
+
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView Getdetails(
 			@Valid @ModelAttribute("requestForm") RequestForm requestForm,
 			BindingResult result, Map<String, Object> map,
 			HttpServletRequest request, final Model model) {
-
+		
+		
 		/*
 		 * public String doLogin(@Valid @ModelAttribute("userForm") User
 		 * userForm, BindingResult result, Map<String, Object> model) {
@@ -114,12 +121,10 @@ public class RequestController {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("MySessionId");
 		System.out.println("INSIDE /requestList  " + id);
-
 		// request.getSession().setAttribute("username", "nouser");
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		adminUser = requestService.requestList(id, request);
-		System.out
-				.println("THE LOGIN TYPE RETURN TO JSP" + user.getLoginType());
+		System.out.println("THE LOGIN TYPE RETURN TO JSP" + user.getLoginType());
 		return new ModelAndView("requestList", "adminUser", adminUser);
 		// return "requestList";
 

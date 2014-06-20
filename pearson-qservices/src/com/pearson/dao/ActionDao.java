@@ -14,7 +14,7 @@ import com.pearson.model.ServiceIntro;
 
 public interface ActionDao {
 
-	public List<AdminUser> approveRequest(String id,HttpServletRequest request) ;
+	public List<AdminUser> approveRequest(String id,HttpServletRequest request,RequestForm requestForm) ;
 
 	public Register newEntryDetails(Register register,
 			HttpServletRequest request);

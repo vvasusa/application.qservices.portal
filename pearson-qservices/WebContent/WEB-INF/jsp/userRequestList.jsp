@@ -43,6 +43,7 @@
 <!-- To allow for easy manipulation, I have -->
 <!--left the Blueprint Framework untouched, simply overwriting styles in the site_style.css. To make any -->
 <!--changes to the template, simply change/modify styles in the site_styles.css file. -->
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/framework.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
@@ -57,6 +58,13 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/slider.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
+
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/slider.css"
+	type="text/css" media="screen, projection" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -83,6 +91,9 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
 
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 
 <!--Preload Image Over Imgs-->
 
@@ -100,6 +111,24 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 	});
 </script>
+
+
+
+
+
+
+<script type="text/javascript">
+$(function() {   
+	$( "#accordion" ).accordion(); 
+	
+	$("#accordion").accordion(
+			   { active: "a.default",  header: "a.accordion-label" }
+			);
+	});
+     
+</script>
+
+
 
 
 
@@ -268,7 +297,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!-- FOR SAMPLE CHECK-END -->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home_front" title="Home"><span>home</span></a></li>
+					id="home" title="Home"><span>home</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/"
@@ -279,7 +308,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					id="home_front" title="Request"><span>request</span></a></li> --%>
 				
 					<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request "><span>Request</span></a></li>
+					id="port_front" title="Request "><span>Request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -292,63 +321,59 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		
-<div>
+
+
 
 			<c:if test="${loginType == 'VISITOR'}">
-				<table border="1">
-
-
-					<tr>
-						<td class="heading">REQUEST ID</td>
-						<td class="heading">USER ID</td>
-						<td class="heading">SERVICE ID</td>
-						<td class="heading">DATE</td>
-						<td class="heading">PROCESSED ON</td>
-						<td class="heading">STATUS</td>
-						
-					<!--	<td class="heading">Req_Name</td>
-						<td class="heading">Req_ID</td>
-						 <td class="heading">ACTION</td>
-						<td class="heading">ACTION</td> -->
-
-					</tr>
-					<c:forEach var="user" items="${adminUser}">
+			
+			<div id="accordion">
+			  
+				
+					
+				<c:forEach var="user" items="${adminUser}">
 						<%-- <c:if test="${user.loginType=='QA'}"> --%>
-
+					<h5>RequestID: ${user.requestID} &nbsp;&nbsp; Date :${user.raisedDate}</h5>
+			           <div>
+			           <p>
+                       <table border="1">
+                      
+                       <tr><td>REQUEST ID</td>  <td>REQUESTOR ID</td>  <td>SERVICE ID</td>  <td>DATE</td>  <td>PROCESSEDON</td>  <td>STATUS</td></tr>
 						<tr>
-						
-							<td>${user.requestID}</td>
-							<td>${user.requestorId}</td>
-							<td>${user.serviceId}</td>
-							<td>${user.raisedDate}</td>
-							<td>${user.lastUpdatedOn}</td>
-							<td>${user.status_Id}</td>
-							
-							<%-- <td>${user.statusId}</td> --%>
-							<%-- <td>${user.req_ServiceName}</td>
-							<td>${user.req_ServiceID}</td> --%>
+							<td><h4>${user.requestID}</h4></td>
+							<td><h4>${user.requestorId}</h4></td>
+							<td><h4>${user.serviceId}</h4></td>
+							<td><h4>${user.raisedDate}</h4></td>
+							<td><h4>${user.lastUpdatedOn}</h4></td>
+							<td><h4>${user.status_Id}</h4></td>
 						</tr>
+						</table>
+						<table>
+						<tr>
+						 <td><h5>Commends By QA :${user.commandsByQA} </h5></td></tr>
+						<tr>
+						<td><h5> Commends By PL :${user.commandsByPL} </h5></td>
+						</tr>
+						<tr>
+						<td> <h5>Commends By SLM :${user.commandsBySLM} </h5></td>
+						</tr>
+						<tr>
+						<td> <h5>Commends By ADM :${user.commandsByADM} </h5></td>
+						</tr>
+						</table>
+				      </p>
+				     </div>
 					</c:forEach>
-				</table>
+				
 				
 				
 	<%-- 			
-				
-				<h2> click here for seeing list of request rasied by you ..<a href="${pageContext.request.contextPath}/userRequestList" method="post">click
-		here</a></h2>
-				
-	
+				<h2> click here for seeing list of request rasied by you ..<a href="${pageContext.request.contextPath}/userRequestList" method="post">click	here</a></h2>
 	 --%>
 	
-	
-	
-	
-		</form>
 
-
-
-		</c:if>
-	</div>
+        </div>
+	</c:if>
+	
 	
 		<!-- Declare 950px width for IE-->
 		<div class="span-24">

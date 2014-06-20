@@ -163,8 +163,6 @@ $(document).ready(function(){
 
 
 
-
-
 <!-- ************************************************************************************************************************ -->
 
 
@@ -421,19 +419,19 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 							class="contactForm">
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name:</td>
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name : *</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 									type="text" name="name" value="" id="name"/></td>
 							</tr>
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email : *</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 									type="text" name="email" value="" id="emailadd"/></td>
 							</tr>
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject:</td>
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject : </td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 									type="text" name="subject" value="" id="subject" /></td>
 							</tr>
@@ -441,9 +439,9 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Country:</td>
-								<td style="text-align: left; vertical-align: top; padding: 5px;"><select
-									type="text" name="subject">
+									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Country :</td>
+								<td style="text-align: left; vertical-align: top; padding: 5px;"><select type="text"  style="width: 25%; name="subject" >
+									    <option value="select">SELECT</option>
 										<option value="volvo">UK</option>
 										<option value="saab">US</option>
 										<option value="mercedes">INDIA</option>
@@ -454,7 +452,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
+									style="width: 13%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message : *</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><textarea
 										name="message" cols="40" rows="6" id ="message"></textarea></td>
 										
@@ -462,7 +460,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 							<tr>
 								<td colspan="2"
-									style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
+									style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All (*)
 									fields are required.</td>
 							</tr>
 							

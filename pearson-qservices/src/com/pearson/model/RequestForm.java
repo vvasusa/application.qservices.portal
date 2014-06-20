@@ -35,6 +35,18 @@ public class RequestForm {
 	private String newPass;
 	private String confirmPass;
 	private String alteremail;
+	private String commands;
+	public String getCommands() {
+		return commands;
+	}
+
+	public void setCommands(String commands) {
+		this.commands = commands;
+	}
+
+
+
+
 	@NotNull
 	private String address;
 	

@@ -1,13 +1,18 @@
 package com.pearson.controller;
 
 import java.util.Map;
+import java.util.logging.Level;
+
+import javassist.bytecode.stackmap.TypeData.ClassName;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -29,6 +34,9 @@ import com.pearson.services.LoginService;
 @Controller
 @SessionAttributes
 @RequestMapping("/")
+
+
+
 // @SessionAttributes("login")
 public class LoginController {
 
@@ -40,9 +48,16 @@ public class LoginController {
 
 	@Value("${From_Email}")
 	private String from;
-
+	
+	@Value("${Request.statusQA}")      
+	private String userNameRequired; 
+	
+	
+	static Logger logger = Logger.getLogger(LoginController.class.getName()); 
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String indexPage(ModelMap model, HttpServletRequest request) {
+	System.out.println(userNameRequired);
 		return "index";
 		// return "aaaaaaaaa";
 	}
@@ -54,6 +69,10 @@ public class LoginController {
 			request.getSession(false).removeAttribute("MySessionId");
 			request.getSession(false).removeAttribute("Table");
 			request.getSession(false).removeAttribute("loginType");
+			
+			logger.info("Info: Closing application");
+			logger.error("Error: Closing application");
+			logger.warn("Warn: Closing application");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -62,9 +81,14 @@ public class LoginController {
 
 	@RequestMapping(value = "/contactUs", method = RequestMethod.POST)
 	public String contact(ModelMap model, HttpServletRequest request) {
+		Logger logger = Logger.getLogger( ClassName.class.getName() );
+		try{
+		
 		model.addAttribute("contact", "we ill contact you");
-		return "ContactUs";
-		// return "aaaaaaaaa";
+		}catch(Exception e){
+			logger.debug(logger);
+
+			}return "ContactUs";
 	}
 
 	/*

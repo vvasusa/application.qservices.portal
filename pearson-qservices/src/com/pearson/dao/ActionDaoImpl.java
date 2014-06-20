@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 
+import com.Constants;
 import com.pearson.controller.ActionController;
 import com.pearson.controller.MailService;
 import com.pearson.model.AdminUser;
@@ -42,58 +43,53 @@ public class ActionDaoImpl implements ActionDao {
 
 	@Override
 	public List<AdminUser> approveRequest(String requestId,
-			HttpServletRequest request) {
+			HttpServletRequest request,RequestForm requestForm) {
 
 		String loginType = (String) request.getSession().getAttribute(
 				"loginType");
 		System.out.println(loginType);
+		
 
 		AdminUser user = null;
 		Timestamp Dt = obj.dateAndTime();
+		
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		try {
 
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
-			/* UPDATE QUERY FOR APPROVED REQUEST ID */
 			ResultSet rs = null;
+			
 			// javaMailService.sendEmail();
+			
 			String id = (String) request.getSession().getAttribute(
 					"MySessionId");
-
+			
+			 String commands=requestForm.getCommands();
+			 
+			 String Access=Constants.LEVEL_1;
+			 
 			if (loginType.equals("QA")) {
 
-				/******
-				 * WRITE QUERY FOR TABLE WHERE STATUS APPROVED BY QA, WHERE
-				 * STATUS =="APPROVED BY QA"
-				 *********/
-				String value = "QA";
+				String value = loginType;
 				int sts = 2;
+				int sts1=Constants.STATUS_TWO;
+				
+				
 				try {
-					/*
-					 * statement.executeUpdate("update REQUEST SET ApprovedBy = '"
-					 * + value + "',Status_id = '"+ sts +
-					 * "', where requestId = '" + requestId + "'");
-					 */
 
 					statement.executeUpdate("update REQUEST SET ApprovedBy = '"
 							+ value + "',Status_id = '" + sts
+							+ "',commandsByQA = '" + commands
+							+ "',commandsByPL = '" + "Not yet Review"
+							+ "',commandsBySLM = '" + "Not yet Review"
+							+ "',commandsByADM = '" + "Not yet Review"
 							+ "',LastUpdatedOn = '" + Dt
 							+ "' where RequestId ='" + requestId + "'");
 
-					// update REQUEST SET ApprovedBy = "QLEAD",Status_id = "2"
-					// where requestID = "2COXMP92TX";
-
-					// statement.executeQuery("update tempinsert SET status = '"+
-					// value+ "' where requestID = '"+ id + "'");
-
-					/******
-					 * WRITE QUERY UPDATE TABLE- COLUMN APPROVED BY
-					 * =="APPROVED BY QA"
-					 *********/
-					rs = statement
-							.executeQuery("select * from request where ApprovedBy ='"
-									+ value + "'");
+					
+				//	rs = statement.executeQuery("select * from request where ApprovedBy ='"	+ value + "'");
+					rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ value + "'");
 				} catch (Exception e) {
 					System.out.println(e);
 				}
@@ -101,12 +97,14 @@ public class ActionDaoImpl implements ActionDao {
 			}
 
 			else if (loginType.equals("PL")) {
-				String value = "PL";
+				String value = loginType;
 				int sts = 3;
 				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
 						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ requestId + "'");
+						+ "',commandsByPL = '" + commands
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");
+
 				rs = statement
 						.executeQuery("select * from request where ApprovedBy ='"
 								+ value + "'");
@@ -114,11 +112,12 @@ public class ActionDaoImpl implements ActionDao {
 
 			else if (loginType.equals("SLM")) {
 				int sts = 3;
-				String value = "SLM";
+				String value = loginType;
 				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
 						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ requestId + "'");
+						+ "',commandsBySLM = '" + commands
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");
 				rs = statement
 						.executeQuery("select * from request where ApprovedBy ='"
 								+ value + "'");
@@ -129,8 +128,9 @@ public class ActionDaoImpl implements ActionDao {
 				String value = "ADM";
 				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
 						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ requestId + "'");
+						+ "',commandsByQA = '" + commands
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");
 				rs = statement
 						.executeQuery("select * from request where ApprovedBy ='"
 								+ value + "'");
@@ -140,8 +140,9 @@ public class ActionDaoImpl implements ActionDao {
 				String value = "ADM";
 				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
 						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ requestId + "'");
+						+ "',commandsByQA = '" + commands
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");
 				rs = statement
 						.executeQuery("select * from request where ApprovedBy ='"
 								+ value + "'");
@@ -166,6 +167,7 @@ public class ActionDaoImpl implements ActionDao {
 				// user.setLastUpdatedOn(Dt.toString());
 				user.setServiceId(rs.getString("ServiceId"));
 				user.setStatus_Id(rs.getString("Status_Id"));
+				user.setServiceName(rs.getString("Service_Name"));
 
 				adminUser.add(user);
 				System.out.println("inside rs");

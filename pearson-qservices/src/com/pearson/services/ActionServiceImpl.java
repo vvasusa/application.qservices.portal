@@ -11,6 +11,7 @@ import com.pearson.dao.ActionDao;
 import com.pearson.model.AdminUser;
 import com.pearson.model.Password;
 import com.pearson.model.Register;
+import com.pearson.model.RequestForm;
 import com.pearson.model.ServiceIntro;
 
 public class ActionServiceImpl implements ActionService {
@@ -19,9 +20,9 @@ public class ActionServiceImpl implements ActionService {
 
 	@Override
 	public List<AdminUser> approveRequest(String requestId,
-			HttpServletRequest request) {
+			HttpServletRequest request,RequestForm requestForm) {
 		// TODO Auto-generated method stub
-		return actionDao.approveRequest(requestId, request);
+		return actionDao.approveRequest(requestId, request,requestForm);
 	}
 
 	@Override
