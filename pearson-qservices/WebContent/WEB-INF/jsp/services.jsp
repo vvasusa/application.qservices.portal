@@ -1,9 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<?xml version="1.0"?>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Our Services - Logical Media</title>
+<title>Q-SERVICE PORTAL</title>
+
 
 <!-- CSS Links -->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -107,97 +118,97 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt2').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt3').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt4').expander({
-			slicePoint : 95,
+			slicePoint : 90,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt5').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt6').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt7').expander({
 			slicePoint : 85,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt8').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt9').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt10').expander({
 			slicePoint : 90,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt11').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt12').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt13').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt14').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt15').expander({
 			slicePoint : 95,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 		$('#txt16').expander({
 			slicePoint : 85,
 			collapseTimer:5000,
 			expandText : '+ More',
-			userCollapseText : '[ -Hide]'
+			userCollapseText : '[ -Less]'
 		});
 
 	});
@@ -316,13 +327,24 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="left right">
 					<h1>Not a member yet? Sign Up!</h1>
 					<!-- Register Form -->
-					<label class="color" for="signup">Username:</label> <input
+					
+					<form action="${pageContext.request.contextPath}/register"
+						method="post" commandName="login" id="form" modelAttribute="user">
+						<label class="color" for="signup">Username:</label> <input
+							class="field" type="text" name="signup" id="signup" value=""
+							size="23" /> <label class="color" for="email">Email:</label> <input
+							class="field" type="text" name="email" id="email" size="23" /> <label>A
+							password will be e-mailed to you.</label> <input type="submit"
+							name="submit" value="Register" class="bt_register" />
+					</form>
+					
+				<!-- 	<label class="color" for="signup">Username:</label> <input
 						class="field" type="text" name="signup" id="signup" value=""
 						size="23" /> <label class="color" for="email">Email:</label> <input
 						class="field" type="text" name="email" id="email" size="23" /> <label>A
 						password will be e-mailed to you.</label> <input type="submit"
 						name="submit" value="Register" class="bt_register" />
-
+ -->
 				</div>
 				<!--panel box3-->
 
@@ -355,6 +377,24 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			</div>
 
 		<!-- close tab -->
+        <%-- <p align="right">	
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		welcome <%=name%>	
+		</c:if>
+		</p> --%>
+		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
+		
+		
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
@@ -437,7 +477,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Close span-24-->
 
 			<!--#BEGIN LEFT CONTENT PAGE#-->
-			<div class="span-18">
+			
 				<!-- Boxed Class adds background image and sets padding 20px on all sides.-->
 				<div class="boxed_page">
 
@@ -447,15 +487,17 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<h2>The Q-service portal is providing the following services
 						for customers.. For more information please click on services...</h2>
 					</p>
-
+<div class="hrbg_small"></div>
 				</div>
 				<!--boxed close-->
 
 				<!--add spacing-->
-				<hr class="space" />
+			
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
+				
+		<div class="span-24">
 				<div class="span-6">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
@@ -466,8 +508,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                   <div class="serhead"> 
 						<a href="${pageContext.request.contextPath}/QAssesment/">Q-Assessment</a></div>
 						
-						<div id="txt1" class="text" style="text-align:justify">
-							${serviceIntro.qass}
+						<div id="txt1" class="text" >
+							<p>${serviceIntro.qass}</p>
 							</div>
 					</div>
 					<!--boxed_page close-->
@@ -489,8 +531,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Brief Info on Service-->
 							
 							<div class="serhead"> <a href="${pageContext.request.contextPath}/TestProgram/">Test Program</a></div>
-							<div id="txt2" class="texter" style="text-align:justify">
-								${serviceIntro.testprogram}
+							<div id="txt2" class="texter" >
+								<p>${serviceIntro.testprogram}</p>
 						</div>
 					</div>
 					<!--boxed_page close-->
@@ -500,7 +542,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
-				<div class="span-6 last">
+				<div class="span-6 ">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 
@@ -509,7 +551,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<div class="serhead"><a href="${pageContext.request.contextPath}/Middleware/">Middleware/ESB</a></div>
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/lc.png" class="left" alt="" /> -->
-							<div id="txt3" class="texter" style="text-align:justify">
+							<div id="txt3" class="texter" >
 								${serviceIntro.middlewareESB}</div>
 							
 							<!-- </p> -->
@@ -520,11 +562,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--span-6 close-->
 
 				<!--add spacing-->
-				<hr class="space" />
+				
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
-				<div class="span-6">
+				<div class="span-6 last">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
@@ -532,14 +574,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<div class="serhead"><a href="${pageContext.request.contextPath}/DataIntegration/">DataIntegration Testing</a></div>
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/omar.png" class="left" alt="" /> -->
-								<div id="txt4" class="texter" style="text-align:justify">
-								
-								${serviceIntro.dataIntegrationTesting}
+								<div id="txt4" class="texter" >
+								<font style="FONT: 12px/18px Tahoma, Arial, sans-serif;">
+								${serviceIntro.dataIntegrationTesting}</font>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
 				</div>
+			
+				</div>
 				<!--span-6 close-->
+
+		<div class="span-24">
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
@@ -547,10 +593,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="serhead"><a href="${pageContext.request.contextPath}/Automated/">Automated Testing</div>
+						<div class="serhead"><a href="${pageContext.request.contextPath}/Automated/">Automated Testing</a></div>
 					        <!--Service Image-->
 							<!-- <p><img src="./img/icons/psd.png" class="left" alt="" /> -->
-							<div id="txt5"  class="texter" style="text-align:justify">
+							<div id="txt5"  class="texter" >
 								 ${serviceIntro.automatedTesting}</a>
 						</div>
 					</div>
@@ -560,14 +606,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
-				<div class="span-6 last">
+				<div class="span-6 ">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
 							<div class="serhead"><a href="${pageContext.request.contextPath}/Mobile/"> Mobile Testing</a></div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/ecom.png" class="left" alt="" /> -->
-							<div id="txt6"  class="texter" style="text-align:justify">
+							<div id="txt6"  class="texter" >
 							 
 								${serviceIntro.mobileTesting}
 						</div>
@@ -577,7 +623,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--span-6 close-->
 
 				<!--add spacing-->
-				<hr class="space" />
+				
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
@@ -589,26 +635,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						<div class="serhead"><a href="${pageContext.request.contextPath}/OnlineEcommerce/">Online eCommerce & Content Management</a></div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
-							<div id="txt7" class="texter" style="text-align:justify">
+							<div id="txt7" class="texter" >
 							${serviceIntro.onlineeCommerce}	 </a>
 							
-						</div>
-					</div>
-					<!--Brief Info on Service-->
-				</div>
-				<!--span-6 close-->
-
-
-				<!--#BEGIN SERVICE BOX#-->
-				<!--Declare 230px width-->
-				<div class="span-6">
-					<!--Boxed style with 20px padding-->
-					<div class="boxed_page">
-						<!--Service Title--><div class="serhead"><a href="${pageContext.request.contextPath}/OracleERP/">Oracle ERP Testing</a></div>
-							<!--Service Image-->
-							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
-							<div id="txt8"  class="texter" style="text-align:justify">
-								${serviceIntro.oracleERPTesting}</a>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -621,11 +650,35 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="span-6 last">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
+						<!--Service Title--><div class="serhead"><a href="${pageContext.request.contextPath}/OracleERP/">Oracle ERP Testing</a></div>
+							<!--Service Image-->
+							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
+							<div id="txt8"  class="texter" >
+							
+							<p style="font-family: inherit; font-size: 100%; font-style: inherit; font-weight: inherit;">
+								${serviceIntro.oracleERPTesting}</p>
+								
+							</a>
+						</div>
+					</div>
+					<!--Brief Info on Service-->
+				</div>
+				<!--span-6 close-->
+
+</div>
+				<!--#BEGIN SERVICE BOX#-->
+				
+			<div class="span-24">
+				
+				<!--Declare 230px width-->
+				<div class="span-6 ">
+					<!--Boxed style with 20px padding-->
+					<div class="boxed_page">
 						<!--Service Title-->
 						<div class="serhead"><a href="${pageContext.request.contextPath}/SalesForce/">Sales Force Testing</a></div>
 							<!--Service Image-->
 							<!--   <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
-							<div id="txt9"  class="texter" style="text-align:justify">
+							<div id="txt9"  class="texter" >
 								${serviceIntro.salesForceTesting}
 						</div>
 					</div>
@@ -637,7 +690,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--[if IE 6]><hr class="space" /><![endif]-->
 
 
-				<hr class="space" />
+				
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
@@ -648,7 +701,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/search.png" class="left" alt="" /> -->
 							<div class="serhead">	<a href="${pageContext.request.contextPath}/Performance/">Performance Testing</a></div>
-							<div id="txt10"  class="texter" style="text-align:justify">
+							<div id="txt10"  class="texter" >
 								${serviceIntro.performanceTesting}
 								 </div>
 						</div>
@@ -667,7 +720,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
 							<div class="serhead"><a href="${pageContext.request.contextPath}/Security/">Security Testing</a></div>
-							<div id="txt11"  class="texter" style="text-align:justify">
+							<div id="txt11"  class="texter" >
 							${serviceIntro.securityTesting} </div>
 						
 						</div>
@@ -687,7 +740,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<div class="serhead"><a href="${pageContext.request.contextPath}/Compliance/">Compliance Testing</a></div>
-							<div id="txt12"  class="texter" style="text-align:justify">
+							<div id="txt12"  class="texter" >
 									${serviceIntro.complianceTesting} </div>
 						
 						</div>
@@ -699,7 +752,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--[if IE 6]><hr class="space" /><![endif]-->
 
 
-				<hr class="space" />
+		</div>
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
@@ -713,7 +766,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
 						<div class="serhead"><a href="${pageContext.request.contextPath}/InfraStructure/">Infrastructure Testing</a></div>
-						<div id="txt13"  class="texter" style="text-align:justify">
+						<div id="txt13"  class="texter" >
 								${serviceIntro.infrastructureTesting} </div>
 						
 						</div>
@@ -736,7 +789,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
 						<div class="serhead">	<a href="${pageContext.request.contextPath}/PerformanceEngineering/">Performance Engineering</a></div>
-						<div id="txt14"  class="texter" style="text-align:justify">
+						<div id="txt14"  class="texter" >
 									${serviceIntro.performancEngineering}</div>
 				
 						</div>
@@ -748,14 +801,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
-				<div class="span-6 last">
+				<div class="span-6 ">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<div class="serhead"> <a href="${pageContext.request.contextPath}/TestData/">Test Data Management</a></div>
-							<div id="txt15"  class="texter" style="text-align:justify">${serviceIntro.testDataManagement}
+							<div id="txt15"  class="texter" >${serviceIntro.testDataManagement}
 							
 						</div>
 						</div>
@@ -768,7 +821,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--[if IE 6]><hr class="space" /><![endif]-->
 
 
-				<hr class="space" />
+			
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
@@ -782,7 +835,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!-- <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<!--  <div class="texter">     -->
 							<div class="serhead"><a href="${pageContext.request.contextPath}/TestEnvironment/">Test Environment Management</a></div>
-							<div id="txt16"  class="texter" style="text-align:justify">
+							<div id="txt16"  class="texter" >
 								${serviceIntro.testEnvironment}	</div>
 				
 						</div>
@@ -796,9 +849,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--[if IE 6]><hr class="space" /><![endif]-->
 
 
-				<hr class="space" />
+			
 
-		</div>
+		
 		</div>
 			<!--span-18 close-->
 			<!--#LEFT CONTENT CLOSE#-->
@@ -809,8 +862,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--#BEGIN SIDEBAR#-->
 			<!--This area is found to the right of the page content-->
 			<!--Declare 230px width-->
-			<div class="span-6 last">
-				<!--Sidebar Boxed Style with 20px padding-->
+	<!-- 		<div class="span-6 last">
+				Sidebar Boxed Style with 20px padding
 				<div class="boxed_top"></div>
 				<div class="boxed">
 
@@ -860,13 +913,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 				</div>
-				<!--boxed close-->
+				boxed close
 			<div class="boxed_bottom"></div> 
 
-				<!--add spacing-->
+				add spacing
 				<hr class="space" />
 
-				<!--Sidebar Boxed Style with 20px padding-->
+				Sidebar Boxed Style with 20px padding
 				<div class="boxed_top"></div>
 				<div class="boxed">
 					Sub Sidebar Title
@@ -877,18 +930,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						enim ad minimilo veniam, quis nostrud exercitational ullamco lorem
 						ipsum</p>
 				</div> 
-				<!--boxed close-->
-				<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-				<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-				<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
+				boxed close
+				This is an IE6 workaround for problems rendering jquery sliding text-overs.
+				WIthout this fix, IE6 renders "Visit Site" outside of the last image
+				[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]
 
-				<!-- <div class="boxed_bottom"></div>
+				<div class="boxed_bottom"></div>
 
 
-				<!--add spacing-->
+				<!--add spacing
 				<hr class="space" />
 
-			</div>
+			</div> -->
 			<!--span-6 close-->
 			<!--#CLOSE SIDEBAR#-->
 

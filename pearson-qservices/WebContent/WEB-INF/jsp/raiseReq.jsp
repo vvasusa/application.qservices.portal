@@ -439,6 +439,16 @@ $(document).ready(function(){
 
 		<!-- close tab -->
 
+ <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
+
 
 		<!--Begin Header-->
 		<div class="header">
@@ -517,12 +527,17 @@ $(document).ready(function(){
 				style="width: 0px; background-color: #fff; border: 1px solid #ddd; padding: 50px; font-size: 12px;"
 				class="contactForm">
 
-				<tr>
 
+
+<tr><td>
+<input	type="hidden" name="req_ServiceName" value="${user.requestName}"  readonly/>
+<input	type="hidden" name="req_ServiceID" value="${user.requestID}" readonly /></td>
+</tr>
+				<%-- <tr>
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">ServiceName:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="req_ServiceName" value="${user.requestName}" readonly /></td>
+						type="hidden" name="req_ServiceName" value="${user.requestName}"  readonly/></td>
 				</tr>
 
 				<tr>
@@ -530,8 +545,8 @@ $(document).ready(function(){
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">ServiceID:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="req_ServiceID" value="${user.requestID}" readonly /></td>
-				</tr>
+						type="hidden" name="req_ServiceID" value="${user.requestID}" readonly /></td>
+				</tr> --%>
 				<tr>
 
 					<td
@@ -560,27 +575,68 @@ $(document).ready(function(){
 						type="text" name="phoneNo" id="phoneNo" value="${user.phoneNo}" maxlength="10" /></td>
 				</tr>
 
-				<tr>
+				<!-- <tr>
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="subject" value="" /></td>
-				</tr>
+				</tr> -->
 
 				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Street:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="address"/>
+							</td>
+				</tr>
+				
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">City:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><select
+						type="option" name="address" style='width: 145px;'>
+						<option value=" ">Select</option>
+							<option value="Coimbatore">COIMBATORE</option>
+							<option value="Chennai">CHENNAI</option>
+							<option value="Delhi">DELHI</option>
+							<option value="Bangalore">BANGALORE</option>
+					</select>
+							</td>
+				</tr>
+				
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">State:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;">
+					<select	type="option" name="address" style='width: 145px;'>
+				           	<option value=" ">Select</option>
+							<option value="Tamilnadu">TAMILNADU</option>
+							<option value="Kerala">KERALA</option>
+							<option value="Karnataka">KARNATAKA</option>
+							<option value="Andhra">ANDHRA</option>
+					</select>
+							</td>
+				</tr>
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Country:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;">
+					<select	type="option" name="address" style='width: 145px;'>
+							<option value=" ">Select</option>
+							<option value="India">INDIA</option>
+							<option value="US">US</option>
+							<option value="UK">UK</option>
+							<option value="China">CHINA</option>
+					</select>
 							</td>
 				</tr>
 				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
 				<tr>
 					<td
 						style="width: 2%; text-align: left; vertical-align: top; padding: 2px 5px 5px 5px; font-weight: bold;">Message:</td>
-					<td style="text-align: left; vertical-align: top; padding: 3px;"><textarea
-							name="message" cols="0" rows="0"></textarea></td>
+					<td style="text-align: left; vertical-align: top; padding: 3px;">
+					<textarea name="commands" cols="0" rows="0"></textarea></td>
 				</tr>
 
 				<tr>
@@ -590,10 +646,8 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td colspan="2"
-						style="text-align: left; vertical-align: middle; padding: 5px;"><input
-						type="submit" name="update" value="Submit" /> (Email will not be
-						sent)</td>
-
+						style="text-align: left; vertical-align: middle; padding: 5px;">
+						<input	type="submit" name="update" value="Submit" /> (Email will not be sent)</td>
 				</tr>
 			</table>
 		</form>

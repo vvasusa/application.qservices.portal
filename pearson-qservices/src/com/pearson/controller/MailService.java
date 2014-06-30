@@ -49,9 +49,9 @@ public class MailService {
 		/*	String[] to = {"test1@gmail.com","test2@yahoo.in","test3@gmail.com","test4@gmail.com"};*/
 			
 			
-			  System.out.println("welcome to mail box.."); MimeMessage
-			  Mimemessage = sender.createMimeMessage(); MimeMessageHelper mail
-			  = new MimeMessageHelper(Mimemessage, true); mail.setFrom(from);
+			  System.out.println("welcome to mail box..");
+			  MimeMessage	  mimemessage = sender.createMimeMessage(); 
+			  MimeMessageHelper mail  = new MimeMessageHelper(mimemessage, true); mail.setFrom(from);
 			  //mail.addTo(to);
 			 // sending password to new user //
 			

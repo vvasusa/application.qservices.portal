@@ -22,10 +22,19 @@ public class Register {
 	@NotNull
 	@Size(min = 10)
 	private String phoneNo;
-	@NotNull
+	
 	private String address1;
 	private String address2;
 	private String address3;
+	private String address4;
+	public String getAddress4() {
+		return address4;
+	}
+
+	public void setAddress4(String address4) {
+		this.address4 = address4;
+	}
+
 	private String tempPass;
 	private String fnerror;
 	

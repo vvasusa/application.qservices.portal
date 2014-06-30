@@ -39,8 +39,7 @@ public class ActionController {
 	}*/
 
 
-	@RequestMapping(value = "/approve", method = RequestMethod.POST)
-	
+	@RequestMapping(value = "/approve", method = RequestMethod.GET)
 	public ModelAndView approveRequest(@ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
 		System.out.println("APPROVED ID *************"+requestForm.getApproveID());
 		System.out.println("APPROVED ID *************"+requestForm.getRejectID());
@@ -52,14 +51,31 @@ public class ActionController {
 		return new ModelAndView("approve", "adminUser", adminUser);
 	}
 	
+	@RequestMapping(value = "/myApprove", method = RequestMethod.GET)
+	public ModelAndView myApproveRequest(@ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
+		String requestId = requestForm.getApproveID();
+		System.out.println(requestForm.getCommands());
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		adminUser= actionService.MyapproveRequest(requestId,request,requestForm);
+		return new ModelAndView("approve", "adminUser", adminUser);
+	}
 	
-	@RequestMapping(value = "/reject", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/reject", method = RequestMethod.GET)
 	public ModelAndView reject( @ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		String id=requestForm.getRejectID();
 		adminUser= actionService.rejectrequest(id,request);
-    	
     	//return new ModelAndView("requestList", "adminUser", adminUser);
+    	return new ModelAndView("rejectedList", "adminUser", adminUser);
+	}
+	
+	
+	@RequestMapping(value = "/myReject", method = RequestMethod.GET)
+	public ModelAndView Myreject( @ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
+		List<AdminUser> adminUser = new ArrayList<AdminUser>();
+		String id=requestForm.getRejectID();
+		adminUser= actionService.MyRejectrequest(id,request);
     	return new ModelAndView("rejectedList", "adminUser", adminUser);
 	}
 	

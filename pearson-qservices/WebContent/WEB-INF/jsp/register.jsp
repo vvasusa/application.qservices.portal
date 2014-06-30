@@ -332,7 +332,7 @@ jQuery(document).ready(function(){
 		});
 		
 	
-		$('#emailadd').click(function() {
+		$('#emailad').click(function() {
 			var input=$(this);
 			if (input.val().substring(0,4)=='www.'){input.val('http://www.'+input.val().substring(4));}
 			var re = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/;
@@ -342,7 +342,7 @@ jQuery(document).ready(function(){
 		});
 		
 		
-		$('#phoneNo').click(function() {
+		$('#phoneN').click(function() {
 			var input=$(this);
 			var message=$(this).val();
 			console.log(message);
@@ -351,7 +351,7 @@ jQuery(document).ready(function(){
 		});
 
 	
-	$("#submit").click(function(event){
+	$("#submi").click(function(event){
 		var form_data=$("#contact").serializeArray();
 		var error_free=true;
 		for (var input in form_data){
@@ -612,15 +612,12 @@ $(document).ready(function(){
 				<div class="left">
 					<h1>Member Login</h1>
 					<!-- Login Form -->
-					<form action="${pageContext.request.contextPath}/login"
-						method="post" commandName="login" modelAttribute="user">
+					<form action="${pageContext.request.contextPath}/login"		method="post" commandName="login" modelAttribute="user">
 						<%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
-						<label class="color">Username:</label> <input class="field"
-							type="text" name="log" id="log" value="" size="23" /> <label
-							class="color" for="pwd">Password:</label> <input class="field"
-							type="password" name="pwd" id="pwd" size="23" /> <label><input
-							name="rememberme" id="rememberme" type="checkbox" value="forever" />&nbsp;Remember
-							me</label>
+						<label class="color">Username:</label>
+						 <input class="field" type="text" name="log" id="log" value="" size="23" /> 
+						 <label	class="color" for="pwd">Password:</label> <input class="field" 	type="password" name="pwd" id="pwd" size="23" /> <label>
+						 <input name="rememberme" id="rememberme" type="checkbox" value="forever" />&nbsp;Remember	me</label>
 						<div class="clear"></div>
 						<input type="submit" name="submit" value="Login" class="bt_login" />
 						<a class="lost-pwd" href="#">Lost your password?</a>
@@ -666,12 +663,22 @@ $(document).ready(function(){
 			</ul>
 
  <ul class="logout">
- <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+ <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/"></a> 
  </ul>
 
 		</div>
 		<!-- close tab -->
 
+
+ <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 
 		<!--Begin Header-->
 		<div class="header">
@@ -709,7 +716,7 @@ $(document).ready(function(){
 			 --%>
 
 
-			<a href="${pageContext.request.contextPath}/logout/"> logout</a>
+			<a href="${pageContext.request.contextPath}/logout/"> </a>
 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
@@ -813,9 +820,17 @@ $(document).ready(function(){
 					
 				</tr>
 
+
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address1:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Street:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+						type="text" name="address1" value="" /></td>
+				</tr>
+				
+				<tr>
+					<td
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">City :</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="address1" value="" /></td>
 				</tr>
@@ -823,21 +838,24 @@ $(document).ready(function(){
 				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
 
 				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
+				
+
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address3:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">State:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="address3" value="" /></td>
+						type="text" name="address1" value="" /></td>
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Address2:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><select
-						type="text" name="address1">
-							<option value="volvo">INDIA</option>
-							<option value="saab">US</option>
-							<option value="mercedes">UK</option>
-							<option value="audi">CHINA</option>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Country:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;">
+					<select	type="option" name="address1" style='width: 146px;'>
+					        <option value=" "> </option>
+							<option value="India">INDIA</option>
+							<option value="Us">US</option>
+							<option value="Uk">UK</option>
+							<option value="China">CHINA</option>
 					</select></td>
 				</tr>
 
@@ -854,6 +872,7 @@ $(document).ready(function(){
 							<input type="submit" id="submit" name="update" value="Register" />
 						</div> (Email will be sent with Temporary Password)</td>
 				</tr>
+				
 			</table>
 		</form>
 			

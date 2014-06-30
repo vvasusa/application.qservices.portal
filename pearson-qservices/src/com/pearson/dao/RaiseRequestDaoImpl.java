@@ -100,6 +100,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 		String pn = requestForm.getPhoneNo();
 		String sid = requestForm.getReq_ServiceID();
 		String Reqname = requestForm.getReq_ServiceName();
+		
 		System.out.println(pn);
 		System.out.println(sid);
 
@@ -126,14 +127,10 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
 
-			/*
-			 * INSERT INTO REQUEST(Request_Id ,Requestor_Id , Service_Id
-			 * ,Last_Updated_Date , Status_Id )
-			 * VALUES("1100","12001","TP001",'2013-08-09 12:32:45',"1001");
-			 */
+			
 
 			int rs = statement
-					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,Date,ApprovedBy,Status_Id,LastUpdatedOn)VALUES('"
+					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,Date,descreption,ApprovedBy,Status_Id,LastUpdatedOn)VALUES('"
 							+ reqid
 							+ "','"
 							+ ses_Id
@@ -142,9 +139,11 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 							+ "','"
 							+ date
 							+ "','"
+							+ requestForm.getCommands()
+							+ "','"
 							+ "null"
 							+ "','"
-							+ "1"
+							+ "0"
 							+ "','"
 							+ date + "')");
 
@@ -156,13 +155,20 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			 * "','" + requestForm.getEmail() + "','" + requestForm.getPhoneNo()
 			 * + "','" + reqid + "')");
 			 */
-			user.setFirstName(requestForm.getFirstName());
+			
+			
+			String name = requestForm.getFirstName();
+			name = name.concat(requestForm.getLastName());
+		      
+		      
+			user.setFirstName(name);
 			user.setEmail(requestForm.getEmail());
 			user.setLastName(requestForm.getLastName());
 			user.setPhoneNo(requestForm.getPhoneNo());
 			user.setRequestID(requestForm.getReq_ServiceID());
 			user.setRequestName(requestForm.getReq_ServiceName());
 			user.setAddress(requestForm.getAddress());
+			
 			user.setRequestID(reqid);
 			adminUser.add(user);
 

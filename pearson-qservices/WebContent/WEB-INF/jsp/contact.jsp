@@ -1,10 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
 
-<html lang="en">
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<?xml version="1.0"?>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Contact Us - Logical Media</title>
+<title>Contact Us - Q-ServicePortal</title>
+
+
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -337,6 +350,17 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
  
 		</div>
 		<!-- close tab -->
+		
+		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
+		
 
 
 		<!--Begin Header-->
@@ -498,71 +522,71 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<!--#BEGIN SIDEBAR#-->
 			<!--This area is found to the right of the page content-->
 			<!--Declare 230px width-->
-			<div class="span-6 last">
-				<!--Sidebar Boxed Style with 20px padding-->
+		<!-- 	<div class="span-6 last">
+				Sidebar Boxed Style with 20px padding
 				<div class="boxed_top"></div>
 				<div class="boxed">
 
-					<!--#Begin Latest News Title-->
+					#Begin Latest News Title
 					<h3 class="grey">Latest News</h3>
-					<!--add spacing-->
+					add spacing
 					<hr class="space" />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
-					<!--add hr line-->
+					add hr line
 					<hr />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
-					<!--add hr line-->
+					add hr line
 					<hr />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
 
 				</div>
-				<!--boxed close-->
+				boxed close
 
-				<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-				<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-				<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
+				This is an IE6 workaround for problems rendering jquery sliding text-overs.
+				WIthout this fix, IE6 renders "Visit Site" outside of the last image
+				[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]
 				<div class="boxed_bottom"></div>
 
-				<!--add spacing-->
+				add spacing
 				<hr class="space" />
 
 
 
 
-			</div>
+			</div> -->
 			<!--span-6 close-->
 			<!--#CLOSE SIDEBAR#-->
 

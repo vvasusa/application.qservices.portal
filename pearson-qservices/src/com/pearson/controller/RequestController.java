@@ -141,6 +141,7 @@ public class RequestController {
 		String serviceName = raiseRequest.getService();
 		String serviceID = raiseRequest.getServiceID();
 		
+		
 		System.out.println(serviceName +  serviceID);
 		RequestForm requestForm = new RequestForm();
 		System.out.println(requestForm.getPhoneNo());
@@ -172,9 +173,12 @@ public class RequestController {
 
 		String serviceID = requestForm.getReq_ServiceID();
 		String serviceName = requestForm.getReq_ServiceName();
+		
+		System.out.println(requestForm.getAddress());
 
-		System.out.println(requestForm.getPhoneNo() + "" + serviceName + ""
-				+ serviceID);
+		System.out.println(requestForm.getPhoneNo() + "" + serviceName + ""	+ serviceID);
+		System.out.println(requestForm.getCommands());
+		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("MySessionId");
 

@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Constants;
 import com.pearson.model.Admin1;
+import com.pearson.model.ContactUs;
 import com.pearson.model.Register;
 import com.pearson.model.RequestForm;
 import com.pearson.model.ServiceIntro;
@@ -34,30 +35,26 @@ import com.pearson.services.LoginService;
 @Controller
 @SessionAttributes
 @RequestMapping("/")
-
-
-
 // @SessionAttributes("login")
 public class LoginController {
 
 	@Autowired
 	LoginService loginService;
-	
+
 	@Autowired
 	ActionService actionService;
 
 	@Value("${From_Email}")
 	private String from;
-	
-	@Value("${Request.statusQA}")      
-	private String userNameRequired; 
-	
-	
-	static Logger logger = Logger.getLogger(LoginController.class.getName()); 
-	
+
+	@Value("${Request.statusQA}")
+	private String userNameRequired;
+
+	static Logger logger = Logger.getLogger(LoginController.class.getName());
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String indexPage(ModelMap model, HttpServletRequest request) {
-	System.out.println(userNameRequired);
+		System.out.println(userNameRequired);
 		return "index";
 		// return "aaaaaaaaa";
 	}
@@ -69,7 +66,7 @@ public class LoginController {
 			request.getSession(false).removeAttribute("MySessionId");
 			request.getSession(false).removeAttribute("Table");
 			request.getSession(false).removeAttribute("loginType");
-			
+
 			logger.info("Info: Closing application");
 			logger.error("Error: Closing application");
 			logger.warn("Warn: Closing application");
@@ -80,15 +77,15 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/contactUs", method = RequestMethod.POST)
-	public String contact(ModelMap model, HttpServletRequest request) {
-		Logger logger = Logger.getLogger( ClassName.class.getName() );
-		try{
-		
-		model.addAttribute("contact", "we ill contact you");
-		}catch(Exception e){
-			logger.debug(logger);
+	public String ContactUs(@ModelAttribute("login") ContactUs contactUs,ModelMap model, HttpServletRequest request) {
+		try {
+			model.addAttribute("contact", "we ill contact you");
+			loginService.contactUsDateils(contactUs);
+		} catch (Exception e) {
 
-			}return "ContactUs";
+			System.out.println(e);
+		}
+		return "ContactUs";
 	}
 
 	/*
@@ -194,8 +191,8 @@ public class LoginController {
 	@RequestMapping(value = "/services", method = RequestMethod.GET)
 	public ModelAndView servicePage(ModelMap model, HttpServletRequest request) {
 		ServiceIntro serviceIntro;
-		serviceIntro=actionService.getAllServiceIntro();
-		
+		serviceIntro = actionService.getAllServiceIntro();
+
 		return new ModelAndView("services", "serviceIntro", serviceIntro);
 	}
 
@@ -206,8 +203,8 @@ public class LoginController {
 
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	public String contactPage(ModelMap model, HttpServletRequest request) {
-		
-		/*MAIL OR SAVE DATA IN DATABASE */
+
+		/* MAIL OR SAVE DATA IN DATABASE */
 		return "contact";
 	}
 
@@ -296,9 +293,7 @@ public class LoginController {
 	public String TestEnvironmentPage(ModelMap model, HttpServletRequest request) {
 		return "TestEnvironment";
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/InfraStructure", method = RequestMethod.GET)
 	public String InfraStructure(ModelMap model, HttpServletRequest request) {
 		return "InfraStructure";

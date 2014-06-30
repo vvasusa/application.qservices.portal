@@ -259,7 +259,15 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		</div>
 		<!-- close tab -->
 
-
+ <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
@@ -332,33 +340,52 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					
 				<c:forEach var="user" items="${adminUser}">
 						<%-- <c:if test="${user.loginType=='QA'}"> --%>
-					<h5>RequestID: ${user.requestID} &nbsp;&nbsp; Date :${user.raisedDate}</h5>
+					<h5>
+
+
+					<table>
+					<tr>
+					<td>
+					<h5>REQUESTID</h5>
+					</td>	
+					<td>
+					<h5>REQUESTDATE</h5>
+					</td>	
+					<td>
+					<h5>STATUS</h5>
+					</td>			
+					</tr>
+					</table>
+					
+					
+					</h5>
 			           <div>
 			           <p>
                        <table border="1">
                       
-                       <tr><td>REQUEST ID</td>  <td>REQUESTOR ID</td>  <td>SERVICE ID</td>  <td>DATE</td>  <td>PROCESSEDON</td>  <td>STATUS</td></tr>
 						<tr>
 							<td><h4>${user.requestID}</h4></td>
-							<td><h4>${user.requestorId}</h4></td>
+							<td><h4>${user.raisedDate}</h4></td>
+							<td><h4>${user.status_Id}</h4></td>
+							<%-- <td><h4>${user.requestorId}</h4></td>
 							<td><h4>${user.serviceId}</h4></td>
 							<td><h4>${user.raisedDate}</h4></td>
-							<td><h4>${user.lastUpdatedOn}</h4></td>
-							<td><h4>${user.status_Id}</h4></td>
+							<td><h4>${user.lastUpdatedOn}</h4></td> --%>
+							
 						</tr>
 						</table>
 						<table>
 						<tr>
-						 <td><h5>Commends By QA :${user.commandsByQA} </h5></td></tr>
+						 <td><h5>QA Commands :${user.commandsByQA} </h5></td></tr>
 						<tr>
-						<td><h5> Commends By PL :${user.commandsByPL} </h5></td>
+						<td><h5>PL Commends :${user.commandsByPL} </h5></td>
 						</tr>
 						<tr>
-						<td> <h5>Commends By SLM :${user.commandsBySLM} </h5></td>
+						<td> <h5>SLM Commends :${user.commandsBySLM} </h5></td>
 						</tr>
-						<tr>
-						<td> <h5>Commends By ADM :${user.commandsByADM} </h5></td>
-						</tr>
+						<%-- <tr>
+						<td> <h5>ADM Commends :${user.commandsByADM} </h5></td>
+						</tr> --%>
 						</table>
 				      </p>
 				     </div>

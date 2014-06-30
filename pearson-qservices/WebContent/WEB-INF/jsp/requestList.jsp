@@ -99,6 +99,7 @@ var value= "<%=temp%>	";
 
 <!--Preload Image Over Imgs-->
 <script type="text/javascript">
+
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
 			'./img/img_over/main_image2.jpg', './img/img_over/main_image3.jpg',
@@ -166,9 +167,20 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 </script>
 
 
+
 <script type="text/javascript">
 $(function() {   
-	$( "#accordion" ).accordion(); 
+	$( "#accordion1" ).accordion({ header: "h5", collapsible: true, active: false }); 
+	
+	
+	});
+     
+</script>
+
+
+<script type="text/javascript">
+$(function() {   
+	$( "#accordion" ).accordion({ header: "h5", collapsible: true, active: false }); 
 	
 	$("#accordion").accordion(
 			   { active: "a.default",  header: "a.accordion-label" }
@@ -238,31 +250,194 @@ var Login= "<%=Login%>";
 
 
 <script type="text/javascript">
+
+/* 
+
+var approve= $("#approve").attr("id");
+
+$(this).attr("value");
+
+//alert(approve);
+
+var reject= $('#reject').val();
+
+//alert(reject);
+
+
+
+$(function(){  
+
+	 var execute= $('#approve').val();
+	   var execute = function() {  
+
+	       alert('This is Ok button');  
+
+     }  
+
+    var cancel = function() {  
+
+        alert('This is Cancel button');  
+
+   }  
+
+   var dialogOpts = {  
+
+       buttons: {  
+
+           "Ok": execute,  
+
+            "Cancel": cancel  
+
+        }  
+
+	    };  
+
+    $(this).dialog(dialogOpts);  
+
+ });  
+
+
+ */
+</script>
+
+
+
+
+
+<script type="text/javascript">
+/*
+$(document).ready(function () {
+
+$('#approve').on("click",function(e) { 
+
+	 
+	$( "#approve" ).dialog({    
+		modal: true,  
+		title: "Are you sure?",
+buttons: {           
+"YES": function() {     
+	type: "submit"
+window.location.href = "${pageContext.request.contextPath}/approve";  
+},      
+"NO": function() {   
+$( this ).dialog( "close" );        
+}     
+}    
+	});  
+	}); 
+	
+	
+$('#reject').on("click",function(e) { 
+
+	$( "#reject" ).dialog({    
+		modal: true,  
+		title: "Are you sure?",
+buttons: {           
+"YES": function() {     
+	type: "submit"
+window.location.href = "${pageContext.request.contextPath}/reject";  
+},      
+"NO": function() {   
+$( this ).dialog( "close" );        
+}     
+}    
+	});  
+	}); 
+	
+	
+	
+});    */
+
+</script>
+
+
+
+
+
+
+<!-- <script type="text/javascript">
 $(document).ready(function(){
-	/* $("<div>Test message</div>").dialog();
-	
-	
-	
-	
-	
+
 $('#approve').on("click",function(e) {
-	$( "<div>Test message</div>" ).dialog({  
+		 
+	$( "#approve" ).dialog({  
 		resizable: false,  
 		height:140,  
 		modal: true,  
+		position: 'center',
 		buttons: {   
 			"Cancel": function() {    
-				$( this ).dialog( "close" );    
 				
 			},   
 			"Approve": function() { 
 				type: "submit"
 				window.location.href = "${pageContext.request.contextPath}/userRequestList";   
-				}    } 
+				}   
+			} 
 	});
-}); */
+	  
+}); 
+
+
+
+$('#reject').on("click",function(e) {
+		 
+	$( "#reject" ).dialog({  
+		resizable: false,  
+		height:140,  
+		modal: true,  
+		position: 'center',
+		buttons: {   
+			"Reject": function() {    
+				type: "submit"
+					window.location.href = "${pageContext.request.contextPath}/userRequestList";   
+			},   
+			"Approve": function() { 
+				type: "submit"
+				window.location.href = "${pageContext.request.contextPath}/userRequestList";   
+				}   
+			} 
+	});
+	  
+}); 
+
+
+
+
+
 });
+
+
+
+
+
+/* $('#approve').dialog({
+
+
+autoResize: true,
+show: "clip",
+hide: "clip",
+height: 'auto',
+width: 'auto',
+autoOpen: false,
+modal: true,
+position: 'center',
+draggable: false,
+
+open: function (type, data) {
+    $(this).parent().appendTo("form");
+},
+
+buttons: { "Ok": function() { $(this).dialog("close"); } } 
+
+
+});
+*/
+
 </script>
+
+ -->
+
 
 
 
@@ -473,7 +648,15 @@ $(document).ready(function(){
 		</div>
 
 		<!-- close tab -->
-
+ <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
@@ -536,7 +719,11 @@ $(document).ready(function(){
 
 		<!--Begin Page Area, below header navigation-->
 		<div class="page">
-
+		
+		
+			<div class="span-24"  >	</div>
+				
+				
 			<%-- 	<!--Declare 550px width w/ right border-->
 			<div class="span-14 colborder">
 				<!--Intro Image shown here, about site-->
@@ -565,9 +752,7 @@ $(document).ready(function(){
 
 
 		<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
-		<div class="span-24">
-			<div class="hrbg_small"></div>
-		</div>
+		
 		<!--Close span-24-->
 
 
@@ -643,7 +828,7 @@ $(document).ready(function(){
 
 
 
-				<c:if test="${loginType == 'VISITOR'}">
+			<%-- 	<c:if test="${loginType == 'VISITOR'}">
 
 					<c:forEach var="user" items="${adminUser}">
 
@@ -670,7 +855,7 @@ $(document).ready(function(){
 								class="contactForm">
 								<tr>
 
-									<%-- 	
+										
 
 							<td
 								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
@@ -685,7 +870,7 @@ $(document).ready(function(){
 						</tr>
 						
 						
-						 --%>
+						
 								<tr>
 									<td	style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
 									<td	style="text-align: left; vertical-align: top; padding: 5px;"><input	type="text" name="email" value="${user.email}" id="emailadd"/></td>
@@ -747,10 +932,71 @@ $(document).ready(function(){
 								method="post">click here</a>
 						</h2>
 
-
 					</c:forEach>
-				</c:if>
+				</c:if> --%>
 				
+				
+				
+				
+				
+				
+				<c:if test="${loginType == 'VISITOR'}">
+				
+				
+			
+			  <div id="accordion1">
+			  
+				<c:forEach var="user" items="${adminUser}">
+						
+					<h5>
+					<table >
+					<tr>
+					<td>REQUESTID</td>	
+					<td>REQUESTDATE	</td>	
+					<td>STATUS	</td>			
+					</tr>
+					</table>
+					</h5>
+					
+			           <div>
+			              <p>
+			              <table style="background-color:lightblue;">
+			                <tr>
+							<td width=30%;>${user.requestID}</td>
+							<td width=40%;>${user.raisedDate}</td>
+							<td width=20%;>${user.status}</td>
+							<%-- <td><h4>${user.requestorId}</h4></td>
+							<td><h4>${user.serviceId}</h4></td>
+							<td><h4>${user.raisedDate}</h4></td>
+							<td><h4>${user.lastUpdatedOn}</h4></td> --%>
+							
+						</tr>
+						<p></p>
+						<tr>
+						 <td>QA Commands :${user.commandsByQA} </td></tr>
+						<tr>
+						<td>PL Commends :${user.commandsByPL} </td>
+						</tr>
+						<tr>
+						<td> SLM Commends :${user.commandsBySLM} </td>
+						</tr>
+						 <tr>
+						<td> ADM Commends :${user.commandsByADM} </td>
+						</tr> 
+						</table>
+				     </p>
+				     </div>
+					</c:forEach>
+				
+				
+				
+	<%-- 			
+				<h2> click here for seeing list of request rasied by you ..<a href="${pageContext.request.contextPath}/userRequestList" method="post">click	here</a></h2>
+	 --%>
+	
+
+        </div>
+	</c:if>
 				
 			</div>
 			
@@ -873,13 +1119,24 @@ $(document).ready(function(){
 			
 	<div>
 			<c:if test="${loginType != 'VISITOR' && !empty loginType}">
+			
+<div class="span-24" style = "text-align:right; float:right" > 
+		
+		<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>  </b></u></a>
+					<a href="${pageContext.request.contextPath}/viewAllRequest"><u>All Request</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/myApprove" ><u>My Approve</u></a>&nbsp;&nbsp;&nbsp;&nbsp; 
+					<a href="${pageContext.request.contextPath}/myReject"	><u>My Reject</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		
+			<div class="hrbg_small">
 
-				<h3>
-					To view all the request for this Q-Service Portal.<a
-						href="${pageContext.request.contextPath}/viewAllRequest"
-						method="post"><u>click here</u></a>
-				</h3>
-
+			</div>
+		</div> 
+				   
+					<div></div>
+				<div class="hrbg_small" >
+				
+				
+			</div>
 			
 					<c:if test="${empty adminUser}">
 						<h1>There is no new services for you..</h1>
@@ -890,43 +1147,63 @@ $(document).ready(function(){
 							
 							
 					<c:forEach var="user" items="${adminUser}">
-						<h5>REQUEST ID : ${user.raisedReqId} &nbsp&nbsp  SERVICE ID : ${user.serviceId} &nbsp&nbsp  USER ID : ${user.userId}</h5>
+					
+					<%-- 	<h5>REQUEST ID : ${user.raisedReqId} &nbsp;&nbsp; SERVICE ID : ${user.serviceId} &nbsp&nbsp  USER ID : ${user.userId}</h5> --%>
+						
+							<h5>
+							 <table> 
+							<tr >
+							<td  width=27% >REQUEST ID</td>
+							<td  width=30% >REQUEST NAME</td>
+							<td  width=25% >DATE</td>
+							<td  width=25% >STATUS</td>
+							</tr>
+							</table>
+							</h5> 
+						
 						
 							<div>
 						      <p>
 								<table>
 									<tr>
-									<td>${user.raisedReqId}</td>
-									<td>${user.firstName}</td>
-									<td>${user.lastName}</td>
-									<td>${user.requestorId}</td>
-									<td>${user.serviceId}</td>
-									<td>${user.lastUpdatedOn}</td>
-									<td>${user.approvedBy}</td>
-									<td>${user.userId}</td>
-									<td>${user.status_Id}</td></tr>
+									<td width=25% >${user.raisedReqId}</td>
+									<%-- <td>${user.firstName}</td>
+									<td>${user.lastName}</td> --%>
+									<%-- <td>${user.requestorId}</td> --%>
+									<td width=30% >${user.requestName}</td>
+									<%-- <td width=20% >${user.serviceId}</td> --%>
+									<td width=32%  >${user.lastUpdatedOn}</td>
+									<%-- <td>${user.approvedBy}</td>
+									<td>${user.userId}</td> --%>
+									<td width=25%  >${user.status}</td></tr>
 									<tr>
 									  <td>
-									  Descreption By User:   ${user.desc}
+									 <p></p>
+									  </td>
+									</tr>
+									<tr>
+									  <td>
+									 <h4> Descreption By User: </h4>${user.desc}
 									  </td>
 									</tr>
 							</table>
 							
 							
 							<table>
-							<form method="post" name="form" commandName="requestForm">
+							<form  name="form" commandName="requestForm">
 							<tr> <h4>Commends:</h4>
 							<td><textarea name="commands" cols="9" rows="2" style="width: 850px;" style="height: 80px;" ></textarea></td>
-							<td><input type="hidden" name="approveID" value="${user.raisedReqId}" />
+							<td><input type="hidden" name="approveID" id="approve"  value="${user.raisedReqId}" />
 							<input type="hidden" name="rejectID" value="${user.raisedReqId}" /></td>
 							</tr>
 							<tr>
 							<td style="text-align:center"  >
-							<input type="submit" style="width: 100px;" value="Approve" id="approve"  onclick="javascript: form.action='${pageContext.request.contextPath}/approve';"/>
-                            <input type="submit" style="width: 100px;" value="Reject"  id="reject"  onclick="javascript:form.action='${pageContext.request.contextPath}/reject';"/></td>
+							<input type="submit" style="width: 100px;"   value="approve" id="approve"  onclick="javascript: form.action='${pageContext.request.contextPath}/approve';"/>
+                            <input type="submit" style="width: 100px;"   value="reject"  id="reject"  onclick="javascript:form.action='${pageContext.request.contextPath}/reject';"/></td>
 							</tr>
 							</form>
 							</table>
+							
 							
 					<%-- 	           *********************** working for  accept / reject link*********************** 
 						<table>

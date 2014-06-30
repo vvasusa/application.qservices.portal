@@ -1,10 +1,22 @@
- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
 
-<html lang="en">
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<?xml version="1.0"?>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Our Blog - Logical Media</title>
+<title>Our Blog- Q-ServicePortal</title>
+
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -212,6 +224,17 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
         
 	</div>
     <!-- close tab -->
+    
+    
+     <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
       
 
 	<!--Begin Header-->

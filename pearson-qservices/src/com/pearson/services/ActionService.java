@@ -43,5 +43,14 @@ public interface ActionService {
 
 	public ServiceIntro getAllServiceIntro();
 
+
+
+	public List<AdminUser> MyapproveRequest(String requestId,
+			HttpServletRequest request, RequestForm requestForm);
+
+
+
+	public List<AdminUser> MyRejectrequest(String id, HttpServletRequest request);
+
 	
 }

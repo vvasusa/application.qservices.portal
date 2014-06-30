@@ -21,7 +21,6 @@ var value= "<%=temp%>";
 
 <!-- MY CHANGE -->
 
-
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/framework.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
@@ -37,6 +36,12 @@ var value= "<%=temp%>";
 	href="${pageContext.request.contextPath}/css/slider.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
 
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/slider.css"
+	type="text/css" media="screen, projection" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 <!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -46,14 +51,14 @@ var value= "<%=temp%>";
 
 var value= "<%=temp%>	";
 
-	alert(value); 
+	
 </script>
 
-<!--jQuery-->
-<!--jQuery Tools-->
-<!--Custom jQuery Set-->
-<!--jQuery Delay Plugin-->
-<!--jQuery Image Preloader-->
+
+<!--IE 6,7 Render Fixes-->
+<!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+<!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script type="text/javascript"
@@ -69,6 +74,8 @@ var value= "<%=temp%>	";
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
 
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <!--Preload Image Over Imgs-->
 
@@ -88,6 +95,12 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 </script>
 
 
+<script type="text/javascript">
+$(function() {   
+	$( "#accordion" ).accordion({ header: "h5", collapsible: true, active: false });
+	});
+     
+</script>
 
 <script type="text/javascript">
 	$.preLoadImages([
@@ -241,6 +254,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		</div>
 		<!-- close tab -->
+		
+		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 
 
 		<!--Begin Header-->
@@ -338,13 +361,19 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
-			<div class="span-24">
-			<a href="${pageContext.request.contextPath}/requestList"><u> <b>Go Back</b></u></a>
+			<div class="span-24"  style = "text-align:right; float:right">
+			<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>Go to MyAction</b></u></a>
+			
+					<a href="${pageContext.request.contextPath}/viewAllRequest"><u>All Request</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					 <a href="${pageContext.request.contextPath}/myApprove" style = "color:rgb(0,90,100);"><u><b>My Approve</b></u></a>&nbsp;&nbsp;&nbsp;&nbsp; 
+					<a href="${pageContext.request.contextPath}/myReject"	><u>My Reject</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
+			
+		
 				<div class="hrbg_small"></div>
 				
 			</div>
 			<!--Close span-24-->
-
+<div class="hrbg_small">
 
 
 		
@@ -363,7 +392,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
  <%-- <c:if test="${user.loginType!='null'}"> 
   <c:if test="${user.loginType=='z'}">  --%>
-<table>
+  
+<table  >
 				<tr>
 					<td>${user.firstName}</td>
 					<td>${user.lastName}</td>
@@ -510,28 +540,37 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 <div>
 
 <c:if test="${loginType != 'VISITOR'}">
+
+
+<div id="accordion">
+<c:forEach var="user" items="${adminUser}">
+		<h5>		
 		
-			<table border="1">
-			
+			<table   style=height:"5px";>
 				<tr>
-					<td class="heading">Req_ID</td>
-					<td class="heading">Service_Name</td>
-					<td class="heading">Approved Date </td>
-					<td class="heading">Status</td>
-					<td class="heading">ApprovedBy</td>
-					
-
+					<td class="heading" width=25%>Req_ID</td>
+					<td class="heading" width=25%>Service_Name</td>
+					<td class="heading" width=25%>Approved Date </td>
+					<td class="heading" width=25%>Status</td>
 				</tr>
-				<c:forEach var="user" items="${adminUser}">
-				<%-- <c:if test="${user.loginType=='QA'}"> --%>
+				</table>  
+				</h5>
+				
+				
+	
+			
 
+				<%-- <c:if test="${user.loginType=='QA'}"> --%>
+	<div>
+		<p>
+			<table style="background-color:lightblue;">
 				<tr>
 					
-					<td>${user.raisedReqId}</td>
-					<td>${user.serviceName}</td>
-					<td>${user.lastUpdatedOn}</td>
-					<td>Approved</td>
-					<td>${user.approvedBy}</td>
+					<td width=25%>${user.raisedReqId}</td>
+					<td width=25%>${user.serviceName}</td>
+					<td width=27%>${user.lastUpdatedOn}</td>
+					<td >Approved</td>
+					<%-- <td >${user.approvedBy}</td> --%>
 					<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
 					
@@ -550,9 +589,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						href="${pageContext.request.contextPath}/update"> </a></td>
 				</tr>
 					<%-- </c:if> --%>
-</c:forEach>
-			</table>
-		
+					</table>
+				</p>
+			</div>
+         </c:forEach>
+
+</div>
 </c:if>
 </div>
 </div>

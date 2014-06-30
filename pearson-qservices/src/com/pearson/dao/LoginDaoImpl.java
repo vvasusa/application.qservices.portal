@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 import com.pearson.model.Admin1;
+import com.pearson.model.ContactUs;
 
 public class LoginDaoImpl implements LoginDao {
 
@@ -52,18 +53,16 @@ public class LoginDaoImpl implements LoginDao {
 
 					String userId = (rs.getString("userId"));
 					String loginType = (rs.getString("loginType"));
-					System.out.println("user id" + userId);
-					System.out.println("loginType " + loginType);
+					String loginName=rs.getString("firstName").concat(rs.getString("lastName"));
+					request.getSession(true).setAttribute("loginName",loginName);
 					/* SET SESSION HERE THE LOGIN TYPE - VISITOR, ADMIN, QA-LEAD */
 
 					String Table = "admin";
 					request.getSession(true)
 							.setAttribute("MySessionId", userId);
 					request.getSession(true).setAttribute("Table", Table);
-					request.getSession(true).setAttribute("loginType",
-							loginType);
-					// request.getSession(true).setAttribute("MySessionLoginType",loginType);
-					// session1.setAttribute("sessionID", uname);
+					request.getSession(true).setAttribute("loginType",loginType);
+					
 					return true;
 				}
 
@@ -121,13 +120,12 @@ public class LoginDaoImpl implements LoginDao {
 					System.out.println("loginType " + loginType);
 
 					/* SET SESSION HERE THE LOGIN TYPE - VISITOR, ADMIN, QA-LEAD */
-
 					String Table = "requestor";
-					request.getSession(true)
-							.setAttribute("MySessionId", userId);
+					String loginName=rs1.getString("firstName").concat(rs1.getString("lastName"));
+					request.getSession(true).setAttribute("loginName",loginName);
+					request.getSession(true).setAttribute("MySessionId", userId);
 					request.getSession(true).setAttribute("Table", Table);
-					request.getSession(true).setAttribute("loginType",
-							loginType);
+					request.getSession(true).setAttribute("loginType",loginType);
 					/* SET SESSION HERE THE LOGIN TYPE - VISITOR, ADMIN, QA-LEAD */
 					// request.getSession(true).setAttribute("MySessionId",userId);
 
@@ -155,6 +153,25 @@ public class LoginDaoImpl implements LoginDao {
 		 * session.setAttribute("MySessionVariable", param);
 		 */
 		return false;
+	}
+
+	@Override
+	public void contactUsDetails(ContactUs contactUs) {
+		try {
+
+			contactUs.getAddress();
+			contactUs.getCompany();
+			contactUs.getEmail();
+			contactUs.getMessage();
+			contactUs.getName();
+			contactUs.getPhoneNo();
+			Connection connection = dataSource.getConnection();
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("select * from adminuser");
+		}
+		catch(Exception e){
+		System.out.println(e);}
+		
 	}
 
 }

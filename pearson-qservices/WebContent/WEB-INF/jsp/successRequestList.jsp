@@ -1,13 +1,3 @@
-<!-- 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-
-<html lang="en">
-<head>
- -->
- 
- 
- 
 <?xml version="1.0"?>
 
 
@@ -23,7 +13,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
-<title>Contact Us - Logical Media</title>
+<title>Request - Logical Media</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -256,13 +246,21 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 		</div>
 		<!-- close tab -->
 
-
+ <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
 			<div class="logo">
 				<a href="${pageContext.request.contextPath}/index/"><img
-					src="./img/logo.jpg" alt="" /></a>
+					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
 			</div>
 			<!--Close Logo Area-->
 			
@@ -296,7 +294,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<div class="span-24">
 				<!--Intro Image shown here, about site-->
 				<div class="intro">
-					<img src="./img/contact_banner.gif" alt="" />
+					<img src="${pageContext.request.contextPath}/img/contact_banner.gif" alt="" />
 				</div>
 				<!--Close intro image-->
 			</div>
@@ -305,6 +303,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
 			<div class="span-24">
+		
 				<div class="hrbg_small"></div>
 			</div>
 			<!--Close span-24-->
@@ -328,28 +327,20 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 					<!--Replace Code Below for PHP Integration-->
 					
-					
-					
-					
-					
-					
-					
-					
-						
-	${password.firstName} YOUR DETAILS AND REQUEST SUBMITTED SUSSUESFULLY...
-	
-	
-<c:forEach var="user" items="${adminUser}">
-${user.firstName}
 
 	
+<div class="span-24">
+
+<c:forEach var="user" items="${adminUser}">
+<H5> WELCOME ${user.firstName}  YOUR DETAILS AND REQUEST SUBMITTED SUSSUESFULLY...</H5>
+	<div class="hrbg_small"></div>
+	
 		<div>
-			<h1></h1>
+			<h6>
 
 			<table border="1">
 				<tr>
-					<td class="heading">First Name</td>
-					<td class="heading">Last Name</td>
+					<td class="heading">Name</td>
 					<td class="heading">ContactNo</td>
 					<td class="heading">Email</td>
 					<td class="heading">Address</td>
@@ -357,16 +348,18 @@ ${user.firstName}
 					<td class="heading">ReqName</td>
 					
 					</tr>
+						</table>
+						</h6>
 				<%-- <c:forEach var="user" items="${adminUser>}"> --%>
-
+				
+        <table>
 				<tr>
-					<td>${user.firstName}</td>
-					<td>${user.lastName}</td>
-					<td>${user.phoneNo}</td>
-					<td>${user.email}</td>
-					<td>${user.address}</td>
-					 <td>${user.requestID}</td>
-					<td>${user.requestName}</td> 
+					<td width=15%>${user.firstName}</td>
+					<td width=20%>${user.phoneNo}</td>
+					<td width=15%>${user.email}</td>
+					<td width=15%>${user.address}</td>
+					<td width=15%>${user.requestID}</td>
+					<td width=20%>${user.requestName}</td> 
 					<td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>Edit</span></a></td>
 					
@@ -379,7 +372,7 @@ ${user.firstName}
 				</tr>
 			</table>
 			</c:forEach>
-			
+			</div>
 		</div>
 	
 					
@@ -421,71 +414,71 @@ ${user.firstName}
 			<!--#BEGIN SIDEBAR#-->
 			<!--This area is found to the right of the page content-->
 			<!--Declare 230px width-->
-			<div class="span-6 last">
+			<!-- <div class="span-6 last"> -->
 				<!--Sidebar Boxed Style with 20px padding-->
-				<div class="boxed_top"></div>
+				<!-- <div class="boxed_top"></div>
 				<div class="boxed">
 
-					<!--#Begin Latest News Title-->
+					#Begin Latest News Title
 					<h3 class="grey">Latest News</h3>
-					<!--add spacing-->
+					add spacing
 					<hr class="space" />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
-					<!--add hr line-->
+					add hr line
 					<hr />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
-					<!--add hr line-->
+					add hr line
 					<hr />
 
-					<!--Entry Title-->
+					Entry Title
 					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					<!--meta info-->
+					meta info
 					<div class="meta">
 						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
 					</div>
-					<!--brief intro-->
+					brief intro
 					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
 						eiusmodarel tempor incididunt...</p>
-					<!--close entry-->
+					close entry
 
 
 				</div>
-				<!--boxed close-->
+				boxed close
 
-				<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-				<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-				<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
+				This is an IE6 workaround for problems rendering jquery sliding text-overs.
+				WIthout this fix, IE6 renders "Visit Site" outside of the last image
+				[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]
 				<div class="boxed_bottom"></div>
 
-				<!--add spacing-->
+				add spacing
 				<hr class="space" />
 
 
 
 
-			</div>
+			</div> -->
 			<!--span-6 close-->
 			<!--#CLOSE SIDEBAR#-->
 
@@ -493,7 +486,7 @@ ${user.firstName}
 
 
 
-		</div>
+	<!-- 	</div> -->
 		<!--page close-->
 
 

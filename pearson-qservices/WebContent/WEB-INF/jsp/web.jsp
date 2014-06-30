@@ -204,7 +204,15 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
         
 	</div>
     <!-- close tab -->
-      
+       <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 
 	<!--Begin Header-->
     <div class="header">

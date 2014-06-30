@@ -39,6 +39,7 @@ var value= "<%=temp%>";
 <a href="${pageContext.request.contextPath}/logout/"> </a></c:if>
 <!-- =======================********************************************************************************** -->
 
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/framework.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
@@ -54,16 +55,23 @@ var value= "<%=temp%>";
 	href="${pageContext.request.contextPath}/css/slider.css"
 	type="text/css" media="screen, projection" charset="utf-8" />
 
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/slider.css"
+	type="text/css" media="screen, projection" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 <!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
 <script type="text/javascript">
 
-  <%String temp = (String) session.getAttribute("MySessionId");%>
+  <%String te = (String) session.getAttribute("MySessionId");%>
 
-var value= "<%=temp%>	";
+var value= "<%=te%>	";
 
-	alert(value); 
+	/* alert(value);  */
 </script>
 
 <!--jQuery-->
@@ -85,6 +93,17 @@ var value= "<%=temp%>	";
 	src="${pageContext.request.contextPath}/js/slider.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+  <%String temp = (String) session.getAttribute("MySessionId");%>
+
+var value= "<%=temp%>	";
+
+</script>
 
 
 <!--Preload Image Over Imgs-->
@@ -173,6 +192,18 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 	});
 </script>
 
+
+
+<script type="text/javascript">
+$(function() {   
+	$( "#accordion" ).accordion({ header: "h5", collapsible: true, active: false }); 
+	
+	/* $("#accordion").accordion(
+			   { active: "a.default",  header: "a.accordion-label" }
+			); */
+	});
+     
+</script>
 
 
 <style>
@@ -272,7 +303,15 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 		</div>
 
 		<!-- close tab -->
-
+ <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
@@ -359,16 +398,27 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 					
 				</div> -->
 				<!--Close Site Slogan Area-->
+				
+				
+				
 			</div>
 			<!--Close 350px width-->
 
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
-			<div class="span-24">
-				<div class="hrbg_small"></div>
-			</div>
-			<!--Close span-24-->
+			<div class="span-24" style = "text-align:right; float:right" > 
+		
+		<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>Go to MyAction</b></u></a>
+					<a href="${pageContext.request.contextPath}/viewAllRequest"	style = "color:rgb(0,90,100);" ><u><b>All Request</b></u></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/myApprove" ><u>My Approve</u></a>&nbsp;&nbsp;&nbsp;&nbsp; 
+					<a href="${pageContext.request.contextPath}/myReject"	><u>My Reject</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		
+			<div class="hrbg_small">
 
+			</div>
+		</div> 
+			<!--Close span-24-->
+<div class="hrbg_small">
 
 
 		</div>
@@ -438,13 +488,13 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 
 
-		<c:if test="${loginType == 'VISITOR'}">
+	<%-- 	<c:if test="${loginType == 'VISITOR'}">
 
 			<c:forEach var="user" items="${adminUser}">
 
-				<%-- <c:if test="${sessionScope.user != null}">
+				<c:if test="${sessionScope.user != null}">
     There is a user **attribute** in the session
-</c:if> --%>
+</c:if>
 
 				<form action="${pageContext.request.contextPath}/update"
 					method="post" commandName="requestForm">
@@ -458,7 +508,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 						class="contactForm">
 						<tr>
 						
-					<%-- 	
+						
 
 							<td
 								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
@@ -473,7 +523,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 						</tr>
 						
 						
-						 --%>
+						
 						
 						<tr>
 							<td
@@ -542,47 +592,55 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 				
 
 			</c:forEach>
-		</c:if>
+		</c:if> --%>
 	</div>
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 	<div class="container">
 	
-		<%-- <c:if test="${loginType != 'VISITOR'}"> --%>
-
 		<c:if test="${loginType != 'VISITOR' && !empty loginType}">
-
-			<h3> <a href="${pageContext.request.contextPath}/viewAllRequest" method="post"><u>
-		</u></a></h3>
-	
-			<table border="1">
-
-
+		
+			<h3> <a href="${pageContext.request.contextPath}/viewAllRequest" method="post"><u>	</u></a></h3>
+			
+	<div id="accordion"> 
+	<c:forEach var="user" items="${adminUser}">
+		<h5>
+			<table >
 				<tr>
-					<td class="heading">REQUEST ID</td>
-					<td class="heading">FIRSTNAME</td>
-					<td class="heading">LASTNAME</td>
+					<td width=27%>REQUEST ID</td>
+					<td width=25%>REQUEST NAME</td>
+					<td width=25%>DATE</td>
+					<td width=25%>STATUS</td>
+					
+					<!-- <td class="heading">FIRSTNAME</td>
+					<td class="heading">LASTNAME</td> 
 					<td class="heading">REQUESTORID</td>
 					<td class="heading">SERVICEID</td>
 					<td class="heading">RAISED DATE</td>
 					<td class="heading">REVIEW BY</td>
-					<td class="heading">STATUS</td>
+					<td class="heading">STATUS</td>-->
 					
 				</tr>
-				<c:forEach var="user" items="${adminUser}">
+				</table>
+				</h5>
+				
 					<%-- <c:if test="${user.loginType=='QA'}"> --%>
+					<h6>
+					<table style="background-color:lightblue;">
 					<tr>
-						<td>${user.raisedReqId}</td>
-						<td>${user.firstName}</td>
+						<td width=28%>${user.raisedReqId}</td>
+						<td width=28%>${user.requestName}</td>
+						<td width=28%>${user.lastUpdatedOn}</td>
+						<td width=25%>${user.status}</td>
+						<%-- <td>${user.firstName}</td>
 						<td>${user.lastName}</td>
 						<td>${user.requestorId}</td>
 						<td>${user.serviceId}</td>
 						<td>${user.lastUpdatedOn}</td>
 						<td>${user.approvedBy}</td>
-						<td>${user.status_Id}</td>
-						
-						<%-- <td>${user.requestName}</td>
-					<td>${user.requestID}</td> --%>
+						<td>${user.status_Id}</td> 
+						<td>${user.requestName}</td>
+					    <td>${user.requestID}</td> --%>
 				 
 						<td>
 						<div id ="approve">
@@ -600,11 +658,13 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 							href="${pageContext.request.contextPath}/update"> </a></td>
 					</tr>
 					<%-- </c:if> --%>
+					</table>
+					</h6>
 				</c:forEach>
-			</table>
+			
+       </div>
+   </c:if>
 </div>
-		</c:if>
-	</div>
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
 
 

@@ -64,4 +64,17 @@ public class ActionServiceImpl implements ActionService {
 		return actionDao.getAllServiceIntro();
 	}
 
+	@Override
+	public List<AdminUser> MyapproveRequest(String requestId,
+			HttpServletRequest request, RequestForm requestForm) {
+		// TODO Auto-generated method stub
+		return actionDao.MyApproveRequest(requestId, request,requestForm);
+	}
+
+	@Override
+	public List<AdminUser> MyRejectrequest(String id, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return actionDao.myRejectrequest(id,request);
+	}
+
 }

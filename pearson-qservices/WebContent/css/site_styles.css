@@ -14,7 +14,7 @@ a {outline: none; text-decoration: none;}
 .bg{background:#eee;}
 a:hover {text-decoration: none; cursor: pointer;}
 a span, button span, ul#navigation span, h2 span, h3 span {display: none;}
-.header{padding-top:40px; padding-bottom:20px;}
+.header{padding-top:0px; padding-bottom:20px;}
 .intro{padding:10px 0 10px 0px; width:950px;}
 .intro a{color:#56BFF8; font-weight:bold}
 .intro a:hover{color:#000;}
@@ -188,7 +188,7 @@ a.swap {background-position: left bottom;}
 
 /* Service */
 .page_services{padding:10px 0 10px; margin-bottom:30px;}
-.boxed_page{background:#fff; padding:10px 20px 10px 0px;}
+.boxed_page{background:#fff; padding:10px 20px 10px 1px; }
 .boxed_page h2{padding:0; margin:0; color:#444;}
 .boxed_page h4{padding:5px 0 5px 0; margin:0; color:#383838; font-size:22px;}
 .boxed_page h5{padding:5px 0 5px 0; margin:0; color:#383838; font-size:16px;}
@@ -291,9 +291,9 @@ blog_.entrynotes li{list-style:none; padding:2px 0 5px 2px}
 
 /* static Pages Changes -start */
 
-.texter{padding-top:20px; color:#383838;}
-.texter a{color:#000; font-weight:none;}
-.texter a:hover{color:#003399;}
+.texter{padding-top:20px; color:#383838; width:210px;}
+.texter a{color:#1E90FF; font-weight:none;}
+.texter a:hover{color:#C71585;}
 #texter-nav{float:right; padding-right:0; margin-right:0; font-size:11px;}
 #texter-nav li{list-style:none; float:left; padding-left:5px; color:#ccc;}
 .texter_text {padding:0; margin:0; color:#000;font-size:11px;}
@@ -322,3 +322,6 @@ blog_.entrynotes li{list-style:none; padding:2px 0 5px 2px}
 ul#navigation li a#request {background: url(../img/home.png) 0 0 no-repeat;}
 ul#navigation li a#request _front {background: url(../img/home.png) 0 -50px no-repeat;}
 ul#navigation li a#request:hover,
+
+
+

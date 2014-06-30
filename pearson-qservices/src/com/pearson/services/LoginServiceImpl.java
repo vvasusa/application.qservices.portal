@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.pearson.dao.LoginDao;
+import com.pearson.model.ContactUs;
 
 public class LoginServiceImpl implements LoginService {
 
@@ -19,6 +20,16 @@ public class LoginServiceImpl implements LoginService {
 		String pass = p_word;
 		boolean value = loginDao.getLoginDeatils(uname, pass, request);
 		return value;
+	}
+
+	
+
+	@Override
+	public void contactUsDateils(ContactUs contactUs) {
+		// TODO Auto-generated method stub
+		 loginDao.contactUsDetails(contactUs);
+		 return;
+		
 	}
 
 	

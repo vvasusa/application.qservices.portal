@@ -12,11 +12,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Logical Media</title>
+<title>Q-SERVICE PORTAL</title>
 
 <%-- <a href="${pageContext.request.contextPath}/logout/"> <img src="${pageContext.request.contextPath}/img/logout.jpg"></img></a> --%>
 
@@ -320,12 +322,12 @@ var value= "<%=temp%>	";
 					<h1>Not a member yet? Sign Up!</h1>
 					<form action="${pageContext.request.contextPath}/register"
 						method="post" commandName="login" id="form" modelAttribute="user">
-						<label class="color" for="signup">Username:</label> <input
-							class="field" type="text" name="signup" id="signup" value=""
-							size="23" /> <label class="color" for="email">Email:</label> <input
-							class="field" type="text" name="email" id="email" size="23" /> <label>A
-							password will be e-mailed to you.</label> <input type="submit"
-							name="submit" value="Register" class="bt_register" />
+				 <label class="color" for="signup">Username:</label>
+						 <input	class="field" type="text" name="signup" id="signup" value="" size="23" />
+						  <label class="color" for="email">Email:</label>
+						   <input class="field" type="text" name="email" id="email" size="23" />
+						    <label>A password will be e-mailed to you.</label>  
+						    <input type="submit" name="submit" value="Register" class="bt_register" />
 					</form>
 				</div>
 				<!--panel box3-->
@@ -341,9 +343,9 @@ var value= "<%=temp%>	";
 	<!--The Container class centers design in the center of the screen, -->
 	<!-- 950px width centered-->
 	<!-- Panel -->
-	<div class="container">
+	<div class="container" >
 
-        <div class="tab">
+        <div class="tab" >
 				<ul class="login">
 					<!--Button For Login Panel-->
 					<li id="toggle"><a id="open" class="open" href="#">Log In
@@ -357,7 +359,22 @@ var value= "<%=temp%>	";
 			</div>
 
 		<!-- close tab -->
-
+        <%-- <p align="right">	
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		welcome <%=name%>	
+		</c:if>
+		</p> --%>
+		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 
 		<!--Begin Header-->
 		<div class="header">
@@ -368,7 +385,7 @@ var value= "<%=temp%>	";
 			<div class="logo">
 
 				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-
+			
 			</div>
 			
 			<!--Close Logo Area-->
@@ -492,11 +509,7 @@ var value= "<%=temp%>	";
 									<!--slide_title close-->
 
 									<!--slider paragraph below title-->
-									<p class="slide_paragraph">Lorem ipsum dolor sit amet,
-										consectetur adipisicing elit, sed do eius tempor incididunt ut
-										labore et dolore magna aliqua. Ut en ad minim veniam, quis
-										nostrud exercitation ullamco laboris Nullam pulvinar ultri
-										malasuada quisque.</p>
+									<p class="slide_paragraph">we are provideing sixten services</p>
 									<p>Lobortis bibendum nisi et condimentum. Lorem ipsum dolor
 										sit amet.</p>
 

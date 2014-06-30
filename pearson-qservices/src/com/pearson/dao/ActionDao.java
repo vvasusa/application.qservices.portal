@@ -31,4 +31,9 @@ public interface ActionDao {
 
 	public ServiceIntro getAllServiceIntro();
 
+	public List<AdminUser> MyApproveRequest(String requestId,
+			HttpServletRequest request, RequestForm requestForm);
+
+	public List<AdminUser> myRejectrequest(String id, HttpServletRequest request);
+
 }
