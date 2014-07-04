@@ -156,7 +156,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<div class="content clearfix">
 			<!--panel box1-->
             <div class="left">
-				<h1>Welcome to Logical Media </h1>
+				<!-- <h1>Welcome to Logical Media </h1> -->
+				<h1>Welcome to Q-Service Portal</h1>
 				<h2>Are you a new client? Let's Begin.</h2>		
 				<p class="color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 				<h2>It's Simple and Cost-Effective!</h2>
@@ -225,7 +226,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	</div>
     <!-- close tab -->
     
-    
+    <%-- 
      <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
 		 <font face="verdana ,helvetica"  size="2" color="#990066" >
 				
@@ -234,7 +235,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<i><b>welcome <%=name%></b></i>	
 		</c:if>
 		</font>
-		</p>
+		</p> --%>
       
 
 	<!--Begin Header-->
@@ -243,6 +244,15 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
     	<!--Logo Area-->
     	<div class="logo">
         <a href="${pageContext.request.contextPath}/index/"><img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
+        
+       			 <p align="right"   style=" font-family: inherit;">
+		             <font face="verdana ,helvetica"  size="2" color="#990066" >
+		                  <c:if test="${!empty loginType}">
+ 		                     <%String name = (String) session.getAttribute("loginName");%>
+		                      welcome <%=name%>
+		                  </c:if>
+		             </font>
+		        </p>
         </div>
         <!--Close Logo Area-->
     
@@ -488,19 +498,20 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
         
             <!--#BEGIN FOOTER AREA#-->
             <!--Declare 630px width-->
-            <div class="span-16">
+            <div class="span-8">
                 <!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
                 <!-- and some brief information about the company-->
                 <div class="footer_text">
-                <p>&copy; <a href="#">Logical Media</a> is available 24/7 365 days a year. We are currently located in Toledo, OH.
-                &nbsp;&nbsp; | &nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.</p>
+                <p>
+					&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+						</p>
                 </div><!--footer_text close-->
           
             </div><!--footer close-->
           
             <!--Footer navigation goes here-->
             <!--Declare 310px width-->
-            <div class="span-8 last">
+            <div class="span-16 last">
                 
                 <ul id="footer-nav">
                     <li><a href="${pageContext.request.contextPath}/index/">Home</a> |</li>

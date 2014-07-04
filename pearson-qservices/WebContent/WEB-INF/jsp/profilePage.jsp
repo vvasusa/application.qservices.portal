@@ -19,7 +19,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
 
-<title>Logical Media</title>
+<title>Q-Service Portal</title>
 <%-- <script type="text/javascript">
   <%String temp = (String) session.getAttribute("MySessionId");%>
 
@@ -39,24 +39,44 @@ var value= "<%=temp%>";
 <a href="${pageContext.request.contextPath}/logout/"> </a></c:if>
 <!-- =======================********************************************************************************** -->
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/framework.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/site_styles.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-	media="screen, projection" charset="utf-8" />
-
-<!-- jQuery Slider declarations are made in this file. The slider is found at the top of the index/ page-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slider.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" charset="utf-8" />
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 <!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+
+
+<!--jQuery-->
+<!--jQuery Tools-->
+<!--Custom jQuery Set-->
+<!--jQuery Delay Plugin-->
+<!--jQuery Image Preloader-->
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/js/cufon-yui.js"	></script>
+<script	type="text/javascript"  src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js"	></script>
+
+<!--Preload Image Over Imgs-->
+<!-- <script type="text/javascript">
+	$.preLoadImages([
+			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
+			'./img/img_over/main_image2.jpg', './img/img_over/main_image3.jpg',
+			'./img/img_over/main_image4.jpg'
+
+	]);
+</script>
+ -->
+
+<!--jQuery Sliding Login Panel Button-->
+
+
 <script type="text/javascript">
 
   <%String temp = (String) session.getAttribute("MySessionId");%>
@@ -66,39 +86,7 @@ var value= "<%=temp%>	";
 	alert(value); 
 </script>
 
-<!--jQuery-->
-<!--jQuery Tools-->
-<!--Custom jQuery Set-->
-<!--jQuery Delay Plugin-->
-<!--jQuery Image Preloader-->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/custom.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/preloader.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/delay.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
 
-
-<!--Preload Image Over Imgs-->
-<script type="text/javascript">
-	$.preLoadImages([
-			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
-			'./img/img_over/main_image2.jpg', './img/img_over/main_image3.jpg',
-			'./img/img_over/main_image4.jpg'
-
-	]);
-</script>
-
-
-<!--jQuery Sliding Login Panel Button-->
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -115,11 +103,7 @@ var value= "<%=temp%>	";
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
 <!--I have included 2 different Titillium font weights, 400 and 800 respectively.-->
 <!--If you want to use the much bolder, 800 weight, simply change the "400" below to "800"-->
-<script src="${pageContext.request.contextPath}/js/cufon-yui.js"
-	type="text/javascript"></script>
-<script
-	src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js"
-	type="text/javascript"></script>
+
 <script type="text/javascript">
 	Cufon.replace('h1');
 	Cufon.replace('h2');
@@ -186,7 +170,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+					<h1>Welcome to Q-Service Portal</h1>
 									
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -665,9 +649,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 				<!-- and some brief information about the company-->
 				<div class="footer_text">
 					<p>
-						&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-						year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-						&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+						&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 					</p>
 				</div>
 				<!--footer_text close-->

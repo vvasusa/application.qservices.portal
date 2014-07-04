@@ -1,20 +1,13 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <?xml version="1.0"?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Logical Media</title>
+<title>Q-Service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -31,20 +24,12 @@ pageEncoding="ISO-8859-1"%>
 <!-- To allow for easy manipulation, I have -->
 <!--left the Blueprint Framework untouched, simply overwriting styles in the site_style.css. To make any -->
 <!--changes to the template, simply change/modify styles in the site_styles.css file. -->
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/css/framework.css"
-type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/css/site_styles.css"
-type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-media="screen, projection" charset="utf-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/framework.css" type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/site_styles.css" type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/slide.css" type="text/css" media="screen, projection" charset="utf-8" />
 
 <!-- jQuery Slider declarations are made in this file. The slider is found at the top of the index/ page-->
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/css/slider.css"
-type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/slider.css" type="text/css" media="screen, projection" charset="utf-8" />
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -56,13 +41,15 @@ type="text/css" media="screen, projection" charset="utf-8" />
 <!--Custom jQuery Set-->
 <!--jQuery Delay Plugin-->
 <!--jQuery Image Preloader-->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script> 
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/cufon-yui.js"type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
 
 
 <!--Preload Image Over Imgs-->
@@ -84,7 +71,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 	});
 </script>
 
-
+<!-- 
 
 <script type="text/javascript">
 $.preLoadImages([
@@ -94,7 +81,7 @@ $.preLoadImages([
 
 ]);
 </script>
-
+ -->
 <!--jQuery Sliding Login Panel Button-->
 <script type="text/javascript">
 $(document).ready(function() {
@@ -112,10 +99,7 @@ $(".btn-slide").click(function() {
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
 <!--I have included 2 different Titillium font weights, 400 and 800 respectively.-->
 <!--If you want to use the much bolder, 800 weight, simply change the "400" below to "800"-->
-<script src="${pageContext.request.contextPath}/js/cufon-yui.js"
-type="text/javascript"></script>
-<script
-src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 Cufon.replace('h1');
 Cufon.replace('h2');
@@ -169,7 +153,7 @@ $(".image_placeset img").hover(function() {
 	<div class="content clearfix">
 		<!--panel box1-->
 		<div class="left">
-			<h1>Welcome to Logical Media</h1>
+			<h1>Welcome to Q-Service Portal</h1>
 			<h2>Are you a new client? Let's Begin.</h2>
 			<p class="color">Lorem ipsum dolor sit amet, consectetur
 				adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -248,15 +232,7 @@ $(".image_placeset img").hover(function() {
 </div>
 <!-- close tab -->
 
- <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		 <font face="verdana ,helvetica"  size="2" color="#990066" >
-				
-		<c:if test="${!empty loginType}">
- 		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
-		</c:if>
-		</font>
-		</p>
+
 		
 
 
@@ -268,7 +244,15 @@ $(".image_placeset img").hover(function() {
 	<div class="logo">
 
 		<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-
+		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 	</div>
 	<!--Close Logo Area-->
 	
@@ -407,14 +391,12 @@ Infrastructure testing should be used in the event of new hardware deployment or
 
 	<!--#BEGIN FOOTER AREA#-->
 	<!--Declare 630px width-->
-	<div class="span-16">
+	<div class="span-8">
 		<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 		<!-- and some brief information about the company-->
 		<div class="footer_text">
 			<p>
-				&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-				year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-				&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+				&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 			</p>
 		</div>
 		<!--footer_text close-->
@@ -424,7 +406,7 @@ Infrastructure testing should be used in the event of new hardware deployment or
 
 	<!--Footer navigation goes here-->
 	<!--Declare 310px width-->
-	<div class="span-8 last">
+	<div class="span-16 last">
 
 		<ul id="footer-nav">
 			<li><a href="${pageContext.request.contextPath}/index/">Home</a>

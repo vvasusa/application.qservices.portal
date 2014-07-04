@@ -65,7 +65,7 @@ public class ActionController {
 	public ModelAndView reject( @ModelAttribute("requestForm") RequestForm requestForm, HttpServletRequest request) {
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
 		String id=requestForm.getRejectID();
-		adminUser= actionService.rejectrequest(id,request);
+		adminUser= actionService.rejectrequest(id,request,requestForm);
     	//return new ModelAndView("requestList", "adminUser", adminUser);
     	return new ModelAndView("rejectedList", "adminUser", adminUser);
 	}

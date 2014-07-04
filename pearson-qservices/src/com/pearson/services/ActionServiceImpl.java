@@ -47,9 +47,9 @@ public class ActionServiceImpl implements ActionService {
 	}
 
 	@Override
-	public List<AdminUser> rejectrequest(String id, HttpServletRequest request) {
+	public List<AdminUser> rejectrequest(String id, HttpServletRequest request,RequestForm requestForm) {
 		// TODO Auto-generated method stub
-		return actionDao.rejectrequest(id,request);
+		return actionDao.rejectrequest(id,request,requestForm);
 	}
 
 	@Override

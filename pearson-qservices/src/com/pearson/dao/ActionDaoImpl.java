@@ -101,11 +101,20 @@ public class ActionDaoImpl implements ActionDao {
 				String value = loginType;
 				String approve ="ApprovedBy PL";
 				int sts = 3;
-				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+				/*statement.executeUpdate("update REQUEST SET ApprovedBy = '"
 						+ approve + "',Status_id = '" + sts
 						+ "',commandsByPL = '" + commands
 						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");*/
+				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+						+ approve + "',Status_id = '" + sts
+						+ "',commandsByQA = '" + commands
+						+ "',commandsByPL = '" + "OPEN"
+						+ "',commandsBySLM = '" + "OPEN"
+						+ "',commandsByADM = '" + "OPEN"
+						+ "',LastUpdatedOn = '" + Dt
 						+ "' where RequestId ='" + requestId + "'");
+
 
 				/*rs = statement	.executeQuery("select * from request where ApprovedBy ='"+ value + "'");*/
 				rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ approve + "'");
@@ -115,11 +124,20 @@ public class ActionDaoImpl implements ActionDao {
 				String approve ="ApprovedBy SLM";
 				int sts = 5;
 				String value = loginType;
-				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+				/*statement.executeUpdate("update REQUEST SET ApprovedBy = '"
 						+ approve + "',Status_id = '" + sts
 						+ "',commandsBySLM = '" + commands
 						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");*/
+				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+						+ approve + "',Status_id = '" + sts
+						+ "',commandsByQA = '" + commands
+						+ "',commandsByPL = '" + "OPEN"
+						+ "',commandsBySLM = '" + "OPEN"
+						+ "',commandsByADM = '" + "OPEN"
+						+ "',LastUpdatedOn = '" + Dt
 						+ "' where RequestId ='" + requestId + "'");
+
 				/*rs = statement	.executeQuery("select * from request where ApprovedBy ='"+ value + "'");*/
 				rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ approve + "'");
 			}
@@ -128,11 +146,20 @@ public class ActionDaoImpl implements ActionDao {
 				String approve ="ApprovedBy ADM";
 				int sts = 11;
 				String value = "ADM";
-				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+				/*statement.executeUpdate("update REQUEST SET ApprovedBy = '"
 						+ approve + "',Status_id = '" + sts
 						+ "',commandsByADM = '" + commands
 						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + requestId + "'");*/
+				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
+						+ approve + "',Status_id = '" + sts
+						+ "',commandsByQA = '" + commands
+						+ "',commandsByPL = '" + "OPEN"
+						+ "',commandsBySLM = '" + "OPEN"
+						+ "',commandsByADM = '" + "OPEN"
+						+ "',LastUpdatedOn = '" + Dt
 						+ "' where RequestId ='" + requestId + "'");
+
 				rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ approve + "'");
 
 			}
@@ -317,7 +344,7 @@ public class ActionDaoImpl implements ActionDao {
 	}
 
 	@Override
-	public List<AdminUser> rejectrequest(String id, HttpServletRequest request) {
+	public List<AdminUser> rejectrequest(String id, HttpServletRequest request,RequestForm requestForm) {
 		
 		String loginType = (String) request.getSession().getAttribute("loginType");
 		System.out.println(loginType);
@@ -332,13 +359,8 @@ public class ActionDaoImpl implements ActionDao {
 			/* UPDATE QUERY FOR APPROVED REQUEST ID */
 			ResultSet rs = null;
 			
-			
-			javaMailService.sendEmail();
-			
-			
-			
-			String uid = (String) request.getSession().getAttribute(
-					"MySessionId");
+			String uid = (String) request.getSession().getAttribute("MySessionId");
+			 String commands=requestForm.getCommands();
 
 			if (loginType.equals("QA")) {
 
@@ -350,24 +372,22 @@ public class ActionDaoImpl implements ActionDao {
 				int sts = 2;
 			
 				try {
-					/*
-					 * statement.executeUpdate("update REQUEST SET ApprovedBy = '"
-					 * + value + "',Status_id = '"+ sts +
-					 * "', where requestId = '" + requestId + "'");
-					 */
-
+					
 					statement.executeUpdate("update REQUEST SET RejectedBy = '"
 							+ value + "',Status_id = '" + sts
-							+ "',ApprovedBy = '" + "-"
+							+ "',commandsByQA = '" + commands
+							+ "',commandsByPL = '" + "CLOSED"
+							+ "',commandsBySLM = '" + "CLOSED"
+							+ "',commandsByADM = '" + "CLOSED"
 							+ "',LastUpdatedOn = '" + Dt
 							+ "' where RequestId ='" + id + "'");
+
+					
 
 					/*rs = statement
 							.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  Status_Id= '"
 									+ Status + "'");*/
-					rs = statement
-							.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"
-									+value+"'");
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"+value+"'");
 				} catch (Exception e) {
 					System.out.println(e);
 				}
@@ -379,11 +399,19 @@ public class ActionDaoImpl implements ActionDao {
 			
 				statement.executeUpdate("update REQUEST SET RejectedBy = '"
 						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ id + "'");
-				rs = statement
+						+ "',commandsByQA = '" + commands
+						+ "',commandsByPL = '" + "CLOSED"
+						+ "',commandsBySLM = '" + "CLOSED"
+						+ "',commandsByADM = '" + "CLOSED"
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + id + "'");
+
+				
+
+				/*rs = statement
 						.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  Status_Id= '"
-								+ value + "'");
+								+ Status + "'");*/
+				rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"+value+"'");
 			}
 
 			else if (loginType.equals("SLM")) {
@@ -391,11 +419,14 @@ public class ActionDaoImpl implements ActionDao {
 				String value = " REJECTED BY SLM";
 				statement.executeUpdate("update REQUEST SET RejectedBy = '"
 						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ id + "'");
-				rs = statement
-						.executeQuery("select * from request where RejectedBy ='"
-								+ value + "'");
+						+ "',commandsByQA = '" + commands
+						+ "',commandsByPL = '" + "CLOSED"
+						+ "',commandsBySLM = '" + "CLOSED"
+						+ "',commandsByADM = '" + "CLOSED"
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + id + "'");
+
+				rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"+value+"'");
 			}
 
 			else if (loginType.equals("ADM")) {
@@ -403,12 +434,14 @@ public class ActionDaoImpl implements ActionDao {
 				String value = " REJECTED BY ADM";
 				statement.executeUpdate("update REQUEST SET RejectedBy = '"
 						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ id + "'");
-				rs = statement
-						.executeQuery("select * from request where RejectedBy ='"
-								+ value + "'");
+						+ "',commandsByQA = '" + commands
+						+ "',commandsByPL = '" + "CLOSED"
+						+ "',commandsBySLM = '" + "CLOSED"
+						+ "',commandsByADM = '" + "CLOSED"
+						+ "',LastUpdatedOn = '" + Dt
+						+ "' where RequestId ='" + id + "'");
 
+				rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"+value+"'");
 			} 
 			/*else if (loginType.equals("")) {
 				int sts = 0;
@@ -426,16 +459,7 @@ public class ActionDaoImpl implements ActionDao {
 			}
 			while (rs.next()) {
 				user = new AdminUser();
-				// rs.getString(rs.get)
-				/*
-				 * String value = rs.getString("loginType");
-				 * System.out.println(value);
-				 * user.setLoginType(rs.getString("loginType"));
-				 * user.setEmail(rs.getString("email"));
-				 * user.setFirstName(rs.getString("firstName"));
-				 * user.setLastName(rs.getString("lastName"));
-				 * user.setPhoneNo(rs.getString("phoneNo"));
-				 */
+				
 				user.setRejectedBy(rs.getString("RejectedBy"));
 				user.setRaisedReqId(rs.getString("RequestId"));
 				user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
@@ -527,22 +551,12 @@ public class ActionDaoImpl implements ActionDao {
 		// TODO Auto-generated method stub
 		
 		ServiceIntro serviceIntro=null;
-		
 		try {
-			
-			
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
-
 			ResultSet rs = null;
-
-			
-			rs = statement
-					.executeQuery("select * from service");
-		String[] row= new String[16];
-		
-		
-					
+			rs = statement.executeQuery("select * from service");
+			String[] row= new String[16];
 			serviceIntro= new ServiceIntro();
 			boolean j;
 			for(int i=0;j=rs.next();i++){
@@ -601,18 +615,8 @@ public class ActionDaoImpl implements ActionDao {
 				int sts = 1;
 				try {
 
-					statement.executeUpdate("update REQUEST SET ApprovedBy = '"
-							+ approve + "',Status_id = '" + sts
-							+ "',commandsByQA = '" + commands
-							+ "',commandsByPL = '" + "OPEN"
-							+ "',commandsBySLM = '" + "OPEN"
-							+ "',commandsByADM = '" + "OPEN"
-							+ "',LastUpdatedOn = '" + Dt
-							+ "' where RequestId ='" + requestId + "'");
-
-					
-				//	rs = statement.executeQuery("select * from request where ApprovedBy ='"	+ value + "'");
-					rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ approve + "'");
+				//	statement.executeUpdate("update REQUEST SET ApprovedBy = '"	+ approve + "',Status_id = '" + sts	+ "',commandsByQA = '" + commands + "',commandsByPL = '" + "OPEN" + "',commandsBySLM = '" + "OPEN"	+ "',commandsByADM = '" + "OPEN" + "',LastUpdatedOn = '" + Dt + "' where RequestId ='" + requestId + "'");
+				rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ approve + "'");
 				} catch (Exception e) {
 					System.out.println(e);
 				}
@@ -623,13 +627,7 @@ public class ActionDaoImpl implements ActionDao {
 				String value = loginType;
 				String approve ="ApprovedBy PL";
 				int sts = 3;
-				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
-						+ approve + "',Status_id = '" + sts
-						+ "',commandsByPL = '" + commands
-						+ "',LastUpdatedOn = '" + Dt
-						+ "' where RequestId ='" + requestId + "'");
-
-				/*rs = statement	.executeQuery("select * from request where ApprovedBy ='"+ value + "'");*/
+			//	statement.executeUpdate("update REQUEST SET ApprovedBy = '"	+ approve + "',Status_id = '" + sts	+ "',commandsByPL = '" + commands	+ "',LastUpdatedOn = '" + Dt+ "' where RequestId ='" + requestId + "'");
 				rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ approve + "'");
 			}
 
@@ -637,12 +635,7 @@ public class ActionDaoImpl implements ActionDao {
 				String approve ="ApprovedBy SLM";
 				int sts = 5;
 				String value = loginType;
-				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
-						+ approve + "',Status_id = '" + sts
-						+ "',commandsBySLM = '" + commands
-						+ "',LastUpdatedOn = '" + Dt
-						+ "' where RequestId ='" + requestId + "'");
-				/*rs = statement	.executeQuery("select * from request where ApprovedBy ='"+ value + "'");*/
+				//statement.executeUpdate("update REQUEST SET ApprovedBy = '"	+ approve + "',Status_id = '" + sts	+ "',commandsBySLM = '" + commands	+ "',LastUpdatedOn = '" + Dt+ "' where RequestId ='" + requestId + "'");
 				rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ approve + "'");
 			}
 
@@ -650,11 +643,7 @@ public class ActionDaoImpl implements ActionDao {
 				String approve ="ApprovedBy ADM";
 				int sts = 11;
 				String value = "ADM";
-				statement.executeUpdate("update REQUEST SET ApprovedBy = '"
-						+ approve + "',Status_id = '" + sts
-						+ "',commandsByADM = '" + commands
-						+ "',LastUpdatedOn = '" + Dt
-						+ "' where RequestId ='" + requestId + "'");
+				//statement.executeUpdate("update REQUEST SET ApprovedBy = '"	+ approve + "',Status_id = '" + sts	+ "',commandsByADM = '" + commands	+ "',LastUpdatedOn = '" + Dt+ "' where RequestId ='" + requestId + "'");
 				rs = statement.executeQuery("SELECT RequestId,RequestorId,Date,ApprovedBy,Status_Id,LastUpdatedOn,RejectedBy,descreption,commandsByQA,commandsByPL,commandsBySLM,commandsByADM,ServiceId,Service_Id,Service_Name,Service_Intro,UserId,Location_Id	FROM request	LEFT JOIN service	ON request.ServiceId=service.Service_Id	where ApprovedBy='"	+ approve + "'");
 
 			}
@@ -670,6 +659,10 @@ public class ActionDaoImpl implements ActionDao {
 				user.setServiceId(rs.getString("ServiceId"));
 				user.setStatus_Id(rs.getString("Status_Id"));
 				user.setServiceName(rs.getString("Service_Name"));
+				user.setCommandsByQA(rs.getString("commandsByQA"));
+				user.setCommandsByPL(rs.getString("commandsByPL"));
+				user.setCommandsBySLM(rs.getString("commandsBySLM"));
+				user.setCommandsByADM(rs.getString("commandsByADM"));
 				adminUser.add(user);
 				
 			}
@@ -715,18 +708,9 @@ public class ActionDaoImpl implements ActionDao {
 					 * "', where requestId = '" + requestId + "'");
 					 */
 
-					statement.executeUpdate("update REQUEST SET RejectedBy = '"
-							+ value + "',Status_id = '" + sts
-							+ "',ApprovedBy = '" + "-"
-							+ "',LastUpdatedOn = '" + Dt
-							+ "' where RequestId ='" + id + "'");
-
-					/*rs = statement
-							.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  Status_Id= '"
-									+ Status + "'");*/
-					rs = statement
-							.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"
-									+value+"'");
+				//	statement.executeUpdate("update REQUEST SET RejectedBy = '"		+ value + "',Status_id = '" + sts	+ "',ApprovedBy = '" + "-"	+ "',LastUpdatedOn = '" + Dt	+ "' where RequestId ='" + id + "'");
+					/*rs = statement	.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  Status_Id= '"+ Status + "'");*/
+					rs = statement	.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo,commandsByQA,commandsByPL,commandsBySLM,commandsByADM, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"	+value+"'");
 				} catch (Exception e) {
 					System.out.println(e);
 				}
@@ -736,37 +720,25 @@ public class ActionDaoImpl implements ActionDao {
 				String value = "REJECTED BY PL";
 				int sts = 4;
 			
-				statement.executeUpdate("update REQUEST SET RejectedBy = '"
-						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ id + "'");
-				rs = statement
-						.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  Status_Id= '"
-								+ value + "'");
+				//statement.executeUpdate("update REQUEST SET RejectedBy = '"	+ value + "',Status_id = '" + sts	+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"+ id + "'");
+				//rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn,req.RejectedBy FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  Status_Id= '"	+ value + "'");
+				rs = statement	.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, commandsByQA,commandsByPL,commandsBySLM,commandsByADM,t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"	+value+"'");
 			}
 
 			else if (loginType.equals("SLM")) {
 				int sts = 6;
 				String value = " REJECTED BY SLM";
-				statement.executeUpdate("update REQUEST SET RejectedBy = '"
-						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ id + "'");
-				rs = statement
-						.executeQuery("select * from request where RejectedBy ='"
-								+ value + "'");
+				//statement.executeUpdate("update REQUEST SET RejectedBy = '"	+ value + "',Status_id = '" + sts	+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"+ id + "'");
+			//	rs = statement.executeQuery("select * from request where RejectedBy ='"+ value + "'");
+				rs = statement	.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date,commandsByQA,commandsByPL,commandsBySLM,commandsByADM, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"	+value+"'");
 			}
 
 			else if (loginType.equals("ADM")) {
 				int sts = 11;
 				String value = " REJECTED BY ADM";
-				statement.executeUpdate("update REQUEST SET RejectedBy = '"
-						+ value + "',Status_id = '" + sts
-						+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"
-						+ id + "'");
-				rs = statement
-						.executeQuery("select * from request where RejectedBy ='"
-								+ value + "'");
+				//statement.executeUpdate("update REQUEST SET RejectedBy = '"	+ value + "',Status_id = '" + sts+ "',LastUpdatedOn = '" + Dt + "' where RequestId ='"+ id + "'");
+				//rs = statement.executeQuery("select * from request where RejectedBy ='"	+ value + "'");
+				rs = statement	.executeQuery("SELECT t1.RequestId,t1.descreption,t1.ApprovedBy,t1.RejectedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.Service_Name,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t4.StatusDesc FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id INNER JOIN status as t4 ON t1.Status_Id = t4.StatusId where REJECTEDBY='"	+value+"'");
 
 			} 
 			
@@ -790,6 +762,10 @@ public class ActionDaoImpl implements ActionDao {
 				user.setLastName(rs.getString("lastName"));
 		     	user.setStatus(rs.getString("StatusDesc"));
 		     	user.setUserId(rs.getString("UserId"));
+		     	user.setCommandsByQA(rs.getString("commandsByQA"));
+				user.setCommandsByPL(rs.getString("commandsByPL"));
+				user.setCommandsBySLM(rs.getString("commandsBySLM"));
+				user.setCommandsByADM(rs.getString("commandsByADM"));
 				adminUser.add(user);
 			}
 		}

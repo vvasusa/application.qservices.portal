@@ -7,16 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<?xml version="1.0"?>
- 
-<title>Logical Media</title>
-<%-- <script type="text/javascript">
-  <%String temp = (String) session.getAttribute("MySessionId");%>
 
-var value= "<%=temp%>";
+<title>Q-Service Portal</title>
 
-	alert(value);  --%>
-	</script>
 </head>
 
 <!-- MY CHANGE -->
@@ -61,8 +54,7 @@ var value= "<%=temp%>	";
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
+
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript"
@@ -101,7 +93,7 @@ $(function() {
 	});
      
 </script>
-
+<!-- 
 <script type="text/javascript">
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
@@ -110,7 +102,7 @@ $(function() {
 
 	]);
 </script>
-
+ -->
 
 <!--jQuery Sliding Login Panel Button-->
 <script type="text/javascript">
@@ -181,7 +173,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+						<h1>Welcome to Q-Service Portal</h1>
+					<!-- <h1>Welcome to Logical Media</h1> -->
 									
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -237,7 +230,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	<!--The Container class centers design in the center of the screen, -->
 	<!-- 950px width centered-->
 	<!-- Panel -->
-	<div class="container">
+<div class="container">
 
 		<!-- The tab on top -->
 		<div class="tab">
@@ -248,22 +241,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					href="#">Close Panel</a></li>
 			</ul>
 
- <ul class="logout">
- <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
- </ul>
+             <ul class="logout">
+                <li id=""><a id="close" class="close" href="${pageContext.request.contextPath}/logout/">Logout</a> 
+             </ul>
 
 		</div>
 		<!-- close tab -->
 		
-		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		 <font face="verdana ,helvetica"  size="2" color="#990066" >
-				
-		<c:if test="${!empty loginType}">
- 		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
-		</c:if>
-		</font>
-		</p>
+		
 
 
 		<!--Begin Header-->
@@ -272,7 +257,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="logo">
 
 				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-
+				<p align="right"   style=" font-family: inherit;">
+				<font face="verdana ,helvetica"  size="2" color="#990066" >
+				<c:if test="${!empty loginType}">
+				<%String name = (String) session.getAttribute("loginName");%>
+				welcome <%=name%>	
+	 			</c:if>
+				</font>
+				</p>
 			</div>
 			<!--Close Logo Area-->
 
@@ -362,7 +354,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
 			<div class="span-24"  style = "text-align:right; float:right">
-			<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>Go to MyAction</b></u></a>
+			<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>My Request</b></u></a>
 			
 					<a href="${pageContext.request.contextPath}/viewAllRequest"><u>All Request</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
 					 <a href="${pageContext.request.contextPath}/myApprove" style = "color:rgb(0,90,100);"><u><b>My Approve</b></u></a>&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -373,7 +365,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				
 			</div>
 			<!--Close span-24-->
-<div class="hrbg_small">
+           <div class="hrbg_small"></div>
 
 
 		
@@ -422,7 +414,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	<%-- </c:forEach> --%>
 	
 	
-	<body>
+
 	<%-- <% if( value=="AD02" ) { %>
 	
   <DIV>....</DIV> --%>
@@ -546,7 +538,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 <c:forEach var="user" items="${adminUser}">
 		<h5>		
 		
-			<table   style=height:"5px";>
+			<table  style=height:"5px";>
 				<tr>
 					<td class="heading" width=25%>Req_ID</td>
 					<td class="heading" width=25%>Service_Name</td>
@@ -556,14 +548,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				</table>  
 				</h5>
 				
-				
-	
-			
-
 				<%-- <c:if test="${user.loginType=='QA'}"> --%>
 	<div>
 		<p>
-			<table style="background-color:lightblue;">
+		<h6>
+		<!-- style="background-color:lightblue;" -->
+			<table >
 				<tr>
 					
 					<td width=25%>${user.raisedReqId}</td>
@@ -573,30 +563,80 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<%-- <td >${user.approvedBy}</td> --%>
 					<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
+					</tr>
+					<tr><td></td></tr> <tr><td></td></tr><tr><td></td></tr>
+					<tr>
+						 <td>QA Commands :${user.commandsByQA} </td></tr>
+						<tr>
+						<td>PL Commends :${user.commandsByPL} </td>
+						</tr>
+						<tr>
+						<td> SLM Commends :${user.commandsBySLM} </td>
+						</tr>
+						 <tr>
+						<td> ADM Commends :${user.commandsByADM} </td>
+						</tr> 
+					<%-- <td><a href="${pageContext.request.contextPath}/approve"	method="post"></a> </td> <td><a href="${pageContext.request.contextPath}/reject"	method="post"></a></td>
+					    <td><a href="edit?id=${user.userId}"></a></td> <td><a href="delete?id=${user.userId}">REJECT</a></td>
+						</tr>
+						<tr><td colspan="7"><a	href="${pageContext.request.contextPath}/update"> </a></td>		</tr> --%>
 					
-					<td><a href="${pageContext.request.contextPath}/approve"
-						method="post"></a> </td>
-					<td><a href="${pageContext.request.contextPath}/reject"
-						method="post"></a></td>
-						
-					<%-- <td><a href="edit?id=${user.userId}"></a></td>
-					<td><a href="delete?id=${user.userId}">REJECT</a></td> --%>
-					
-				</tr>
-				
-				<tr>
-					<td colspan="7"><a
-						href="${pageContext.request.contextPath}/update"> </a></td>
-				</tr>
-					<%-- </c:if> --%>
 					</table>
+					</h6>
 				</p>
 			</div>
-         </c:forEach>
+       	  </c:forEach>
 
+		</div>
+	</c:if>
 </div>
-</c:if>
-</div>
+
+
+<div class="footer">
+<div class="hrbg_small"></div>
+		<!--#BEGIN FOOTER AREA#-->
+		<!--Declare 630px width-->
+		<div class="span-8">
+			<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
+			<!-- and some brief information about the company-->
+			<div class="footer_text">
+				<p>
+					&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+				</p>
+			</div>
+			<!--footer_text close-->
+
+		</div>
+		<!--footer close-->
+
+		<!--Footer navigation goes here-->
+		<!--Declare 310px width-->
+	
+		<div class="span-16 last">
+
+			<ul id="footer-nav">
+				<li><a href="${pageContext.request.contextPath}/index/">Home</a>
+					|</li>
+				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+						|</li> --%>
+				<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
+					|</li>
+				<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+					|</li>
+				<li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
+				<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
+			</ul>
+			<!--footer-nav close-->
+
+
+			<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
+			<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
+			<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
+
+		</div>
+		<!--span8 close-->
+
+	</div>
 </div>
 <!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
 </body>

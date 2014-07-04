@@ -1,77 +1,29 @@
-
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <?xml version="1.0"?>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-
 <title>Contact Us - Q-ServicePortal</title>
 
 
 
-<!-- CSS Links-->
-<!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
-
-<!--6 CSS files total, listed below-->
-
-<!--Blueprint Framework CSS-->
-<!--CSS IE Render Fixes-->
-<!--Custom Styling (site_styles.css)-->
-<!--jQuery Sliding Login Panel-->
-<!--jQuery Custom Rotator-->
-<!--Lightbox Styling-->
-
-<!-- To allow for easy manipulation, I have -->
-<!--left the Blueprint Framework untouched, simply overwriting styles in the site_style.css. To make any -->
-<!--changes to the template, simply change/modify styles in the site_styles.css file. -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/framework.css"
-	type="text/css" media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/site_styles.css"
-	type="text/css" media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-	media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"
-	type="text/css" media="screen, projection" />
-
-<!-- jQuery Slider declarations are made in this file. The slider is found at the middle of the index/ page-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slider.css"
-	type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-
-<!--IE 6,7 Render Fixes-->
-<!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
-<!--[if lt IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/jquery-ui-1.10.4.css" type="text/css" media="screen, projection" />
 
 
-<!--jQuery-->
-<!--jQuery Slider-->
-<!--Custom jQuery Set-->
-<!--jQuery Lightbox-->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/custom.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/lightbox.js"></script>
- <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/lightbox.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-1.10.2.js"></script> 
+<script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-ui.js"></script>
 
 <!--jQuery Sliding Login Panel Button-->
 
@@ -223,11 +175,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 <!--To use Lightbox, simply reference "lightbox" as a class in the link to the picture. ex below: -->
 <!-- <a href="image_large.gif" CLASS="lightbox"><img src="image.gif"></a> -->
 <!--For many more uses, consult http://leandrovieira.com/projects/jquery/lightbox/  -->
-<script type="text/javascript">
-	$(function() {
-		$('.lightbox').lightBox();
-	});
-</script>
+
 
 <!-- Color hover JavaScript Files -->
 <script type="text/javascript" src="./js/jquery.color.js"></script>
@@ -274,11 +222,9 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+					<h1>Welcome to Q-Service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
-					<p class="color">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-						dolore magna aliqua.</p>
+					<p class="color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 					<h2>It's Simple and Cost-Effective!</h2>
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -311,13 +257,14 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 				<div class="left right">
 					<h1>Not a member yet? Sign Up!</h1>
 					<!-- Register Form -->
+					<form action="${pageContext.request.contextPath}/register"	method="post" commandName="login" id="form" modelAttribute="user">
 					<label class="color" for="signup">Username:</label> <input
 						class="field" type="text" name="signup" id="signup" value=""
 						size="23" /> <label class="color" for="email">Email:</label> <input
 						class="field" type="text" name="email" id="email" size="23" /> <label>A
 						password will be e-mailed to you.</label> <input type="submit"
 						name="submit" value="Register" class="bt_register" />
-
+</form>
 				</div>
 				<!--panel box3-->
 
@@ -351,15 +298,14 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 		</div>
 		<!-- close tab -->
 		
-		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		 <font face="verdana ,helvetica"  size="2" color="#990066" >
-				
-		<c:if test="${!empty loginType}">
- 		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
-		</c:if>
-		</font>
-		</p>
+		<%--  <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		 	<font face="verdana ,helvetica"  size="2" color="#990066" >
+				<c:if test="${!empty loginType}">
+ 					<%String name = (String) session.getAttribute("loginName");%>
+					<i><b>welcome <%=name%></b></i>	
+				</c:if>
+			</font>
+		</p> --%>
 		
 
 
@@ -368,8 +314,16 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<!--Logo Area-->
 
 			<div class="logo">
-				<a href="${pageContext.request.contextPath}/index/"><img
-					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
+				<a href="${pageContext.request.contextPath}/index/"><img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
+				
+				<p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		             <font face="verdana ,helvetica"  size="2" color="#990066" >
+		                  <c:if test="${!empty loginType}">
+ 		                     <%String name = (String) session.getAttribute("loginName");%>
+		                     welcome <%=name%>	
+		                  </c:if>
+		             </font>
+		        </p>
 			</div>
 			<!--Close Logo Area-->
 
@@ -619,9 +573,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<!-- and some brief information about the company-->
 					<div class="footer_text">
 						<p>
-							&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-							year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-							&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+							&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
 					<!--footer_text close-->

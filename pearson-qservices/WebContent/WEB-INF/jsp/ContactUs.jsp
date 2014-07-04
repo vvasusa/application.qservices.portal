@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 
-<title>Contact Us - Logical Media</title>
+<title>Contact Us - Q-Service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -23,23 +23,13 @@
 <!-- To allow for easy manipulation, I have -->
 <!--left the Blueprint Framework untouched, simply overwriting styles in the site_style.css. To make any -->
 <!--changes to the template, simply change/modify styles in the site_styles.css file. -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/framework.css"
-	type="text/css" media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/site_styles.css"
-	type="text/css" media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-	media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"
-	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"	type="text/css" media="screen, projection" />
 
 <!-- jQuery Slider declarations are made in this file. The slider is found at the middle of the index/ page-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slider.css"
-	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" />
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -50,10 +40,10 @@
 <!--jQuery Slider-->
 <!--Custom jQuery Set-->
 <!--jQuery Lightbox-->
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="./js/custom.js"></script>
-<script type="text/javascript" src="./js/slider.js"></script>
-<script type="text/javascript" src="./js/lightbox.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.js"></script>
 
 
 <!--jQuery Sliding Login Panel Button-->
@@ -167,7 +157,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+					<h1>Welcome to Q-Service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -444,9 +434,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<!-- and some brief information about the company-->
 					<div class="footer_text">
 						<p>
-							&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-							year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-							&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+							&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
 					<!--footer_text close-->

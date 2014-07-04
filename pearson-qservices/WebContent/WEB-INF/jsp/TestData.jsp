@@ -5,20 +5,16 @@ pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <?xml version="1.0"?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Logical Media</title>
+<title>Q-Service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -35,20 +31,10 @@ pageEncoding="ISO-8859-1"%>
 <!-- To allow for easy manipulation, I have -->
 <!--left the Blueprint Framework untouched, simply overwriting styles in the site_style.css. To make any -->
 <!--changes to the template, simply change/modify styles in the site_styles.css file. -->
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/css/framework.css"
-type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/css/site_styles.css"
-type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-media="screen, projection" charset="utf-8" />
-
-<!-- jQuery Slider declarations are made in this file. The slider is found at the top of the index/ page-->
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/css/slider.css"
-type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/framework.css" type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/site_styles.css" type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/slide.css" type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/slider.css" type="text/css" media="screen, projection" charset="utf-8" />
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -60,14 +46,14 @@ type="text/css" media="screen, projection" charset="utf-8" />
 <!--Custom jQuery Set-->
 <!--jQuery Delay Plugin-->
 <!--jQuery Image Preloader-->
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
-
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script> 
 
 <!--Preload Image Over Imgs-->
 
@@ -87,7 +73,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 	});
 </script>
 
-
+<!-- 
 
 
 <script type="text/javascript">
@@ -98,7 +84,7 @@ $.preLoadImages([
 
 ]);
 </script>
-
+ -->
 <!--jQuery Sliding Login Panel Button-->
 <script type="text/javascript">
 $(document).ready(function() {
@@ -173,7 +159,7 @@ $(".image_placeset img").hover(function() {
 	<div class="content clearfix">
 		<!--panel box1-->
 		<div class="left">
-			<h1>Welcome to Logical Media</h1>
+			<h1>Welcome to Q-Service Portal</h1>
 			<h2>Are you a new client? Let's Begin.</h2>
 			<p class="color">Lorem ipsum dolor sit amet, consectetur
 				adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -416,9 +402,7 @@ To ensure data availability before the start of test execution, avoiding delays 
 		<!-- and some brief information about the company-->
 		<div class="footer_text">
 			<p>
-				&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-				year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-				&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+				&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 			</p>
 		</div>
 		<!--footer_text close-->

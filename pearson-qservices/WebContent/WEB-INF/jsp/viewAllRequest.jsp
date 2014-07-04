@@ -19,7 +19,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
 
-<title>Logical Media</title>
+<title>Q-Service Portal</title>
 <%-- <script type="text/javascript">
   <%String temp = (String) session.getAttribute("MySessionId");%>
 
@@ -81,8 +81,7 @@ var value= "<%=te%>	";
 <!--jQuery Image Preloader-->
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script> --%>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript"
@@ -107,6 +106,8 @@ var value= "<%=temp%>	";
 
 
 <!--Preload Image Over Imgs-->
+
+<!-- 
 <script type="text/javascript">
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
@@ -115,7 +116,7 @@ var value= "<%=temp%>	";
 
 	]);
 </script>
-
+ -->
 
 <!--jQuery Sliding Login Panel Button-->
 <script type="text/javascript">
@@ -229,7 +230,7 @@ $(function() {
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+					<h1>Welcome to Q-Service Portal</h1>
 									
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -303,22 +304,21 @@ $(function() {
 		</div>
 
 		<!-- close tab -->
- <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		 <font face="verdana ,helvetica"  size="2" color="#990066" >
-				
-		<c:if test="${!empty loginType}">
- 		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
-		</c:if>
-		</font>
-		</p>
+ 
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
 			<div class="logo">
 
-				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-
+			  <img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
+				<p align="right"   style=" font-family: inherit;">
+		             <font face="verdana ,helvetica"  size="2" color="#990066" >
+		                  <c:if test="${!empty loginType}">
+ 		                     <%String name = (String) session.getAttribute("loginName");%>
+		                    welcome <%=name%>	
+		                  </c:if>
+		             </font>
+		        </p>
 			</div>
 			<!--Close Logo Area-->
 
@@ -408,7 +408,7 @@ $(function() {
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
 			<div class="span-24" style = "text-align:right; float:right" > 
 		
-		<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>Go to MyAction</b></u></a>
+		<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>My Request</b></u></a>
 					<a href="${pageContext.request.contextPath}/viewAllRequest"	style = "color:rgb(0,90,100);" ><u><b>All Request</b></u></a>&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/myApprove" ><u>My Approve</u></a>&nbsp;&nbsp;&nbsp;&nbsp; 
 					<a href="${pageContext.request.contextPath}/myReject"	><u>My Reject</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -608,7 +608,7 @@ $(function() {
 			<table >
 				<tr>
 					<td width=27%>REQUEST ID</td>
-					<td width=25%>REQUEST NAME</td>
+					<td width=30%>REQUEST NAME</td>
 					<td width=25%>DATE</td>
 					<td width=25%>STATUS</td>
 					
@@ -626,7 +626,7 @@ $(function() {
 				
 					<%-- <c:if test="${user.loginType=='QA'}"> --%>
 					<h6>
-					<table style="background-color:lightblue;">
+					<table >
 					<tr>
 						<td width=28%>${user.raisedReqId}</td>
 						<td width=28%>${user.requestName}</td>
@@ -641,7 +641,20 @@ $(function() {
 						<td>${user.status_Id}</td> 
 						<td>${user.requestName}</td>
 					    <td>${user.requestID}</td> --%>
-				 
+					    </tr>
+					    <tr><td></td></tr> <tr><td></td></tr>
+					    <tr>
+						 <td>QA Commands :${user.commandsByQA} </td></tr>
+						<tr>
+						<td>PL Commends :${user.commandsByPL} </td>
+						</tr>
+						<tr>
+						<td> SLM Commends :${user.commandsBySLM} </td>
+						</tr>
+						 <tr>
+						<td> ADM Commends :${user.commandsByADM} </td>
+						</tr> 
+			<%-- 	 <tr>
 						<td>
 						<div id ="approve">
 						<a href="${pageContext.request.contextPath}/approve?id=${user.raisedReqId}"
@@ -656,7 +669,7 @@ $(function() {
 					<tr>
 						<td colspan="7"><a
 							href="${pageContext.request.contextPath}/update"> </a></td>
-					</tr>
+					</tr> --%>
 					<%-- </c:if> --%>
 					</table>
 					</h6>
@@ -719,20 +732,17 @@ $(function() {
 	<!-- ************************PART THREE END************************************* -->
 
 
-
-
 <div class="footer">
 
+			<div class="hrbg_small"></div>
 			<!--#BEGIN FOOTER AREA#-->
 			<!--Declare 630px width-->
-			<div class="span-16">
+			<div class="span-8">
 				<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 				<!-- and some brief information about the company-->
 				<div class="footer_text">
 					<p>
-						&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-						year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-						&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+						&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 					</p>
 				</div>
 				<!--footer_text close-->
@@ -742,18 +752,18 @@ $(function() {
 
 			<!--Footer navigation goes here-->
 			<!--Declare 310px width-->
-			<div class="span-8 last">
+			<div class="span-16 last">
 
 				<ul id="footer-nav">
 					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 						|</li>
 					<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
 						|</li> --%>
-					<li><a href="${pageContext.request.contextPath}/services/">Services</a>
+					<li><a href="${pageContext.request.contextPath}/services/">Services Catalog</a>
 						|</li>
 					<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 						|</li>
-						   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
+						   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
 					<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 				</ul>
 				<!--footer-nav close-->

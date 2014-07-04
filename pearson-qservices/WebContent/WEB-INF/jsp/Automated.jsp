@@ -32,20 +32,10 @@
 <!-- To allow for easy manipulation, I have -->
 <!--left the Blueprint Framework untouched, simply overwriting styles in the site_style.css. To make any -->
 <!--changes to the template, simply change/modify styles in the site_styles.css file. -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/framework.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/site_styles.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-	media="screen, projection" charset="utf-8" />
-
-<!-- jQuery Slider declarations are made in this file. The slider is found at the top of the index/ page-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slider.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" charset="utf-8" />
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -57,13 +47,12 @@
 <!--Custom jQuery Set-->
 <!--jQuery Delay Plugin-->
 <!--jQuery Image Preloader-->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
 
 
 <!--Preload Image Over Imgs-->
@@ -83,7 +72,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 	});
 </script>
 
-
+<!-- 
 
 <script type="text/javascript">
 	$.preLoadImages([
@@ -94,7 +83,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 	]);
 </script>
 
-
+ -->
 
 <!--jQuery Sliding Login Panel Button-->
 <script type="text/javascript">
@@ -170,7 +159,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+					<!-- <h1>Welcome to Logical Media</h1> -->
+					<h1>Welcome to Q-Service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -251,15 +241,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<!-- close tab -->
 		
 		
-		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		 <font face="verdana ,helvetica"  size="2" color="#990066" >
-				
-		<c:if test="${!empty loginType}">
- 		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
-		</c:if>
-		</font>
-		</p>
+
 
 
 		<!--Begin Header-->
@@ -268,6 +250,15 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="logo">
 
 				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
+						 <p align="right"   style=" font-family: inherit;">
+		 <font face="verdana ,helvetica"  size="2" color="#990066" >
+				
+		<c:if test="${!empty loginType}">
+ 		<%String name = (String) session.getAttribute("loginName");%>
+		<i><b>welcome <%=name%></b></i>	
+		</c:if>
+		</font>
+		</p>
 
 			</div>
 			<!--Close Logo Area-->
@@ -427,14 +418,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 			<!--#BEGIN FOOTER AREA#-->
 			<!--Declare 630px width-->
-			<div class="span-16">
+			<div class="span-8">
 				<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 				<!-- and some brief information about the company-->
 				<div class="footer_text">
 					<p>
-						&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-						year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-						&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+						&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 					</p>
 				</div>
 				<!--footer_text close-->
@@ -444,7 +433,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 			<!--Footer navigation goes here-->
 			<!--Declare 310px width-->
-			<div class="span-8 last">
+			<div class="span-16 last">
 
 				<ul id="footer-nav">
 					<li><a href="${pageContext.request.contextPath}/index/">Home</a>

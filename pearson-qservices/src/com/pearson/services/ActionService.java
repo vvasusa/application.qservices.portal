@@ -33,7 +33,7 @@ public interface ActionService {
 
 
 
-	public List<AdminUser> rejectrequest(String id, HttpServletRequest request);
+	public List<AdminUser> rejectrequest(String id, HttpServletRequest request,RequestForm requestForm);
 
 
 

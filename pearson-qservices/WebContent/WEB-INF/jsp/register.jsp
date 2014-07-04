@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"">
 
 
-<title>Logical Media</title>
+<title>Q-Service Portal</title>
 
 
 
@@ -31,28 +31,13 @@
 <!-- To allow for easy manipulation, I have -->
 <!--left the Blueprint Framework untouched, simply overwriting styles in the site_style.css. To make any -->
 <!--changes to the template, simply change/modify styles in the site_styles.css file. -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/framework.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/site_styles.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-	media="screen, projection" charset="utf-8" />
-
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" charset="utf-8" />
 <!-- jQuery Slider declarations are made in this file. The slider is found at the top of the index/ page-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slider.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/validationEngine.jquery.css"
-	type="text/css" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/template.css"
-	type="text/css" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/validationEngine.jquery.css"	type="text/css" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/template.css"	type="text/css" charset="utf-8" />
 
 
 <!--IE 6,7 Render Fixes-->
@@ -70,35 +55,18 @@ var value= "<%=temp%>";
 <!--Custom jQuery Set-->
 <!--jQuery Delay Plugin-->
 <!--jQuery Image Preloader-->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/custom.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/preloader.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/delay.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
-
-<script type=text/javascript
-	src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
-
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.formError.js"></script>
-
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.validation.js"></script>
-
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.formError.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.validation.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.2.min.js"></script>
 
 
 <%-- 
@@ -120,8 +88,7 @@ var value= "<%=temp%>";
 	
 	--%>
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery-1.8.2.min.js"></script>
+
 
 <!--Preload Image Over Imgs-->
 
@@ -141,7 +108,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 	});
 </script>
 
-
+<!-- 
 <script type="text/javascript">
 	$.preLoadImages([
 			'${pageContext.request.contextPath}/img/img_over/main_image1.jpg',
@@ -150,7 +117,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 	]);
 </script>
-
+ -->
 
 <!--jQuery Sliding Login Panel Button-->
 <script type="text/javascript">
@@ -599,7 +566,7 @@ $(document).ready(function(){
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+					<h1>Welcome to Q-Service Portal</h1>
 
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -1131,10 +1098,7 @@ $(document).ready(function(){
 			<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 			<!-- and some brief information about the company-->
 			<div class="footer_text">
-				<p>
-					&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-					year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-					&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+				<p>&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 				</p>
 			</div>
 			<!--footer_text close-->

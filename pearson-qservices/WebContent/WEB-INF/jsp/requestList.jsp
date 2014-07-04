@@ -19,7 +19,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
 
-<title>Logical Media</title>
+<title>Q-Service Portal</title>
 <%-- <script type="text/javascript">
   <%String temp = (String) session.getAttribute("MySessionId");%>
 
@@ -250,6 +250,11 @@ var Login= "<%=Login%>";
 
 
 <script type="text/javascript">
+
+
+ $(function() {    $( "#dialog" ).dialog();  }); 
+
+
 
 /* 
 
@@ -574,7 +579,7 @@ $(document).ready(function(){
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+					<h1>Welcome to Q-Service Portal</h1>
 
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -648,22 +653,21 @@ $(document).ready(function(){
 		</div>
 
 		<!-- close tab -->
- <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		 <font face="verdana ,helvetica"  size="2" color="#990066" >
-				
-		<c:if test="${!empty loginType}">
- 		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
-		</c:if>
-		</font>
-		</p>
+
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
 			<div class="logo">
 
 				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-
+				<p align="right"   style=" font-family: inherit;">
+	<font face="verdana ,helvetica"  size="2" color="#990066" >
+		<c:if test="${!empty loginType}">
+		<%String name = (String) session.getAttribute("loginName");%>
+		welcome <%=name%>	
+	 </c:if>
+	</font>
+</p>
 			</div>
 			<!--Close Logo Area-->
 
@@ -796,10 +800,11 @@ $(document).ready(function(){
 			<%-- <c:if test="${loginType=='VISITOR'}"> --%>
 
 			<h3>
-				To view data please loginHere .. <a
-					href="${pageContext.request.contextPath}/index" method="post">click
-					here..</a>
-			</h3>
+				Please Login .. <a	href="${pageContext.request.contextPath}/index" method="post">  </a></h3>
+				
+				
+				<div id="dialog" title=" LOGIN REQUIRED">  <p>WELCOME... To view data please login</p></div>
+			
 
 			<%-- </c:if> --%>
 		</c:if>
@@ -960,7 +965,8 @@ $(document).ready(function(){
 					
 			           <div>
 			              <p>
-			              <table style="background-color:lightblue;">
+			              <h6>
+			              <table style="background-color:#DBF0FE;">
 			                <tr>
 							<td width=30%;>${user.requestID}</td>
 							<td width=40%;>${user.raisedDate}</td>
@@ -971,7 +977,7 @@ $(document).ready(function(){
 							<td><h4>${user.lastUpdatedOn}</h4></td> --%>
 							
 						</tr>
-						<p></p>
+						<p></p><p></p>
 						<tr>
 						 <td>QA Commands :${user.commandsByQA} </td></tr>
 						<tr>
@@ -984,6 +990,7 @@ $(document).ready(function(){
 						<td> ADM Commends :${user.commandsByADM} </td>
 						</tr> 
 						</table>
+						</h6>
 				     </p>
 				     </div>
 					</c:forEach>
@@ -1275,21 +1282,21 @@ $(document).ready(function(){
 
 	<!-- ************************PART THREE END************************************* -->
 
-
+<div class="span-24"  >	
+<div class="hrbg_small">
+</div>
 
 
 	<div class="footer">
 
 		<!--#BEGIN FOOTER AREA#-->
 		<!--Declare 630px width-->
-		<div class="span-16">
+		<div class="span-8">
 			<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 			<!-- and some brief information about the company-->
 			<div class="footer_text">
 				<p>
-					&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-					year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-					&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+					&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 				</p>
 			</div>
 			<!--footer_text close-->
@@ -1299,19 +1306,19 @@ $(document).ready(function(){
 
 		<!--Footer navigation goes here-->
 		<!--Declare 310px width-->
-		<div class="span-8 last">
+		<div class="span-16 last">
 
 			<ul id="footer-nav">
-				<li><a href="${pageContext.request.contextPath}/index/">Home</a>
+				<li><a href="${pageContext.request.contextPath}/index/">home</a>
 					|</li>
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
 						|</li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/">Services</a>
+				<li><a href="${pageContext.request.contextPath}/services/">service catalog</a>
 					|</li>
 				<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 					|</li>
-				<li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
-				<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/">my request</a>|</li>
+				<li><a href="${pageContext.request.contextPath}/contact/">contact</a></li>
 			</ul>
 			<!--footer-nav close-->
 

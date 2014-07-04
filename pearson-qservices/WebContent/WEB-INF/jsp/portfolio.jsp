@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 
-<title>Our Portfolio - Logical Media</title>
+<title>Our Portfolio - Q-Service Portal</title>
 
 <!-- CSS Link s-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -25,8 +25,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/site_styles.css" type="text/css" media="screen, projection" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slide.css" type="text/css" media="screen, projection" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css" type="text/css" media="screen, projection" />
-
-<!-- jQuery Slider declarations are made in this file. The slider is found at the middle of the index/ page-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slider.css" type="text/css" media="screen, projection" />
 
 <!--IE 6,7 Render Fixes-->
@@ -38,10 +36,12 @@
 <!--jQuery Slider-->
 <!--Custom jQuery Set-->
 <!--jQuery Lightbox-->
-<script type="text/javascript" src="./js/jquery.js"></script> 
-<script type="text/javascript" src="./js/custom.js"></script> 
-<script type="text/javascript" src="./js/slider.js"></script>
-<script type="text/javascript" src="./js/lightbox.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/custom.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.js"></script>
+<script src="${pageContext.request.contextPath}/js/cufon-yui.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
 
 
 <!--jQuery Sliding Login Panel Button-->
@@ -83,8 +83,7 @@ $(document).ready(function(){
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
 <!--I have included 2 different Titillium font weights, 400 and 800 respectively.-->
 <!--If you want to use the much bolder, 800 weight, simply change the "400" below to "800"-->
-<script src="${pageContext.request.contextPath}/js/cufon-yui.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js" type="text/javascript"></script>
+
 <script type="text/javascript">
         Cufon.replace('h1');
         Cufon.replace('h2');
@@ -145,7 +144,7 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
 		<div class="content clearfix">
 			<!--panel box1-->
             <div class="left">
-				<h1>Welcome to Logical Media </h1>
+				<h1>Welcome to Q-Service Portal </h1>
 				<h2>Are you a new client? Let's Begin.</h2>		
 				<p class="color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 				<h2>It's Simple and Cost-Effective!</h2>
@@ -379,8 +378,10 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
                 <!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
                 <!-- and some brief information about the company-->
                 <div class="footer_text">
-                <p>&copy; <a href="#">Logical Media</a> is available 24/7 365 days a year. We are currently located in Toledo, OH.
-                &nbsp;&nbsp; | &nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.</p>
+                <p>
+               &copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+                
+                </p>
                 </div><!--footer_text close-->
           
             </div><!--footer close-->

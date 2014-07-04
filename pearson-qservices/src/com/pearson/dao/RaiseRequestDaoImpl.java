@@ -147,20 +147,10 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 							+ "','"
 							+ date + "')");
 
-			/*
-			 * int rs = statement .executeUpdate(
-			 * "INSERT INTO TempInsert(requestorId,requestId,firstName,lastName,email,phoneNo,address)VALUES('"
-			 * + reqid + "','" + requestForm.getReq_ServiceID() + "','" +
-			 * requestForm.getFirstName() + "','" + requestForm.getLastName() +
-			 * "','" + requestForm.getEmail() + "','" + requestForm.getPhoneNo()
-			 * + "','" + reqid + "')");
-			 */
 			
 			
 			String name = requestForm.getFirstName();
 			name = name.concat(requestForm.getLastName());
-		      
-		      
 			user.setFirstName(name);
 			user.setEmail(requestForm.getEmail());
 			user.setLastName(requestForm.getLastName());
@@ -168,11 +158,9 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			user.setRequestID(requestForm.getReq_ServiceID());
 			user.setRequestName(requestForm.getReq_ServiceName());
 			user.setAddress(requestForm.getAddress());
-			
 			user.setRequestID(reqid);
 			adminUser.add(user);
 
-			/**************** Send request id to user via mail ************/
 			MailService mailService = new MailService();
 
 			// mailService.sendRequestID(requestForm.getEmail(), reqid);

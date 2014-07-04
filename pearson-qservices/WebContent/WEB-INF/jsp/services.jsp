@@ -1,18 +1,11 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <?xml version="1.0"?>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-
 <title>Q-SERVICE PORTAL</title>
 
 
@@ -31,23 +24,11 @@
 <!-- To allow for easy manipulation, I have -->
 <!--left the Blueprint Framework untouched, simply overwriting styles in the site_style.css. To make any -->
 <!--changes to the template, simply change/modify styles in the site_styles.css file. -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/framework.css"
-	type="text/css" media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/site_styles.css"
-	type="text/css" media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-	media="screen, projection" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"
-	type="text/css" media="screen, projection" />
-
-<!-- jQuery Slider declarations are made in this file. The slider is found at the middle of the index/ page-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slider.css"
-	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"	type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" />
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -58,18 +39,12 @@
 <!--jQuery Slider-->
 <!--Custom jQuery Set-->
 <!--jQuery Lightbox-->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/custom.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/lightbox.js"></script>
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.expander.js">
-	
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/lightbox.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.expander.js">
 </script>
 <!--jQuery Sliding Login Panel Button-->
 
@@ -115,101 +90,95 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 			  }); */
 
 		$('#txt1').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt2').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt3').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt4').expander({
-			slicePoint : 90,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt5').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt6').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt7').expander({
-			slicePoint : 85,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt8').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt9').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt10').expander({
-			slicePoint : 90,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt11').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt12').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt13').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt14').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
 		$('#txt15').expander({
-			slicePoint : 95,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
+			slicePoint : 150,
+			
+			expandText : '[+]more',
+			userCollapseText : '[-]less'
 		});
-		$('#txt16').expander({
-			slicePoint : 85,
-			collapseTimer:5000,
-			expandText : '+ More',
-			userCollapseText : '[ -Less]'
-		});
+		
 
 	});
 </script>
@@ -288,7 +257,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Logical Media</h1>
+					<h1>Welcome to Q-Service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -384,7 +353,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		welcome <%=name%>	
 		</c:if>
 		</p> --%>
-		 <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+		
+		
+		<%--  <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
 		 <font face="verdana ,helvetica"  size="2" color="#990066" >
 				
 		<c:if test="${!empty loginType}">
@@ -392,7 +363,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<i><b>welcome <%=name%></b></i>	
 		</c:if>
 		</font>
-		</p>
+		</p> --%>
 		
 		
 		<!--Begin Header-->
@@ -400,8 +371,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Logo Area-->
 
 			<div class="logo">
-				<a href="${pageContext.request.contextPath}/index/"><img
-					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
+				<a href="${pageContext.request.contextPath}/index/"><img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
+				
+					<p align="right"   style=" font-family: inherit;">
+		                <font face="verdana ,helvetica"  size="2" color="#990066" >
+		                  <c:if test="${!empty loginType}">
+ 		                     <%String name = (String) session.getAttribute("loginName");%>
+		                     welcome <%=name%>	
+		                  </c:if>
+		             </font>
+		        </p>
 			</div>
 			<!--Close Logo Area-->
 
@@ -411,46 +390,41 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
-				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home" title="Home"><span>home</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services_front" title="Our Services"><span>our
-							services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request"><span>Request</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/contact/"
-					id="contact" title="Contact Us"><span>contact us</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Our Services"><span>our services</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"	id="blog" title="The Blog"><span>the bloggery</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="port" title="Request"><span>Request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
 			<!--Navigation close-->
 
 
 			<!--Sub-Navigation found directly below the main navigation bar.-->
-			<div class="submenu">
-				<ul id="sub-nav">
-					<li><a href="${pageContext.request.contextPath}/services/"
-						class="selected">Services Home</a></li>
-					<li><a href="${pageContext.request.contextPath}/sub_serv/">E-Commerce</a></li>
-					<li><a href="${pageContext.request.contextPath}/sub_serv/">PSD
-							2 HTML</a></li>
-					<li><a href="${pageContext.request.contextPath}/sub_serv/">SEO</a></li>
-					<li><a href="${pageContext.request.contextPath}/sub_serv/">Online
-							Marketing</a></li>
-					<li><a href="${pageContext.request.contextPath}/sub_serv/">Site
-							Analysis</a></li>
-
-
-
-					</form>
-				</ul>
-				<!--sub-nav close-->
-
-			</div>
+			
 			<!--submenu close-->
 
-		</div>
+		<div class="box1"> 
+			
+        <ul id="box_text">
+                    
+			<li><a href="${pageContext.request.contextPath}/automated/">Automation</a>	</li>						
+			<li><a href="${pageContext.request.contextPath}/cloud/">Cloud</a></li>							
+			<li><a href="${pageContext.request.contextPath}/compliance/">Compliance</a>	</li>						
+			<li><a href="${pageContext.request.contextPath}/crm/">CRM</a></li>							
+			<li><a href="${pageContext.request.contextPath}/data/">Data</a>	</li>				     
+			<li><a href="${pageContext.request.contextPath}/environmentManage/">Environment Management</a></li>							
+			<li><a href="${pageContext.request.contextPath}/erp/">ERP</a></li>							
+			<li><a href="${pageContext.request.contextPath}/infrastructure/">Infrastructure</a>	</li>						
+			<li><a href="${pageContext.request.contextPath}/middleware/">Middleware</a>	</li>						
+			<li><a href="${pageContext.request.contextPath}/mobile/">Mobile</a>	</li>						
+			<li><a href="${pageContext.request.contextPath}/online/">Online</a>	</li>						
+			<li><a href="${pageContext.request.contextPath}/performance/">Performance</a>	</li>			
+			<li><a href="${pageContext.request.contextPath}/QaProgramManagement/">QA Program Management</a>	</li>					
+			<li><a href="${pageContext.request.contextPath}/qualityConsulting/">Quality Consulting</a>	</li>					
+			<li><a href="${pageContext.request.contextPath}/security/">Security</a></li>
+          </ul><!--sub-nav close-->
+        </div>
 		<!--Header Close-->
 
 
@@ -479,15 +453,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--#BEGIN LEFT CONTENT PAGE#-->
 			
 				<!-- Boxed Class adds background image and sets padding 20px on all sides.-->
-				<div class="boxed_page">
+				<div class="boxed_page" >
 
 					<!--#PAGE INTRO#-->
 					<!--Brief Info -->
 					<p>
-					<h2>The Q-service portal is providing the following services
-						for customers.. For more information please click on services...</h2>
+					<h2> 
+					To know more about the service detail click on the service name.
+					 </h2>
 					</p>
-<div class="hrbg_small"></div>
+
 				</div>
 				<!--boxed close-->
 
@@ -501,16 +476,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="span-6">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
+
 						<!--Service Title-->
-                        <!--Service Image-->
-						<!--  <p><img src="./img/icons/site_analysis.png" class="left" alt="" /> -->
-						<!--Brief Info on Service-->
-                  <div class="serhead"> 
-						<a href="${pageContext.request.contextPath}/QAssesment/">Q-Assessment</a></div>
-						
-						<div id="txt1" class="text" >
-							<p>${serviceIntro.qass}</p>
-							</div>
+					
+							<!--Service Image-->
+							<!-- <p><img src="./img/icons/design.png" class="left" alt="" /> -->
+							<!--Brief Info on Service-->
+							
+							<div class="serhead"> <a href="${pageContext.request.contextPath}/automated/">Automation</a></div>
+							<div id="txt1" class="texter" >
+								<p><img src="${pageContext.request.contextPath}/img/icons/automation_img.png" class="left" alt="" />
+								${serviceIntro.qass}</p>
+						</div>
 					</div>
 					<!--boxed_page close-->
 				</div>
@@ -530,9 +507,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!-- <p><img src="./img/icons/design.png" class="left" alt="" /> -->
 							<!--Brief Info on Service-->
 							
-							<div class="serhead"> <a href="${pageContext.request.contextPath}/TestProgram/">Test Program</a></div>
+							<div class="serhead"> <a href="${pageContext.request.contextPath}/cloud/">Cloud</a></div>
 							<div id="txt2" class="texter" >
-								<p>${serviceIntro.testprogram}</p>
+								<p><img src="${pageContext.request.contextPath}/img/icons/cloud_img1.png" class="left" alt="" />
+								${serviceIntro.testprogram}</p>
 						</div>
 					</div>
 					<!--boxed_page close-->
@@ -548,11 +526,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 						<!--Service Title-->
 						
-							<div class="serhead"><a href="${pageContext.request.contextPath}/Middleware/">Middleware/ESB</a></div>
+							<div class="serhead"> <a href="${pageContext.request.contextPath}/compliance/">Compliance</a></div>
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/lc.png" class="left" alt="" /> -->
 							<div id="txt3" class="texter" >
-								${serviceIntro.middlewareESB}</div>
+								<p><img src="${pageContext.request.contextPath}/img/icons/compliance_img.png" class="left" alt="" />
+								${serviceIntro.middlewareESB}</p>
+								</div>
 							
 							<!-- </p> -->
 						</div>
@@ -571,12 +551,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<div class="boxed_page">
 						<!--Service Title-->
 				
-							<div class="serhead"><a href="${pageContext.request.contextPath}/DataIntegration/">DataIntegration Testing</a></div>
+							<div class="serhead"><a href="${pageContext.request.contextPath}/crm/">CRM</a></div>
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/omar.png" class="left" alt="" /> -->
 								<div id="txt4" class="texter" >
-								<font style="FONT: 12px/18px Tahoma, Arial, sans-serif;">
-								${serviceIntro.dataIntegrationTesting}</font>
+								
+								<p><img src="${pageContext.request.contextPath}/img/icons/crm_img.png" class="left" alt="" />
+								${serviceIntro.dataIntegrationTesting}</p>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -584,7 +565,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			
 				</div>
 				<!--span-6 close-->
-
+			<div class="span-24">	
+				<div class="hrbg_small"></div>
+			</div>
 		<div class="span-24">
 
 				<!--#BEGIN SERVICE BOX#-->
@@ -593,11 +576,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="serhead"><a href="${pageContext.request.contextPath}/Automated/">Automated Testing</a></div>
+						<div class="serhead"><a href="${pageContext.request.contextPath}/data/">Data</a></div>
 					        <!--Service Image-->
 							<!-- <p><img src="./img/icons/psd.png" class="left" alt="" /> -->
 							<div id="txt5"  class="texter" >
-								 ${serviceIntro.automatedTesting}</a>
+								 <p> <img src="${pageContext.request.contextPath}/img/icons/data_img.png" class="left" alt="" />
+								 ${serviceIntro.automatedTesting}</p>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -610,12 +594,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-							<div class="serhead"><a href="${pageContext.request.contextPath}/Mobile/"> Mobile Testing</a></div>
+							<div class="serhead"><a href="${pageContext.request.contextPath}/environmentManage/">Environment Management</a></div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/ecom.png" class="left" alt="" /> -->
 							<div id="txt6"  class="texter" >
 							 
-								${serviceIntro.mobileTesting}
+								<p><img src="${pageContext.request.contextPath}/img/icons/EnvironmentMana_img.png" class="left" alt="" />
+								${serviceIntro.mobileTesting}</p>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -632,11 +617,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<div class="boxed_page">
 						<!--Service Title-->
 					
-						<div class="serhead"><a href="${pageContext.request.contextPath}/OnlineEcommerce/">Online eCommerce & Content Management</a></div>
+						<div class="serhead"><a href="${pageContext.request.contextPath}/erp/">ERP</a></div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
 							<div id="txt7" class="texter" >
-							${serviceIntro.onlineeCommerce}	 </a>
+							<p><img src="${pageContext.request.contextPath}/img/icons/ERP_img.png" class="left" alt="" />
+							${serviceIntro.onlineeCommerce}	 </p>
 							
 						</div>
 					</div>
@@ -650,24 +636,24 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="span-6 last">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
-						<!--Service Title--><div class="serhead"><a href="${pageContext.request.contextPath}/OracleERP/">Oracle ERP Testing</a></div>
+						<!--Service Title--><div class="serhead"><a href="${pageContext.request.contextPath}/infrastructure/">Infrastructure</a></div>
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
 							<div id="txt8"  class="texter" >
-							
-							<p style="font-family: inherit; font-size: 100%; font-style: inherit; font-weight: inherit;">
+							<p><img src="${pageContext.request.contextPath}/img/icons/Infrastructure_img.png" class="left" alt="" />
 								${serviceIntro.oracleERPTesting}</p>
-								
-							</a>
+							
 						</div>
 					</div>
 					<!--Brief Info on Service-->
 				</div>
 				<!--span-6 close-->
-
-</div>
+			</div>
 				<!--#BEGIN SERVICE BOX#-->
-				
+			<div class="span-24">	
+				<div class="hrbg_small"></div>
+			</div>
+			
 			<div class="span-24">
 				
 				<!--Declare 230px width-->
@@ -675,11 +661,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						<!--Service Title-->
-						<div class="serhead"><a href="${pageContext.request.contextPath}/SalesForce/">Sales Force Testing</a></div>
+						<div class="serhead">	<a href="${pageContext.request.contextPath}/middleware/">Middleware</a></div>
 							<!--Service Image-->
 							<!--   <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<div id="txt9"  class="texter" >
-								${serviceIntro.salesForceTesting}
+							<p><img src="${pageContext.request.contextPath}/img/icons/Middleware_img.png" class="left" alt="" />
+								${serviceIntro.salesForceTesting}</p>
 						</div>
 					</div>
 					<!--Brief Info on Service-->
@@ -700,9 +687,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						<!--Service Title-->
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/search.png" class="left" alt="" /> -->
-							<div class="serhead">	<a href="${pageContext.request.contextPath}/Performance/">Performance Testing</a></div>
+						<div class="serhead"><a href="${pageContext.request.contextPath}/mobile/">Mobile</a></div>
 							<div id="txt10"  class="texter" >
-								${serviceIntro.performanceTesting}
+								<p><img src="${pageContext.request.contextPath}/img/icons/Mobile_img.png" class="left" alt="" />
+								${serviceIntro.performanceTesting}</p>
 								 </div>
 						</div>
 					</div>
@@ -719,9 +707,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						<!--Service Title-->
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
-							<div class="serhead"><a href="${pageContext.request.contextPath}/Security/">Security Testing</a></div>
+							<div class="serhead"><a href="${pageContext.request.contextPath}/online/">Online</a></div>
 							<div id="txt11"  class="texter" >
-							${serviceIntro.securityTesting} </div>
+							<p><img src="${pageContext.request.contextPath}/img/icons/Online_img.png" class="left" alt="" />
+							${serviceIntro.securityTesting} </p></div>
 						
 						</div>
 					</div>
@@ -739,25 +728,25 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
-							<div class="serhead"><a href="${pageContext.request.contextPath}/Compliance/">Compliance Testing</a></div>
+							<div class="serhead"><a href="${pageContext.request.contextPath}/performance/">Performance</a></div>
 							<div id="txt12"  class="texter" >
-									${serviceIntro.complianceTesting} </div>
+								<p><img src="${pageContext.request.contextPath}/img/icons/Performance_img.png" class="left" alt="" />
+									${serviceIntro.complianceTesting}</p> </div>
 						
 						</div>
 					<!--Brief Info on Service-->
 				</div>
 				<!--span-6 close-->
-
 				<!--stupid IE 6 again-->
 				<!--[if IE 6]><hr class="space" /><![endif]-->
-
-
-		</div>
+			</div>
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
 				
-				
+			<div class="span-24">	
+				<div class="hrbg_small"></div>
+			</div>
 				
 				<div class="span-6">
 					<!--Boxed style with 20px padding-->
@@ -765,9 +754,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						<!--Service Title-->
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/search.png" class="left" alt="" /> -->
-						<div class="serhead"><a href="${pageContext.request.contextPath}/InfraStructure/">Infrastructure Testing</a></div>
+							<div class="serhead">	<a href="${pageContext.request.contextPath}/QaProgramManagement/">QA Program Management</a></div>
 						<div id="txt13"  class="texter" >
-								${serviceIntro.infrastructureTesting} </div>
+							<p><img src="${pageContext.request.contextPath}/img/icons/QAProgramMana_img.png" class="left" alt="" />
+								${serviceIntro.infrastructureTesting} </p></div>
 						
 						</div>
 					</div>
@@ -788,9 +778,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/cd.png" class="left" alt="" /> -->
-						<div class="serhead">	<a href="${pageContext.request.contextPath}/PerformanceEngineering/">Performance Engineering</a></div>
+					<div class="serhead"> <a href="${pageContext.request.contextPath}/qualityConsulting/">Quality Consulting</a></div>
 						<div id="txt14"  class="texter" >
-									${serviceIntro.performancEngineering}</div>
+							<p><img src="${pageContext.request.contextPath}/img/icons/QualityConsulting_img.png" class="left" alt="" />
+									${serviceIntro.performancEngineering}</p></div>
 				
 						</div>
 				
@@ -807,9 +798,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						<!--Service Title-->
 							<!--Service Image-->
 							<!--  <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
-							<div class="serhead"> <a href="${pageContext.request.contextPath}/TestData/">Test Data Management</a></div>
-							<div id="txt15"  class="texter" >${serviceIntro.testDataManagement}
-							
+							<div class="serhead"><a href="${pageContext.request.contextPath}/security/">Security</a></div>
+							<div id="txt15"  class="texter" >
+							<p><img src="${pageContext.request.contextPath}/img/icons/Security_img.png" class="left" alt="" />
+							${serviceIntro.testDataManagement}</p>
 						</div>
 						</div>
 					</div>
@@ -825,7 +817,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 				<!--#BEGIN SERVICE BOX#-->
 				<!--Declare 230px width-->
-				<div class="span-6 last">
+				<%-- <div class="span-6 last">
 					<!--Boxed style with 20px padding-->
 					<div class="boxed_page">
 						
@@ -834,13 +826,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							<!--Service Image-->
 							<!-- <p><img src="./img/icons/folder.png" class="left" alt="" /> -->
 							<!--  <div class="texter">     -->
-							<div class="serhead"><a href="${pageContext.request.contextPath}/TestEnvironment/">Test Environment Management</a></div>
+							
 							<div id="txt16"  class="texter" >
 								${serviceIntro.testEnvironment}	</div>
 				
 						</div>
 
-					</div>
+					</div> --%>
 					<!--Brief Info on Service-->
 				
 				<!--span-6 close-->
@@ -975,9 +967,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!-- and some brief information about the company-->
 					<div class="footer_text">
 						<p>
-							&copy; <a href="#">Logical Media</a> is available 24/7 365 days a
-							year. We are currently located in Toledo, OH. &nbsp;&nbsp; |
-							&nbsp;&nbsp;Need a quote? <a href="#">Click Here</a>.
+							&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
 					<!--footer_text close-->
@@ -998,7 +988,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/requestList/">Request</a>
+						<li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 					</ul>
@@ -1020,7 +1010,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	</div>
 	<!--container close-->
 
-	
+	</div>
 
 	<!--IE Fix for over-shadow text replacement-->
 	<script type="text/javascript">

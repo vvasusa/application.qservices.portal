@@ -213,7 +213,89 @@ public class LoginController {
 		return "blog";
 	}
 
-	@RequestMapping(value = "/QAssesment", method = RequestMethod.GET)
+	
+/********************	SERVICE PAGES*********************************/
+	
+	@RequestMapping(value = "/automated", method = RequestMethod.GET)
+	public String Automated(ModelMap model, HttpServletRequest request) {
+		return "automation";
+	}
+
+	@RequestMapping(value = "/cloud", method = RequestMethod.GET)
+	public String cloud(ModelMap model, HttpServletRequest request) {
+		return "cloud";
+	}
+
+	@RequestMapping(value = "/compliance", method = RequestMethod.GET)
+	public String Compliance(ModelMap model, HttpServletRequest request) {
+		return "compliance_new";
+	}
+
+	@RequestMapping(value = "/crm", method = RequestMethod.GET)
+	public String crm(ModelMap model, HttpServletRequest request) {
+		return "crm";
+	}
+
+	@RequestMapping(value = "/data", method = RequestMethod.GET)
+	public String data(ModelMap model, HttpServletRequest request) {
+		return "data";
+	}
+
+	@RequestMapping(value = "/environmentManage", method = RequestMethod.GET)
+	public String environmentManage(ModelMap model, HttpServletRequest request) {
+		return "testEnvironment_new";
+	}
+
+	@RequestMapping(value = "/erp", method = RequestMethod.GET)
+	public String Erp(ModelMap model, HttpServletRequest request) {
+		return "erp";
+	}
+
+	@RequestMapping(value = "/infrastructure", method = RequestMethod.GET)
+	public String infrastructure(ModelMap model, HttpServletRequest request) {
+		return "infrastructure_new";
+	}
+
+	@RequestMapping(value = "/middleware", method = RequestMethod.GET)
+	public String middleware(ModelMap model, HttpServletRequest request) {
+		return "middleware_new";
+	}
+
+	@RequestMapping(value = "/mobile", method = RequestMethod.GET)
+	public String mobile(ModelMap model, HttpServletRequest request) {
+		return "mobile_new";
+	}
+
+	@RequestMapping(value = "/online", method = RequestMethod.GET)
+	public String online(ModelMap model, HttpServletRequest request) {
+		return "online";
+	}
+
+	@RequestMapping(value = "/performance", method = RequestMethod.GET)
+	public String Performance(ModelMap model, HttpServletRequest request) {
+		return "performance_new";
+	}
+
+	@RequestMapping(value = "/QaProgramManagement", method = RequestMethod.GET)
+	public String qaProgramManagement(ModelMap model, HttpServletRequest request) {
+		return "QaProgramManagement";
+	}
+
+	@RequestMapping(value = "/qualityConsulting", method = RequestMethod.GET)
+	public String qualityConsulting(ModelMap model, HttpServletRequest request) {
+		return "qualityConsulting";
+	}
+
+	@RequestMapping(value = "/security", method = RequestMethod.GET)
+	public String security(ModelMap model, HttpServletRequest request) {
+		return "security_new";
+	}
+
+	
+	
+	
+	
+	/*@RequestMapping(value = "/QAssesment", method = RequestMethod.GET)
 	public String QAssesmentPage(ModelMap model, HttpServletRequest request) {
 		return "QAssesment";
 	}
@@ -298,5 +380,10 @@ public class LoginController {
 	public String InfraStructure(ModelMap model, HttpServletRequest request) {
 		return "InfraStructure";
 	}
-
+	
+	@RequestMapping(value = "/lostPassword", method = RequestMethod.GET)
+	public String lostPassword(ModelMap model, HttpServletRequest request) {
+		return "lostPass";
+	}
+*/
 }
