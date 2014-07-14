@@ -1,13 +1,3 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title> --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -18,49 +8,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
-
-<title>Q-Service Portal</title>
-<%-- <script type="text/javascript">
-  <%String temp = (String) session.getAttribute("MySessionId");%>
-
-var value= "<%=temp%>";
-	
-
-	alert(value);
-</script> --%>
-</head>
+<title>Pearson Q-service Portal</title>
 
 
-<%-- 
-<a href="${pageContext.request.contextPath}/index/">HomePage</span></a>
- <a href="${pageContext.request.contextPath}/logout/"> logout</a> --%>
-
-<c:if test="${!empty loginType}">
-<a href="${pageContext.request.contextPath}/logout/"> </a></c:if>
-<!-- =======================********************************************************************************** -->
-
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/framework.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/site_styles.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"
-	media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" charset="utf-8" />
 
 <!-- jQuery Slider declarations are made in this file. The slider is found at the top of the index/ page-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slider.css"
-	type="text/css" media="screen, projection" charset="utf-8" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" charset="utf-8" />
 
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/slider.css"
-	type="text/css" media="screen, projection" />
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" />
+<!-- <link rel="stylesheet"	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> -->
+
+	 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/jquery-ui-1.10.4.css"> 
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -79,22 +41,21 @@ var value= "<%=te%>	";
 <!--Custom jQuery Set-->
 <!--jQuery Delay Plugin-->
 <!--jQuery Image Preloader-->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script> --%>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/custom.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/preloader.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/delay.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
+	
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.10.4.js"></script> --%>
+	
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-ui.js"></script>
+
+<!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
 
 <script type="text/javascript">
 
@@ -195,15 +156,74 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 
 
+
+
 <script type="text/javascript">
 $(function() {   
 	$( "#accordion" ).accordion({ header: "h5", collapsible: true, active: false }); 
 	
-	/* $("#accordion").accordion(
-			   { active: "a.default",  header: "a.accordion-label" }
-			); */
+
 	});
      
+</script>
+
+
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	 var val_id = $("#val").val();
+	 var value = "${data.val}";
+	 var v = "Work!";
+	 var value1 = "failed";
+	
+	 if($.trim(val_id)!=$.trim(v)){
+		 
+		 if($.trim(value)==$.trim(value1))
+		 {
+			 alert("Incorrect UserName / Password");				
+		 }
+	 }
+ 
+	 $("#val").val('Work!');
+	 var val_id = $("#val").val();	
+
+	$('#form1').on("submit", function(e){
+		
+		var val_id = $("#log").val();
+		var val_pass = $("#pwd").val();
+		
+		var value = "${data.val}";
+		var value_Temp = "failed";
+		if($.trim(val_pass) ===$.trim(value_Temp)){
+		
+	}
+		$("#log").removeClass('errordis');	
+		$("#pwd").removeClass('errordis');	
+				
+		 if( $.trim(val_id) === '' )
+		{		
+			$("#log").addClass('errordis');
+			$("#log").focus();	
+			
+			$('#form').show();
+			e.preventDefault(); 
+		}	
+		
+		if( $.trim(val_pass) === '' )
+		{
+			
+			$("#pwd").addClass('errordis');
+			$("#pwd").focus();
+		     
+		    $('#form').show();
+		    e.preventDefault(); 
+			
+		}	
+		
+		});		
+});
 </script>
 
 
@@ -221,16 +241,15 @@ $(function() {
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-<a href="${pageContext.request.contextPath}/logout/"><b></b></a>
+
+
 <body>
-
-
 <div id="toppanel">
 		<div id="panel">
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 									
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -272,7 +291,7 @@ $(function() {
 						class="field" type="text" name="email" id="email" size="23" /> <label>A
 						password will be e-mailed to you.</label> <input type="submit"
 						name="submit" value="Register" class="bt_register" />
-</form>
+					</form>
 				</div>
 				<!--panel box3-->
 
@@ -308,18 +327,19 @@ $(function() {
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
-			<div class="logo">
-
-			  <img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-				<p align="right"   style=" font-family: inherit;">
-		             <font face="verdana ,helvetica"  size="2" color="#990066" >
-		                  <c:if test="${!empty loginType}">
- 		                     <%String name = (String) session.getAttribute("loginName");%>
-		                    welcome <%=name%>	
-		                  </c:if>
-		             </font>
-		        </p>
-			</div>
+		<div class="span-24">
+		<div class="span-10">
+			<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
+		</div>
+		 	<div style="float:right; padding-top:20px; color:#990066;">
+		       <p>
+		        <c:if test="${!empty loginType}">
+ 		         <%String name = (String) session.getAttribute("loginName");%>
+		         welcome <%=name%>	
+		        </c:if>
+		      </p>
+		 </div>	
+		</div>	
 			<!--Close Logo Area-->
 
 			<!-- FOR SAMPLE CHCEK-START -->
@@ -370,58 +390,33 @@ $(function() {
 
 		</div>
 		<!--Header Close-->
-
+		
+		
 
 		<!--Begin Page Area, below header navigation-->
-		<div class="page">
-
-		<%-- 	<!--Declare 550px width w/ right border-->
-			<div class="span-14 colborder">
-				<!--Intro Image shown here, about site-->
-				<div class="intro">
-					<img src="../img/intro.gif" alt="" />
-					<p>
-						Find out More about our services <a
-							href="${pageContext.request.contextPath}/services/">here
-							&raquo;</a>
-					</p>
-				</div>
-				<!--Close intro image-->
-			</div> --%>
-			<!--Close 550px width-->
-
-			<!--Declare 350px width, last-->
-			<!-- <div class="span-9 last">
-				Site Slogan Area
-				<div class="slogan">
-					<h3>We Create Experiences.</h3>
-					
-				</div> -->
-				<!--Close Site Slogan Area-->
-				
-				
-				
-			</div>
 			<!--Close 350px width-->
 
-
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
-			<div class="span-24" style = "text-align:right; float:right" > 
+	
+		<div class="page">
+	
+			<!--add hr line-->
+			<div class="hrbg_small">
 		
+		<div class="span-24" style = "text-align:right; float:right" > 
 		<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>My Request</b></u></a>
 					<a href="${pageContext.request.contextPath}/viewAllRequest"	style = "color:rgb(0,90,100);" ><u><b>All Request</b></u></a>&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/myApprove" ><u>My Approve</u></a>&nbsp;&nbsp;&nbsp;&nbsp; 
 					<a href="${pageContext.request.contextPath}/myReject"	><u>My Reject</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
-		
-			<div class="hrbg_small">
-
-			</div>
-		</div> 
-			<!--Close span-24-->
-<div class="hrbg_small">
-
-
+					<div class="hrbg_small"></div>
 		</div>
+		</div>
+			<!--add hr line-->
+			
+	
+		</div>
+		
+		
 		<!--page close-->
 
 <!-- =======================********************************************************************************** -->
@@ -463,21 +458,11 @@ $(function() {
 	
 	<%-- </c:if> --%>
 </c:if>
-<%-- </c:forEach> --%>
 
-
-<body>
-	<%-- <% if( value=="AD02" ) { %>
-	
-  <DIV>....</DIV> --%>
-
-	<%-- <c:if test="${user.email==user.email}"> --%>
-	<%-- <c:if test="true"> --%>
 
 	<div>
 
-		<%-- <c:forEach var="user" items="${adminUser}"> 
-	<c:if test="${user.loginType=='VISITOR'}"> --%>
+		
 
 		<%
 			String temp1 = (String) session.getAttribute("MySessionId");
@@ -487,188 +472,67 @@ $(function() {
 		%>
 
 
-
-	<%-- 	<c:if test="${loginType == 'VISITOR'}">
-
-			<c:forEach var="user" items="${adminUser}">
-
-				<c:if test="${sessionScope.user != null}">
-    There is a user **attribute** in the session
-</c:if>
-
-				<form action="${pageContext.request.contextPath}/update"
-					method="post" commandName="requestForm">
-				
-					<input type="hidden" name=loginType value="${user.loginType}" />
-
-
-				<p>	<h3>Welcome <b>${user.firstName}</b> Please update your profile before seeing your request...</h3></p>
-					<table
-						style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
-						class="contactForm">
-						<tr>
-						
-						
-
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="firstName" value="${user.firstName}" /></td>
-						</tr>
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="lastName" value="${user.lastName}" /></td>
-						</tr>
-						
-						
-						
-						
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="email" value="${user.email}"
-								<form:errors path="email" /> /></td>
-							<td><form:errors path="email" /></td>
-						</tr>
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="phoneNo" value="${user.phoneNo}" /></td>
-						</tr>
-
-
-
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">address:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="address" value="${user.address}" /></td>
-						</tr>
-						
-						
-						<!-- 
-
-						CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Request:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><select
-								type="text" name="requestname">
-									<option value="volvo">Volvo</option>
-									<option value="saab">Saab</option>
-									<option value="mercedes">Mercedes</option>
-									<option value="audi">Audi</option>
-							</select></td>
-						</tr>
-						CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END
-						<tr>
-							<td
-								style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message:</td>
-							<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-								type="text" name="subject" value="" /></td>
-						</tr>
- -->
-						<tr>
-							<td colspan="2"
-								style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
-								fields are required.</td>
-						</tr>
-						<tr>
-							<td colspan="2"
-								style="text-align: left; vertical-align: middle; padding: 5px;"><input
-								type="submit" name="update" value="update" /> (Email will not
-								be sent)</td>
-
-						</tr>
-					</table>
-				</form>
-
-				<h2> click here for seeing list of request rasied by you ..<a href="${pageContext.request.contextPath}/userRequestList" method="post">click
-		here</a></h2>
-				
-
-			</c:forEach>
-		</c:if> --%>
 	</div>
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 	<div class="container">
-	
 		<c:if test="${loginType != 'VISITOR' && !empty loginType}">
-		
 			<h3> <a href="${pageContext.request.contextPath}/viewAllRequest" method="post"><u>	</u></a></h3>
 			
-	<div id="accordion"> 
-	<c:forEach var="user" items="${adminUser}">
-		<h5>
+			<div id="accordion"> 
+				<c:forEach var="user" items="${adminUser}">
+					<!-- <h5>
+						<table >
+							<tr>
+								<td width=27%>REQUEST ID</td>
+								<td width=30%>REQUEST NAME</td>
+								<td width=25%>DATE</td>
+								<td width=25%>STATUS</td>
+							</tr>
+						</table>
+					</h5> -->
+		<h5>		
 			<table >
 				<tr>
-					<td width=27%>REQUEST ID</td>
-					<td width=30%>REQUEST NAME</td>
-					<td width=25%>DATE</td>
-					<td width=25%>STATUS</td>
-					
-					<!-- <td class="heading">FIRSTNAME</td>
-					<td class="heading">LASTNAME</td> 
-					<td class="heading">REQUESTORID</td>
-					<td class="heading">SERVICEID</td>
-					<td class="heading">RAISED DATE</td>
-					<td class="heading">REVIEW BY</td>
-					<td class="heading">STATUS</td>-->
-					
+					<td class="heading" width=25%>Request ID</td>
+					<td class="heading" width=25%>Request Name</td>
+					<td class="heading" width=25%> Date </td>
+					<td class="heading" width=25%>Status</td>
 				</tr>
-				</table>
+				</table>  
 				</h5>
 				
 					<%-- <c:if test="${user.loginType=='QA'}"> --%>
 					<h6>
-					<table >
-					<tr>
-						<td width=28%>${user.raisedReqId}</td>
-						<td width=28%>${user.requestName}</td>
-						<td width=28%>${user.lastUpdatedOn}</td>
-						<td width=25%>${user.status}</td>
-						<%-- <td>${user.firstName}</td>
-						<td>${user.lastName}</td>
-						<td>${user.requestorId}</td>
-						<td>${user.serviceId}</td>
-						<td>${user.lastUpdatedOn}</td>
-						<td>${user.approvedBy}</td>
-						<td>${user.status_Id}</td> 
-						<td>${user.requestName}</td>
-					    <td>${user.requestID}</td> --%>
-					    </tr>
+						<table >
+							<tr>
+								<td width=28%>${user.raisedReqId}</td>
+								<td width=28%>${user.requestName}</td>
+								<td width=28%>${user.lastUpdatedOn}</td>
+								<td width=25%>${user.status}</td>
+					  		  </tr>
 					    <tr><td></td></tr> <tr><td></td></tr>
 					    <tr>
-						 <td>QA Commands :${user.commandsByQA} </td></tr>
+						 <td>QA Commands: ${user.commandsByQA} </td></tr>
 						<tr>
-						<td>PL Commends :${user.commandsByPL} </td>
+						<td>PL Commends:${user.commandsByPL} </td>
 						</tr>
 						<tr>
-						<td> SLM Commends :${user.commandsBySLM} </td>
+						<td> SLM Commends:${user.commandsBySLM} </td>
 						</tr>
 						 <tr>
-						<td> ADM Commends :${user.commandsByADM} </td>
+						<td> ADM Commends:${user.commandsByADM} </td>
 						</tr> 
 			<%-- 	 <tr>
 						<td>
 						<div id ="approve">
-						<a href="${pageContext.request.contextPath}/approve?id=${user.raisedReqId}"
-							value="<c:out value="${user.email}"></c:out>"  name="approveID" method="post"></a></div></td>
+						<a href="${pageContext.request.contextPath}/approve?id=${user.raisedReqId}"	value="<c:out value="${user.email}"></c:out>"  name="approveID" method="post"></a></div></td>
 							
 						<td> <div id ="reject">
-						<a href="${pageContext.request.contextPath}/reject?id=${user.raisedReqId}"
-							value="<c:out value="${user.email}"></c:out>" id="${user.email}"  method="post" name="rejectID"></a></div></td>
-							
+						<a href="${pageContext.request.contextPath}/reject?id=${user.raisedReqId}"	value="<c:out value="${user.email}"></c:out>" id="${user.email}"  method="post" name="rejectID"></a></div></td>
 					</tr>
-
 					<tr>
-						<td colspan="7"><a
-							href="${pageContext.request.contextPath}/update"> </a></td>
+						<td colspan="7"><a	href="${pageContext.request.contextPath}/update"> </a></td>
 					</tr> --%>
 					<%-- </c:if> --%>
 					</table>
@@ -685,47 +549,7 @@ $(function() {
 
 	<div>
 
-		<%--  <c:forEach var="user" items="${adminUser}">  --%>
-
-		<%-- <form action="${pageContext.request.contextPath}/update" method="post"
-			commandName="requestForm">
-
-			<input type="hidden" name=loginType value="${user.loginType}" />
-
-
-			<c:if test="${loginType == 'VISITOR'}">
-				<table border="1">
-
-
-					<tr>
-						<td class="heading">First Name</td>
-						<td class="heading">Last Name</td>
-						<td class="heading">Email</td>
-						<td class="heading">ContactNo</td>
-						<td class="heading">Req_Name</td>
-						<td class="heading">Req_ID</td>
-						<td class="heading">ACTION</td>
-						<td class="heading">ACTION</td>
-
-					</tr>
-					<c:forEach var="user" items="${adminUser}">
-						<c:if test="${user.loginType=='QA'}">
-
-						<tr>
-							<td>${user.firstName}</td>
-							<td>${user.lastName}</td>
-							<td>${user.email}</td>
-							<td>${user.phoneNo}</td>
-							<td>${user.phoneNo}</td>
-							<td>${user.phoneNo}</td>
-						</tr>
-					</c:forEach>
-				</table>
-		</form>
-
-
-
-		</c:if> --%>
+		
 	</div>
 
 
@@ -742,7 +566,7 @@ $(function() {
 				<!-- and some brief information about the company-->
 				<div class="footer_text">
 					<p>
-						&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+						&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 					</p>
 				</div>
 				<!--footer_text close-->
@@ -761,7 +585,7 @@ $(function() {
 						|</li> --%>
 					<li><a href="${pageContext.request.contextPath}/services/">Services Catalog</a>
 						|</li>
-					<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+					<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
 						|</li>
 						   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
 					<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>

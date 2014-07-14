@@ -8,7 +8,7 @@
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Portfolio / Identity Pack - Q-Service Portal</title>
+<title>Portfolio / Identity Pack - Pearson Q-service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -148,7 +148,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<div class="content clearfix">
 			<!--panel box1-->
             <div class="left">
-				<h1>Welcome to Q-Service Portal </h1>
+				<h1>Welcome to Pearson Q-service Portal </h1>
 				<h2>Are you a new client? Let's Begin.</h2>		
 				<p class="color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 				<h2>It's Simple and Cost-Effective!</h2>

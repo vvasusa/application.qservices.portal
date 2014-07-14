@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 
-<title>Our Portfolio - Q-Service Portal</title>
+<title>Our Portfolio - Pearson Q-service Portal</title>
 
 <!-- CSS Link s-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -144,7 +144,7 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
 		<div class="content clearfix">
 			<!--panel box1-->
             <div class="left">
-				<h1>Welcome to Q-Service Portal </h1>
+				<h1>Welcome to Pearson Q-service Portal </h1>
 				<h2>Are you a new client? Let's Begin.</h2>		
 				<p class="color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 				<h2>It's Simple and Cost-Effective!</h2>

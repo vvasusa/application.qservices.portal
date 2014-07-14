@@ -6,7 +6,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>Contact Us - Q-ServicePortal</title>
+<title>Contact Us - Pearson Q-service Portal</title>
 
 
 
@@ -15,14 +15,14 @@
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" />
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/jquery.lightbox-0.5.css"	type="text/css" media="screen, projection" />
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" />
-<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/jquery-ui-1.10.4.css" type="text/css" media="screen, projection" />
+<%-- <link rel="stylesheet"  href="${pageContext.request.contextPath}/css/jquery-ui-1.10.4.css" type="text/css" media="screen, projection" /> --%>
 
 
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/lightbox.js"></script>
-<script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-1.10.2.js"></script> 
+<!-- <script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-1.10.2.js"></script>  -->
 <script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-ui.js"></script>
 
 <!--jQuery Sliding Login Panel Button-->
@@ -44,20 +44,15 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 
 
-<!-- ************************************************************************************************************************ -->
-
 
 <style>
 .errordis {
-	background-color: FF8080 !important;
+	background-color: #FF8080 !important;
 	border: 1px solid #F00 !important
 }
 </style>
 
-
-
 <script type="text/javascript">
-
 $(document).ready(function(){
 
 	$('#form1').on("submit", function(e){
@@ -125,13 +120,65 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	 var val_id = $("#val").val();
+	 var value = "${data.val}";
+	 var v = "Work!";
+	 var value1 = "failed";
+	
+	 if($.trim(val_id)!=$.trim(v)){
+		 
+		 if($.trim(value)==$.trim(value1))
+		 {
+			 alert("Incorrect UserName / Password");				
+		 }
+	 }
+ 
+	 $("#val").val('Work!');
+	 var val_id = $("#val").val();	
 
+	$('#form1').on("submit", function(e){
+		
+		var val_id = $("#log").val();
+		var val_pass = $("#pwd").val();
+		
+		var value = "${data.val}";
+		var value_Temp = "failed";
+		if($.trim(val_pass) ===$.trim(value_Temp)){
+		
+	}
+		$("#log").removeClass('errordis');	
+		$("#pwd").removeClass('errordis');	
+				
+		 if( $.trim(val_id) === '' )
+		{		
+			$("#log").addClass('errordis');
+			$("#log").focus();	
+			
+			$('#form').show();
+			e.preventDefault(); 
+		}	
+		
+		if( $.trim(val_pass) === '' )
+		{
+			
+			$("#pwd").addClass('errordis');
+			$("#pwd").focus();
+		     
+		    $('#form').show();
+		    e.preventDefault(); 
+			
+		}	
+		
+		});		
+});
 
+</script>
 
-<!-- ************************************************************************************************************************ -->
-
-
-
+<!-- 
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -142,7 +189,7 @@ $(document).ready(function(){
 		});
 
 	});
-</script>
+</script> -->
 
 <!--CUFON Text Replacement-->
 <!--This script replaces existing <h> tags with the custom Titillium Font that renders correctly in all modern browsers-->
@@ -178,7 +225,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 
 <!-- Color hover JavaScript Files -->
-<script type="text/javascript" src="./js/jquery.color.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.color.js"></script>
 <script type="text/javascript">
 	// Background color animation 
 	$(document).ready(function() {
@@ -222,7 +269,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 					<h2>It's Simple and Cost-Effective!</h2>
@@ -310,21 +357,22 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 
 		<!--Begin Header-->
-		<div class="header">
+		<div class="">
 			<!--Logo Area-->
 
-			<div class="logo">
-				<a href="${pageContext.request.contextPath}/index/"><img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
-				
-				<p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		             <font face="verdana ,helvetica"  size="2" color="#990066" >
-		                  <c:if test="${!empty loginType}">
- 		                     <%String name = (String) session.getAttribute("loginName");%>
-		                     welcome <%=name%>	
-		                  </c:if>
-		             </font>
-		        </p>
+			<div class="span-24">
+				<div class="span-10">
+				<img  src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
 			</div>
+		 	<div style="float:right; padding-top:20px; color:#990066;">
+		       		<p>
+		       		 <c:if test="${!empty loginType}">
+ 		        	 <%String name = (String) session.getAttribute("loginName");%>
+		        	 welcome <%=name%>	
+		        </c:if>
+		     	 </p>
+		 	</div>	
+		</div>	
 			<!--Close Logo Area-->
 
 
@@ -568,12 +616,12 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
-				<div class="span-16">
+				<div class="span-8">
 					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 					<!-- and some brief information about the company-->
 					<div class="footer_text">
 						<p>
-							&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+							&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
 					<!--footer_text close-->
@@ -583,16 +631,16 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 				<!--Footer navigation goes here-->
 				<!--Declare 310px width-->
-				<div class="span-8 last">
+				<div class="span-16 last">
 
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/services/">Services</a>
+						<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/requestList/">Request</a>
+						<li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 					</ul>

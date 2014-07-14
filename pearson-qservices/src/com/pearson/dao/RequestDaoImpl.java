@@ -103,7 +103,7 @@ public class RequestDaoImpl implements RequestDao {
 				
 					//rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where ApprovedBy='"+ value + "' order by date desc" );
 					
-					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where t1.Status_Id='0' order by date desc");
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Request_Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where t1.Status_Id='0' order by Request_Date desc");
 				}
 				
 				if (loginType.equals("PL")) {
@@ -112,7 +112,7 @@ public class RequestDaoImpl implements RequestDao {
 					//rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
 					//rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t3.Service_Name,t1.LastUpdatedOn FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "'");
 					//rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "' order by date desc" );
-					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where t1.Status_Id='1' order by date desc");
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Request_Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where t1.Status_Id='1' order by Request_Date desc");
 				}
 				if (loginType.equals("SLM")) {
 					String value ="ApprovedBy PL";
@@ -120,7 +120,7 @@ public class RequestDaoImpl implements RequestDao {
 				//	rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
 					//rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t3.Service_Name,t1.LastUpdatedOn FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "'");
 					//rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "' order by date desc" );
-					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where t1.Status_Id='3' order by date desc");
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Request_Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where t1.Status_Id='3' order by Request_Date desc");
 				}
 				if (loginType.equals("ADM")) {
 					String value ="ApprovedBy SLM";
@@ -128,7 +128,7 @@ public class RequestDaoImpl implements RequestDao {
 					//rs = statement.executeQuery("select req.RequestId,req.RequestorId,restr.firstName, restr.lastName,req.ServiceId,req.Date,req.ApprovedBy,req.Status_Id,req.LastUpdatedOn FROM request AS req INNER JOIN requestor AS restr on req.RequestorId=restr.requestorId where  ApprovedBy= '"+ value + "'");
 					//rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t3.Service_Name,t1.LastUpdatedOn FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "'");
 					//rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id  where ApprovedBy='"+ value + "' order by date desc" );
-					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where t1.Status_Id='5' order by date desc");
+					rs = statement.executeQuery("SELECT t1.RequestId,t1.descreption, t1.ApprovedBy,t1.RequestorId, t1.Request_Date, t2.firstName,t2.lastName, t2.email, t2.phoneNo, t1.ServiceId,t3.UserId,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.descreption,t3.Service_Name FROM request as t1 LEFT JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN service as t3 ON t1.ServiceId = t3.Service_Id LEFT JOIN status as t4 ON t1.Status_Id = t4.StatusId  where t1.Status_Id='5' order by Request_Date desc");
 				}
 
 				
@@ -168,7 +168,7 @@ public class RequestDaoImpl implements RequestDao {
 						user.setPhoneNo(rs.getString("phoneNo"));
 						user.setUserId(rs.getString("UserId"));
 						user.setEmail(rs.getString("email"));
-						user.setDate(rs.getString("Date"));
+						user.setDate(rs.getString("Request_Date"));
 						user.setDesc(rs.getString("descreption"));
 						adminUser.add(user);
 					
@@ -201,7 +201,7 @@ catch(Exception e){System.out.println( e);}
 			//ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Date,t1.ApprovedBy,t1.Status_Id,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = '"+ ID + "'");
 			//ResultSet rs = statement.executeQuery("select * from REQUEST where RequestorId="	+ ID);
 			
-			ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Date,t1.ApprovedBy,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN status as t4 ON t4.StatusId = t1.Status_Id where t1.RequestorId = '"+ ID + "'order by date desc");
+			ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Request_Date,t1.ApprovedBy,t1.Status_Id,t4.StatusDesc,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = t2.requestorId LEFT JOIN status as t4 ON t4.StatusId = t1.Status_Id where t1.RequestorId = '"+ ID + "'order by Request_Date desc");
 			AdminUser user = null;
 			while (rs.next()) {
 				user = new AdminUser();
@@ -220,27 +220,12 @@ catch(Exception e){System.out.println( e);}
 						rs.getString("requestorId"))
 						&& StringUtils.endsWithIgnoreCase(ses_Type,
 								rs.getString("loginType"))) {
-
-					/*String Req_Fname = (rs.getString("firstName"));
-					String Req_Lname = (rs.getString("lastName"));
-					String Email = (rs.getString("email"));
-					String PhoneNo = (rs.getString("phoneNo"));
-					String loginType = (rs.getString("loginType"));
-					String requestorId = rs.getString("requestorId");
-					user.setUserId(requestorId);
-					user.setFirstName(Req_Fname);
-					user.setLastName(Req_Lname);
-					user.setEmail(Email);
-					user.setPhoneNo(PhoneNo);
-					user.setLoginType(loginType);
-					user.setAddress(rs.getString("address"));
-					adminUser.add(user);*/
 					
 					user.setApprovedBy(rs.getString("ApprovedBy"));
 					user.setRequestorId(rs.getString("RequestorId"));
 					user.setStatus_Id(rs.getString("Status_Id"));
 					user.setRequestID(rs.getString("RequestId"));
-					user.setRaisedDate(rs.getString("Date"));
+					user.setRaisedDate(rs.getString("Request_Date"));
 					user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
 					user.setServiceId(rs.getString("ServiceId"));
 					user.setStatus(rs.getString("StatusDesc"));
@@ -369,7 +354,7 @@ catch(Exception e){System.out.println( e);}
 				//ResultSet rs = statement.executeQuery("select * from REQUEST where requestorId="+ ID);
 
 				//ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Date,t1.ApprovedBy,t1.Status_Id,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = '"+ ID + "'");
-				ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Date,t1.ApprovedBy,t1.Status_Id,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = t2.requestorId  where t1.RequestorId = '"+ ID + "'order by date desc");
+				ResultSet rs = statement.executeQuery("SELECT t1.RequestId,t1.RequestorId,t1.ServiceId,t1.Request_Date,t1.ApprovedBy,t1.Status_Id,t1.LastUpdatedOn,t1.RejectedBy,t1.descreption,t1.commandsByQA,t1.commandsByPL,t1.commandsBySLM,t1.commandsByADM,t2.requestorId,t2.firstName,t2.lastName,t2.address,t2.phoneNo,t2.email,t2.loginType FROM request as t1 INNER JOIN requestor as t2 ON t1.RequestorId = t2.requestorId  where t1.RequestorId = '"+ ID + "'order by Request_Date desc");
 
 				AdminUser user = null;
 				// AdminUser user = new AdminUser();

@@ -37,9 +37,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			if (ID != null) {
 				Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet rs = statement
-						.executeQuery("select * from REQUESTOR where requestorId="
-								+ ID);
+				ResultSet rs = statement.executeQuery("select * from REQUESTOR where requestorId='"+ ID + "'");
 
 				/* (SELECT * FROM adminuser where userId="+"id) */
 				/* ("select * from samplevisitor where requestorId= :ID") */
@@ -88,6 +86,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 				}
 			}
 		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return adminUser;
 
@@ -130,7 +129,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			
 
 			int rs = statement
-					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,Date,descreption,ApprovedBy,Status_Id,LastUpdatedOn)VALUES('"
+					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,Request_Date,descreption,ApprovedBy,Status_Id,LastUpdatedOn)VALUES('"
 							+ reqid
 							+ "','"
 							+ ses_Id

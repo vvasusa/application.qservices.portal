@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
 
-<title>Q-Service Portal</title>
+<title>Pearson Q-service Portal</title>
 
 </head>
 
@@ -25,7 +25,7 @@
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" charset="utf-8" />
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" charset="utf-8" />
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" />
-<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/jquery-ui-1.10.4.css" type="text/css" media="screen, projection">
+<%-- <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/jquery-ui-1.10.4.css" type="text/css" media="screen, projection"> --%>
 
 <!--IE 6,7 Render Fixes-->
 <!--[if lt IE 8]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -42,14 +42,16 @@
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
+
+<%-- 
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
-	
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
+ --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script  type="text/javascript" src="${pageContext.request.contextPath}/js/kendo.all.min.js"></script>
 	
 
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.10.2.js"></script>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.10.2.js"></script> --%>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-ui.js"></script>
 
 <!--Preload Image Over Imgs-->
@@ -199,7 +201,7 @@ var Login= "<%=Login%>";
 }
 
 .errordis {
-	background-color: FF8080 !important;
+	background-color: #FF8080 !important;
 	border: 1px solid #F00 !important
 }
 </style>
@@ -535,7 +537,7 @@ $(document).ready(function(){
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here

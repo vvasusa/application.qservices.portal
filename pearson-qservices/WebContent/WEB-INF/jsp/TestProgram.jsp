@@ -16,7 +16,7 @@
 <?xml version="1.0"?>
 <head>
 
-<title>Q-Service Portal</title>
+<title>Pearson Q-service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -49,12 +49,12 @@
 <!--jQuery Image Preloader-->
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script> --%>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
 
 
 <!--Preload Image Over Imgs-->
@@ -185,7 +185,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et

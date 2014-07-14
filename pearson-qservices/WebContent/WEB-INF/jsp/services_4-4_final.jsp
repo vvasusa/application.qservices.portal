@@ -7,7 +7,7 @@
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Q-SERVICE PORTAL</title>
+<title>Pearson Q-service PORTAL</title>
 
 
 <!-- CSS Links -->
@@ -264,7 +264,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -460,7 +460,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<!--#PAGE INTRO#-->
 					<!--Brief Info -->
 					<p>
-					<h2>The Q-service portal is providing the following services
+					<h2>The Pearson Q-service portal is providing the following services
 						for customers.. For more information please click on services...</h2>
 					</p>
 <div class="hrbg_small"></div>

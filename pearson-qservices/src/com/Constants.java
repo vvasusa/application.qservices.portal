@@ -29,6 +29,11 @@ public final class Constants {
 	public static final int STATUS_FOUR = 4;
 	public static final int STATUS_FIVE = 5;
 	
+	public static final String APPROVED = "Approved";
+	public static final String REJECTED = "Rejected";
+	public static final String LOGIN_MODE_ADMIN = "admin";
+	public static final String LOGIN_SUCCESS = "success";
+	public static final String LOGIN_FAILED = "FAILED";
 	
-
+	public static final String LOGIN_MODE_REQUESTOR="requestor";
 }

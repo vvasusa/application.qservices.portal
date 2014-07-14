@@ -1,8 +1,3 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -18,7 +13,7 @@
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-<title>Q-SERVICE PORTAL</title>
+<title>Pearson Q-service PORTAL</title>
 
 <%-- <a href="${pageContext.request.contextPath}/logout/"> <img src="${pageContext.request.contextPath}/img/logout.jpg"></img></a> --%>
 
@@ -57,20 +52,19 @@
 <!--jQuery Delay Plugin-->
 <!--jQuery Image Preloader-->
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<%-- <script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script> --%>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script> --%>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
 
 <script type=text/javascript	src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.formError.js"></script>
-
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.validation.js"></script>
 
@@ -121,53 +115,144 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 }
 </style>
 
+
+
+
 <!-- LOGIN LOGOUT VALIDATION  START-->
 
 <script type="text/javascript">
+	
+$(document).ready(function(e){
+	
+	 var val_id = $("#val").val();
+	 var value = "${data.val}";
+	 var v = "Work!";
+	 var value1 = "failed";
+	
+	 if($.trim(val_id)!=$.trim(v)){
+		 
+		 if($.trim(value)==$.trim(value1))
+		 {
+			 alert("Incorrect UserName / Password");
+				
+		 }
+	 }
+ 
+	 $("#val").val('Work!');
+	 var val_id = $("#val").val();
+	
 
-$(document).ready(function(){
 
 	$('#form1').on("submit", function(e){
 		
 		var val_id = $("#log").val();
 		var val_pass = $("#pwd").val();
 		
+		var value = "${data.val}";
+		var value_Temp = "failed";
+		if($.trim(val_pass) ===$.trim(value_Temp)){
+		
+	}
 		$("#log").removeClass('errordis');	
 		$("#pwd").removeClass('errordis');	
+		
 		
 		 if( $.trim(val_id) === '' )
 		{
 		
 			$("#log").addClass('errordis');
 			$("#log").focus();	
-		    $("#log").text(" Enter LastName");
-		
-			/*  $('ul.login').show();
-			 $('#panel').toggleClass("active"); */
-			 /* $("#panel").slideToggle("slow");
-				$('#panel').toggleClass("active"); */
-				$('#form').show();
-				return false;
-				
+			$("#pfirstName").text("Enter UserName");
+			$('#form').show();
+			e.preventDefault(); 
 		}	
 		
 		if( $.trim(val_pass) === '' )
 		{
-			 alert("dsfsdf");
+			
 			$("#pwd").addClass('errordis');
 			$("#pwd").focus();
 		    $("#pwd").text('Enter PhoneNo.'); 
 		    $('#form').show();
-			e.preventDefault();
+		    e.preventDefault(); 
 			
 		}	
+		
+		
+		
+
+		<%-- <% final String message = (String) request.getAttribute("Valid"); %>
+		var message= "<%=message%>	"; 
+		var message1= "FAILED"; 
+		var invalid="invalid";
+		
+		<% String invalid="invalid";%>
+		if($.trim(message) == $.trim(message1) ){
+		alert("Incorrect UserName / Password");
+		$('#form').show();
+		 
+		 
+		}
+		else if($.trim(message) === $.trim(message1)){
+			
+		}  
+		
+			
+<%
+  HttpSession session1=request.getSession(false);
+  if(session!=null)
+   {
+ request.getSession(false).removeAttribute("Valid");
+	 %>
+
+ <%
+   }
+  %>
+
+	
+		
+		
+	  
+
+	<%-- 
+	<%String valid = (String) session.getAttribute("Valid");%>
+	var valid= "<%=valid%>";
+	var fail= "FAILED";
+	
+	<% request.getSession(false).removeAttribute("Valid");%>
+	<%String valid1 = (String) session.getAttribute("Valid");%>
+	var valid1= "<%=valid1%>";
+	
+	<% request.getSession(true).setAttribute("Valid",valid1);%>
+	<%String valid2 = (String) session.getAttribute("Valid");%>
+	var valid2= "<%=valid2%>";
+	
+	if($.trim(valid)==$.trim(fail)){
+		alert("Invalid UserName / Password");
+	}
+	 --%>
+		
 	});		
 
 });
 
 </script>
 
-<!-- LOGIN LOGOUT VALIDATION  START-->
+<!-- LOGIN LOGOUT VALIDATION  End-->
+
+		<c:if test="${valid == 'FAILED'}">
+		<H1>DSFSF</H1>
+			<script type="text/javascript">
+			$(document).ready(function() {
+				alert("dfgdg");
+				
+				$('#form1').on("submit", function(e){
+				alert(valid);
+			});
+			});
+			</script>
+		</c:if>
+
 
 
 
@@ -264,7 +349,7 @@ var value= "<%=temp%>	";
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -281,15 +366,19 @@ var value= "<%=temp%>	";
 				<div class="left">
 					<h1>Member Login</h1>
 					<!-- Login Form -->
-					<form action="${pageContext.request.contextPath}/login"	method="post" commandName="login" id="form" modelAttribute="user">
-						<%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
-						<label class="color">Username:</label> <input class="field"	type="text" name="log" id="log" value="" size="23" /> 
+					
+					<form action="${pageContext.request.contextPath}/login"	method="post"  id="form1"  commandName="login" modelAttribute="user">
+						<label class="color">Username:</label> 
+						<input class="field" type="text" name="log" id="log" value="" size="23"  />
+						<input type="hidden" name="service" id="val" name="val" value="" />  
+						<!-- <p ><p style="color:red" id="pfirstName" /></p> -->
 						<label	class="color" for="pwd">Password:</label> 
 						<input class="field" type="password" name="pwd" id="pwd" size="23" />
 						 <label>
-						    <input	name="rememberme" id="rememberme" type="checkbox" value="forever" />&nbsp;Remember me</label>
+
+						   <input	name="rememberme" id="rememberme" type="checkbox" value="forever" />&nbsp;Remember me</label>
 						<div class="clear"></div>
-						<input type="submit" name="submit" value="Login" class="bt_login" />
+						<input type="submit" name="submit" value="Login" id="login" class="bt_login" onsubmit="return validate()"/>
 						<a class="lost-pwd" href="${pageContext.request.contextPath}/lostPassword">Lost your password?</a>
 					</form>
 				</div>
@@ -347,28 +436,35 @@ var value= "<%=temp%>	";
 	
 
 		<!--Begin Header-->
-		<div class="header">
+		<div >
 			<!--Logo Area-->
 
 			<!-- The tab on top -->
-	
-			<div class="logo">
-				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-					<%-- <div  style="float:right;">
-		             	<c:if test="${!empty loginType}">
- 		      				 <%String name = (String) session.getAttribute("loginName");%>
-		          			 <i><b>Welcome <%=name%></b></i>	
-						</c:if>
-					</div>  --%>
-					<p align="right"   style=" font-family: inherit;">
+		<div class="span-24">
+		<div class="span-10">
+			<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
+		</div>
+		 	<div style="float:right; padding-top:20px; color:#990066;">
+		       <p>
+		        <c:if test="${!empty loginType}">
+ 		         <%String name = (String) session.getAttribute("loginName");%>
+		         welcome <%=name%>	
+		        </c:if>
+		      </p>
+		 </div>	
+		</div>			
+					<%-- <p align="right"   style=" font-family: inherit;">
 		             <font face="verdana ,helvetica"  size="2" color="#990066" >
 		                  <c:if test="${!empty loginType}">
  		                     <%String name = (String) session.getAttribute("loginName");%>
 		                     welcome <%=name%>	
 		                  </c:if>
 		             </font>
-		        </p>
-			</div>
+		        </p> --%>
+		        
+		
+		                  
+			 
 	
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
@@ -376,14 +472,14 @@ var value= "<%=temp%>	";
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services" title="Services Catalog"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+					id="blog" title="Key Achievements"><span>the bloggery</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>request</span></a></li> --%>
 
 				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request"><span>Request</span></a></li>
+					id="port" title="My Request"><span>Request</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -401,16 +497,17 @@ var value= "<%=temp%>	";
 		<!--Begin Page Area, below header navigation-->
 		<div class="page">
 		
-		
 			<!--Declare 550px width w/ right border-->
 			<div class="span-14 colborder">
 				<!--Intro Image shown here, about site-->
 				<div class="intro">
-				  <img src="${pageContext.request.contextPath}/img/Picture2.png" alt="" />
+				<h3>How to use this Catalogue</h3> 
+				
+				  <img src="${pageContext.request.contextPath}/img/final.png" alt="" />
 					<p>
-						Find out More about our services <a
-							href="${pageContext.request.contextPath}/services/">here
-							&raquo;</a>
+						 <a
+							href="${pageContext.request.contextPath}/services/">
+							</a>
 					</p>
 				</div>
 				<!--Close intro image-->
@@ -464,10 +561,7 @@ var value= "<%=temp%>	";
 				<!--wrapper container for slide transitions, without this the overflow will be shown.-->
 				<div class="wrapper">
 					<ul class="wrapper">
-
 						<!--jQuery Feature Slider-->
-
-
 						<!--#1 Feature Slide-->
 						<li>
 							<div class="slide_set">
@@ -475,7 +569,7 @@ var value= "<%=temp%>	";
 									<div class="image_placeset">
 										<!--slide #1 image-->
 										<a href="${pageContext.request.contextPath}/blog/"> 
-										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/main_img.png" /></a>
+										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/people1.png" width="540px"/></a>
 									</div>
 									<!--image_placeset close-->
 								</div>
@@ -487,7 +581,8 @@ var value= "<%=temp%>	";
 									<div class="slide_title">
 										<!--Slide Title-->
 										<h1 class="color">People</h1>
-										
+										<hr class="space" />
+										<hr class="space" />
 										<h3 >Effective Governance</h3>
 									
 									</div>
@@ -498,7 +593,7 @@ var value= "<%=temp%>	";
 								
 									<div class="slide_title">
 										<!--Slide Title-->
-										
+										<hr class="space" />
 										<h3 >Robust Operating Model</h3>
 
 									</div>
@@ -508,6 +603,7 @@ var value= "<%=temp%>	";
 									<p class="slide_paragraph">Maximize operational efficiency by leveraging centralized shared services and resourcing models to reduce total cost of ownership</p>
 									<div class="slide_title">
 										<!--Slide Title-->
+										<hr class="space" />
 										<h3>Competency Development</h3>
 
 									</div>
@@ -517,15 +613,15 @@ var value= "<%=temp%>	";
 									<p class="slide_paragraph">Knowledge enhancement of quality team by sharing artifacts via a centralized repository and training</p>
 
 									<div class="slide_buttons">
-										<div class="slide_buttonL">
+										<!-- <div class="slide_buttonL">
 											<a class="inline" href="#"></a>
-										</div>
+										</div> -->
 										<!--slide_buttonL close-->
 
 
-										<div class="slide_buttonR">
+										<!-- <div class="slide_buttonR">
 											<a class="inline2" href="#"></a>
-										</div>
+										</div> -->
 
 									</div>
 									<!--slide_buttonR close-->
@@ -538,13 +634,14 @@ var value= "<%=temp%>	";
 						</li>
 
 
-	<li>
+					<li>
+					
 							<div class="slide_set">
 								<div class="image_wrapper2">
 									<div class="image_placeset">
 										<!--slide #1 image-->
 										<a href="${pageContext.request.contextPath}/blog/"> 
-										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/main_img.png" /></a>
+										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/process.png" width="540px"/></a>
 									</div>
 									<!--image_placeset close-->
 								</div>
@@ -589,18 +686,18 @@ var value= "<%=temp%>	";
 									<!--slider paragraph below title-->
 									<p class="slide_paragraph">Ensure quality throughout the life span of an application by adopting practices that assure maintainability as well as reusability of assets</p>
 									
-									<div class="slide_buttons">
+									<!-- <div class="slide_buttons">
 										<div class="slide_buttonL">
 											<a class="inline" href="#"></a>
 										</div>
-										<!--slide_buttonL close-->
+										slide_buttonL close
 
 
 										<div class="slide_buttonR">
 											<a class="inline2" href="#"></a>
 										</div>
 
-									</div>
+									</div> -->
 									<!--slide_buttonR close-->
 								</div>
 								<!--article holder close-->
@@ -610,13 +707,13 @@ var value= "<%=temp%>	";
 							</div> <!--slide_set close-->
 						</li>
 						
-							<li>
+						<li>
 							<div class="slide_set">
 								<div class="image_wrapper2">
 									<div class="image_placeset">
 										<!--slide #1 image-->
 										<a href="${pageContext.request.contextPath}/blog/"> 
-										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/main_img.png" /></a>
+										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/technology.png" width="540px"/></a>
 									</div>
 									<!--image_placeset close-->
 								</div>
@@ -627,7 +724,9 @@ var value= "<%=temp%>	";
 								<div class="slide_text">
 									<div class="slide_title">
 										<!--Slide Title-->
+										
 										<h1 class="color">Technology</h1>
+										<hr class="space" /><hr class="space" />
 									</div>
 									<!--slide_title close-->
 
@@ -637,6 +736,7 @@ var value= "<%=temp%>	";
 									<p class="slide_paragraph">Usage of optimal tool stack across programs by consolidating, integrating and administering centrally to reduce cost and standardize reporting</p>
 									<div class="slide_title">
 										<!--Slide Title-->
+										<hr class="space" />
 										<h3 >Manage Data</h3>
 									</div>
 									<!--slide_title close-->
@@ -645,6 +745,7 @@ var value= "<%=temp%>	";
 									<p class="slide_paragraph">Improve efficiencies by standardizing test data creation and managing data through a structured repository</p>
 									<div class="slide_title">
 										<!--Slide Title-->
+										<hr class="space" />
 										<h3 >Manage Q-Environment</h3>
 
 									</div>
@@ -653,16 +754,16 @@ var value= "<%=temp%>	";
 									<!--slider paragraph below title-->
 									<p class="slide_paragraph">Effective usage of quality environments through managing change and monitoring utilization to assure high availability</p>
 
-									<div class="slide_buttons">
+									<!-- <div class="slide_buttons">
 										<div class="slide_buttonL">
 											<a class="inline" href="#"></a>
-										</div>
+										</div> -->
 										<!--slide_buttonL close-->
 
 
-										<div class="slide_buttonR">
+										<!-- <div class="slide_buttonR">
 											<a class="inline2" href="#"></a>
-										</div>
+										</div> -->
 
 									</div>
 									<!--slide_buttonR close-->
@@ -671,10 +772,16 @@ var value= "<%=temp%>	";
 
 
 
-							</div> <!--slide_set close-->
-						</li>
+						
+							</li>
+							
+							</ul>
+						</div>
+							 <!--slide_set close-->
+					
 						<!--#2 Feature Slide-->
 						<%-- <li>
+							</li>
 							<div class="slide_set">
 								<div class="image_wrapper2">
 									<div class="image_placeset">
@@ -836,13 +943,13 @@ var value= "<%=temp%>	";
 
 							</div> <!--slide_set close-->
 						</li> --%>
-					</ul>
+					
 				</div>
 				<!--wrapper close-->
 
 			</div>
 			<!--jQuery Slider Close-->
-		</div>
+		
 		<!--span24 close-->
 
 
@@ -859,12 +966,12 @@ var value= "<%=temp%>	";
 					<img src="${pageContext.request.contextPath}/img/mouse.png" alt="" />
 					<h3>Our vision</h3>
 					<p>Our vision is to keep the learner at the center of all deliveries through providing best-in-class quality services to our users</p>
-					<p class="more">
+					<%-- <p class="more">
 						<a href="#"><img
 							src="${pageContext.request.contextPath}/img/readmore.jpg" alt="" /></a>
 						<a href="#"><img
 							src="${pageContext.request.contextPath}/img/seemore.jpg" alt="" /></a>
-					</p>
+					</p> --%>
 				</div>
 			</div>
 			<!--Left Column Bottom Box Close-->
@@ -877,12 +984,12 @@ var value= "<%=temp%>	";
 						alt="" />
 					<h3>We achieve</h3>
 					<p>We achieve this vision by employing the right people, using the optimal technology, and following standardized process and values.</p>
-					<p class="more">
+					<%-- <p class="more">
 						<a href="#"><img
 							src="${pageContext.request.contextPath}/img/readmore.jpg" alt="" /></a>
 						<a href="#"><img
 							src="${pageContext.request.contextPath}/img/seemore.jpg" alt="" /></a>
-					</p>
+					</p> --%>
 				</div>
 			</div>
 			<!--Middle Column Bottom Box-->
@@ -894,12 +1001,12 @@ var value= "<%=temp%>	";
 					<img src="${pageContext.request.contextPath}/img/ident.png" alt="" />
 					<h3>Our values</h3>
 					<p>Our values are the pillars of our service offerings resulting in benefits to our customers in the form of faster time to market, reduction in the cost of quality, improved predictability, enhanced learner experience and product efficacy.</p>
-					<p class="more">
+					<%-- <p class="more">
 						<a href="#"><img
 							src="${pageContext.request.contextPath}/img/readmore.jpg" alt="" /></a>
 						<a href="#"><img
 							src="${pageContext.request.contextPath}/img/seemore.jpg" alt="" /></a>
-					</p>
+					</p> --%>
 
 					<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
 					<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
@@ -977,8 +1084,8 @@ var value= "<%=temp%>	";
 		<!--footer close-->
 
 
-
 	</div>
+
 	<!--container close-->
 
 

@@ -22,16 +22,7 @@
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
-	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"> 
-		<property name="validationMessageSource" ref="messageSource"/> </bean> <mvc:annotation-driven 
-		validator="validator" /> -->
-
-<!-- 	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="messages" />
-	</bean> -->
-
-
+	
 
 	<!-- Entry for View for Jsp files START -->
 	<bean id="viewResolver"
@@ -65,10 +56,6 @@
 	<bean id="RaiseRequestDao" class="com.pearson.dao.RaiseRequestDaoImpl" />
 	<bean id="RaiseRequestService" class="com.pearson.services.RaiseRequestServiceImpl" />
 
-	<!-- <bean id="GentrateUserId" class="com.pearson.services.ActionServiceImpl" 
-		/> -->
-
-
 
 	<!-- ** START ** Added for E-mail Component Date 5/5/2014 -->
 	<!-- SMTP settings -->
@@ -77,8 +64,8 @@
 			value="465 " /> -->
 		<property name="host" value=" localhost" />
 		<property name="port" value="25" />
-		<property name="username" value="karthikcarun@gmail.com" />
-		<property name="password" value="cts@2014" />
+		<property name="username" value="karthikindia05@gmail.com" />
+		<property name="password" value="@karthik@" />
 
 		<!-- additional properties specific to JavaMail -->
 		<property name="javaMailProperties">
@@ -91,11 +78,19 @@
 	</bean>
 
 	<bean id="javaMailService" class="com.pearson.services.JavaMailServiceImpl" />
+	
+	
+	
+	
 
 	<!-- <bean id="alertMailMessage" class="org.springframework.mail.SimpleMailMessage"> 
 		<property name="from"> <value>myusername@gmail.com</value> </property> <property 
 		name="to"> <value>myusername@gmail.com</value> </property> <property name="subject" 
 		value="Alert - Exception occurred. Please investigate"/> </bean> -->
+
+	<!-- <bean id="GentrateUserId" class="com.pearson.services.ActionServiceImpl" 
+		/> -->
+
 
 
 
@@ -118,5 +113,17 @@
 
 	<!-- <bean id=”validator” class=”org.springframework.validation.beanvalidation.LocalValidatorFactoryBean” 
 		/> -->
+		
+		
+		<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"> 
+		<property name="validationMessageSource" ref="messageSource"/> </bean> <mvc:annotation-driven 
+		validator="validator" /> -->
+
+<!-- 	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean> -->
+
+		
 
 </beans>

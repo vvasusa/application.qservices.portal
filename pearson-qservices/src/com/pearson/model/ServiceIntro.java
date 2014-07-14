@@ -2,120 +2,116 @@ package com.pearson.model;
 
 public class ServiceIntro {
 	
-	private String qass;
-	private String testprogram;
-	private String middlewareESB;
-	private String dataIntegrationTesting;
-	private String automatedTesting;
-	private String mobileTesting;
-	private String onlineeCommerce ;
-	private String oracleERPTesting;
-	private String salesForceTesting;
-	private String performanceTesting;
-	private String securityTesting;
-	private String complianceTesting;
-	private String infrastructureTesting;
-	private String performancEngineering;
-	private String testDataManagement;
-	private String testEnvironment;
+	private String automation;
+	private String cloud;
+	private String compliance;
+	private String crm;
+	private String data;
+	private String environment;
+	private String erp ;
+	private String infrastructure;
+	private String middleware;
+	private String mobile;
+	private String online;
+	private String performance;
+	private String qaprogram;
+	private String quality;
+	private String security;
 	
 	
-	public String getQass() {
-		return qass;
+	public String getAutomation() {
+		return automation;
 	}
-	public void setQass(String qass) {
-		this.qass = qass;
+	public void setAutomation(String automation) {
+		this.automation = automation;
 	}
-	public String getTestprogram() {
-		return testprogram;
+	public String getCloud() {
+		return cloud;
 	}
-	public void setTestprogram(String testprogram) {
-		this.testprogram = testprogram;
+	public void setCloud(String cloud) {
+		this.cloud = cloud;
 	}
-	public String getMiddlewareESB() {
-		return middlewareESB;
+	public String getCompliance() {
+		return compliance;
 	}
-	public void setMiddlewareESB(String middlewareESB) {
-		this.middlewareESB = middlewareESB;
+	public void setCompliance(String compliance) {
+		this.compliance = compliance;
 	}
-	public String getDataIntegrationTesting() {
-		return dataIntegrationTesting;
+	public String getCrm() {
+		return crm;
 	}
-	public void setDataIntegrationTesting(String dataIntegrationTesting) {
-		this.dataIntegrationTesting = dataIntegrationTesting;
+	public void setCrm(String crm) {
+		this.crm = crm;
 	}
-	public String getAutomatedTesting() {
-		return automatedTesting;
+	public String getData() {
+		return data;
 	}
-	public void setAutomatedTesting(String automatedTesting) {
-		this.automatedTesting = automatedTesting;
+	public void setData(String data) {
+		this.data = data;
 	}
-	public String getMobileTesting() {
-		return mobileTesting;
+	public String getEnvironment() {
+		return environment;
 	}
-	public void setMobileTesting(String mobileTesting) {
-		this.mobileTesting = mobileTesting;
+	public void setEnvironment(String environment) {
+		this.environment = environment;
 	}
-	public String getOnlineeCommerce() {
-		return onlineeCommerce;
+	public String getErp() {
+		return erp;
 	}
-	public void setOnlineeCommerce(String onlineeCommerce) {
-		this.onlineeCommerce = onlineeCommerce;
+	public void setErp(String erp) {
+		this.erp = erp;
 	}
-	public String getOracleERPTesting() {
-		return oracleERPTesting;
+	public String getInfrastructure() {
+		return infrastructure;
 	}
-	public void setOracleERPTesting(String oracleERPTesting) {
-		this.oracleERPTesting = oracleERPTesting;
+	public void setInfrastructure(String infrastructure) {
+		this.infrastructure = infrastructure;
 	}
-	public String getSalesForceTesting() {
-		return salesForceTesting;
+	public String getMiddleware() {
+		return middleware;
 	}
-	public void setSalesForceTesting(String salesForceTesting) {
-		this.salesForceTesting = salesForceTesting;
+	public void setMiddleware(String middleware) {
+		this.middleware = middleware;
 	}
-	public String getPerformanceTesting() {
-		return performanceTesting;
+	public String getMobile() {
+		return mobile;
 	}
-	public void setPerformanceTesting(String performanceTesting) {
-		this.performanceTesting = performanceTesting;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
-	public String getSecurityTesting() {
-		return securityTesting;
+	public String getOnline() {
+		return online;
 	}
-	public void setSecurityTesting(String securityTesting) {
-		this.securityTesting = securityTesting;
+	public void setOnline(String online) {
+		this.online = online;
 	}
-	public String getComplianceTesting() {
-		return complianceTesting;
+	public String getPerformance() {
+		return performance;
 	}
-	public void setComplianceTesting(String complianceTesting) {
-		this.complianceTesting = complianceTesting;
+	public void setPerformance(String performance) {
+		this.performance = performance;
 	}
-	public String getInfrastructureTesting() {
-		return infrastructureTesting;
+	public String getQaprogram() {
+		return qaprogram;
 	}
-	public void setInfrastructureTesting(String infrastructureTesting) {
-		this.infrastructureTesting = infrastructureTesting;
+	public void setQaprogram(String qaprogram) {
+		this.qaprogram = qaprogram;
 	}
-	public String getPerformancEngineering() {
-		return performancEngineering;
+	public String getQuality() {
+		return quality;
 	}
-	public void setPerformancEngineering(String performancEngineering) {
-		this.performancEngineering = performancEngineering;
+	public void setQuality(String quality) {
+		this.quality = quality;
 	}
-	public String getTestDataManagement() {
-		return testDataManagement;
+	public String getSecurity() {
+		return security;
 	}
-	public void setTestDataManagement(String testDataManagement) {
-		this.testDataManagement = testDataManagement;
+	public void setSecurity(String security) {
+		this.security = security;
 	}
-	public String getTestEnvironment() {
-		return testEnvironment;
-	}
-	public void setTestEnvironment(String testEnvironment) {
-		this.testEnvironment = testEnvironment;
-	}
+	
+	
+	
 	
 	
 }

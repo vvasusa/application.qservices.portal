@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import com.Constants;
 import com.pearson.model.Admin1;
 import com.pearson.model.ContactUs;
 
@@ -23,7 +24,7 @@ public class LoginDaoImpl implements LoginDao {
 	DataSource dataSource;
 
 	@Override
-	public boolean getLoginDeatils(String uname, String pass,
+	public boolean getLoginDeatils(String uname, String pass,String valid,
 			HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
@@ -55,13 +56,14 @@ public class LoginDaoImpl implements LoginDao {
 					String loginType = (rs.getString("loginType"));
 					String loginName=rs.getString("firstName").concat(rs.getString("lastName"));
 					request.getSession(true).setAttribute("loginName",loginName);
+					
 					/* SET SESSION HERE THE LOGIN TYPE - VISITOR, ADMIN, QA-LEAD */
-
-					String Table = "admin";
-					request.getSession(true)
-							.setAttribute("MySessionId", userId);
+					String Table = Constants.LOGIN_MODE_ADMIN;
+					
+					request.getSession(true).setAttribute("MySessionId", userId);
 					request.getSession(true).setAttribute("Table", Table);
 					request.getSession(true).setAttribute("loginType",loginType);
+					System.out.println(request.getAttribute("Valid"));
 					
 					return true;
 				}
@@ -70,10 +72,12 @@ public class LoginDaoImpl implements LoginDao {
 			/*	
 				request.getSession(false).removeAttribute("MySessionId");
 				request.getSession(false).removeAttribute("Table");
-				request.getSession(false).removeAttribute("loginType");*/
+				request.getSession(false).removeAttribute("loginType");
+			
+					String valid=Constants.LOGIN_FAILED;
+				request.getSession(true).setAttribute("Valid",valid);*/
 				
-				System.out.println("session;;;; invalidate()");
-
+				
 			}
 
 			/* for requestor table user/pass validation */
@@ -120,12 +124,16 @@ public class LoginDaoImpl implements LoginDao {
 					System.out.println("loginType " + loginType);
 
 					/* SET SESSION HERE THE LOGIN TYPE - VISITOR, ADMIN, QA-LEAD */
-					String Table = "requestor";
+					String Table = Constants.LOGIN_MODE_REQUESTOR;
 					String loginName=rs1.getString("firstName").concat(rs1.getString("lastName"));
 					request.getSession(true).setAttribute("loginName",loginName);
 					request.getSession(true).setAttribute("MySessionId", userId);
 					request.getSession(true).setAttribute("Table", Table);
 					request.getSession(true).setAttribute("loginType",loginType);
+					
+					
+					//request.setAttribute("Valid", Valid);
+					
 					/* SET SESSION HERE THE LOGIN TYPE - VISITOR, ADMIN, QA-LEAD */
 					// request.getSession(true).setAttribute("MySessionId",userId);
 
@@ -135,10 +143,14 @@ public class LoginDaoImpl implements LoginDao {
 				}
 
 				// session.removeAttribute("MySessionVariable");
+			//	String valid=Constants.LOGIN_FAILED;
+			//	request.getSession(true).setAttribute("Valid",valid);
+				
+				//request.setAttribute("Valid", Valid);
 				request.getSession(false).removeAttribute("MySessionId");
 				request.getSession(false).removeAttribute("Table");
 				request.getSession(false).removeAttribute("loginType");
-				System.out.println("session;;;; invalidate()");
+				
 
 			}
 			/* for requestor table user/pass validation */

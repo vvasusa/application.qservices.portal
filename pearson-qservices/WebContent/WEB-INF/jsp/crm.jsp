@@ -9,7 +9,7 @@
 <?xml version="1.0"?>
 <head>
 
-<title>Q-Service Portal</title>
+<title>Pearson Q-service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -47,7 +47,7 @@
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
 
 <!--Preload Image Over Imgs-->
 
@@ -69,6 +69,62 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 
 
 
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	 var val_id = $("#val").val();
+	 var value = "${data.val}";
+	 var v = "Work!";
+	 var value1 = "failed";
+	
+	 if($.trim(val_id)!=$.trim(v)){
+		 
+		 if($.trim(value)==$.trim(value1))
+		 {
+			 alert("Incorrect UserName / Password");				
+		 }
+	 }
+ 
+	 $("#val").val('Work!');
+	 var val_id = $("#val").val();	
+
+	$('#form1').on("submit", function(e){
+		
+		var val_id = $("#log").val();
+		var val_pass = $("#pwd").val();
+		
+		var value = "${data.val}";
+		var value_Temp = "failed";
+		if($.trim(val_pass) ===$.trim(value_Temp)){
+		
+	}
+		$("#log").removeClass('errordis');	
+		$("#pwd").removeClass('errordis');	
+				
+		 if( $.trim(val_id) === '' )
+		{		
+			$("#log").addClass('errordis');
+			$("#log").focus();	
+			
+			$('#form').show();
+			e.preventDefault(); 
+		}	
+		
+		if( $.trim(val_pass) === '' )
+		{
+			
+			$("#pwd").addClass('errordis');
+			$("#pwd").focus();
+		     
+		    $('#form').show();
+		    e.preventDefault(); 
+			
+		}	
+		
+		});		
+});
+</script>
 
 
 
@@ -162,7 +218,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--panel box1-->
 				
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 					<h3>Are you a new client? Let's Begin.</h3>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -234,19 +290,22 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		<!--Begin Header-->
-		<div class="header">
+<div class="">  
 			<!--Logo Area-->
-			<div class="logo">
-				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-				<p align="right"   style=" font-family: inherit;">
-	<font face="verdana ,helvetica"  size="2" color="#990066" >
-		<c:if test="${!empty loginType}">
-		<%String name = (String) session.getAttribute("loginName");%>
-		welcome <%=name%>	
-	 </c:if>
-	</font>
-</p>
-			</div>
+			<div class="span-24">
+	<div class="span-10">
+		<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
+	</div>
+	<div style="float:right; padding-top:20px; color:#990066;">
+		 <p>
+			<c:if test="${!empty loginType}">
+				<%String name = (String) session.getAttribute("loginName");%>
+				welcome <%=name%>	
+			</c:if>
+		</p>
+	  </div>	
+    </div>
+
 			<!--Close Logo Area-->
 
 
@@ -260,9 +319,20 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
 			<!--Navigation close-->
-
-
-		<div class="box1"> 
+			</div>
+			
+	<div class="span-24">
+ 		<div class="submenu"> 
+    	<ul id="sub-nav">
+             <li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>	</li>       
+			<li><a href="${pageContext.request.contextPath}/crm/">Crm</a></li>	         
+       </ul><!--sub-nav close-->
+    </div>	
+   
+    </div>
+ 
+ 
+		<%-- <div class="box_service"> 
 			
         <ul id="box_text">
                     
@@ -282,15 +352,22 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<li><a href="${pageContext.request.contextPath}/qualityConsulting/">Quality Consulting</a>	</li>					
 			<li><a href="${pageContext.request.contextPath}/security/">Security</a></li>
           </ul><!--sub-nav close-->
-        </div>
+        </div> --%>
 		<!--Header Close-->
 
 
 		<!--Begin Page Area, below header navigation-->
 		<div class="page">
+		
+				<div class="span-24">
+		<hr class="space" />
+		</div>
+		<div class="span-24">
+		<hr class="space" />
+		</div>
 
 			<!--Declare 550px width w/ right border-->
-			<div class="span-14 colborder">
+			<%-- <div class="span-14 colborder">
 				<!--Intro Image shown here, about site-->
 				<div class="intro">
 					<img src="${pageContext.request.contextPath}/img/intro.gif" alt="" />
@@ -298,26 +375,24 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					</p>
 				</div>
 				<!--Close intro image-->
-			</div>
+			</div> --%>
 			<!--Close 550px width-->
 
 			<!--Declare 350px width, last-->
-			<div class="span-9 last">
-				<!--Site Slogan Area-->
+			<!-- <div class="span-9 last">
+				Site Slogan Area
 				<div class="slogan">
 					<h3>We Create Experiences.</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</p>
 				</div>
-				<!--Close Site Slogan Area-->
-			</div>
+				Close Site Slogan Area
+			</div> -->
 			<!--Close 350px width-->
 
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
-			<div class="span-24">
-				<div class="hrbg_small"></div>
-			</div>
+			
 			<!--Close span-24-->
 
 
@@ -336,6 +411,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						<!-- <input type="submit" value="Submit Request" align="right"/> -->
 					   <input type="image" src="${pageContext.request.contextPath}/img/button.jpg" alt="Raise Your Request Here.." />
 						
+						<div style="float:left">
+							<h2 style="color: black">CRM</h2>
+						</div>
+						
+						<hr class="space" />
 					</form>
 					</div>
 			</c:if>
@@ -346,8 +426,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<!-- ******************************************************************************** -->
 		<div class="span-24">
-			<p>	<h2 style="color: black">CRM</h2>
-				<font size="2px" >
+			<!-- 	<h2 style="color: black">CRM</h2> -->
+			 <h3> </h3>
+				<p><font size="2px" >
 				Improve customer relationship, enhance products, strengthen loyalty and drive sales by assuring functionality from opportunity creation to post-sale
 
 				</font>
@@ -473,11 +554,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
-				<div class="span-16">
+				<div class="span-8">
 					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 					<!-- and some brief information about the company-->
 					<div class="footer_text">
-						<p>&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+						<p>&copy; Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
 					<!--footer_text close-->
@@ -487,7 +568,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 				<!--Footer navigation goes here-->
 				<!--Declare 310px width-->
-				<div class="span-8 last">
+				<div class="span-16 last">
 
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
@@ -496,7 +577,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							|</li> --%>
 						<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
 							|</li>
 							   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
@@ -515,8 +596,6 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--footer close-->
 
 </div>
-
-		</div>
 		<!--container close-->
 
 

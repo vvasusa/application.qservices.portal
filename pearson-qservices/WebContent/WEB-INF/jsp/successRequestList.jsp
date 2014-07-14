@@ -13,7 +13,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Request - Q-Service Portal</title>
+<title>Request - Pearson Q-service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -51,7 +51,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/custom.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/slider.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.tools.min.js"></script> --%>
 
 
 
@@ -164,7 +164,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
@@ -238,22 +238,24 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 		</div>
 		<!-- close tab -->
 
- <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		 <font face="verdana ,helvetica"  size="2" color="#990066" >
-				
-		<c:if test="${!empty loginType}">
- 		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
-		</c:if>
-		</font>
-		</p>
+ 
 		<!--Begin Header-->
-		<div class="header">
+<div class="">
 			<!--Logo Area-->
-			<div class="logo">
-				<a href="${pageContext.request.contextPath}/index/"><img
-					src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
+
+			<div class="span-24">
+				<div class="span-10">
+				<img  src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
 			</div>
+		 	<div style="float:right; padding-top:20px; color:#990066;">
+		       		<p>
+		       		 <c:if test="${!empty loginType}">
+ 		        	 <%String name = (String) session.getAttribute("loginName");%>
+		        	 welcome <%=name%>	
+		        </c:if>
+		     	 </p>
+		 	</div>	
+		</div>	
 			<!--Close Logo Area-->
 			
 
@@ -498,12 +500,12 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
-				<div class="span-16">
+				<div class="span-8">
 					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 					<!-- and some brief information about the company-->
 					<div class="footer_text">
 						<p>
-							&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+							&copy; Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
 					<!--footer_text close-->
@@ -513,18 +515,18 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 				<!--Footer navigation goes here-->
 				<!--Declare 310px width-->
-				<div class="span-8 last">
+				<div class="span-16 last">
 
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
 						<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
 							|</li> --%>
-						<li><a href="${pageContext.request.contextPath}/services/">Services</a>
+						<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
 							|</li>
-							   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
+							   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 					</ul>
 					<!--footer-nav close-->

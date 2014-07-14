@@ -10,7 +10,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  
-<title>Q-Service Portal</title>
+<title>Pearson Q-service Portal</title>
 
 
 
@@ -20,13 +20,11 @@
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" charset="utf-8" />
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" charset="utf-8" />
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" charset="utf-8" />
-
 <!-- jQuery Slider declarations are made in this file. The slider is found at the top of the index/ page-->
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" charset="utf-8" />
-
-
-<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" />
-<link rel="stylesheet"	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slider.css"	type="text/css" media="screen, projection" charset="utf-8"/>
+<!-- <link rel="stylesheet"	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css" media="screen, projection" /> -->
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/css/jquery-ui-1.10.4.css" type="text/css" media="screen, projection" charset="utf-8">
 
  <script type="text/javascript">
 
@@ -54,10 +52,14 @@ var value= "<%=temp%>	";
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript"  src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script type="text/javascript"  src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
+
+<!-- <script type="text/javascript"  src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript"  src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+ -->
+ <%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.10.4.js"></script> --%>
+ <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-ui.js"></script> 
 
 <!--Preload Image Over Imgs-->
 
@@ -82,6 +84,66 @@ $(function() {
 	$( "#accordion" ).accordion({ header: "h5", collapsible: true, active: false });
 	});
      
+</script>
+
+
+
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	 var val_id = $("#val").val();
+	 var value = "${data.val}";
+	 var v = "Work!";
+	 var value1 = "failed";
+	
+	 if($.trim(val_id)!=$.trim(v)){
+		 
+		 if($.trim(value)==$.trim(value1))
+		 {
+			 alert("Incorrect UserName / Password");				
+		 }
+	 }
+ 
+	 $("#val").val('Work!');
+	 var val_id = $("#val").val();	
+
+	$('#form1').on("submit", function(e){
+		
+		var val_id = $("#log").val();
+		var val_pass = $("#pwd").val();
+		
+		var value = "${data.val}";
+		var value_Temp = "failed";
+		if($.trim(val_pass) ===$.trim(value_Temp)){
+		
+	}
+		$("#log").removeClass('errordis');	
+		$("#pwd").removeClass('errordis');	
+				
+		 if( $.trim(val_id) === '' )
+		{		
+			$("#log").addClass('errordis');
+			$("#log").focus();	
+			
+			$('#form').show();
+			e.preventDefault(); 
+		}	
+		
+		if( $.trim(val_pass) === '' )
+		{
+			
+			$("#pwd").addClass('errordis');
+			$("#pwd").focus();
+		     
+		    $('#form').show();
+		    e.preventDefault(); 
+			
+		}	
+		
+		});		
+});
 </script>
 <!-- 
 <script type="text/javascript">
@@ -163,7 +225,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 									
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -240,19 +302,19 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<!--Begin Header-->
 		<div class="header">
 			<!--Logo Area-->
-			<div class="logo">
-
-				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-				<p align="right"   style=" font-family: inherit;">
-	<font face="verdana ,helvetica"  size="2" color="#990066" >
-		<c:if test="${!empty loginType}">
-		<%String name = (String) session.getAttribute("loginName");%>
-		welcome <%=name%>	
-	 </c:if>
-	</font>
-</p>
-
-			</div>
+			<div class="span-24">
+				<div class="span-10">
+					<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
+				</div>
+		 		<div style="float:right; padding-top:20px; color:#990066;">
+		      		 <p>
+		      		  <c:if test="${!empty loginType}">
+ 		        		 <%String name = (String) session.getAttribute("loginName");%>
+		       			 welcome <%=name%>	
+		       			 </c:if>
+		      		</p>
+				 </div>	
+			</div>	
 			<!--Close Logo Area-->
 
 			<!-- FOR SAMPLE CHCEK-START -->
@@ -290,14 +352,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services" title="Service Catalog"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+					id="blog" title="Key Achivements"><span>the bloggery</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>request</span></a></li> --%>
 				
 					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port_front" title="Request"  ><span>Request</span></a></li>
+					id="port_front" title="My Request"  ><span>Request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -336,14 +398,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				</div> -->
 				<!--Close Site Slogan Area-->
 				
-			</div>
+		
 			<!--Close 350px width-->
 
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
 			<div class="span-24"  style = "text-align:right; float:right">
 			<a href="${pageContext.request.contextPath}/requestList" style = "text-align:right; float:left"><u> <b>My Request</b></u></a>
-			 
 			<a href="${pageContext.request.contextPath}/viewAllRequest"	><u>All Request</u></a>&nbsp;&nbsp;&nbsp;&nbsp;
 					 <a href="${pageContext.request.contextPath}/myApprove" ><u>My Approve</u></a>&nbsp;&nbsp;&nbsp;&nbsp; 
 					<a href="${pageContext.request.contextPath}/myReject"	style = "color:rgb(0,90,100);" ><u><b>My Reject</b></u></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -351,9 +412,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<div class="hrbg_small" ></div>
 			</div>
 			<!--Close span-24-->
-<div class="hrbg_small">
-</div>
-
+		<div class="hrbg_small">
+		</div>
+	</div>
 		
 		<!--page close-->
 <!-- MY CHANGE -->
@@ -580,7 +641,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!-- and some brief information about the company-->
 			<div class="footer_text">
 				<p>
-					&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+					&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 				</p>
 			</div>
 			<!--footer_text close-->
@@ -600,7 +661,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						|</li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 					|</li>
-				<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+				<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
 					|</li>
 				<li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
 				<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>

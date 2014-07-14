@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"">
 
 
-<title>Q-Service Portal</title>
+<title>Pearson Q-service Portal</title>
 
 
 
@@ -60,7 +60,7 @@ var value= "<%=temp%>";
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.formError.js"></script>
@@ -176,12 +176,6 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	});
 </script>
 
-
-
-
-
-
-<!-- ************************************************************************************************************************************ -->
 
 <style>
 #contact label {
@@ -553,6 +547,62 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	 var val_id = $("#val").val();
+	 var value = "${data.val}";
+	 var v = "Work!";
+	 var value1 = "failed";
+	
+	 if($.trim(val_id)!=$.trim(v)){
+		 
+		 if($.trim(value)==$.trim(value1))
+		 {
+			 alert("Incorrect UserName / Password");				
+		 }
+	 }
+ 
+	 $("#val").val('Work!');
+	 var val_id = $("#val").val();	
+
+	$('#form1').on("submit", function(e){
+		
+		var val_id = $("#log").val();
+		var val_pass = $("#pwd").val();
+		
+		var value = "${data.val}";
+		var value_Temp = "failed";
+		if($.trim(val_pass) ===$.trim(value_Temp)){
+		
+	}
+		$("#log").removeClass('errordis');	
+		$("#pwd").removeClass('errordis');	
+				
+		 if( $.trim(val_id) === '' )
+		{		
+			$("#log").addClass('errordis');
+			$("#log").focus();	
+			
+			$('#form').show();
+			e.preventDefault(); 
+		}	
+		
+		if( $.trim(val_pass) === '' )
+		{
+			
+			$("#pwd").addClass('errordis');
+			$("#pwd").focus();
+		     
+		    $('#form').show();
+		    e.preventDefault(); 
+			
+		}	
+		
+		});		
+});
+</script> 
 
 <!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -566,7 +616,7 @@ $(document).ready(function(){
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here
@@ -637,7 +687,7 @@ $(document).ready(function(){
 		<!-- close tab -->
 
 
- <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
+<%--  <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
 		 <font face="verdana ,helvetica"  size="2" color="#990066" >
 				
 		<c:if test="${!empty loginType}">
@@ -646,15 +696,23 @@ $(document).ready(function(){
 		</c:if>
 		</font>
 		</p>
-
+ --%>
 		<!--Begin Header-->
-		<div class="header">
+		<div class="">
 			<!--Logo Area-->
-			<div class="logo">
-
-				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-
-			</div>
+		<div class="span-24">
+		<div class="span-10">
+			<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
+		</div>
+		 	<div style="float:right; padding-top:20px; color:#990066;">
+		       <p>
+		        <c:if test="${!empty loginType}">
+ 		         <%String name = (String) session.getAttribute("loginName");%>
+		         welcome <%=name%>	
+		        </c:if>
+		      </p>
+		 </div>	
+		</div>
 			<!--Close Logo Area-->
 
 			<!-- FOR SAMPLE CHCEK-START -->
@@ -738,7 +796,10 @@ $(document).ready(function(){
 				</div> -->
 			<!--Close Site Slogan Area-->
 			
-			
+	<div class="span-24">
+	
+	<hr class="space">
+	<hr class="space">
 
 		<form action="${pageContext.request.contextPath}/register/done"
 			method="post" id="form1" class="my_form_class" commandName="register"
@@ -859,9 +920,6 @@ $(document).ready(function(){
 			<div class="hrbg_small"></div>
 		</div>
 		<!--Close span-24-->
-
-
-
 	</div>
 	<!--page close-->
 
@@ -874,27 +932,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-	<!--  SPRING VALIDATION -->
-	<%-- 
-	${register.error}
-	<c:if test="${errors != null}">
-		<ul id="errors">
-			<c:forEach items="${register}" var="error">
-				<h2>4</h2>
-				<li>${error.field}:${error.defaultMessage}</li>
-				<h2>5</h2>
-						${register.error}
-					</c:forEach>
-		</ul>
-	</c:if>
-	<h2>6</h2>
-	${register.error}
-	 ${register.emailerror} --%>
-	<!--  SPRING VALIDATION -->
 
 	<form:errors path="firstName" cssClass="error" />
 	<form:errors path="lastName" cssClass="error" />
@@ -920,82 +957,8 @@ $(document).ready(function(){
 
 
 	<div class="span-24" id="form" >
-
-
-
-
-
-
 	</div>
 
-
-
-
-
-
-
-	<%-- 
-
-	<form id="contact" method="post" action="">
-		<!-- Name -->
-		<div>
-			<label for="contact_name">Name:</label> <input type="text"
-				id="contact_name" name="name"></input> <span class="error">This
-				field is required</span>
-		</div>
-		<!-- Email -->
-		<div>
-			<label for="contact_email">Email:</label> <input type="email"
-				id="contact_email" name="email"></input> <span class="error">A
-				valid email address is required</span>
-		</div>
-		<!--Website -->
-		<div>
-			<label for="contact_website">Website:</label> <input type="url"
-				id="contact_website" name="website"></input> <span class="error">A
-				valid url is required</span>
-		</div>
-		<!-- Message -->
-		<div>
-			<label for="contact_message">Message:</label>
-			<textarea id="contact_message" name="message"></textarea>
-			<span class="error">This field is required</span>
-		</div>
-		<!-- Submit Button -->
-		<!-- <div id="contact_submit">				
-				<button type="submit">Submit</button>
-			</div> -->
-
-		<div id="btn1">
-			<button type="submit">Submit</button>
-		</div>
-	</form>
- --%>
-
-
-
-
-	<!-- My change -->
-
-	</li>
-
-	<!--#2 Feature Slide-->
-	<li></li>
-
-
-
-	<!--#3 Feature Slide-->
-	<li></li>
-
-
-	<!--#4 Feature Slide-->
-	<li></li>
-	</ul>
-	</div>
-	<!--wrapper close-->
-
-	</div>
-	<!--jQuery Slider Close-->
 
 	<!--span24 close-->
 

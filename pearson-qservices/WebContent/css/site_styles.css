@@ -14,7 +14,8 @@ a {outline: none; text-decoration: none;}
 .bg{background:#eee;}
 a:hover {text-decoration: none; cursor: pointer;}
 a span, button span, ul#navigation span, h2 span, h3 span {display: none;}
-.header{padding-top:0px; padding-bottom:20px;}
+.header{padding-top:0px; padding-bottom:20px;height:200px;}
+.header1{padding-top:0px; padding-bottom:20px;width:970px}
 .intro{padding:10px 0 10px 0px; width:950px;}
 .intro a{color:#56BFF8; font-weight:bold}
 .intro a:hover{color:#000;}
@@ -224,7 +225,10 @@ a.swap {background-position: left bottom;}
 .blog_web{background:#fff;}
 .blog_web h3{font-size:24px; color:#383838;}
 .blog_web h3 a{color:#383838;}
-.blog_web p{padding-bottom:10px; padding-right:10px;}
+
+/* .blog_web p{padding-bottom:10px; padding-right:10px;} */
+/* my changes for blog pages */
+.blog_web p{padding-bottom:0px; padding-right:0px;}
 
 
 /* img replacement*/
@@ -310,7 +314,7 @@ blog_.entrynotes li{list-style:none; padding:2px 0 5px 2px}
 
 .serhead{color:#999; font-size:16px; FONT: 16px Tahoma, Arial, sans-serif;}
 .serhead a{color:#999; font-weight:none; FONT: 16px Tahoma, Arial, sans-serif;}
-.serhead a:hover{color:#33CCFF;FONT: 18px Tahoma, Arial, sans-serif;}
+.serhead a:hover{color:#33CCFF;FONT: 16px Tahoma, Arial, sans-serif;}
 
 .text{padding-top:20px; color:#383838; }
 .text a{color:#000; font-weight:none;}
@@ -329,7 +333,7 @@ ul#navigation li a#request {background: url(../img/home.png) 0 0 no-repeat;}
 ul#navigation li a#request _front {background: url(../img/home.png) 0 -50px no-repeat;}
 ul#navigation li a#request:hover,
 
-.box1 {
+.box_service {
     width: 885px;
 	height: 40px;
     padding: 10px;

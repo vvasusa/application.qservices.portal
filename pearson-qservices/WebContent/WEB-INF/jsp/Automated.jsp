@@ -52,7 +52,7 @@
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<%-- <script type="text/javascript"  src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
 
 
 <!--Preload Image Over Imgs-->
@@ -160,7 +160,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--panel box1-->
 				<div class="left">
 					<!-- <h1>Welcome to Logical Media</h1> -->
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 					<h2>Are you a new client? Let's Begin.</h2>
 					<p class="color">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit, sed do eiusmod tempor incididunt ut labore et

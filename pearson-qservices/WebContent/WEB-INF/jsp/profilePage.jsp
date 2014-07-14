@@ -19,7 +19,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?xml version="1.0"?>
 
-<title>Q-Service Portal</title>
+<title>Pearson Q-service Portal</title>
 <%-- <script type="text/javascript">
   <%String temp = (String) session.getAttribute("MySessionId");%>
 
@@ -59,7 +59,7 @@ var value= "<%=temp%>";
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
 <script type="text/javascript"  src="${pageContext.request.contextPath}/js/cufon-yui.js"	></script>
 <script	type="text/javascript"  src="${pageContext.request.contextPath}/js/TitilliumText15L_400.font.js"	></script>
 
@@ -170,7 +170,7 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					<h1>Welcome to Q-Service Portal</h1>
+					<h1>Welcome to Pearson Q-service Portal</h1>
 									
 					<p class="color">
 						See a demo of our client tools in action <a href="#">here

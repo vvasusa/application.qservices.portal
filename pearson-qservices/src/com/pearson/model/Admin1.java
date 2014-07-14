@@ -7,6 +7,15 @@ public class Admin1 {
 	private String rememberme;
 	private String pwd;
 	private String log;
+	private String val;
+
+	public String getVal() {
+		return val;
+	}
+
+	public void setVal(String val) {
+		this.val = val;
+	}
 
 	public String getPassword() {
 		return password;

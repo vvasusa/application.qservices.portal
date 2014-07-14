@@ -66,6 +66,7 @@ public class LoginController {
 			request.getSession(false).removeAttribute("MySessionId");
 			request.getSession(false).removeAttribute("Table");
 			request.getSession(false).removeAttribute("loginType");
+			request.getSession(false).removeAttribute("Valid");
 
 			logger.info("Info: Closing application");
 			logger.error("Error: Closing application");
@@ -130,15 +131,16 @@ public class LoginController {
 	/* sample end */
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String Getdetails(@ModelAttribute("login") Admin1 data,
+	public ModelAndView Getdetails(@ModelAttribute("login") Admin1 data,
 			Map<String, Object> map, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
 		session.getId();
 		String u_name = (data.getLog());
 		String p_word = (data.getPwd());
+		String valid = (data.getVal());
 
-		boolean value = loginService.loginValidation(u_name, p_word, request);
+		boolean value = loginService.loginValidation(u_name, p_word,valid,request);
 
 		String ses_Id = (String) request.getSession().getAttribute(
 				"MySessionId");
@@ -150,9 +152,15 @@ public class LoginController {
 				+ ses_Type);
 		System.out.println("session value in request list controller"
 				+ ses_Table);
-		if (value == true)
-			return Constants.INDEX_PAGE;
-		return Constants.INDEX_PAGE;
+		if (value == true){
+		data.setVal("sucess");
+		
+		}else{
+		String Valid=Constants.LOGIN_FAILED;
+		request.getSession(true).setAttribute("Valid", Valid);
+		data.setVal("failed");
+		}
+		return new ModelAndView("index", "data", data);
 	}
 
 	/*
@@ -292,9 +300,6 @@ public class LoginController {
 	}
 
 	
-	
-	
-	
 	/*@RequestMapping(value = "/QAssesment", method = RequestMethod.GET)
 	public String QAssesmentPage(ModelMap model, HttpServletRequest request) {
 		return "QAssesment";
@@ -383,7 +388,9 @@ public class LoginController {
 	
 	@RequestMapping(value = "/lostPassword", method = RequestMethod.GET)
 	public String lostPassword(ModelMap model, HttpServletRequest request) {
+		
 		return "lostPass";
 	}
-*/
+	*/
+
 }

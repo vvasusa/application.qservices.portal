@@ -1,22 +1,12 @@
-
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <?xml version="1.0"?>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-
-<title>Our Blog- Q-ServicePortal</title>
-
+<title>Our Blog- Pearson Q-service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->
@@ -57,6 +47,20 @@
 
 
 <!--jQuery Sliding Login Panel Button-->
+
+
+<style>
+table {border-spacing: 5px 20px; }
+
+th, td {
+  border:2px inset  #545565;
+  border-radius: 5px; !important;
+   }
+
+</style>
+
+
+
 <script type="text/javascript">
 
 <%String Login = (String) session.getAttribute("loginType");%>
@@ -70,6 +74,66 @@ $(document).ready(function() {
 if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
 
 	});
+</script>
+
+
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	 var val_id = $("#val").val();
+	 var value = "${data.val}";
+	 var v = "Work!";
+	 var value1 = "failed";
+	
+	 if($.trim(val_id)!=$.trim(v)){
+		 
+		 if($.trim(value)==$.trim(value1))
+		 {
+			 alert("Incorrect UserName / Password");				
+		 }
+	 }
+ 
+	 $("#val").val('Work!');
+	 var val_id = $("#val").val();	
+
+	$('#form1').on("submit", function(e){
+		
+		var val_id = $("#log").val();
+		var val_pass = $("#pwd").val();
+		
+		var value = "${data.val}";
+		var value_Temp = "failed";
+		if($.trim(val_pass) ===$.trim(value_Temp)){
+		
+	}
+		$("#log").removeClass('errordis');	
+		$("#pwd").removeClass('errordis');	
+				
+		 if( $.trim(val_id) === '' )
+		{		
+			$("#log").addClass('errordis');
+			$("#log").focus();	
+			
+			$('#form').show();
+			e.preventDefault(); 
+		}	
+		
+		if( $.trim(val_pass) === '' )
+		{
+			
+			$("#pwd").addClass('errordis');
+			$("#pwd").focus();
+		     
+		    $('#form').show();
+		    e.preventDefault(); 
+			
+		}	
+		
+		});		
+});
+
 </script>
 
 
@@ -239,21 +303,22 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
       
 
 	<!--Begin Header-->
-    <div class="header">
+    <div >
     
     	<!--Logo Area-->
-    	<div class="logo">
-        <a href="${pageContext.request.contextPath}/index/"><img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" /></a>
-        
-       			 <p align="right"   style=" font-family: inherit;">
-		             <font face="verdana ,helvetica"  size="2" color="#990066" >
-		                  <c:if test="${!empty loginType}">
- 		                     <%String name = (String) session.getAttribute("loginName");%>
-		                      welcome <%=name%>
-		                  </c:if>
-		             </font>
-		        </p>
-        </div>
+		<div class="span-24">
+		<div class="span-10">
+			<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
+		</div>
+		 	<div style="float:right; padding-top:20px; color:#990066;">
+		       <p>
+		        <c:if test="${!empty loginType}">
+ 		         <%String name = (String) session.getAttribute("loginName");%>
+		         welcome <%=name%>	
+		        </c:if>
+		      </p>
+		 </div>	
+		</div>
         <!--Close Logo Area-->
     
             
@@ -272,14 +337,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		</ul><!--Navigation close-->
         
         <!--Sub-Navigation found directly below the main navigation bar.-->
-        <div class="submenu">
+       <%--  <div class="submenu">
         <ul id="sub-nav">
                     <li><a href="${pageContext.request.contextPath}/jsp/blog/" class="selected">Blog Home</a></li>
                     <li><a href="${pageContext.request.contextPath}/jsp/blog2/">Alternate Blog Layout #2</a></li>
                     <li><a href="${pageContext.request.contextPath}/jsp/blog3/">Alternate Blog Layout #3</a></li>
                 </ul><!--sub-nav close-->
         
-        </div>
+        </div> --%>
         <!--submenu close-->
        
 
@@ -292,9 +357,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
     	<!--Declare 950px width w/ right border-->
         <div class="span-24">
             <!--Intro Image shown here, about site-->
-            <div class="intro">
+            <%-- <div class="intro">
             <img src="${pageContext.request.contextPath}/img/blog_banner.gif" alt="" />
-            </div>
+            </div> --%>
             <!--Close intro image-->
         </div>
         <!--Close 950px width-->
@@ -302,23 +367,50 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
     
     	<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
         <div class="span-24">
-            <div class="hrbg_small"></div>
+           <table cellpadding="10";> 
+           <tr>
+           <td  style="background-color:#CCF2FF;"> &#10003; 20+ in-house tools, accelerators & frameworks created and adopted to produce consistent and quality deliverables</td>
+      
+           <td align="center" rowspan="4" height="50%" style="background-color:#CCF2FF;"> <img style="border:2px outset #545565; border-radius: 10px;" src="${pageContext.request.contextPath}/img/achievements.jpg" alt=""  height="100%" width="100%" border= "1px solid #DDD;" /></td>
+           </tr>
+           <tr>
+           <td style="background-color:#CCF2FF;">&#10003; Achieved 80% savings through implementing Continuous Integration for automated testing and validation for each code change</td>
+           </tr>
+           <tr>
+           <td style="background-color:#CCF2FF;">&#10003; Delivered 80+ projects across Pearson with no schedule slippage in last one year</td>
+           </tr>
+           <tr>
+           <td style="background-color:#CCF2FF;">&#10003; ZERO Severity-1 & Severity-2 defects identified in production during the warranty period thus reassuring the quality practices</td>
+           </tr>
+           <tr>
+           <td style="background-color:#CCF2FF;">&#10003; Provided ‘Common Vulnerability Scoring System’ & recommendations to cognize the severity and impact of the security vulnerabilities to the business and in turn assure of quality product to the “Learner”</td>
+           <td style="background-color:#CCF2FF;">&#10003; 250+ enhancements in a year and 2000+ break-fix / maintenance items in a quarter audited for SOX compliance and ZERO findings from external audit</td>
+           </tr>
+            <tr>
+           <td style="background-color:#CCF2FF;">&#10003; Transformational Initiatives were developed & implemented using a Quality Scoring Index based on Pearson Efficacy framework to guide us in making the right decisions , course correct and leading to greater adoption rate</td>
+           <td style="background-color:#CCF2FF;">&#10003; Adopted Open Source tools and integrated them with tools across life cycle to reduce overall cost as well as achieve optimal tool stack</td>
+           </tr>
+           <tr>
+           <td style="background-color:#CCF2FF;">&#10003; Standardized quality metrics across global projects so we can compare across domains, applications and platforms</td>
+           <td style="background-color:#CCF2FF;">&#10003; Established QA Maintenance team for 336 applications by implementing flawless transition from developers to assure quality of the product being shipped. ZERO production defects in last 6 months assuring product efficacy</td>
+           </tr>
+           
+           </table>
         </div>
         <!--Close span-24-->
            
-		
+		<%-- 
         
         <!--Declare 390px width-->
         <div class="span-9">
         	<div class="blog_web">
             <!--Case Title-->
-        	<h3><a href="#">Blog Entry Title Goes Here #1</a></h3>
+        <!-- 	<h3><a href="#">Blog Entry Title Goes Here #1</a></h3> -->
             <!--Date-->
-            <p class="date">Completed Feb 26th, 2010</p>
+          <!--   <p class="date">Completed Feb 26th, 2010</p> -->
             <!--Case Intro-->
-       	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-        	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        	Nullam pulvinar ult...
+       	 	<p style="background-color:#DDD; border: 1px solid #DDD;padding-left: 10px; width:375px">20+ in-house tools, accelerators & frameworks created and adopted to produce consistent and quality deliverables
+
         	</p> 
             <!--close case intro-->
         	</div>
@@ -331,7 +423,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
         <div class="span-9 prepend-1">
         	<div class="blog_img">
             <!--Large Case Entry Image-->
-            <img src="${pageContext.request.contextPath}/img/blog.jpg" alt="" />
+            <p style="background-color:#DDD; border: 1px solid #DDD;padding-left: 10px;">Achieved 80% savings through implementing Continuous Integration for automated testing and validation for each code change 
+            </p>
+            
     		</div>
             <!--case close-->
         </div>
@@ -342,13 +436,14 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
         <div class="span-5 last">
         	<!--ENTRY NOTES-->
             <div class="entrynotes">
-                      
-            <ul>
+                   <p style="background-color:#DDD; border: 1px solid #DDD;padding-left: 10px;">Delivered 80+ projects across Pearson with no schedule slippage in last one year
+                   </p>   
+          <!--   <ul>
             <li><b>Post Date:</b></li>
             <li><span class="white">Jan 1st, 2010</span></li>
             <li><b>Categorized As:</b></li>
             <li><a href="#">Design</a>, <a href="#">Vector Design</a></li>
-            </ul>
+            </ul> -->
             <!--Close entrynotes-->
             </div>   
 
@@ -361,111 +456,151 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
         <!-- Declare 950px width for IE-->
    		<div class="span-24">
     	<!--add hr line-->
-    	<div class="hrbg_small"></div>
+    	 <hr class="space" />
     	</div>
     	<!--close hr line, 950px IE fix-->
                 
-       
+     
         
         <!--Declare 390px width-->
-        <div class="span-9">
+        <div class="span-7">
         	<div class="blog_web">
             <!--Case Title-->
-        	<h3><a href="#">Blog Entry Title Goes Here #2</a></h3>
+        	<!-- <h3><a href="#">Blog Entry Title Goes Here #2</a></h3> -->
             <!--Date-->
-            <p class="date">Completed Feb 26th, 2010</p>
+         <!--    <p class="date">Completed Feb 26th, 2010</p> -->
             <!--Case Intro-->
-       	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-        	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        	Nullam pulvinar ult...
+       	 	<p style="background-color:#DDD; border: 1px solid #DDD;padding-left: 10px;">ZERO Severity-1 & Severity-2 defects identified in production during the warranty period thus reassuring the quality practices
         	</p> 
             <!--close case intro-->
         	</div>
             <!--close case_text-->
+            
+            <hr class="space" />
+             <hr class="space" />
+
+             <div class="span-7">
+        	<div class="blog_web">
+            <!--Case Title-->
+        	<!-- <h3><a href="#">Blog Entry Title Goes Here #2</a></h3> -->
+            <!--Date-->
+           <!--  <p class="date">Completed Feb 26th, 2010</p> -->
+            <!--Case Intro-->
+       	 	<p style="background-color:#DDD; border: 1px solid #DDD; padding-left: 10px;">Provided ‘Common Vulnerability Scoring System’ & recommendations to cognize the severity and impact of the security vulnerabilities to the business and in turn assure of quality product to the “Learner”
+        	</p> 
+            <!--close case intro-->
+        	</div>
+            <!--close case_text-->
+            
         </div>  
+            
+        </div>  
+     
         <!--Close 390x width-->
         
         
         <!--Declare 350px width-->
-        <div class="span-9 prepend-1">
+        <div class="span-10 prepend-0">
         	<div class="blog_img">
             <!--Large Case Entry Image-->
-            <img src="${pageContext.request.contextPath}/img/blog.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/img/achievements.jpg" alt=""  height="180px" width="370px"/>
     		</div>
             <!--case close-->
         </div>
+        
+         
         <!--350px width close-->
         
        
        <!--Declare 190px, last-->
-        <div class="span-5 last">
-        	<!--ENTRY NOTES-->
-            <div class="entrynotes">
-                      
-            <ul>
-            <li><b>Post Date:</b></li>
-            <li><span class="white">Jan 1st, 2010</span></li>
-            <li><b>Categorized As:</b></li>
-            <li><a href="#">Design</a>, <a href="#">Vector Design</a></li>
-            </ul>
-            <!--Close entrynotes-->
-            </div>   
-
-        </div>
+        <div class="span-7 last">
+        	<div class="blog_web">
+            <!--Case Title-->
+        <!-- 	<h3><a href="#">Blog Entry Title Goes Here #2</a></h3> -->
+            <!--Date-->
+         <!--    <p class="date">Completed Feb 26th, 2010</p> -->
+            <!--Case Intro-->
+       	 	<p style="background-color:#DDD; border: 1px solid #DDD; padding-left: 10px;">250+ enhancements in a year and 2000+ break-fix / maintenance items in a quarter audited for SOX compliance and ZERO findings from external audit
+        	</p> 
+            <!--close case intro-->
+        	</div>
+            <!--close case_text-->
+            
+              <hr class="space" />
+              
+              
+             <div class="span-7 last">
+        	<div class="blog_web">
+            <!--Case Title-->
+        <!-- 	<h3><a href="#">Blog Entry Title Goes Here #2</a></h3> -->
+            <!--Date-->
+          <!--   <p class="date">Completed Feb 26th, 2010</p> -->
+            <!--Case Intro-->
+       	 	<p style="background-color:#DDD; border: 1px solid #DDD;padding-left: 10px;">Transformational Initiatives were developed & implemented using a Quality Scoring Index based on Pearson Efficacy framework to guide us in making the right decisions , course correct and leading to greater adoption rate
+        	</p> 
+            <!--close case intro-->
+        	</div>
+            <!--close case_text-->
+            
+        </div>  
+            
+        </div>  
         <!--close 190px width, last-->
-        
+        <hr class="space" />
         
         <!-- Declare 950px width for IE-->
    		<div class="span-24">
     	<!--add hr line-->
-    	<div class="hrbg_small"></div>
+    	
     	</div>
     	<!--close hr line, 950px IE fix-->
                 
        
         
-       <!--Declare 390px width-->
-        <div class="span-9">
+
+        
+        
+        <!--Declare 350px width-->
+        <div class="span-7">
+        	<div class="blog_img">
+            <!--Large Case Entry Image-->
+            <img src="${pageContext.request.contextPath}/img/blog.jpg" alt="" />
+            <p style="background-color:#DDD; border: 1px solid #DDD; padding-left: 10px;">Adopted Open Source tools and integrated them with tools across life cycle to reduce overall cost as well as achieve optimal tool stack
+            </p>
+    		</div>
+            <!--case close-->
+        </div>
+        <!--350px width close-->
+               <!--Declare 390px width-->
+        <div class="span-7">
         	<div class="blog_web">
             <!--Case Title-->
-        	<h3><a href="#">Blog Entry Title Goes Here #3</a></h3>
+        	<!-- <h3><a href="#">Blog Entry Title Goes Here #3</a></h3> -->
             <!--Date-->
-            <p class="date">Completed Feb 26th, 2010</p>
+           <!--  <p class="date">Completed Feb 26th, 2010</p> -->
             <!--Case Intro-->
-       	 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incididunt ut 
-        	labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        	Nullam pulvinar ult...
+       	 	<p style="background-color:#DDD; border: 1px solid #DDD; padding-left: 10px;">Standardized quality metrics across global projects so we can compare across domains, applications and platforms
+
         	</p> 
             <!--close case intro-->
         	</div>
             <!--close case_text-->
         </div>  
         <!--Close 390x width-->
-        
-        
-        <!--Declare 350px width-->
-        <div class="span-9 prepend-1">
-        	<div class="blog_img">
-            <!--Large Case Entry Image-->
-            <img src="${pageContext.request.contextPath}/img/blog.jpg" alt="" />
-    		</div>
-            <!--case close-->
-        </div>
-        <!--350px width close-->
-        
        
        <!--Declare 190px, last-->
-        <div class="span-5 last">
+        <div class="span-10 last">
         	<!--ENTRY NOTES-->
             <div class="entrynotes">
-                      
-            <ul>
+             <p style="background-color:#DDD; border: 1px solid #DDD; padding-left: 10px;">Established QA Maintenance team for 336 applications by implementing flawless transition from developers to assure quality of the product being shipped. ZERO production defects in last 6 months assuring product efficacy
+             </p> 
+            <!-- <ul>
             <li><b>Post Date:</b></li>
             <li><span class="white">Jan 1st, 2010</span></li>
             <li><b>Categorized As:</b></li>
             <li><a href="#">Design</a>, <a href="#">Vector Design</a></li>
             <li class="nodisplay"><a href="#">Design</a>, <a href="#">Vector Design</a></li>
-            </ul>
+            </ul> -->
             
             <!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
             <!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
@@ -474,7 +609,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
             <!--Close entrynotes-->
             </div>   
 
-        </div>
+     
+   </div> --%> 
         <!--close 190px width, last-->
         
          
@@ -483,13 +619,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
     <!-- Declare 950px width for IE-->
-    <div class="span-24">
+    
+    <!--close hr line, 950px IE fix-->
+      <hr class="space" />  <hr class="space" />
+     <div class="span-24">
     	<!--add hr line-->
     	<div class="hrbg_small"></div>
     </div>
-    <!--close hr line, 950px IE fix-->
-    
-    
     
     <!-- Declare 950px width for IE, once again. Corrects positioning-->
     <!--BEGIN Footer Area-->
@@ -503,7 +639,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <!-- and some brief information about the company-->
                 <div class="footer_text">
                 <p>
-					&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+					&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
                 </div><!--footer_text close-->
           
@@ -516,9 +652,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 <ul id="footer-nav">
                     <li><a href="${pageContext.request.contextPath}/index/">Home</a> |</li>
                    <%--  <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a> |</li> --%>
-                    <li><a href="${pageContext.request.contextPath}/services/">Services</a> |</li>
-                    <li><a href="${pageContext.request.contextPath}/blog/">Blog</a> |</li>
-                    <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
+                    <li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a> |</li>
+                    <li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a> |</li>
+                    <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
                     <li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li> 
                 </ul><!--footer-nav close-->
                 

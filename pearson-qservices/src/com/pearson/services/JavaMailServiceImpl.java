@@ -13,6 +13,8 @@ import org.springframework.mail.MailParseException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
+import com.pearson.Helper.EmailHelper;
+
 public class JavaMailServiceImpl implements JavaMailService {
 
 	@Autowired
@@ -32,15 +34,19 @@ public class JavaMailServiceImpl implements JavaMailService {
 	 */
 
 	public void sendEmail() {
-		// private final static Logger LOGGER =
-		// Logger.getLogger(UseLogger.class.getName());
-
+		EmailHelper  emailHelper=new EmailHelper();
+			String[] names = new String[4];
+			names=emailHelper.getEmailAddress();
+		
+		for(int j=0;j<names.length;j++){
+			System.out.println(names[j]);
+		}
 		MimeMessage msg = null;
 		try {
 
 			System.out.println("welcome to mail box..");
-			MimeMessage Mimemessage = sender.createMimeMessage();
-			MimeMessageHelper mail = new MimeMessageHelper(Mimemessage, true);
+			MimeMessage mimemessage = sender.createMimeMessage();
+			MimeMessageHelper mail = new MimeMessageHelper(mimemessage, true);
 			mail.setFrom(from);
 			mail.addTo(to);
 
@@ -52,10 +58,8 @@ public class JavaMailServiceImpl implements JavaMailService {
 					mail.setTo(to);
 				}
 			}
-
 			mail.setSubject("hii");
 			mail.setText("hello", true);
-
 			JFileChooser chooser = new JFileChooser();
 			chooser.showOpenDialog(null);
 			File file = chooser.getSelectedFile();
@@ -68,10 +72,18 @@ public class JavaMailServiceImpl implements JavaMailService {
 			// List<String> ccList = (List<String>) model.get(CC_LIST);
 			sender.send(msg);
 		}
-
 		catch (Exception e) {
 			throw new MailParseException(e);
 		}
-
 	}
+	
+	/*public static void main(String[] args) {
+		try {
+			JavaMailServiceImpl obj = new JavaMailServiceImpl();
+			 obj.sendEmail();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}*/
 }

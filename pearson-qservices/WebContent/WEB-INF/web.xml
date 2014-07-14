@@ -21,6 +21,19 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
+	
+	<servlet>
+		<servlet-name>LoginController</servlet-name>
+		<servlet-class>com.pearson.controller.LoginController</servlet-class>
+	</servlet>
+	
+	
+	<servlet-mapping>
+		<servlet-name>LoginController</servlet-name>
+		<url-pattern>/LoginController</url-pattern>
+	</servlet-mapping>
+	
+	
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>

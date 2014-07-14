@@ -7,7 +7,7 @@ import com.pearson.model.ContactUs;
 
 public interface LoginService {
 
-	public boolean loginValidation(String u_name, String p_word,HttpServletRequest request);
+	public boolean loginValidation(String u_name, String p_word,String valid,HttpServletRequest request);
 	
 	
 

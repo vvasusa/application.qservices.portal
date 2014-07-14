@@ -14,11 +14,11 @@ public class LoginServiceImpl implements LoginService {
 	LoginDao loginDao;
 
 	@Override
-	public boolean loginValidation(String u_name, String p_word,
+	public boolean loginValidation(String u_name, String p_word,String valid,
 			HttpServletRequest request) {
 		String uname = u_name;
 		String pass = p_word;
-		boolean value = loginDao.getLoginDeatils(uname, pass, request);
+		boolean value = loginDao.getLoginDeatils(uname, pass,valid, request);
 		return value;
 	}
 

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 
-<title>Portfolio / Case Studies - Q-Service Portal</title>
+<title>Portfolio / Case Studies - Pearson Q-service Portal</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->

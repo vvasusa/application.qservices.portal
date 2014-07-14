@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 
-<title>Our Blog Layout #3 - Q-Service Portalal Media</title>
+<title>Our Blog Layout #3 -Pearson Q-service Portalal Media</title>
 
 <!-- CSS Links-->
 <!--To make sure this template was viewed correctly in the majority of browsers, there are several css files.-->

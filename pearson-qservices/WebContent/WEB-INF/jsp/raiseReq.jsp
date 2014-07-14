@@ -39,7 +39,7 @@
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/preloader.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/delay.js"></script>
 <script type="text/javascript"	src="${pageContext.request.contextPath}/js/slider.js"></script>
-<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script>
+<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery-1.8.1.min.js"></script> --%>
 
 
 <!--Preload Image Over Imgs-->
@@ -360,6 +360,65 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	 var val_id = $("#val").val();
+	 var value = "${data.val}";
+	 var v = "Work!";
+	 var value1 = "failed";
+	
+	 if($.trim(val_id)!=$.trim(v)){
+		 
+		 if($.trim(value)==$.trim(value1))
+		 {
+			 alert("Incorrect UserName / Password");				
+		 }
+	 }
+ 
+	 $("#val").val('Work!');
+	 var val_id = $("#val").val();	
+
+	$('#form1').on("submit", function(e){
+		
+		var val_id = $("#log").val();
+		var val_pass = $("#pwd").val();
+		
+		var value = "${data.val}";
+		var value_Temp = "failed";
+		if($.trim(val_pass) ===$.trim(value_Temp)){
+		
+	}
+		$("#log").removeClass('errordis');	
+		$("#pwd").removeClass('errordis');	
+				
+		 if( $.trim(val_id) === '' )
+		{		
+			$("#log").addClass('errordis');
+			$("#log").focus();	
+			
+			$('#form').show();
+			e.preventDefault(); 
+		}	
+		
+		if( $.trim(val_pass) === '' )
+		{
+			
+			$("#pwd").addClass('errordis');
+			$("#pwd").focus();
+		     
+		    $('#form').show();
+		    e.preventDefault(); 
+			
+		}	
+		
+		});		
+});
+
+</script>
+
+
 
 <!-- ************************************************************************************************************** -->
 
@@ -380,18 +439,52 @@ $(document).ready(function(){
 			<div class="content clearfix">
 				<!--panel box1-->
 				<div class="left">
-					
+					<h1>Welcome to Pearson Q-service Portal</h1>
+					<h2>Are you a new client? Let's Begin.</h2>
+					<p class="color">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua.</p>
+					<h2>It's Simple and Cost-Effective!</h2>
+					<p class="color">
+						See a demo of our client tools in action <a href="#">here
+							&raquo;</a>
+					</p>
 				</div>
 				<!--panel box1 close-->
 
 				<!--panel box2-->
 				<div class="left">
+					<h1>Member Login</h1>
+					<!-- Login Form -->
 					
+					<form action="${pageContext.request.contextPath}/login"	method="post"  id="form1"  commandName="login" modelAttribute="user">
+						<label class="color">Username:</label> 
+						<input class="field" type="text" name="log" id="log" value="" size="23"  />
+						<input type="hidden" name="service" id="val" name="val" value="" />  
+						<!-- <p ><p style="color:red" id="pfirstName" /></p> -->
+						<label	class="color" for="pwd">Password:</label> 
+						<input class="field" type="password" name="pwd" id="pwd" size="23" />
+						 <label>
+
+						   <input	name="rememberme" id="rememberme" type="checkbox" value="forever" />&nbsp;Remember me</label>
+						<div class="clear"></div>
+						<input type="submit" name="submit" value="Login" id="login" class="bt_login" onsubmit="return validate()"/>
+						<a class="lost-pwd" href="${pageContext.request.contextPath}/lostPassword">Lost your password?</a>
+					</form>
+				</div>
 				<!--panel box2 close-->
 
 				<!--panel box3-->
 				<div class="left right">
-					
+					<h1>Not a member yet? Sign Up!</h1>
+					<form action="${pageContext.request.contextPath}/register"	method="post" commandName="login" id="form" modelAttribute="user">
+				 <label class="color" for="signup">Username:</label>
+						 <input	class="field" type="text" name="signup" id="signup" value="" size="23" />
+						  <label class="color" for="email">Email:</label>
+						   <input class="field" type="text" name="email" id="email" size="23" />
+						    <label>A password will be e-mailed to you.</label>  
+						    <input type="submit" name="submit" value="Register" class="bt_register" />
+					</form>
 				</div>
 				<!--panel box3-->
 
@@ -400,8 +493,6 @@ $(document).ready(function(){
 		<!-- /login -->
 	</div>
 	<!--panel -->
-
-
 
 	<!--The Container class centers design in the center of the screen, -->
 	<!-- 950px width centered-->
@@ -424,51 +515,23 @@ $(document).ready(function(){
 
 		<!-- close tab -->
 
- <p align="right" style="text-align:relative;"  style=" font-family: inherit;">
-		 <font face="verdana ,helvetica"  size="2" color="#990066" >
-				
-		<c:if test="${!empty loginType}">
- 		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
-		</c:if>
-		</font>
-		</p>
-
 
 		<!--Begin Header-->
-		<div class="header">
+		<div class="header1">
 			<!--Logo Area-->
-			<div class="logo">
-
-				<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="" />
-
-			</div>
-			<!--Close Logo Area-->
-
-			<!-- FOR SAMPLE CHCEK-START -->
-			<%-- <a href="${pageContext.servletContext.contextPath}/mail/"> Send
-				Mail </a> <br> <!--Begin Navigation-->
-			<table border="0" width="90%">
-				<form:form action="login" commandName="login" method="post">
-					<tr>
-						<td align="left" width="20%">Email:</td>
-						<td align="left" width="40%"><form:input path="email"
-								size="30" /></td>
-						<td align="left"><form:errors path="email" cssClass="error" /></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-						<td><form:password path="password" size="30" /></td>
-						<td><form:errors path="password" cssClass="error" /></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td align="center"><input type="submit" value="Login" /></td>
-						<td></td>
-					</tr>
-				</form:form>
-			</table>
-			 --%>
+		 <div class="span-24">
+			<div class="span-10">
+			<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
+		</div>
+		 	<div style="float:right; padding-top:20px; color:#990066;">
+		       <p>
+		        <c:if test="${!empty loginType}">
+ 		         <%String name = (String) session.getAttribute("loginName");%>
+		         welcome <%=name%>	
+		        </c:if>
+		      </p>
+		 </div>	
+		</div>
 			<!-- FOR SAMPLE CHECK-END -->
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
@@ -476,14 +539,14 @@ $(document).ready(function(){
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services_front" title="Our Services"><span>our services</span></a></li>
+					id="services_front" title="Service Catalog"><span>services catalog</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+					id="blog" title="Key Achivements"><span>the bloggery</span></a></li>
 				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>request</span></a></li> --%>
 				
 					<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request "><span>Request</span></a></li>
+					id="port" title="My Request "><span>Request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -493,31 +556,33 @@ $(document).ready(function(){
 
 		</div>
 		<!--Header Close-->
-<body>
-	<%-- <fmt:bundle basename="com.sample.config.sample">
-  
-  </fmt:bundle> --%>
-  
+
+	<div class="span-24">
+		<div class="submenu">
+
+		<ul id="sub-nav">
+             <li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>	</li>       
+			<li><a href="javascript:history.back()"><% out.println(request.getParameter("service")); %></a></li>
+			<li><a href="#">Submit Request</a>	</li>	
+		</ul>
+
+		</div>
+		</div>
+		
+		<hr class="space" />
+		<hr class="space" />
+		<hr class="space" />
 
 	<c:forEach var="user" items="${adminUser}">
 		
 
-		<%-- <a href="${pageContext.request.contextPath}/index/">HomePage</span></a>
-		<a href="${pageContext.request.contextPath}/logout/"> logout</a>
+		<form action="${pageContext.request.contextPath}/doneReq" method="post" commandName="requestForm" id="form1" modelAttribute="requestForm">
+			<table	style="width: 0px; background-color: #fff; border: 1px solid #ddd; padding: 50px; font-size: 12px;"	class="contactForm">
 
- --%>
-		<form action="${pageContext.request.contextPath}/doneReq"
-			method="post" commandName="requestForm" id="form1" modelAttribute="requestForm">
-			<table
-				style="width: 0px; background-color: #fff; border: 1px solid #ddd; padding: 50px; font-size: 12px;"
-				class="contactForm">
-
-
-
-<tr><td>
-<input	type="hidden" name="req_ServiceName" value="${user.requestName}"  readonly/>
-<input	type="hidden" name="req_ServiceID" value="${user.requestID}" readonly /></td>
-</tr>
+				<tr><td>
+					<input	type="hidden" name="req_ServiceName" value="${user.requestName}"  readonly/>
+					<input	type="hidden" name="req_ServiceID" value="${user.requestID}" readonly /></td>
+				</tr>
 				<%-- <tr>
 					<td
 						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">ServiceName:</td>
@@ -644,12 +709,12 @@ $(document).ready(function(){
 
 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
-				<div class="span-16">
+				<div class="span-8">
 					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 					<!-- and some brief information about the company-->
 					<div class="footer_text">
 						<p>
-							&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+							&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
 					<!--footer_text close-->
@@ -659,18 +724,18 @@ $(document).ready(function(){
 
 				<!--Footer navigation goes here-->
 				<!--Declare 310px width-->
-				<div class="span-8 last">
+				<div class="span-16 last">
 
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
 						<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
 							|</li> --%>
-						<li><a href="${pageContext.request.contextPath}/services/">Services</a>
+						<li><a href="${pageContext.request.contextPath}/services/">Services Catalog</a>
 							|</li>
-						<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
 							|</li>
-							   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
+							   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 					</ul>
 					<!--footer-nav close-->
