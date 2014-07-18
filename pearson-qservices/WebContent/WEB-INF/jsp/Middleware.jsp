@@ -267,17 +267,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Begin Navigation-->
 			<ul id="navigation">
 				
-		<li><a href="${pageContext.request.contextPath}/index/"
-					id="home" title="Home"><span>home</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services_front" title="Our Services"><span>our
-							services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request"><span>Request</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/contact/"
-					id="contact" title="Contact Us"><span>contact us</span></a></li>
+		<li><a href="${pageContext.request.contextPath}/index/"		id="home" title="Home"><span>home</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Our Services"><span>	service catalog</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"		id="key" title="Key Achievements"><span> key achievements</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest" title="My Request"><span>my request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/contact/"	id="contact" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
 			<!--Navigation close-->
 

@@ -36,6 +36,8 @@ public class RequestForm {
 	private String confirmPass;
 	private String alteremail;
 	private String commands;
+	private String address;
+	
 	public String getCommands() {
 		return commands;
 	}
@@ -44,12 +46,6 @@ public class RequestForm {
 		this.commands = commands;
 	}
 
-
-
-
-	@NotNull
-	private String address;
-	
 	
 	public String getAddress() {
 		return address;

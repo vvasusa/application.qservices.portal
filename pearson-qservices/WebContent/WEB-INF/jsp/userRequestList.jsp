@@ -284,21 +284,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			 --%>
 			<!-- FOR SAMPLE CHECK-END -->
 			<ul id="navigation">
-				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li> --%>
-				
-					<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port_front" title="Request "><span>Request</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/contact/"
-					id="contact" title="Contact Us"><span>contact us</span></a></li>
+			
+				<li><a href="${pageContext.request.contextPath}/index/"		id="home" title="Home"><span>home</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services" title="Our Services"><span>our services</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"		id="key" title=" Key Achievements"><span>Key Achievements</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/"	id="myrequest_front" title="My Request "><span>my request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/contact/"	id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
 			<!--Navigation close-->
@@ -390,7 +381,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<!--close hr line, 950px IE fix-->
 		<!-- Declare 950px width for IE, once again. Corrects positioning-->
 		<!--BEGIN Footer Area-->
-		<div class="footer">
+<%-- 		<div class="footer">
 
 			<!--#BEGIN FOOTER AREA#-->
 			<!--Declare 630px width-->
@@ -414,8 +405,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<ul id="footer-nav">
 					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 						|</li>
-					<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li> --%>
+					<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+						|</li>
 					<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 						|</li>
 					<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
@@ -435,10 +426,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--span8 close-->
 
 		</div>
-		<!--footer close-->
+ --%>		<!--footer close-->
 
 
-
+		<div class="footer"> <%@ include file="footer.jsp" %></div>
 	</div>
 	<!--container close-->
 

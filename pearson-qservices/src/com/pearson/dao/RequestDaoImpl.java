@@ -154,17 +154,19 @@ public class RequestDaoImpl implements RequestDao {
 					String ses_Type = (String) request.getSession()
 							.getAttribute("loginType");
 					if (!(rs.getString("ApprovedBy").equalsIgnoreCase(ses_Type))) {
-						user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
+						
 						user.setRequestorId(rs.getString("RequestorId"));
 						user.setApprovedBy(rs.getString("ApprovedBy"));
 						user.setRaisedReqId(rs.getString("RequestId"));
 						user.setStatus_Id(rs.getString("Status_Id"));
-						user.setFirstName(rs.getString("firstName"));
+						String name = rs.getString("firstName");
+						name = name.concat(rs.getString("lastName"));
+						user.setFirstName(name);
 						user.setStatus(rs.getString("StatusDesc"));
 						user.setServiceId(rs.getString("ServiceId"));
 						user.setRequestName(rs.getString("Service_Name"));
-						user.setLastName(rs.getString("lastName"));
 						user.setDesc(rs.getString("descreption"));
+						user.setLastUpdatedOn(rs.getString("LastUpdatedOn"));
 						user.setPhoneNo(rs.getString("phoneNo"));
 						user.setUserId(rs.getString("UserId"));
 						user.setEmail(rs.getString("email"));

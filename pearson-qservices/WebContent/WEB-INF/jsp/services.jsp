@@ -90,89 +90,89 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 			  }); */
 
 		$('#txt1').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt2').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt3').expander({
-			slicePoint : 80,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt4').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt5').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt6').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt7').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt8').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt9').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt10').expander({
-			slicePoint : 75,
+			slicePoint : 200,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt11').expander({
-			slicePoint : 75,
+			slicePoint : 200,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt12').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt13').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt14').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			
 			expandText : '[+]more',
 			userCollapseText : '[-]less'
 		});
 		$('#txt15').expander({
-			slicePoint : 75,
+			slicePoint : 150,
 			expandPrefix: '... ',
 			expandText : '[+]more',
 			userCollapseText : '[-]less',
@@ -457,9 +457,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
 					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
 				<li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Service Catalog"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"	id="blog" title="Key Achievements"><span>the bloggery</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/requestList/" id="port" title="My Request"><span>Request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Service Catalog"><span> service catalog</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"	id="key" title="Key Achievements"><span>key achievements</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest" title="My Request"><span>my request</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
@@ -1017,8 +1017,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<!-- Declare 950px width for IE, once again. Corrects positioning-->
 		<!--BEGIN Footer Area-->
-		<div class="span-24">
-			<div class="footer">
+		
+<%-- 			<div class="footer">
 
 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
@@ -1042,8 +1042,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-						<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li> --%>
+						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+							|</li>
 						<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
@@ -1062,15 +1062,19 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--span8 close-->
 
 			</div>
-			<!--footer close-->
+ --%>			
+ 
+ <!--footer close-->
+ 
+ <div class="footer"> <%@ include file="footer.jsp" %></div>
 
-		</div>
+	
 		<!--span24 close-->
 
 	</div>
 	<!--container close-->
 
-	</div>
+	
 
 	<!--IE Fix for over-shadow text replacement-->
 	<script type="text/javascript">

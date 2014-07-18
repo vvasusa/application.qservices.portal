@@ -659,14 +659,13 @@ $(document).ready(function(){
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
+				
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services" title=" Service Catalog"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+					id="key" title="Key Achievements"><span> key achievements</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port_front" title="Request"><span>Request</span></a></li>
+					id="myrequest_front" title="Request"><span>my request</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -729,14 +728,8 @@ $(document).ready(function(){
 			
 			</div>
 		
-	
-	
-	
 
-
-
-
-	<div class="footer">
+<%-- 	<div class="footer">
 
 		<!--#BEGIN FOOTER AREA#-->
 		<!--Declare 630px width-->
@@ -760,8 +753,8 @@ $(document).ready(function(){
 			<ul id="footer-nav">
 				<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 					|</li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li> --%>
+				<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+						|</li>
 				<li><a href="${pageContext.request.contextPath}/services/">Services</a>
 					|</li>
 				<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
@@ -780,10 +773,15 @@ $(document).ready(function(){
 		<!--span8 close-->
 
 	</div>
-	<!--footer close-->
-
+	 --%>
+	 <!--footer close-->
+	 
+ 		<div class="footer"> <%@ include file="footer.jsp" %></div>
+ 
 	</div>
-	<!--container close-->
+
+ 
+ 	<!--container close-->
 
 
 

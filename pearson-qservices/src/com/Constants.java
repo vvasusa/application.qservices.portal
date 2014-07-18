@@ -36,4 +36,23 @@ public final class Constants {
 	public static final String LOGIN_FAILED = "FAILED";
 	
 	public static final String LOGIN_MODE_REQUESTOR="requestor";
+	
+	public static final String REJECT_ADM="REJECTED BY ADM";
+	public static final String REJECT_SLM="REJECTED BY SLM";
+	public static final String REJECT_PL="REJECTED BY PL";
+	public static final String REJECT_QA="REJECTED BY QA";
+	
+	public static final String APPROVED_STATUS_1="APPROVED BY QA";
+	public static final String APPROVED_STATUS_2="APPROVED BY PL";
+	public static final String APPROVED_STATUS_3="APPROVED BY SLM";
+	public static final String APPROVED_STATUS_4="APPROVED BY ADM";
+	
+	
+	public static final String USER_ONE="QA";
+	public static final String USER_TWO="PL";
+	public static final String USER_THREE="SLM";
+	public static final String USER_FOUR="ADM";
+	
+	
+	
 }

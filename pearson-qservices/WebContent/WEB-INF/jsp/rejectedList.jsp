@@ -347,21 +347,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
-				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Service Catalog"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="Key Achivements"><span>the bloggery</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li> --%>
-				
-					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port_front" title="My Request"  ><span>Request</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/contact/"
-					id="contact" title="Contact Us"><span>contact us</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services" title="Service Catalog"><span> service catalog</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"		id="key" title="Key Achivements"><span>key achievements </span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest_front" title="My Request" ><span>my request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/contact/"	id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
 			<!--Navigation close-->
@@ -468,32 +458,21 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	<%-- <c:if test="${user.email==user.email}"> --%>
 	<%-- <c:if test="true"> --%>
 	
-	<div>
-	
+<div>
   <%-- <c:forEach var="user" items="${adminUser}"> 
 	<c:if test="${user.loginType=='VISITOR'}"> --%>
-	
 	 <%String temp1 = (String) session.getAttribute("MySessionId");%>
 	 <%String temp2 = (String) session.getAttribute("loginType");%>
-
-
-
-<c:if test="${loginType == 'VISITOR'}">
-    There is a user **attribute** in the session
-
-	<c:forEach var="user" items="${adminUser}"> 
-	<%-- <c:if test="${sessionScope.user != null}">
-    There is a user **attribute** in the session
-</c:if> --%>
+		<c:if test="${loginType == 'VISITOR'}">
+   		 There is a user **attribute** in the session
+			<c:forEach var="user" items="${adminUser}"> 
+			<%-- <c:if test="${sessionScope.user != null}">
+   				 There is a user **attribute** in the session
+			</c:if> --%>
 		
-			<form action="${pageContext.request.contextPath}/update"
-				method="post" commandName="requestForm">
+			<form action="${pageContext.request.contextPath}/update" method="post" commandName="requestForm">
 				<h3>request list</h3>
-				<input type="hidden" name=loginType value="${user.loginType}" />
-			INVALID	email ${user.email} 
-				
-				
-
+				<input type="hidden" name=loginType value="${user.loginType}" /> INVALID	email ${user.email} 
 				<H1>WELCOME TO VISITOR</H1>
 				<table
 					style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
@@ -564,33 +543,44 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							sent)</td>
 
 					</tr>
-				</table>
-			</form>
-		
-	<%-- </c:if>
-	 </c:forEach>   --%>
-	 
-	 </c:forEach>
+					</table>
+				</form>
+			<%-- </c:if>
+			</c:forEach>   --%>
+		 </c:forEach>
 	 </c:if> 
 </div>
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
-<div>
 
-<c:if test="${loginType != 'VISITOR'}">
-		
+<div>
+	<c:if test="${loginType != 'VISITOR'}">
+	
+	<c:if test="${empty adminUser}">
+		<h3> Please submit a Service Request</h3>
+	</c:if>
+	
 		<div id="accordion">
-		<c:forEach var="user" items="${adminUser}">
-		<h5 style="height: 50px; bgcolor: red;">
-			<table >
-			 <tr>
-					<td class="heading" width=26%;>Req_ID</td>
-					<td class="heading" width=25px;>Req_Name</td>
-					<td class="heading" width=25px;>Rejected On </td>
-					<td class="heading" width=25px;>Status</td>
+			<c:forEach var="user" items="${adminUser}">
+				<h5 style="height: 70px;color:#383838">
+				<table>
+				 <tr>
+					<td class="heading" width=20%;>Request ID</td>
+					<td class="heading" width=20px;>Requestor Name</td>
+					<td class="heading" width=20px;>Service Name</td>
+					<td class="heading" width=20px;>Rejected On</td>
+					<td class="heading" width=20px;>Status</td>
 					<!-- <td class="heading">RejectBy</td>
 					<td class="heading">User ID</td> -->
-				  </tr>
+			  	</tr>
+			  
+				  <tr>
+					<td width=20%;>${user.raisedReqId}</td>
+					<td width=20%;>${user.firstName}</td>
+			     	<td width=20%;>${user.serviceName}</td> 
+					<td width=20%;>${user.lastUpdatedOn}</td>
+					<td width=20%;>Rejected</td>
+				</tr>
 			 </table>
 		 </h5>
 			<div >
@@ -598,18 +588,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!-- 	style="background-color:lightblue;" -->
 				<p>   
 				<table  >
-				
 				<%-- <c:if test="${user.loginType=='QA'}"> --%>
-
-				<tr>
-				
-					
-					<td width=28%;>${user.raisedReqId}</td>
-			     	<td width=30%;>${user.serviceName}</td> 
-					<td width=29%;>${user.lastUpdatedOn}</td>
-					<td width=25%;>Rejected</td>
 					<%-- <td width=25%;>${user.status}</td> --%>
-					
 					<tr>
 						 <td>QA Commands :${user.commandsByQA} </td></tr>
 						<tr>
@@ -622,7 +602,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 						<td> ADM Commends :${user.commandsByADM} </td>
 						</tr> 
 
-			</table>
+					</table>
 				  </p>
 				</div>
 		</c:forEach>		

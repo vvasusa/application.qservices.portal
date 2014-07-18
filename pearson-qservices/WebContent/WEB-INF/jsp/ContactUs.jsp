@@ -383,18 +383,11 @@ $(document).ready(function(){
 			 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
-				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port_front" title="Request"  ><span>Request</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/contact/"
-					id="contact" title="Contact Us"><span>contact us</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/" id="services" title="Service Catalog"><span>our services</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"		id="key" title="Key Achievements"><span>Key Achievements </span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest_front" title="My Request"><span>my request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/contact/"	id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
 			<!--Navigation close-->
@@ -404,73 +397,22 @@ $(document).ready(function(){
 		<!--Header Close-->
 		
 	
-<div  style="height:400px">
-	<div class="container">
-	<hr class="space">
-	<hr class="space">
-		<h4> Thank you.. Your Query Submitted Successfully.. </h4>
-		<h5> We will contact you soon.. </h5>
-	</div>
-</div>
-
-
-
-
-
-<div class="footer">
-
-			<div class="hrbg_small"></div>
-			<!--#BEGIN FOOTER AREA#-->
-			<!--Declare 630px width-->
-			<div class="span-8">
-				<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
-				<!-- and some brief information about the company-->
-				<div class="footer_text">
-					<p>
-						&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
-					</p>
-				</div>
-				<!--footer_text close-->
-
+		<div  style="height:400px">
+			<div class="container">
+				<hr class="space">
+				<hr class="space">
+				<h4> Thank you.. Your Query Submitted Successfully.. </h4>
+				<h5> We will contact you soon.. </h5>
 			</div>
-			<!--footer close-->
+		</div>
 
-			<!--Footer navigation goes here-->
-			<!--Declare 310px width-->
-			<div class="span-16 last">
-
-				<ul id="footer-nav">
-					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
-						|</li>
-					<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li> --%>
-					<li><a href="${pageContext.request.contextPath}/services/">Services Catalog</a>
-						|</li>
-					<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
-						|</li>
-						   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
-					<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
-				</ul>
-				<!--footer-nav close-->
-
-
-				<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-				<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-				<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
-
-			</div>
+		<div class="footer">
+			<div class="hrbg_small"></div>   <%@ include file="footer.jsp" %>
 			<!--span8 close-->
-
 		</div>
 		<!--footer close-->
-
-
-
 	</div>
 	<!--container close-->
-
-
-
 	<!--IE Fix for over-shadow text replacement-->
 	<script type="text/javascript">
 		Cufon.now();

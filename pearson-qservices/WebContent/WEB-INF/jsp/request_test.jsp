@@ -443,9 +443,9 @@ $(document).ready(function(){
 	
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/services/"	id="services" title="Services Catalog"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"		id="blog" title="Key Achievements"><span>the bloggery</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/requestList/" id="port_front" title="My Request"><span>Request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services" title="Services Catalog"><span>service catalog</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"		id="key" title="Key Achievements"><span> key achievements</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest_front" title="My Request"><span>my requestequest</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/"	id="contact" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
 			<!--Navigation close-->
@@ -519,6 +519,10 @@ $(document).ready(function(){
 		
 		<c:if test="${loginType == 'VISITOR'}">
 		
+		<c:if test="${empty adminUser}">
+				<h2> No Service Request.</h2>
+		</c:if>
+		
 			  <div id="accordion2">
 				<c:forEach var="user" items="${adminUser}">
 					<!-- <h5>
@@ -530,24 +534,24 @@ $(document).ready(function(){
 						</tr>
 					</table>
 					</h5> -->
-					<h5>		
-		
-			<table  style=height:"5px";>
+			<h5 style="height: 70px;">		
+				<table style=height:"5px";>
 				<tr>
 					<td class="heading" width=25%>Request ID</td>
 					<td class="heading" width=25%>Request Date</td>
 					<td class="heading" width=25%>Status</td>
+				</tr>
+				<tr>
+					<td >${user.requestID}</td>
+					<td >${user.raisedDate}</td>
+					<td >${user.status}</td>
 				</tr>
 				</table>  
 				</h5>
 			           <div>
 			              <p>
 			             	 <table>
-			               		 <tr>
-									<td >${user.requestID}</td>
-									<td >${user.raisedDate}</td>
-									<td >${user.status}</td>
-								</tr>
+			               		 
 								<tr>
 									 <td>QA Commands :${user.commandsByQA} </td></tr>
 								<tr>
@@ -640,7 +644,7 @@ $(document).ready(function(){
 		</c:if>
 	</div>
 			
-			
+
 
 			
 			
@@ -666,7 +670,7 @@ $(document).ready(function(){
 			</div>
 				
 			<c:if test="${empty adminUser}">
-					<h1>There is no new services for you..</h1>
+					<h2> No Service Request Assigned For You.</h2>
 			</c:if>
 			<c:if test="${!empty adminUser}">
 			
@@ -683,29 +687,40 @@ $(document).ready(function(){
 								</tr>
 							</table>
 						</h5>  -->
-		<h5>		
-			<table  style=height:"5px";>
+		<h5 style="height: 70px; bgcolor: red;">		
+			<table >
 				<tr>
-					<td class="heading" width=25%>Req_ID</td>
-					<td class="heading" width=25%>Request Name</td>
-					<td class="heading" width=25%>Date</td>
-					<td class="heading" width=25%>Status</td>
+					<td class="heading" width=20%>Request ID</td>
+					<td class="heading" width=20%>Requestor Name</td>
+					<td class="heading" width=20%>Service Name</td>
+					<td class="heading" width=20%>Date</td>
+					<td class="heading" width=20%>Status</td>
+				</tr>
+				<tr>
+					<td width=20% >${user.raisedReqId}</td>
+					<td width=20% >${user.firstName}</td>
+					<td width=20% >${user.requestName}</td>
+					<td width=20%  >${user.lastUpdatedOn}</td>
+					<td width=20%  >${user.status}</td>
 				</tr>
 				</table>  
 			</h5>
 				<div>
 						  <p>
 							<table>
-								<tr>
+							<%-- 	<tr>
 									<td width=25% >${user.raisedReqId}</td>
 									<td width=30% >${user.requestName}</td>
 									<td width=32%  >${user.lastUpdatedOn}</td>
-									<td width=25%  >${user.status}</td></tr>
+									<td width=25%  >${user.status}</td>
+								</tr>
+								 --%>
 								<tr>
 									<td>
-									 	<p></p>
+									
 									 </td>
 								</tr>
+								
 								<tr>
 									 <td>
 									 	<h4> Descreption By User: </h4>${user.desc}
@@ -756,29 +771,24 @@ $(document).ready(function(){
 
 	</div>
 	
-	<div class="footer">
+	
 	
 		<div class="span-24"  >	
-			<div class="hrbg_small">
-	   </div>
-
-		<!--#BEGIN FOOTER AREA#-->
-		<!--Declare 630px width-->
-		<div class="span-8">
-			<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
-			<!-- and some brief information about the company-->
+			<div class="hrbg_small"> </div>
+	 	</div>
+		<div class="footer"><%@ include file="footer.jsp" %>  </div>
+<%-- 		<div class="span-8">
+			
 			<div class="footer_text">
+			
 				<p>
 					&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 				</p>
 			</div>
-			<!--footer_text close-->
+	
 
 		</div>
-		<!--footer close-->
-
-		<!--Footer navigation goes here-->
-		<!--Declare 310px width-->
+	
 		<div class="span-16 last">
 			<ul id="footer-nav">
 				<li><a href="${pageContext.request.contextPath}/index/">Home</a>|</li>
@@ -787,18 +797,11 @@ $(document).ready(function(){
 				<li><a href="${pageContext.request.contextPath}/requestList/">My request</a>|</li>
 				<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 			</ul>
-			<!--footer-nav close-->
-
-
-			<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-			<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-			<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
-
-			</div>
-		<!--span8 close-->
 		</div>
+ --%>		<!--span8 close-->
+		
 	<!--footer close-->
-	</div>
+	
 	<!--container close-->
 </div>
 

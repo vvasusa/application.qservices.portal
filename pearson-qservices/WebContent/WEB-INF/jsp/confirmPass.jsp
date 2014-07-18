@@ -310,7 +310,7 @@ $(document).ready(function(){
 	 $("#val").val('Work!');
 	 var val_id = $("#val").val();	
 
-	$('#form1').on("submit", function(e){
+	$('#form2').on("submit", function(e){
 		
 		var val_id = $("#log").val();
 		var val_pass = $("#pwd").val();
@@ -376,7 +376,7 @@ $(document).ready(function(){
 					<h1>Member Login</h1>
 					<!-- Login Form -->
 					<form action="${pageContext.request.contextPath}/login"
-						method="post" commandName="login" modelAttribute="user">
+						method="post" commandName="login" id="form2" modelAttribute="user">
 						<%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
 						<label class="color">Username:</label> <input class="field"
 							type="text" name="log" id="log" value="" size="23" /> <label
@@ -489,21 +489,11 @@ $(document).ready(function(){
 			 
 			<!-- FOR SAMPLE CHCEK-END -->
 			<ul id="navigation">
-				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home_front" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li> --%>
-				
-					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port" title="Request"  ><span>Request</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/contact/"
-					id="contact" title="Contact Us"><span>contact us</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/index/" 	id="home_front" title="Home"><span>home</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services" title="Service Catalog"><span>services catalog</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"		id="key" title=" Key Achievements"><span>Key Achievements</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/"  	id="myrequest" title="My Request"><span>my request</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/contact/"		id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
 			<!--Navigation close-->
@@ -553,7 +543,7 @@ $(document).ready(function(){
 
                 <input type="hidden" id="temp" value="${register.tempPass }" /> 
 
-                 <table style="width: 600px; background-color: #fff; border: 5px solid #ddd; padding: 20px; font-size: 12px;"class="contactForm">
+                 <table style="width: 600px; background-color: #E0EAFF; border: 5px solid #ddd; padding: 20px; font-size: 12px;"class="contactForm">
 					
 					<tr>
 						<td	style="width: 20%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Old Password *</td>	<td style="text-align: left; vertical-align: top; padding: 5px;"> <input	type="password" name="currentPass" id="currentPass" value="${user.firstName}" /> <p id="errorcur"/><p id="errorTemp"/>
@@ -575,13 +565,12 @@ $(document).ready(function(){
 					<tr>
 						<td colspan="2"
 							style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
-							(*)fields are required.</td>
+							(*) fields are required.</td>
 					</tr>
 					<tr>
 						<td colspan="2"
 							style="text-align: left; vertical-align: middle; padding: 5px;"><input
-							type="submit" name="update" value="Submit" /> (Email will not be
-							sent)</td>
+							type="submit" name="update" value="Submit" /> </td>
 
 					</tr>
 				</table>
@@ -612,8 +601,7 @@ $(document).ready(function(){
 
 
 
-<div class="footer">
-
+	<%-- <div class="footer">
 			<!--#BEGIN FOOTER AREA#-->
 			<!--Declare 630px width-->
 			<div class="span-8">
@@ -636,8 +624,8 @@ $(document).ready(function(){
 				<ul id="footer-nav">
 					<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 						|</li>
-					<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li> --%>
+					<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+						|</li>
 					<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 						|</li>
 					<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
@@ -656,10 +644,10 @@ $(document).ready(function(){
 			<!--span8 close-->
 
 		</div>
-		<!--footer close-->
+ --%>		<!--footer close-->
 
 
-
+ <div class="footer"> <%@ include file="footer.jsp" %></div>
 
 	<!--container close-->
 

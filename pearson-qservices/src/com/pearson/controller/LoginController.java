@@ -133,6 +133,8 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView Getdetails(@ModelAttribute("login") Admin1 data,
 			Map<String, Object> map, HttpServletRequest request) {
+		
+		ModelAndView mav = new ModelAndView();
 
 		HttpSession session = request.getSession();
 		session.getId();
@@ -161,6 +163,7 @@ public class LoginController {
 		data.setVal("failed");
 		}
 		return new ModelAndView("index", "data", data);
+	
 	}
 
 	/*

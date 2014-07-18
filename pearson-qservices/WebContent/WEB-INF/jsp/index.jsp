@@ -1,18 +1,11 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <?xml version="1.0"?>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd">
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <html xmlns="_http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-
 <title>Pearson Q-service PORTAL</title>
 
 <%-- <a href="${pageContext.request.contextPath}/logout/"> <img src="${pageContext.request.contextPath}/img/logout.jpg"></img></a> --%>
@@ -96,15 +89,16 @@ $(document).ready(function() {
 	
 if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();}  
 
-
-	/* if(!Login.match(new RegExp(temp))){
-		$( ".tab1" ).replaceWith( $( ".tab" ) );
-		}
-	if(Login.match(new RegExp(temp))){$( ".tab" ).replaceWith( $( ".tab1" ));} */
 	});
 </script>
 
 
+<!-- 	if(!Login.match(new RegExp(temp))){
+		$( ".tab1" ).replaceWith( $( ".tab" ) );
+		}
+	if(Login.match(new RegExp(temp))){$( ".tab" ).replaceWith( $( ".tab1" ));} 
+ -->
+ 
 <!--jQuery Sliding Login Panel Button-->
 
 <style>
@@ -240,7 +234,7 @@ $(document).ready(function(e){
 
 <!-- LOGIN LOGOUT VALIDATION  End-->
 
-		<c:if test="${valid == 'FAILED'}">
+<%-- 		<c:if test="${valid == 'FAILED'}">
 		<H1>DSFSF</H1>
 			<script type="text/javascript">
 			$(document).ready(function() {
@@ -252,7 +246,7 @@ $(document).ready(function(e){
 			});
 			</script>
 		</c:if>
-
+ --%>
 
 
 
@@ -307,8 +301,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	});
 </script> -->
 <!-- Color hover JavaScript Files -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.color.js"></script>
+
+
+<script type="text/javascript"	src="${pageContext.request.contextPath}/js/jquery.color.js"></script>
 <script type="text/javascript">
 	// Background color animation 
 	$(document).ready(function() {
@@ -330,10 +325,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 <%String temp = (String) session.getAttribute("MySessionId");%>
 var value= "<%=temp%>	";
 </script>
-<!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-
+<!--closing the head tag, if you want to declare any css/javascript or any other references, do it above. -->
 
 <body>
 	<!--This template makes use of the Blueprint CSS framework. -->
@@ -469,17 +464,16 @@ var value= "<%=temp%>	";
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home_front" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
+				
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Services Catalog"><span>our services</span></a></li>
+					id="services" title="Services Catalog"><span>service catalog </span></a></li>
+					
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="Key Achievements"><span>the bloggery</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li> --%>
+					id="key" title="Key Achievements"><span> key achievements</span></a></li>
 
 				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="My Request"><span>Request</span></a></li>
+					id="myrequest" title="My Request"><span>my request</span></a></li>
+					
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -641,7 +635,7 @@ var value= "<%=temp%>	";
 									<div class="image_placeset">
 										<!--slide #1 image-->
 										<a href="${pageContext.request.contextPath}/blog/"> 
-										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/process.png" width="540px"/></a>
+										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/process1.png" width="540px"/></a>
 									</div>
 									<!--image_placeset close-->
 								</div>
@@ -713,7 +707,7 @@ var value= "<%=temp%>	";
 									<div class="image_placeset">
 										<!--slide #1 image-->
 										<a href="${pageContext.request.contextPath}/blog/"> 
-										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/technology.png" width="540px"/></a>
+										<img alt=""	src="${pageContext.request.contextPath}/img/img_over/technology1.png" width="540px"/></a>
 									</div>
 									<!--image_placeset close-->
 								</div>
@@ -1037,63 +1031,10 @@ var value= "<%=temp%>	";
 		<!-- Declare 950px width for IE, once again. Corrects positioning-->
 		<!--BEGIN Footer Area-->
 
-		<div class="footer">
-
-			<!--#BEGIN FOOTER AREA#-->
-			<!--Declare 630px width-->
-			<div class="span-8">
-				<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
-				<!-- and some brief information about the company-->
-				<div class="footer_text">
-					<p>
-						&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
-					</p>
-				</div>
-				<!--footer_text close-->
-
-			</div>
-			<!--footer close-->
-
-			<!--Footer navigation goes here-->
-			<!--Declare 310px width-->
-			<div class="span-16 last">
-
-				<ul id="footer-nav">
-					<li><a href="${pageContext.request.contextPath}/index/">home</a>
-						|</li>
-					<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li> --%>
-					<li><a href="${pageContext.request.contextPath}/services/">service catalog</a>
-						|</li>
-					<li><a href="${pageContext.request.contextPath}/blog/">key achievements</a>
-						|</li>
-					<li><a href="${pageContext.request.contextPath}/requestList/">my request</a>|</li>
-					<li><a href="${pageContext.request.contextPath}/contact/">contact</a></li>
-				</ul>
-				<!--footer-nav close-->
-
-
-				<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-				<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-				<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
-
-			</div>
-			<!--span8 close-->
-
-		</div>
+		<div class="footer"> <%@ include file="footer.jsp" %></div>
 		<!--footer close-->
-
-
 	</div>
-
 	<!--container close-->
-
-
-
-	<!--IE Fix for over-shadow text replacement-->
-	<script type="text/javascript">
-		Cufon.now();
-	</script>
 
 </body>
 </html>

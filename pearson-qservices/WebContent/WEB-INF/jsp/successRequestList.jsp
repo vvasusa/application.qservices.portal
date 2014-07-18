@@ -264,11 +264,11 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services_front" title="Our Services"><span>our services</span></a></li>
+					id="services_front" title=" Service Catalog"><span> service catalog</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+					id="key" title=" Key Achievements"><span>key achievements</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request"><span>Request</span></a></li>
+					id="myrequest" title="My Request"><span>my request</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -285,14 +285,15 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 		<!--Begin Page Area, below header navigation-->
 		<div class="page">
 			<!--Declare 950px width w/ right border-->
-			<div class="span-24">
+<%-- 			<div class="span-24">
 				<!--Intro Image shown here, about site-->
 				<div class="intro">
 					<img src="${pageContext.request.contextPath}/img/contact_banner.gif" alt="" />
 				</div>
 				<!--Close intro image-->
 			</div>
-			<!--Close 950px width-->
+ --%>			
+ <!--Close 950px width-->
 
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
@@ -334,12 +335,12 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 			<table border="1">
 				<tr>
-					<td class="heading">Name</td>
-					<td class="heading">ContactNo</td>
-					<td class="heading">Email</td>
-					<td class="heading">Address</td>
-					<td class="heading">ReqID</td>
-					<td class="heading">ReqName</td>
+					<td class="heading" width=15%>Name</td>
+					<td class="heading" width=20%>Contact No</td>
+					<td class="heading" width=15%>Email</td>
+					<td class="heading" width=15%>Address</td>
+					<td class="heading" width=15%>Request ID</td>
+					<td class="heading" width=20%>Service Name</td>
 					
 					</tr>
 						</table>
@@ -351,8 +352,8 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<td width=15%>${user.firstName}</td>
 					<td width=20%>${user.phoneNo}</td>
 					<td width=15%>${user.email}</td>
-					<td width=15%>${user.address}</td>
-					<td width=15%>${user.requestID}</td>
+					<td width=16%>${user.address}</td>
+					<td width=18%>${user.requestID}</td>
 					<td width=20%>${user.requestName}</td> 
 					<td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>Edit</span></a></td>
@@ -372,19 +373,6 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					
 					
 				
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
 					<!--END FORM -->
 					<!--Replace Code Above for PHP Integration-->
 
@@ -495,8 +483,8 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 		<!-- Declare 950px width for IE, once again. Corrects positioning-->
 		<!--BEGIN Footer Area-->
-		<div class="span-24">
-			<div class="footer">
+		
+<%-- 			<div class="footer">
 
 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
@@ -505,7 +493,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<!-- and some brief information about the company-->
 					<div class="footer_text">
 						<p>
-							&copy; Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+							&copy; CopyRight 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
 					<!--footer_text close-->
@@ -520,8 +508,8 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-						<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li> --%>
+						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+							|</li>
 						<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
@@ -539,9 +527,12 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 				<!--span8 close-->
 
 			</div>
-			<!--footer close-->
+ --%>			<!--footer close-->
 
-		</div>
+
+
+		 <div class="footer"> <%@ include file="footer.jsp" %></div>
+		
 		<!--span24 close-->
 
 	</div>

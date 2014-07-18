@@ -37,7 +37,9 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			if (ID != null) {
 				Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet rs = statement.executeQuery("select * from REQUESTOR where requestorId='"+ ID + "'");
+				ResultSet rs = statement
+						.executeQuery("select * from REQUESTOR where requestorId='"
+								+ ID + "'");
 
 				/* (SELECT * FROM adminuser where userId="+"id) */
 				/* ("select * from samplevisitor where requestorId= :ID") */
@@ -99,9 +101,15 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 		String pn = requestForm.getPhoneNo();
 		String sid = requestForm.getReq_ServiceID();
 		String Reqname = requestForm.getReq_ServiceName();
-		
+		String fname = requestForm.getFirstName();
+		String lname = requestForm.getLastName();
+		String ee = requestForm.getEmail();
+		String nn = requestForm.getAddress();
+		System.out.println(nn);
 		System.out.println(pn);
 		System.out.println(sid);
+		System.out.println(fname);
+		System.out.println(lname);
 
 		/* Send request id to user via mail */
 		GentrateUserId Obj = new GentrateUserId();
@@ -126,8 +134,6 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
 
-			
-
 			int rs = statement
 					.executeUpdate("INSERT INTO REQUEST(RequestId,RequestorId,ServiceId,Request_Date,descreption,ApprovedBy,Status_Id,LastUpdatedOn)VALUES('"
 							+ reqid
@@ -140,14 +146,36 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 							+ "','"
 							+ requestForm.getCommands()
 							+ "','"
-							+ "null"
-							+ "','"
-							+ "0"
-							+ "','"
-							+ date + "')");
+							+ "null" + "','" + "0" + "','" + date + "')");
 
-			
-			
+			/*
+			  statement.executeUpdate(
+			  "update REQUESTOR(firstName,lastName,phoneNo,email,address)VALUES('"
+			  + requestForm.getFirstName() + "','" + requestForm.getLastName()
+			  + "','" + requestForm.getPhoneNo() + "','" +
+			  requestForm.getEmail() + "','" + requestForm.getAddress() +
+			  "' where requestorId='"+ ses_Id + "'")");"
+			 */
+
+			/*
+			  statement.executeUpdate("UPDATE student SET firstName = '" +
+			  requestForm.getFirstName()+ "', "+ " lastName = '"+
+			  requestForm.getLastName() + "', "+"   WHERE requestorId ="+
+			  ses_Id +"");
+			 */
+
+			statement.executeUpdate("update requestor SET firstName = '"
+					+ requestForm.getFirstName() + "',lastName = '"
+					+ requestForm.getLastName() + "',email = '"
+					+ requestForm.getEmail() + "',phoneno = '"
+					+ requestForm.getPhoneNo() + "',address = '"
+					+ requestForm.getAddress() + "' where RequestorId ='"
+					+ ses_Id + "'");
+
+			/*
+			 * where ApprovedBy='" + approve + "'");
+			 */
+
 			String name = requestForm.getFirstName();
 			name = name.concat(requestForm.getLastName());
 			user.setFirstName(name);
@@ -160,7 +188,7 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			user.setRequestID(reqid);
 			adminUser.add(user);
 
-			MailService mailService = new MailService();
+			// MailService mailService = new MailService();
 
 			// mailService.sendRequestID(requestForm.getEmail(), reqid);
 

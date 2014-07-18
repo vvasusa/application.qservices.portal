@@ -313,9 +313,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Begin Navigation-->
 			<ul id="navigation"><li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
 				
-				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Our Services"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"	id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/requestList/" id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Our Services"><span>service catalog</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"	id="key" title="Key Achievements"><span>key achievements</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest" title="My Request"><span>my request</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
 			<!--Navigation close-->
@@ -327,7 +327,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
         <ul id="sub-nav">
        
         <li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a></li>
-         <li><a href="${pageContext.request.contextPath}/infrastructure/">Infrastructure</a>	</li> 
+         <li><a href="${pageContext.request.contextPath}/infrastructure/"></a>	</li> 
 </ul>
 </div>
 <%--                     
@@ -387,9 +387,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<div class="span-24">
 		<hr class="space" />
 		</div>
-		<div class="span-24">
-		<hr class="space" />
-		</div>
+		
 
 
 		</div>
@@ -407,10 +405,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					   <input type="image" src="${pageContext.request.contextPath}/img/button.jpg" alt="Raise Your Request Here.." />
 						
 						<div style="float:left">
-							<h2 style="color: black">Infrastructure</h2>
+							
 						</div>
 						
-						<hr class="space" />
+						
 					</form>
 					</div>
 			</c:if>
@@ -421,11 +419,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<!-- ******************************************************************************** -->
 		<div class="span-24">
-		<h3></h3>
+		  	<hr class="space" />
+		  	<h2 style="color: black">Infrastructure</h2>
 			<p>	
-				<font size="2px" >
 				Assure all layers of the IT architecture and infrastructure components are functioning as per requirements
-				</font>
 			</p>
 
 			<h3 class="myNewStyle" style="color: #3399FF">Key Features Offerings</h3>
@@ -517,9 +514,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!-- Declare 950px width for IE, once again. Corrects positioning-->
 			<!--BEGIN Footer Area-->
 
-			<div class="footer">
-
-				<!--#BEGIN FOOTER AREA#-->
+			<div class="footer"> <%@ include file="footer.jsp" %></div>
+			
+<%-- 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
 				<div class="span-8">
 					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
@@ -541,8 +538,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-					<%-- 	<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li> --%>
+						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+							|</li>
 						<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
@@ -561,7 +558,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				<!--span8 close-->
 
 			</div>
-			<!--footer close-->
+ --%>			<!--footer close-->
 
 </div>
 

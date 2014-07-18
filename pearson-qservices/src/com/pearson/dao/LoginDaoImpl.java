@@ -173,13 +173,20 @@ public class LoginDaoImpl implements LoginDao {
 
 			contactUs.getAddress();
 			contactUs.getCompany();
-			contactUs.getEmail();
 			contactUs.getMessage();
-			contactUs.getName();
-			contactUs.getPhoneNo();
 			Connection connection = dataSource.getConnection();
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from adminuser");
+			int rs = statement.executeUpdate("INSERT INTO ContactUs(name,email,phoneNo,country,subject,message)VALUES('"
+							+ contactUs.getName()
+							+ "','"
+							+ contactUs.getEmail()
+							+ "','"
+							+ contactUs.getPhoneNo()
+							+ "','"
+							+ contactUs.getAddress()
+							+ "','"
+							+ contactUs.getSubject()
+							+ "','" + contactUs.getMessage() + "')");
 		}
 		catch(Exception e){
 		System.out.println(e);}

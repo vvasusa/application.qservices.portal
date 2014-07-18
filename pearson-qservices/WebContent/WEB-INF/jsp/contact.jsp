@@ -55,16 +55,22 @@ if(!Login.match(new RegExp(temp))){ $('ul.login').hide(); $('ul.logout').show();
 <script type="text/javascript">
 $(document).ready(function(){
 
-	$('#form1').on("submit", function(e){
+	$('#form2').on("submit", function(e){
 		
 		
 		var val_first_name = $("#name").val();
 		var val_message = $("#message").val();
 		var val_emailadd = $("#emailadd").val();
+		var val_phoneNo = $("#phoneNo").val();
+		
+		
+		var mobile = document.getElementById("phoneNo").value;      
+		var pattern = /^\d{10}$/; 
 		
 		$("#name").removeClass('errordis');	
 		$("#emailadd").removeClass('errordis');	
 		$("#message").removeClass('errordis');
+		$("#phoneNo").removeClass('errordis');
 	
 		 if( $.trim(val_first_name) === '' )
 		{
@@ -99,6 +105,26 @@ $(document).ready(function(){
 					e.preventDefault();
 					 }
 		}
+		
+		
+		if( $.trim(val_phoneNo) === '' )
+		{
+				
+			
+			$("#phoneNo").addClass('errordis');
+			$("#errorPno").text('Enter PhoneNo.');
+			$("#phoneNo").focus();
+			e.preventDefault();
+		}
+		
+		if (!pattern.test(val_phoneNo)) {         
+			/* 		alert("It is not valid mobile number. Enter 10 digits number!");    */
+					$("#phoneNo").addClass('errordis');
+					$("#phoneNo").focus();	
+					$("#errorPno").text('Enter 10 digit PhoneNo');
+					e.preventDefault();  
+					      
+					} 
 		
 		
 		if( $.trim(val_message) === '' )
@@ -381,11 +407,11 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services" title=" Service Catalog"><span> service catalog</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+					id="key" title="Key Achievements"><span> key achievements</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
+					id="myrequest" title="My Request "><span> my request</span></a></li>
 
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact_front" title="Contact Us"><span>contact us</span></a></li>
@@ -438,26 +464,32 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<!--This form below is exactly how it is viewed as a php handler-->
 
 					<!--Replace Code Below for PHP Integration-->
-					<form action="${pageContext.request.contextPath}/contactUs"
-						method="post" id="form1">
+					<form action="${pageContext.request.contextPath}/contactUs"	method="post" id="form2">
 						<table
-							style="width: 680px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
+							style="width: 680px; background-color: #E0EAFF; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 							class="contactForm">
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Name : *</td>
+									style="width: 25%; text-align: left; vertical-align: top; padding: 10px 5px 5px 20px; font-weight: bold;">Name : *</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 									type="text" name="name" value="" id="name"/></td>
 							</tr>
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email : *</td>
+									style="width: 25%; text-align: left; vertical-align: top; padding: 10px 5px 5px 20px; font-weight: bold;">Email : *</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 									type="text" name="email" value="" id="emailadd"/></td>
 							</tr>
+							
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Subject : </td>
+									style="width: 25%; text-align: left; vertical-align: top; padding: 10px 5px 5px 20px; font-weight: bold;">Phone No : * </td>
+								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
+									type="text" name="phoneNo" value="" id="phoneNo" maxlength="10"/></td>
+							</tr>
+							<tr>
+								<td
+									style="width: 25%; text-align: left; vertical-align: top; padding: 10px 5px 5px 20px; font-weight: bold;">Subject : </td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 									type="text" name="subject" value="" id="subject" /></td>
 							</tr>
@@ -465,8 +497,8 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
 							<tr>
 								<td
-									style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Country :</td>
-								<td style="text-align: left; vertical-align: top; padding: 5px;"><select type="text"  style="width: 25%; name="subject" >
+									style="width: 25%; text-align: left; vertical-align: top; padding: 10px 5px 5px 20px; font-weight: bold;">Country :</td>
+								<td style="text-align: left; vertical-align: top; padding: 5px;"><select type="text" name="address" style="width:25%">
 									    <option value="select">SELECT</option>
 										<option value="volvo">UK</option>
 										<option value="saab">US</option>
@@ -478,7 +510,7 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 							<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
 							<tr>
 								<td
-									style="width: 13%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Message : *</td>
+									style="width: 25%; text-align: left; vertical-align: top; padding: 10px 5px 5px 20px; font-weight: bold;">Message : *</td>
 								<td style="text-align: left; vertical-align: top; padding: 5px;"><textarea
 										name="message" cols="40" rows="6" id ="message"></textarea></td>
 										
@@ -611,8 +643,9 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 
 		<!-- Declare 950px width for IE, once again. Corrects positioning-->
 		<!--BEGIN Footer Area-->
-		<div class="span-24">
-			<div class="footer">
+		
+		
+<%-- 			<div class="footer">
 
 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
@@ -654,9 +687,12 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 				<!--span8 close-->
 
 			</div>
-			<!--footer close-->
+ --%>		
+ 	<!--footer close-->
+ 	
+ 	<div class="footer"> <%@ include file="footer.jsp" %></div> 
 
-		</div>
+		
 		<!--span24 close-->
 
 	</div>

@@ -8,14 +8,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page language="java" import="java.util.*" %>
 
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"      "http://www.w3.org/TR/html4/loose.dtd"> -->
-<html>
-<head>
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<?xml version="1.0"?>
-<title>Insert title here</title>
-</head>
+
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/framework.css"	type="text/css" media="screen, projection" charset="utf-8" />
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/site_styles.css"	type="text/css" media="screen, projection" charset="utf-8" />
 <link rel="stylesheet"	href="${pageContext.request.contextPath}/css/slide.css" type="text/css"	media="screen, projection" charset="utf-8" />
@@ -172,85 +165,14 @@ input.valid,textarea.valid {
 
 
 
-<!-- ****************************************************************************************************** -->
-<!-- 
 
 <script type="text/javascript">
 
 $(document).ready(function(){
+	
 
-	$('#form1').on("submit", function(e){
-		$("#firstName").addClass('#error');
-		alert('jhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjh!');
-		var val_first_name = $("#firstName").val();
-		var val_last_name = $("#lastName").val();
-		var val_phoneNo = $("#phoneNo").val();
-		var val_emailadd = $("#emailadd").val();
-
+	$('#form2').on("submit", function(e){
 		
-		$("#firstName").removeClass('errordis');	
-		$("#lastName").removeClass('errordis');	
-		$("#phoneNo").removeClass('errordis');
-		$("#emailadd").removeClass('errordis');
-
-		if( $.trim(val_first_name) === '' )
-		{
-			
-			$("#firstName").addClass("errordis");
-			
-			$("#firstName").focus();
-			addedClass = "green";
-			e.preventDefault();
-		}
-
-		
-		
-		 if( $.trim(val_last_name) === '' )
-		{
-				
-			$("#lastName").addClass('errordis');
-			$("#lastName").focus();	
-			e.preventDefault();
-		}	
-		
-		
-		if( $.trim(val_phoneNo) === '' )
-		{
-				
-			
-			$("#phoneNo").addClass('errordis');
-			$("#phoneNo").focus();	
-			e.preventDefault();
-		}	
-		
-		if( $.trim(val_emailadd) === '' )
-		{
-			
-			
-			$("#emailadd").addClass('errordis');
-			$("#emailadd").focus();	
-			e.preventDefault();
-		}	
-		else{return true;}
-
-	});		
-
-});
-
-</script> -->
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-	$('#form1').on("submit", function(e){
 		$("#firstName").addClass('#error');
 		
 		var val_first_name = $("#firstName").val();
@@ -420,6 +342,83 @@ $(document).ready(function(){
 
 
 
+
+
+
+<!-- 
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#form1').on("submit", function(e){
+		$("#firstName").addClass('#error');
+		alert('jhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjh!');
+		var val_first_name = $("#firstName").val();
+		var val_last_name = $("#lastName").val();
+		var val_phoneNo = $("#phoneNo").val();
+		var val_emailadd = $("#emailadd").val();
+
+		
+		$("#firstName").removeClass('errordis');	
+		$("#lastName").removeClass('errordis');	
+		$("#phoneNo").removeClass('errordis');
+		$("#emailadd").removeClass('errordis');
+
+		if( $.trim(val_first_name) === '' )
+		{
+			
+			$("#firstName").addClass("errordis");
+			
+			$("#firstName").focus();
+			addedClass = "green";
+			e.preventDefault();
+		}
+
+		
+		
+		 if( $.trim(val_last_name) === '' )
+		{
+				
+			$("#lastName").addClass('errordis');
+			$("#lastName").focus();	
+			e.preventDefault();
+		}	
+		
+		
+		if( $.trim(val_phoneNo) === '' )
+		{
+				
+			
+			$("#phoneNo").addClass('errordis');
+			$("#phoneNo").focus();	
+			e.preventDefault();
+		}	
+		
+		if( $.trim(val_emailadd) === '' )
+		{
+			
+			
+			$("#emailadd").addClass('errordis');
+			$("#emailadd").focus();	
+			e.preventDefault();
+		}	
+		else{return true;}
+
+	});		
+
+});
+
+</script>
+ -->
+
+
+
+
+
+
+
+
 <!-- ************************************************************************************************************** -->
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -517,7 +516,7 @@ $(document).ready(function(){
 
 
 		<!--Begin Header-->
-		<div class="header1">
+<%-- 		<div class="">
 			<!--Logo Area-->
 		 <div class="span-24">
 			<div class="span-10">
@@ -534,28 +533,77 @@ $(document).ready(function(){
 		</div>
 			<!-- FOR SAMPLE CHECK-END -->
 			<ul id="navigation">
-				<li><a href="${pageContext.request.contextPath}/index/"
-					id="home" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services_front" title="Service Catalog"><span>services catalog</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="Key Achivements"><span>the bloggery</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li> --%>
+			
+				<li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
 				
-					<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="My Request "><span>Request</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/contact/"
-					id="contact" title="Contact Us"><span>contact us</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Service Catalog"><span>services catalog</span></a></li>
+					
+				<li><a href="${pageContext.request.contextPath}/blog/"	id="key" title="Key Achivements"><span>key achievements </span></a></li>
+				
+				<li><a href="${pageContext.request.contextPath}/requestList/"	id="myrequest" title="My Request "><span>my request</span></a></li>
+					
+				<li><a href="${pageContext.request.contextPath}/contact/"	id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
 			<!--Navigation close-->
 
 
 		</div>
-		<!--Header Close-->
+ --%>		
+ 
+ 
+ 		<div >
+			<!--Logo Area-->
+
+			<!-- The tab on top -->
+		<div class="span-24">
+		<div class="span-10">
+			<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="80px" width="250px"/>
+		</div>
+		 	<div style="float:right; padding-top:20px; color:#990066;">
+		       <p>
+		        <c:if test="${!empty loginType}">
+ 		         <%String name = (String) session.getAttribute("loginName");%>
+		         welcome <%=name%>	
+		        </c:if>
+		      </p>
+		 </div>	
+		</div>			
+					<%-- <p align="right"   style=" font-family: inherit;">
+		             <font face="verdana ,helvetica"  size="2" color="#990066" >
+		                  <c:if test="${!empty loginType}">
+ 		                     <%String name = (String) session.getAttribute("loginName");%>
+		                     welcome <%=name%>	
+		                  </c:if>
+		             </font>
+		        </p> --%>
+		        
+		
+		                  
+			 
+	
+			<ul id="navigation">
+				<li><a href="${pageContext.request.contextPath}/index/"
+					id="home" title="Home"><span>home</span></a></li>
+				
+				<li><a href="${pageContext.request.contextPath}/services/"
+					id="services_front" title="Services Catalog"><span>service catalog </span></a></li>
+					
+				<li><a href="${pageContext.request.contextPath}/blog/"
+					id="key" title="Key Achievements"><span> key achievements</span></a></li>
+
+				<li><a href="${pageContext.request.contextPath}/requestList/"
+					id="myrequest" title="My Request"><span>my request</span></a></li>
+					
+				<li><a href="${pageContext.request.contextPath}/contact/"
+					id="contact" title="Contact Us"><span>contact us</span></a></li>
+
+			</ul>
+			<!--Navigation close-->
+
+		</div>
+ 
+ <!--Header Close-->
 
 	<div class="span-24">
 		<div class="submenu">
@@ -563,7 +611,7 @@ $(document).ready(function(){
 		<ul id="sub-nav">
              <li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>	</li>       
 			<li><a href="javascript:history.back()"><% out.println(request.getParameter("service")); %></a></li>
-			<li><a href="#">Submit Request</a>	</li>	
+			<!-- <li><a href="#">Submit Request</a>	</li>	 -->
 		</ul>
 
 		</div>
@@ -571,14 +619,15 @@ $(document).ready(function(){
 		
 		<hr class="space" />
 		<hr class="space" />
-		<hr class="space" />
+		
 
 	<c:forEach var="user" items="${adminUser}">
 		
-
-		<form action="${pageContext.request.contextPath}/doneReq" method="post" commandName="requestForm" id="form1" modelAttribute="requestForm">
-			<table	style="width: 0px; background-color: #fff; border: 1px solid #ddd; padding: 50px; font-size: 12px;"	class="contactForm">
-
+  		<h2 style="padding-left:280px"><% out.println(request.getParameter("service")); %></h2>
+		<form action="${pageContext.request.contextPath}/doneReq" method="post" commandName="requestForm" id="form2" modelAttribute="requestForm">
+		
+			<table	style="width: 680px; background-color: #E0EAFF; border: 1px solid #ddd; padding: 20px; font-size: 12px;"	class="contactForm">
+					
 				<tr><td>
 					<input	type="hidden" name="req_ServiceName" value="${user.requestName}"  readonly/>
 					<input	type="hidden" name="req_ServiceID" value="${user.requestID}" readonly /></td>
@@ -599,20 +648,19 @@ $(document).ready(function(){
 				</tr> --%>
 				<tr>
 
-					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
-					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
-						type="text" name="firstName" id="firstName" value="${user.firstName}" /></td>
+					<td	style="width: 30%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">First Name *:</td>
+					<td style="text-align: left; vertical-align: top; padding: 5px;">
+					<input	type="text" name="firstName" id="firstName" value="${user.firstName}" /></td>
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Last Name *:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="lastName"  id="lastName" value="${user.lastName}" /></td>
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Email *:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="email"  id="emailadd"  value="${user.email}" /> <form:errors
 							path="email" /></td>
@@ -620,7 +668,7 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Phone No *:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="phoneNo" id="phoneNo" value="${user.phoneNo}" maxlength="10" /></td>
 				</tr>
@@ -635,7 +683,7 @@ $(document).ready(function(){
 				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  START-->
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Street:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Street:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="address"/>
 							</td>
@@ -643,7 +691,7 @@ $(document).ready(function(){
 				
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">City:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">City:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><select
 						type="option" name="address" style='width: 145px;'>
 						<option value=" ">Select</option>
@@ -657,7 +705,7 @@ $(document).ready(function(){
 				
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">State:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">State:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;">
 					<select	type="option" name="address" style='width: 145px;'>
 				           	<option value=" ">Select</option>
@@ -670,7 +718,7 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Country:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Country:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;">
 					<select	type="option" name="address" style='width: 145px;'>
 							<option value=" ">Select</option>
@@ -684,14 +732,14 @@ $(document).ready(function(){
 				<!-- CODE FOR INSERTING REQUEST ID DROPDOWNBOX  END-->
 				<tr>
 					<td
-						style="width: 2%; text-align: left; vertical-align: top; padding: 2px 5px 5px 5px; font-weight: bold;">Message:</td>
+						style="width: 2%; text-align: left; vertical-align: top; padding: 2px 5px 5px 25px; font-weight: bold;">Description:</td>
 					<td style="text-align: left; vertical-align: top; padding: 3px;">
 					<textarea name="commands" cols="0" rows="0"></textarea></td>
 				</tr>
 
 				<tr>
 					<td colspan="2"
-						style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All
+						style="text-align: left; vertical-align: middle; padding: 5px; font-size: 90%; font-weight: bold;">All (*)
 						fields are required.</td>
 				</tr>
 				<tr>
@@ -705,7 +753,12 @@ $(document).ready(function(){
 	<!-- Declare 950px width for IE, once again. Corrects positioning-->
 		<!--BEGIN Footer Area-->
 		<div class="span-24">
-			<div class="footer">
+		<div class="hrbg_small">
+		  <%@ include file="footer.jsp" %>
+		</div>
+		
+		
+			<%-- <div class="footer">
 
 				<!--#BEGIN FOOTER AREA#-->
 				<!--Declare 630px width-->
@@ -729,8 +782,8 @@ $(document).ready(function(){
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-						<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li> --%>
+						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
+							|</li>
 						<li><a href="${pageContext.request.contextPath}/services/">Services Catalog</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
@@ -748,14 +801,16 @@ $(document).ready(function(){
 				<!--span8 close-->
 
 			</div>
-			<!--footer close-->
+ --%>			<!--footer close-->
 
-		</div>
+
+			
+		
 		<!--span24 close-->
 
 	</div>
 	<!--container close-->
-
+</div>
 
 
 	<!--IE Fix for over-shadow text replacement-->

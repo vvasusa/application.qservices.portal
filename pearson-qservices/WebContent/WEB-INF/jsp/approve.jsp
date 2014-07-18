@@ -345,18 +345,18 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Service Catalog"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="Key Achievements"><span>the bloggery</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/requestList/"
-					id="home_front" title="Request"><span>request</span></a></li> --%>
 				
-					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port_front" title="My Request"  ><span>Request</span></a></li>
-					<li><a href="${pageContext.request.contextPath}/contact/"
+				<li><a href="${pageContext.request.contextPath}/services/"
+					id="services" title="Service Catalog"><span> service catalog</span></a></li>
+					
+				<li><a href="${pageContext.request.contextPath}/blog/"
+					id="key" title="Key Achievements"><span> key Achievements</span></a></li>
+				
+				
+				<li><a href="${pageContext.request.contextPath}/requestList/"  
+					id="myrequest_front" title="My Request"  ><span>my request</span></a></li>
+					
+				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
 			</ul>
@@ -469,13 +469,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					<tr>
 
 						<td
-							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">FirstName:</td>
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">First Name:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 							type="text" name="firstName" value="${user.firstName}" /></td>
 					</tr>
 					<tr>
 						<td
-							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:</td>
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Last Name:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 							type="text" name="lastName" value="${user.lastName}" /></td>
 					</tr>
@@ -488,7 +488,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					</tr>
 					<tr>
 						<td
-							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:</td>
+							style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phone No:</td>
 						<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 							type="text" name="phoneNo" value="${user.phoneNo}" /></td>
 					</tr>
@@ -543,42 +543,44 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 </div>
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
-<div>
 
-<c:if test="${loginType != 'VISITOR'}">
-
-
-<div id="accordion">
-<c:forEach var="user" items="${adminUser}">
-		<h5>		
-		
-			<table >
+ <c:if test="${loginType != 'VISITOR'}">
+ 
+ 	<c:if test="${empty adminUser}">
+		<h3> Please submit a Service Request</h3>
+	</c:if>
+	
+	<div id="accordion">
+	<c:forEach var="user" items="${adminUser}">
+		<h5 style="height:70px; color:#383838">		
+			<table>
 				<tr>
-					<td class="heading" width=25%>Req_ID</td>
-					<td class="heading" width=25%>Service_Name</td>
-					<td class="heading" width=25%>Approved Date </td>
-					<td class="heading" width=25%>Status</td>
+					<td class="heading" width=20%>Request ID</td>
+					<td class="heading" width=20%>Requestor Name</td>
+					<td class="heading" width=20%>Service Name</td>
+					<td class="heading" width=20%>Approved Date </td>
+					<td class="heading" width=20%>Status</td>
 				</tr>
+				<tr>
+					<td width=20%>${user.raisedReqId}</td>
+					<td width=20%>${user.firstName}</td>
+					<td width=20%>${user.serviceName}</td>
+					<td width=20%>${user.lastUpdatedOn}</td>
+					<td width=20%>Approved</td>
+					</tr>
 				</table>  
 				</h5>
 				
 				<%-- <c:if test="${user.loginType=='QA'}"> --%>
 	<div>
 		<p>
-		<h6>
-		<!-- style="background-color:lightblue;" -->
-			<table >
-				<tr>
-					
-					<td width=25%>${user.raisedReqId}</td>
-					<td width=25%>${user.serviceName}</td>
-					<td width=27%>${user.lastUpdatedOn}</td>
-					<td >Approved</td>
+			<h6>
+					<!-- style="background-color:lightblue;" -->
 					<%-- <td >${user.approvedBy}</td> --%>
 					<%-- <td>${user.requestName}</td>
 					<td>${user.requestID}</td> --%>
-					</tr>
-					<tr><td></td></tr> <tr><td></td></tr><tr><td></td></tr>
+				<table >
+					
 					<tr>
 						 <td>QA Commands :${user.commandsByQA} </td></tr>
 						<tr>
@@ -603,54 +605,13 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		</div>
 	</c:if>
-</div>
 
 
-<div class="footer">
+<div class="span-24">
 <div class="hrbg_small"></div>
-		<!--#BEGIN FOOTER AREA#-->
-		<!--Declare 630px width-->
-		<div class="span-8">
-			<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
-			<!-- and some brief information about the company-->
-			<div class="footer_text">
-				<p>
-					&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
-				</p>
-			</div>
-			<!--footer_text close-->
+</div>
+<div class="footer"> <%@ include file="footer.jsp" %></div>
 
-		</div>
-		<!--footer close-->
-
-		<!--Footer navigation goes here-->
-		<!--Declare 310px width-->
-	
-		<div class="span-16 last">
-
-			<ul id="footer-nav">
-				<li><a href="${pageContext.request.contextPath}/index/">Home</a>
-					|</li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
-					|</li>
-				<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
-					|</li>
-				<li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
-				<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
-			</ul>
-			<!--footer-nav close-->
-
-
-			<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-			<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-			<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
-
-		</div>
-		<!--span8 close-->
-
-	</div>
 </div>
 <!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -END-->
 </body>

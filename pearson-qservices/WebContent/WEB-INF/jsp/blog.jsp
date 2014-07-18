@@ -53,8 +53,8 @@
 table {border-spacing: 5px 20px; }
 
 th, td {
-  border:2px inset  #545565;
-  border-radius: 5px; !important;
+  border:1px inset  #545565;
+  border-radius: 10px; !important;
    }
 
 </style>
@@ -327,9 +327,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
   			<li><a href="${pageContext.request.contextPath}/index/" id="home" title="Home"><span>home</span></a></li>
   			
   			
-  			<li><a href="${pageContext.request.contextPath}/services/" id="services" title="Our Services"><span>our services</span></a></li>
-  			<li><a href="${pageContext.request.contextPath}/blog/" id="blog_front" title="The Blog"><span>the bloggery</span></a></li>
-  			<li><a href="${pageContext.request.contextPath}/requestList/" id="port" title="Work Portfolio"><span>Request</span></a></li>
+  			<li><a href="${pageContext.request.contextPath}/services/" id="services" title="Our Services"><span> service catalog</span></a></li>
+  			<li><a href="${pageContext.request.contextPath}/blog/" id="key_front" title=" Key Achievements"><span> key achievements</span></a></li>
+  			<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest" title="My Request"> <span>my request</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
   			<!-- CHANGES FOR ADDING REQUEST TAB START -->
   			
@@ -621,7 +621,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
     <!-- Declare 950px width for IE-->
     
     <!--close hr line, 950px IE fix-->
-      <hr class="space" />  <hr class="space" />
+     
      <div class="span-24">
     	<!--add hr line-->
     	<div class="hrbg_small"></div>
@@ -629,8 +629,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
     
     <!-- Declare 950px width for IE, once again. Corrects positioning-->
     <!--BEGIN Footer Area-->
-    <div class="span-24">
-    	<div class="footer">
+    
+<%--     	<div class="footer">
         
             <!--#BEGIN FOOTER AREA#-->
             <!--Declare 630px width-->
@@ -651,7 +651,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                 
                 <ul id="footer-nav">
                     <li><a href="${pageContext.request.contextPath}/index/">Home</a> |</li>
-                   <%--  <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a> |</li> --%>
+                    <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a> |</li>
                     <li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a> |</li>
                     <li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a> |</li>
                     <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
@@ -664,9 +664,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
                   
             </div><!--span8 close-->
         
-    	</div><!--footer close-->
+    	</div>
+ --%>   
+  	<!--footer close-->
+  	<div class="footer"> <%@ include file="footer.jsp" %></div>
     
-	</div><!--span24 close-->
+	<!--span24 close-->
 
 </div><!--container close-->
    

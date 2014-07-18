@@ -373,14 +373,13 @@ $(document).ready(function(){
 			<ul id="navigation">
 				<li><a href="${pageContext.request.contextPath}/index/"
 					id="home" title="Home"><span>home</span></a></li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/"
-					id="port" title="Work Portfolio"><span>work portfolio</span></a></li> --%>
+				
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services" title=" Service Catalog"><span>our services</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+					id="key" title=" Key Achievements"><span>key achievements</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/requestList/"  
-					id="port_front" title="Request"  ><span>Request</span></a></li>
+					id="myrequest_front" title="My Request" ><span>my request</span></a></li>
 					<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
 
@@ -448,80 +447,58 @@ $(document).ready(function(){
 
 
 
-
-<c:if test="${empty loginType}">
-	<%-- <c:forEach var="user" items="${adminUser}"> --%>
-	<%-- <c:if test="${loginType=='VISITOR'}"> --%>
-
-	<h3>To view data please loginHere .. <a href="${pageContext.request.contextPath}/index" method="post">click
-		here..</a></h3>
-	
-	<%-- </c:if> --%>
+<c:if test="${empty adminUser}">
+<h3> No Service Request</h3>
 </c:if>
 
 
-	<div>
+<c:if test="${empty loginType}">
+	<h3>To view data please loginHere .. <a href="${pageContext.request.contextPath}/index" method="post">click	here..</a></h3>
+</c:if>
 
-		
-
-		<%
-			String temp1 = (String) session.getAttribute("MySessionId");
-		%>
-		<%
-			String temp2 = (String) session.getAttribute("loginType");
-		%>
-
-
-	</div>
+	
+		<%	String temp1 = (String) session.getAttribute("MySessionId");	%>
+		<%	String temp2 = (String) session.getAttribute("loginType");		%>
 
 	<!-- PART TWO FOR DISPLAY REQUEST FOR QA-LEAD -START-->
 	<div class="container">
 		<c:if test="${loginType != 'VISITOR' && !empty loginType}">
 			<h3> <a href="${pageContext.request.contextPath}/viewAllRequest" method="post"><u>	</u></a></h3>
-			
-			<div id="accordion"> 
-				<c:forEach var="user" items="${adminUser}">
-					<!-- <h5>
-						<table >
-							<tr>
-								<td width=27%>REQUEST ID</td>
-								<td width=30%>REQUEST NAME</td>
-								<td width=25%>DATE</td>
-								<td width=25%>STATUS</td>
-							</tr>
-						</table>
-					</h5> -->
-		<h5>		
-			<table >
-				<tr>
-					<td class="heading" width=25%>Request ID</td>
-					<td class="heading" width=25%>Request Name</td>
-					<td class="heading" width=25%> Date </td>
-					<td class="heading" width=25%>Status</td>
-				</tr>
-				</table>  
-				</h5>
+				<div id="accordion"> 
+					<c:forEach var="user" items="${adminUser}">
+						<h5 style="height: 70px; bgcolor: red;">		
+							<table>
+								<tr>
+									<td class="heading" width=20%>Request ID</td>
+									<td class="heading" width=20%>Requestor Name</td>
+									<td class="heading" width=20%>Service Name</td>
+									<td class="heading" width=20%> Date </td>
+									<td class="heading" width=20%>Status</td>
+								</tr>
+								<tr>
+									<td width=20%>${user.raisedReqId}</td>
+									<td width=20%>${user.firstName}</td>
+									<td width=20%>${user.requestName}</td>
+									<td width=20%>${user.lastUpdatedOn}</td>
+									<td width=20%>${user.status}</td>
+								 </tr>
+							</table>  
+						</h5>
 				
 					<%-- <c:if test="${user.loginType=='QA'}"> --%>
 					<h6>
-						<table >
-							<tr>
-								<td width=28%>${user.raisedReqId}</td>
-								<td width=28%>${user.requestName}</td>
-								<td width=28%>${user.lastUpdatedOn}</td>
-								<td width=25%>${user.status}</td>
-					  		  </tr>
-					    <tr><td></td></tr> <tr><td></td></tr>
+						<table>
+						
 					    <tr>
-						 <td>QA Commands: ${user.commandsByQA} </td></tr>
+							 <td>QA Commands: ${user.commandsByQA} </td></tr>
 						<tr>
-						<td>PL Commends:${user.commandsByPL} </td>
+							<td>PL Commends:${user.commandsByPL} </td>
 						</tr>
 						<tr>
-						<td> SLM Commends:${user.commandsBySLM} </td>
+							<td> SLM Commends:${user.commandsBySLM} </td>
 						</tr>
 						 <tr>
-						<td> ADM Commends:${user.commandsByADM} </td>
+							<td> ADM Commends:${user.commandsByADM} </td>
 						</tr> 
 			<%-- 	 <tr>
 						<td>

@@ -232,9 +232,9 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
         <!--Begin Navigation-->    
         <ul id="navigation">
   			<li><a href="${pageContext.request.contextPath}/index/" id="home" title="Home"><span>home</span></a></li>
-  			<li><a href="${pageContext.request.contextPath}/services/" id="services" title="Our Services"><span>our services</span></a></li>
-  			<li><a href="${pageContext.request.contextPath}/blog/" id="blog" title="The Blog"><span>the bloggery</span></a></li>
-  			<li><a href="${pageContext.request.contextPath}/requestList/" id="port_front" title="Work Portfolio"><span>RequestList</span></a></li>
+  			<li><a href="${pageContext.request.contextPath}/services/" id="services" title=" Service Catalog"><span> service catalog</span></a></li>
+  			<li><a href="${pageContext.request.contextPath}/blog/" id="key" title="Key Achievements"><span>key achievements </span></a></li>
+  			<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest_front" title="My Request "><span>my request</span></a></li>
   			<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
 		</ul><!--Navigation close-->
         
@@ -285,7 +285,7 @@ DD_belatedPNG.fix('.tab a.open, .tab ul.login li,.tab a.close, img');
         <div class="span-24">
         	<div class="switch">
     		<!--show image for switching portfolio style-->
-            <a href="#" class="switch_thumb">Switch Thumb</a> 
+           <!--  <a href="#" class="switch_thumb">Switch Thumb</a>  -->
  			
             <!--Default Style is set to thumb view showing first. -->
 

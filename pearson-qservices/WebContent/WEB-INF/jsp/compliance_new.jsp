@@ -312,9 +312,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Begin Navigation-->
 			<ul id="navigation"><li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
 				
-				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Our Services"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"	id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/requestList/" id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title=" Service Catalog"><span> service catalog</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"	id="key" title="Key Achievements"><span>key achievements</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest" title=" My Request"><span>work portfolio</span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
 			<!--Navigation close-->
@@ -352,7 +352,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 	<div class="submenu"> 
     <ul id="sub-nav">		
     <li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>	</li>       
-			<li><a href="${pageContext.request.contextPath}/compliance/">Compliance</a></li>
+			<li><a href="${pageContext.request.contextPath}/compliance/"></a></li>
    </ul>
   </div>  
  </div>
@@ -360,9 +360,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<!--Begin Page Area, below header navigation-->
 		<div class="page">
 		
-				<div class="span-24">
-		<hr class="space" />
-		</div>
+				
 		<div class="span-24">
 		<hr class="space" />
 		</div>
@@ -409,16 +407,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 					<div class="bar bar-header bar-light" align="right" style="height=10px;">
 					<form action="${pageContext.servletContext.contextPath}/raiseRequest/"	method="post" commandName="requestForm">
-						<input type="hidden" name="service" value="COMPLIANCE" /> 
+						<input type="hidden" name="service" value="Compliance" /> 
 						<input type="hidden" name="serviceID" value="CM03" /> 
 						<!-- <input type="submit" value="Submit Request" align="right"/> -->
 					   <input type="image" src="${pageContext.request.contextPath}/img/button.jpg" alt="Raise Your Request Here.." />
 						
 						<div style="float:left">
-							<h2 style="color: black">Compliance</h2>
+							
 						</div>
 						
-						<hr class="space" />
+						
 					</form>
 					</div>
 			</c:if>
@@ -429,11 +427,11 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<!-- ******************************************************************************** -->
 		<div class="span-24">
-<!-- 			<p>	<h2 style="color: black">Compliance</h2>
-				<font size="2px" >
+		<hr class="space" />
+		<h2 style="color: black">Compliance</h2>
+			<p>	
 				Ensure software changes adhere to established process and control requirements of Pearson’s Sarbanes-Oxley compliance program
-				</font>
-			</p> -->
+			</p> 
 
 			<h3 class="myNewStyle" style="color: #3399FF">Key Features Offerings</h3>
 			<ul >
@@ -538,32 +536,21 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!-- Declare 950px width for IE, once again. Corrects positioning-->
 			<!--BEGIN Footer Area-->
 
-			<div class="footer">
+<%-- 			<div class="footer">
 
-				<!--#BEGIN FOOTER AREA#-->
-				<!--Declare 630px width-->
 				<div class="span-8">
-					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
-					<!-- and some brief information about the company-->
 					<div class="footer_text">
 						<p>
 							&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 						</p>
 					</div>
-					<!--footer_text close-->
 
 				</div>
-				<!--footer close-->
-
-				<!--Footer navigation goes here-->
-				<!--Declare 310px width-->
 				<div class="span-16 last">
 
 					<ul id="footer-nav">
 						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 							|</li>
-					<%-- 	<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li> --%>
 						<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 							|</li>
 						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
@@ -571,19 +558,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 							   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
 						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 					</ul>
-					<!--footer-nav close-->
-
-
-					<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-					<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-					<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
 
 				</div>
 				<!--span8 close-->
 
 			</div>
-			<!--footer close-->
-
+ --%>			
+ <!--footer close-->
+ 
+	<div class="footer"> <%@ include file="footer.jsp" %></div>
+	
 		<!--container close-->
 
 </div>

@@ -482,7 +482,6 @@ $(document).ready(function(){
 		
 		if( $.trim(val_phoneNo) === '' )
 		{
-				
 			
 			$("#phoneNo").addClass('errordis');
 			$("#errorPno").text('Enter PhoneNo.');
@@ -567,7 +566,7 @@ $(document).ready(function(){
 	 $("#val").val('Work!');
 	 var val_id = $("#val").val();	
 
-	$('#form1').on("submit", function(e){
+	$('#form2').on("submit", function(e){
 		
 		var val_id = $("#log").val();
 		var val_pass = $("#pwd").val();
@@ -629,7 +628,7 @@ $(document).ready(function(){
 				<div class="left">
 					<h1>Member Login</h1>
 					<!-- Login Form -->
-					<form action="${pageContext.request.contextPath}/login"		method="post" commandName="login" modelAttribute="user">
+					<form action="${pageContext.request.contextPath}/login"		id="form2" method="post" commandName="login" modelAttribute="user">
 						<%-- <form:form method="post" commandName="contact" action="${pageContext.request.contextPath}/login"> --%>
 						<label class="color">Username:</label>
 						 <input class="field" type="text" name="log" id="log" value="" size="23" /> 
@@ -749,14 +748,14 @@ $(document).ready(function(){
 					id="home_front" title="Home"><span>home</span></a></li>
 
 				<li><a href="${pageContext.request.contextPath}/services/"
-					id="services" title="Our Services"><span>our services</span></a></li>
+					id="services" title=" Service Catalog"><span>service catalog</span></a></li>
 
 				<li><a href="${pageContext.request.contextPath}/blog/"
-					id="blog" title="The Blog"><span>the bloggery</span></a></li>
+					id="key" title="Key Achievements"><span> key achievements</span></a></li>
 
 
 				<li><a href="${pageContext.request.contextPath}/requestList/"
-					id="port" title="Request"><span>Request</span></a></li>
+					id="myrequest" title="My Request"><span>Request</span></a></li>
 
 				<li><a href="${pageContext.request.contextPath}/contact/"
 					id="contact" title="Contact Us"><span>contact us</span></a></li>
@@ -801,18 +800,16 @@ $(document).ready(function(){
 	<hr class="space">
 	<hr class="space">
 
-		<form action="${pageContext.request.contextPath}/register/done"
-			method="post" id="form1" class="my_form_class" commandName="register"
-			modelAttribute="user">
-
+		<form action="${pageContext.request.contextPath}/register/done"	method="post" id="form1" class="my_form_class" commandName="register" modelAttribute="user">
+            <h3> Registration </h3>
 
 			<table
-				style="width: 400px; background-color: #fff; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
+				style="width: 680px; background-color: #E0EAFF; border: 1px solid #ddd; padding: 10px; font-size: 12px;"
 				class="contactForm">
 				<tr>
 
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 15px 5px 5px; font-weight: bold;">FirstName:*</td>
+						style="width: 25%; text-align: left; vertical-align: top; padding: 10px 15px 5px 25px; font-weight: bold;">FirstName:*</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="firstName" id="firstName"
 						value="${register.firstName}"
@@ -821,7 +818,7 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">LastName:*</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">LastName:*</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="lastName" id="lastName"
 						value="${register.lastName}"
@@ -834,14 +831,14 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Email:*</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Email:*</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="email" id="emailadd" value="${register.email}" /> <p id="errorEmail" /></td>
 					
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Phoneno:*</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Phoneno:*</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="phoneNo" id="phoneNo" maxlength="10"
 						value="${register.phoneNo}" /> <p id="errorPno" /></td>
@@ -851,14 +848,14 @@ $(document).ready(function(){
 
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Street:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Street:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="address1" value="" /></td>
 				</tr>
 				
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">City :</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">City :</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="address1" value="" /></td>
 				</tr>
@@ -870,13 +867,13 @@ $(document).ready(function(){
 
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">State:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">State:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;"><input
 						type="text" name="address1" value="" /></td>
 				</tr>
 				<tr>
 					<td
-						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 5px; font-weight: bold;">Country:</td>
+						style="width: 10%; text-align: left; vertical-align: top; padding: 10px 5px 5px 25px; font-weight: bold;">Country:</td>
 					<td style="text-align: left; vertical-align: top; padding: 5px;">
 					<select	type="option" name="address1" style='width: 146px;'>
 					        <option value=" "> </option>
@@ -916,9 +913,9 @@ $(document).ready(function(){
 
 
 		<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
-		<div class="span-24">
+		<!-- <div class="span-24">
 			<div class="hrbg_small"></div>
-		</div>
+		</div> -->
 		<!--Close span-24-->
 	</div>
 	<!--page close-->
@@ -967,7 +964,7 @@ $(document).ready(function(){
 	<!--Begin Bottom Boxes Area-->
 	<div class="span-24">
 		<!--add hr line -->
-		<div class="hrbg_underintro"></div>
+		<!-- <div class="hrbg_underintro"></div> -->
 
 
 		<!--Left Column Bottom Box-->
@@ -1053,15 +1050,15 @@ $(document).ready(function(){
 	<!-- Declare 950px width for IE, once again. Corrects positioning-->
 	<!--BEGIN Footer Area-->
 
-	<div class="footer">
+<%-- 	<div class="footer">
 
 		<!--#BEGIN FOOTER AREA#-->
 		<!--Declare 630px width-->
-		<div class="span-16">
+		<div class="span-8">
 			<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
 			<!-- and some brief information about the company-->
 			<div class="footer_text">
-				<p>&copy; <a href="#">Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
+				<p>&copy; Copy Rights 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
 				</p>
 			</div>
 			<!--footer_text close-->
@@ -1071,18 +1068,18 @@ $(document).ready(function(){
 
 		<!--Footer navigation goes here-->
 		<!--Declare 310px width-->
-		<div class="span-8 last">
+		<div class="span-16 last">
 
 			<ul id="footer-nav">
 				<li><a href="${pageContext.request.contextPath}/index/">Home</a>
 					|</li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-					|</li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/">Services</a>
+				<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
 					|</li>
-				<li><a href="${pageContext.request.contextPath}/blog/">Blog</a>
+				<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
 					|</li>
-					   <li><a href="${pageContext.request.contextPath}/requestList/">Request</a>|</li>
+				<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
+					|</li>
+					   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
 				<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 			</ul>
 			<!--footer-nav close-->
@@ -1096,7 +1093,12 @@ $(document).ready(function(){
 		<!--span8 close-->
 
 	</div>
-	<!--footer close-->
+ --%>	
+ 
+ 
+  <div class="footer"> <%@ include file="footer.jsp" %></div>
+  
+ <!--footer close-->
 
 
 

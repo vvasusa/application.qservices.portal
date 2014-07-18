@@ -141,7 +141,6 @@ public class RequestController {
 		String serviceName = raiseRequest.getService();
 		String serviceID = raiseRequest.getServiceID();
 		
-		
 		System.out.println(serviceName +  serviceID);
 		RequestForm requestForm = new RequestForm();
 		System.out.println(requestForm.getPhoneNo());
@@ -149,8 +148,7 @@ public class RequestController {
 		String id = (String) session.getAttribute("MySessionId");
 		System.out.println("INSIDE /requestList  " + id);
 		List<AdminUser> adminUser = new ArrayList<AdminUser>();
-		adminUser = raiseRequestService.newRequestService(id, raiseRequest,
-				request);
+		adminUser = raiseRequestService.newRequestService(id, raiseRequest,	request);
 	
 		// System.out.println("THE LOGIN TYPE RETURN TO JSP"+user.getLoginType());
 		/*if (result.hasErrors()) {

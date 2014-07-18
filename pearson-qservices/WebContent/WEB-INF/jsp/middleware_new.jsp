@@ -313,9 +313,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			<!--Begin Navigation-->
 			<ul id="navigation"><li><a href="${pageContext.request.contextPath}/index/"	id="home" title="Home"><span>home</span></a></li>
 				
-				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Our Services"><span>our services</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/"	id="blog" title="The Blog"><span>the bloggery</span></a></li>
-				<li><a href="${pageContext.request.contextPath}/requestList/" id="port" title="Work Portfolio"><span>work portfolio</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/services/"	id="services_front" title="Our Services"><span> service catalog</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/blog/"	id="key" title="Key Achievements"><span>key achievements</span></a></li>
+				<li><a href="${pageContext.request.contextPath}/requestList/" id="myrequest" title="My Request"><span>my request </span></a></li>
 				<li><a href="${pageContext.request.contextPath}/contact/" id="contact" title="Contact Us"><span>contact us</span></a></li>
 			</ul>
 			</div>
@@ -325,7 +325,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 			
         <ul id="sub-nav">
           <li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>	</li>
-             <li><a href="${pageContext.request.contextPath}/middleware/">Middleware</a>	</li>
+             <li><a href="${pageContext.request.contextPath}/middleware/"></a>	</li>
              </ul>
              </div>
            
@@ -353,47 +353,12 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		<!--Begin Page Area, below header navigation-->
+		
+		
 		<div class="page">
-				<div class="span-24">
-		<hr class="space" />
-		</div>
-		<div class="span-24">
-		<hr class="space" />
-		</div>
-
-			<!--Declare 550px width w/ right border-->
-			<%-- <div class="span-14 colborder">
-				<!--Intro Image shown here, about site-->
-				<div class="intro">
-					<img src="${pageContext.request.contextPath}/img/intro.gif" alt="" />
-					<p>	Find out More about our services <a	href="${pageContext.request.contextPath}/services/">here &raquo;</a>
-					</p>
-				</div>
-				<!--Close intro image-->
-			</div> --%>
-			<!--Close 550px width-->
-
-			<!--Declare 350px width, last-->
-<!-- 			<div class="span-9 last">
-				Site Slogan Area
-				<div class="slogan">
-					<h3>We Create Experiences.</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					</p>
-				</div>
-				Close Site Slogan Area
-			</div> -->
-			<!--Close 350px width-->
-
-
-			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
-			<!-- <div class="span-24">
-				<div class="hrbg_small"></div>
-			</div> -->
-			<!--Close span-24-->
-
-
-
+			<div class="span-24">
+				<hr class="space" />
+			</div>
 		</div>
 		<!--page close-->
 
@@ -409,10 +374,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 					   <input type="image" src="${pageContext.request.contextPath}/img/button.jpg" alt="Raise Your Request Here.." />
 						
 						<div style="float:left">
-							<h2 style="color: black">Middleware</h2>
+							
 						</div>
 						
-						<hr class="space" />
+						
 					</form>
 					</div>
 			</c:if>
@@ -423,11 +388,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 		<!-- ******************************************************************************** -->
 		<div class="span-24">
-		<h3></h3>
+		 	<hr class="space" />
+		 	 <h2 style="color: black">Middleware</h2>
 			<p>	
-				<font size="2px" >
 				Increase the lifespan and agility of an application by validating middleware architecture to assure a robust communication layer between the application and the back-end systems
-				</font>
 			</p>
 
 			<h3 class="myNewStyle" style="color: #3399FF">Key Features Offerings</h3>
@@ -505,74 +469,16 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				
 			</ul>
 			
-</div>
+		</div>
 
-			<!-- Declare 950px width for IE-->
+ 
 			<div class="span-24">
-				<!--add hr line-->
 				<div class="hrbg_small"></div>
 			</div>
-			<!--close hr line, 950px IE fix-->
-
-
-
-			<!-- Declare 950px width for IE, once again. Corrects positioning-->
-			<!--BEGIN Footer Area-->
-
-			<div class="footer">
-
-				<!--#BEGIN FOOTER AREA#-->
-				<!--Declare 630px width-->
-				<div class="span-8">
-					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
-					<!-- and some brief information about the company-->
-					<div class="footer_text">
-						<p>
-							&copy; Copy Rights 2014</a> &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
-						</p>
-					</div>
-					<!--footer_text close-->
-
-				</div>
-				<!--footer close-->
-
-				<!--Footer navigation goes here-->
-				<!--Declare 310px width-->
-				<div class="span-16 last">
-
-					<ul id="footer-nav">
-						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
-							|</li>
-					<%-- 	<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li> --%>
-						<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
-							|</li>
-						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
-							|</li>
-							   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
-						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
-					</ul>
-					<!--footer-nav close-->
-
-
-					<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-					<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-					<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
-
-				</div>
-				<!--span8 close-->
+		
+			<div class="footer"> <%@ include file="footer.jsp" %></div>
 
 			</div>
-			<!--footer close-->
-
-</div>
-
-	
-		<!--container close-->
-
-
-
-		<!--IE Fix for over-shadow text replacement-->
 		<script type="text/javascript">
 			Cufon.now();
 		</script>
