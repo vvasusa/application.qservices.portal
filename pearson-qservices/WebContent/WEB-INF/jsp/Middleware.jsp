@@ -246,7 +246,8 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				
 		<c:if test="${!empty loginType}">
  		<%String name = (String) session.getAttribute("loginName");%>
-		<i><b>welcome <%=name%></b></i>	
+											<%String type = (String) session.getAttribute("loginType");%>
+									welcome <%=name%> (<%=type%>)
 		</c:if>
 		</font>
 		</p>

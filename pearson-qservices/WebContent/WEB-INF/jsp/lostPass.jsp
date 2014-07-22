@@ -621,7 +621,8 @@ $(document).ready(function(){
 	<font face="verdana ,helvetica"  size="2" color="#990066" >
 		<c:if test="${!empty loginType}">
 		<%String name = (String) session.getAttribute("loginName");%>
-		welcome <%=name%>	
+									<%String type = (String) session.getAttribute("loginType");%>
+									welcome <%=name%> (<%=type%>)
 	 </c:if>
 	</font>
 </p>

@@ -59,7 +59,7 @@ public class ActionDaoImpl implements ActionDao {
 			Statement statement = connection.createStatement();
 			ResultSet rs = null;
 			
-		//	javaMailService.sendEmail();
+			javaMailService.sendEmail(requestId);
 
 			String id = (String) request.getSession().getAttribute(	"MySessionId");
 			String commands = requestForm.getCommands();

@@ -707,7 +707,8 @@ $(document).ready(function(){
 		       <p>
 		        <c:if test="${!empty loginType}">
  		         <%String name = (String) session.getAttribute("loginName");%>
-		         welcome <%=name%>	
+				<%String type = (String) session.getAttribute("loginType");%>
+					welcome <%=name%> (<%=type%>)
 		        </c:if>
 		      </p>
 		 </div>	

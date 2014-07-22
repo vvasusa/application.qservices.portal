@@ -1,6 +1,6 @@
 package com.pearson.services;
 
 public interface JavaMailService {
-	public void sendEmail();
+	public void sendEmail(String requestId);
 	
 }

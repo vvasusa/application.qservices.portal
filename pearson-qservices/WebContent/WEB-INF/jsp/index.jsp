@@ -443,10 +443,11 @@ var value= "<%=temp%>	";
 		       <p>
 		        <c:if test="${!empty loginType}">
  		         <%String name = (String) session.getAttribute("loginName");%>
-		         welcome <%=name%>	
+ 		          <%String type = (String) session.getAttribute("loginType");%>
+		         welcome <%=name%> (<%=type%>)
 		        </c:if>
 		      </p>
-		 </div>	
+		 </div>	 
 		</div>			
 					<%-- <p align="right"   style=" font-family: inherit;">
 		             <font face="verdana ,helvetica"  size="2" color="#990066" >

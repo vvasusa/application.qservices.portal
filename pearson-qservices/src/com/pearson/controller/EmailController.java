@@ -26,7 +26,7 @@ public class EmailController {
 	@RequestMapping(value = "/mail", method = RequestMethod.GET)
 	public String Getdetails() {
 		// String msg = "mail sent";
-		javaMailService.sendEmail();
+		//javaMailService.sendEmail();
 		return "error";
 	}
 
