@@ -89,46 +89,7 @@ public class LoginController {
 		return "ContactUs";
 	}
 
-	/*
-	 * @RequestMapping(value = "/register", method = RequestMethod.POST) public
-	 * ModelAndView Getdetails(
-	 * 
-	 * @Valid @ModelAttribute("requestForm") Register register, BindingResult
-	 * result, Map<String, Object> map, HttpServletRequest request, final Model
-	 * model) {
-	 * 
-	 * System.out.println(register.getFirstName());
-	 * System.out.println(register.getLastName());
-	 * System.out.println(register.getEmail());
-	 * System.out.println("Binding result  " + result.hasErrors());
-	 * System.out.println(register.getPhoneNo());
-	 * System.out.println(register.getAddress1());
-	 * System.out.println(register.getAddress2());
-	 * register.setFirstName(register.getAddress3());
-	 * 
-	 * String ses_Id = (String) request.getSession().getAttribute(
-	 * "MySessionId"); System.out.println("INSIDE UPDATE"+ses_Id);
-	 * 
-	 * // requestForm = requestService.updateDetails(requestForm, request);
-	 * 
-	 * if (result.hasErrors()) { return new ModelAndView("register", "user",
-	 * register); }
-	 * 
-	 * 
-	 * return new ModelAndView("update", "requestForm", register);
-	 * 
-	 * }
-	 */
 
-	/* sample */
-	/*
-	 * @RequestMapping(value = "/login", method = RequestMethod.POST) public
-	 * String doLogin(@Valid @ModelAttribute("login") Admin1 userForm,
-	 * BindingResult result, Map<String, Object> model) { if
-	 * (result.hasErrors()) { return "index"; } return "error"; }
-	 */
-
-	/* sample end */
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView Getdetails(@ModelAttribute("login") Admin1 data,

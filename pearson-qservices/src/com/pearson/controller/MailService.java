@@ -14,6 +14,8 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
+
+
 public class MailService {
 
 	@Autowired
@@ -22,11 +24,14 @@ public class MailService {
 	@Autowired
 	private org.springframework.mail.javamail.JavaMailSenderImpl sender;
 	
-
+/*
 	 
 	public void setMailSender(MailSender mailSender) {
 		this.mailSender = mailSender;
 	}
+*/
+	
+	
 
 
 	@Value("${From_Email}")
@@ -39,21 +44,12 @@ public class MailService {
 	  @Autowired private SimpleMailMessage alertMailMessage;
 	 
 
-	public void sendEmail(String email,String requestorID, String password) {
-		//private final static Logger LOGGER =
-	// Logger.getLogger(UseLogger.class.getName());
-
-		MimeMessage msg = null;
+	public void sendEmail(String email,StringBuilder requestorID, String password) {
 		try {
-
-		/*	String[] to = {"test1@gmail.com","test2@yahoo.in","test3@gmail.com","test4@gmail.com"};*/
-			
 			
 			  System.out.println("welcome to mail box..");
-			  MimeMessage	  mimemessage = sender.createMimeMessage(); 
+			  MimeMessage mimemessage = sender.createMimeMessage(); 
 			  MimeMessageHelper mail  = new MimeMessageHelper(mimemessage, true); mail.setFrom(from);
-			  //mail.addTo(to);
-			 // sending password to new user //
 			
 			  mail.addTo(email);
 			  
@@ -73,10 +69,10 @@ public class MailService {
 			  System.out.println("You have selected: " + filename);
 			  FileSystemResource file1 = new FileSystemResource(filename);
 			  mail.addAttachment(file.getPath(), file1);
-			  msg.addHeaderLine("welcome "+password);
+			//  mail.addHeaderLine("welcome "+password);
 			  
 			  // List<String> ccList = (List<String>) model.get(CC_LIST);
-			  sender.send(msg);
+			  sender.send(mimemessage);
 			 
 
 		}

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,13 +20,17 @@ import com.pearson.model.Admin1;
 import com.pearson.model.ContactUs;
 
 public class LoginDaoImpl implements LoginDao {
+	
 
 	@Autowired
 	DataSource dataSource;
+	
 
 	@Override
 	public boolean getLoginDeatils(String uname, String pass,String valid,
 			HttpServletRequest request) {
+		
+		Logger logger1 = Logger.getLogger(Thread.currentThread().getStackTrace()[0].getClassName());
 
 		HttpSession session = request.getSession();
 		// HttpSession session1 = request.getSession();
@@ -156,7 +161,7 @@ public class LoginDaoImpl implements LoginDao {
 			/* for requestor table user/pass validation */
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger1.info("LoginDaoImpl --> getLoginDeatils"+e);
 
 		}
 
@@ -169,8 +174,10 @@ public class LoginDaoImpl implements LoginDao {
 
 	@Override
 	public void contactUsDetails(ContactUs contactUs) {
+		Logger logger = Logger.getLogger(Thread.currentThread().getStackTrace()[0].getClassName());
 		try {
 
+			
 			contactUs.getAddress();
 			contactUs.getCompany();
 			contactUs.getMessage();
@@ -189,7 +196,9 @@ public class LoginDaoImpl implements LoginDao {
 							+ "','" + contactUs.getMessage() + "')");
 		}
 		catch(Exception e){
-		System.out.println(e);}
+		System.out.println(e);
+		logger.info("LogonDaoImpl-->ContactUsdetails"+e);
+		}
 		
 	}
 

@@ -59,7 +59,7 @@ public class ActionDaoImpl implements ActionDao {
 			Statement statement = connection.createStatement();
 			ResultSet rs = null;
 			
-			javaMailService.sendEmail(requestId);
+			
 
 			String id = (String) request.getSession().getAttribute(	"MySessionId");
 			String commands = requestForm.getCommands();
@@ -174,6 +174,10 @@ public class ActionDaoImpl implements ActionDao {
 				user.setCommandsByADM(rs.getString("commandsByADM"));
 				adminUser.add(user);
 			}
+			
+			
+			String actionValue="Approve";
+			javaMailService.sendEmail(requestId,actionValue);
 
 		}
 
@@ -188,7 +192,7 @@ public class ActionDaoImpl implements ActionDao {
 			HttpServletRequest request) {
 		try {
 
-			MailService mailService = new MailService();
+			
 
 			GentrateUserId Obj = new GentrateUserId();
 			StringBuilder requestorID = Obj.getUniqueID();
@@ -212,7 +216,11 @@ public class ActionDaoImpl implements ActionDao {
 			System.out.println("Temp pass  " + tempPass);
 			register.setTempPass(tempPass);
 			/******************* sending email with uniqueid and temp password ************************************/
+			
 			// mailService.sendEmail(email, requestorID, tempPass);
+			 
+			 javaMailService.sendEmail(email, requestorID, tempPass);
+			
 			/******************* sending email with uniqueid and temp password ************************************/
 
 			request.getSession(true).setAttribute("RequestorId", requestorID);
@@ -479,6 +487,10 @@ public class ActionDaoImpl implements ActionDao {
 
 				adminUser.add(user);
 			}
+			
+			String actionValue="Reject";
+			javaMailService.sendEmail(id,actionValue);
+			
 		}
 
 		catch (Exception e) {

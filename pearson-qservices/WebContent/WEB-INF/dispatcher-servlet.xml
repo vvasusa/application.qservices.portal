@@ -60,10 +60,9 @@
 	<!-- ** START ** Added for E-mail Component Date 5/5/2014 -->
 	<!-- SMTP settings -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<!-- <property name="host" value="smtp.gmail.com "/> <property name="port" 
-			value="465 " /> -->
-		<property name="host" value=" localhost" />
-		<property name="port" value="25" />
+		
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
 		<property name="username" value="karthikindia05@gmail.com" />
 		<property name="password" value="@karthik@" />
 
