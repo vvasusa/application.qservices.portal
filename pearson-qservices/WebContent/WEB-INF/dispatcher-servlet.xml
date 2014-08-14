@@ -55,17 +55,16 @@
 	<bean id="ActionService" class="com.pearson.services.ActionServiceImpl" />
 	<bean id="RaiseRequestDao" class="com.pearson.dao.RaiseRequestDaoImpl" />
 	<bean id="RaiseRequestService" class="com.pearson.services.RaiseRequestServiceImpl" />
-
-
-	<!-- ** START ** Added for E-mail Component Date 5/5/2014 -->
+	<bean id="RaiseRequestServiceImpl" class="com.pearson.controller.MailService" /> 
+	
 	<!-- SMTP settings -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		
-		<property name="host" value="smtp.gmail.com" />
-		<property name="port" value="587" />
-		<property name="username" value="karthikindia05@gmail.com" />
-		<property name="password" value="@karthik@" />
-
+		<property name="host" value="apprelay.cts.com" />
+		<property name="port" value="25" />
+		<property name="username" value="karthikeyan.arunachalam@cognizant.com" />
+		<property name="password" value="apr@2014" />
+ 
 		<!-- additional properties specific to JavaMail -->
 		<property name="javaMailProperties">
 			<props>
@@ -78,7 +77,27 @@
 
 	<bean id="javaMailService" class="com.pearson.services.JavaMailServiceImpl" />
 	
+
 	
+<bean id="templateMailMessage"    class="org.springframework.mail.SimpleMailMessage"> 
+ <property name="from" value="sender@gmail.com" />
+ <property name="to" value="receiver@gmail.com" />
+ <property name="subject" value="Hello" />
+ <property name="text">
+   <value>
+   <![CDATA[
+Hi %s,
+
+This is a test email sent from Spring framework using JavaMail.
+
+Regards,
+%s.
+		]]>
+
+
+ </value>
+</property>
+</bean>
 	
 	
 

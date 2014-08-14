@@ -300,7 +300,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		<!--Begin Header-->
-		<div class="header">
+		<div class="">
 			<!--Logo Area-->
 			<div class="span-24">
 				<div class="span-10">
@@ -391,6 +391,10 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 				
 		
 			<!--Close 350px width-->
+			
+		<div class="span-24"  >	
+			<div class="hrbg_small">
+		</div>
 
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
@@ -636,14 +640,9 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 		<div class="span-16 last">
 
 			<ul id="footer-nav">
-				<li><a href="${pageContext.request.contextPath}/index/">Home</a>
-					|</li>
-				<%-- <li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-						|</li> --%>
-				<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
-					|</li>
-				<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
-					|</li>
+				<li><a href="${pageContext.request.contextPath}/index/">Home</a>|</li>
+				<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>|</li>
+				<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>	|</li>
 				<li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
 				<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
 			</ul>

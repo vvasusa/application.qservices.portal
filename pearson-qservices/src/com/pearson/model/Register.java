@@ -10,10 +10,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Register {
 
 	@NotNull(message="not empty first name")
-	@Size(min = 2, max = 30)
+	@Size(min = 1, max = 30)
 	private String firstName;
 	@NotNull(message = "not empty first name")
-	@Size(min = 2, max = 30)
+	@Size(min = 1, max = 30)
 	private String lastName;
 	@NotNull(message = "not empty first name")
 	@Email(message = "not empty first name")

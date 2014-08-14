@@ -296,7 +296,7 @@ DD_belatedPNG.fix('#leftArrow, #rightArrow, .tab ul.login li, .tab a.open,.tab a
 
 
 		<!--Begin Header-->
-		<div class="header">
+		<div class="">
 			<!--Logo Area-->
 			<div class="span-24">
 		<div class="span-10">

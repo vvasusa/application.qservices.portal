@@ -286,15 +286,8 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 		<!--Begin Page Area, below header navigation-->
 		<div class="page">
 			<!--Declare 950px width w/ right border-->
-<%-- 			<div class="span-24">
-				<!--Intro Image shown here, about site-->
-				<div class="intro">
-					<img src="${pageContext.request.contextPath}/img/contact_banner.gif" alt="" />
-				</div>
-				<!--Close intro image-->
-			</div>
- --%>			
- <!--Close 950px width-->
+		
+			 <!--Close 950px width-->
 
 
 			<!--We have to declare span-24 so the hr bar is full width, and aligns with content boxes below-->
@@ -354,124 +347,26 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 					<td width=20%>${user.phoneNo}</td>
 					<td width=15%>${user.email}</td>
 					<td width=16%>${user.address}</td>
-					<td width=18%>${user.requestID}</td>
-					<td width=20%>${user.requestName}</td> 
-					<td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
+					<td width=15%>${user.requestID}</td>
+					<td width=25%>${user.requestName}</td> 
+					
+					<%-- <td colspan="7"><a href="${pageContext.request.contextPath}/requestList/"
 					id="home_front" title="Request"><span>Edit</span></a></td>
-					
+					 --%>
 					<%-- <td><a href="edit?id=${user.userId}"></a></td> --%>
-
 				</tr>
-				<%-- </c:forEach> --%>
 				<tr>
-					
 				</tr>
 			</table>
 			</c:forEach>
 			</div>
 		</div>
 	
-					
-					
-				
-					<!--END FORM -->
-					<!--Replace Code Above for PHP Integration-->
-
 				</div>
 				<!--boxed close-->
 
-
-				<!--stupid IE 6 again-->
-				<!--[if IE 6]><hr class="space" /><![endif]-->
-
-
 				<hr class="space" />
-
 			</div>
-			<!--span-18 close-->
-			<!--#LEFT CONTENT CLOSE#-->
-
-
-
-
-			<!--#BEGIN SIDEBAR#-->
-			<!--This area is found to the right of the page content-->
-			<!--Declare 230px width-->
-			<!-- <div class="span-6 last"> -->
-				<!--Sidebar Boxed Style with 20px padding-->
-				<!-- <div class="boxed_top"></div>
-				<div class="boxed">
-
-					#Begin Latest News Title
-					<h3 class="grey">Latest News</h3>
-					add spacing
-					<hr class="space" />
-
-					Entry Title
-					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					meta info
-					<div class="meta">
-						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
-					</div>
-					brief intro
-					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
-						eiusmodarel tempor incididunt...</p>
-					close entry
-
-					add hr line
-					<hr />
-
-					Entry Title
-					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					meta info
-					<div class="meta">
-						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
-					</div>
-					brief intro
-					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
-						eiusmodarel tempor incididunt...</p>
-					close entry
-
-					add hr line
-					<hr />
-
-					Entry Title
-					<h5>Lorem Ipsum Dolor Sit Amet</h5>
-					meta info
-					<div class="meta">
-						11 / 14 / 09 &nbsp;|&nbsp; <span class="color">design, html</span>
-					</div>
-					brief intro
-					<p>Lorem ipsum dolor sit amet contetur adipisicing elit, sed do
-						eiusmodarel tempor incididunt...</p>
-					close entry
-
-
-				</div>
-				boxed close
-
-				This is an IE6 workaround for problems rendering jquery sliding text-overs.
-				WIthout this fix, IE6 renders "Visit Site" outside of the last image
-				[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]
-				<div class="boxed_bottom"></div>
-
-				add spacing
-				<hr class="space" />
-
-
-
-
-			</div> -->
-			<!--span-6 close-->
-			<!--#CLOSE SIDEBAR#-->
-
-
-
-
-
-	<!-- 	</div> -->
-		<!--page close-->
-
 
 		<!-- Declare 950px width for IE-->
 		<div class="span-24">
@@ -480,66 +375,10 @@ DD_belatedPNG.fix('.tab a.open, .tab a.close, .tab ul.login li, img');
 		</div>
 		<!--close hr line, 950px IE fix-->
 
-
-
-		<!-- Declare 950px width for IE, once again. Corrects positioning-->
-		<!--BEGIN Footer Area-->
-		
-<%-- 			<div class="footer">
-
-				<!--#BEGIN FOOTER AREA#-->
-				<!--Declare 630px width-->
-				<div class="span-8">
-					<!--This text area is found directly at the bottom of the page. This area is perfect for a small navigation-->
-					<!-- and some brief information about the company-->
-					<div class="footer_text">
-						<p>
-							&copy; CopyRight 2014 &nbsp;&nbsp; | &nbsp;&nbsp;Pearson Q-service Team. <a href="#"> </a>
-						</p>
-					</div>
-					<!--footer_text close-->
-
-				</div>
-				<!--footer close-->
-
-				<!--Footer navigation goes here-->
-				<!--Declare 310px width-->
-				<div class="span-16 last">
-
-					<ul id="footer-nav">
-						<li><a href="${pageContext.request.contextPath}/index/">Home</a>
-							|</li>
-						<li><a href="${pageContext.request.contextPath}/portfolio/">Portfolio</a>
-							|</li>
-						<li><a href="${pageContext.request.contextPath}/services/">Service Catalog</a>
-							|</li>
-						<li><a href="${pageContext.request.contextPath}/blog/">Key Achievements</a>
-							|</li>
-							   <li><a href="${pageContext.request.contextPath}/requestList/">My Request</a>|</li>
-						<li><a href="${pageContext.request.contextPath}/contact/">Contact</a></li>
-					</ul>
-					<!--footer-nav close-->
-
-					<!--This is an IE6 workaround for problems rendering jquery sliding text-overs.-->
-					<!--WIthout this fix, IE6 renders "Visit Site" outside of the last image-->
-					<!--[if IE 6]><div class="fix6"><br /><a href="http://themeforest.net/">Visit Site</a></div><![endif]-->
-
-				</div>
-				<!--span8 close-->
-
-			</div>
- --%>			<!--footer close-->
-
-
-
 		 <div class="footer"> <%@ include file="footer.jsp" %></div>
-		
 		<!--span24 close-->
-
 	</div>
 	<!--container close-->
-
-
 
 	<!--IE Fix for over-shadow text replacement-->
 	<script type="text/javascript">

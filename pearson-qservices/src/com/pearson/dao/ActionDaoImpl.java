@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 
@@ -36,9 +37,12 @@ public class ActionDaoImpl implements ActionDao {
 	@Autowired
 	JavaMailService javaMailService;
 
-	/*
-	 * @Autowired GentrateUserId gentrateUserId;
-	 */
+	@Autowired
+	private MailSender mailSender;
+	
+	@Autowired
+	private org.springframework.mail.javamail.JavaMailSenderImpl sender;
+	
 	GentrateUserId obj = new GentrateUserId();
 
 	@Override
@@ -172,12 +176,16 @@ public class ActionDaoImpl implements ActionDao {
 				user.setCommandsByQA(rs.getString("commandsByQA"));
 				user.setCommandsBySLM(rs.getString("commandsBySLM"));
 				user.setCommandsByADM(rs.getString("commandsByADM"));
+				user.setDate("Request_Date");
+				user.setRequestID("RequestId");
+				user.setRequestorId("RequestorId");
+				user.setServiceName("Service_Name");
 				adminUser.add(user);
 			}
 			
 			
 			String actionValue="Approve";
-			javaMailService.sendEmail(requestId,actionValue);
+			javaMailService.sendEmailApproveRequest(requestId,actionValue,dataSource,loginType,adminUser);
 
 		}
 
@@ -191,8 +199,6 @@ public class ActionDaoImpl implements ActionDao {
 	public Register newRegistrationDetails(Register register,
 			HttpServletRequest request) {
 		try {
-
-			
 
 			GentrateUserId Obj = new GentrateUserId();
 			StringBuilder requestorID = Obj.getUniqueID();
@@ -215,12 +221,10 @@ public class ActionDaoImpl implements ActionDao {
 			// System.out.println("UNIQUE ID  " + requestorID.toString());
 			System.out.println("Temp pass  " + tempPass);
 			register.setTempPass(tempPass);
+			
 			/******************* sending email with uniqueid and temp password ************************************/
-			
 			// mailService.sendEmail(email, requestorID, tempPass);
-			 
 			 javaMailService.sendEmail(email, requestorID, tempPass);
-			
 			/******************* sending email with uniqueid and temp password ************************************/
 
 			request.getSession(true).setAttribute("RequestorId", requestorID);
@@ -480,6 +484,7 @@ public class ActionDaoImpl implements ActionDao {
 				user.setLastName(rs.getString("lastName"));
 				user.setStatus(rs.getString("StatusDesc"));
 				user.setUserId(rs.getString("UserId"));
+				user.setEmail(rs.getString("email"));
 				user.setCommandsByPL(rs.getString("commandsByPL"));
 				user.setCommandsByQA(rs.getString("commandsByQA"));
 				user.setCommandsBySLM(rs.getString("commandsBySLM"));
@@ -489,7 +494,8 @@ public class ActionDaoImpl implements ActionDao {
 			}
 			
 			String actionValue="Reject";
-			javaMailService.sendEmail(id,actionValue);
+			javaMailService.sendEmailRejectRequest(id,actionValue,dataSource,loginType,adminUser);
+			//javaMailService.sendEmail(id,actionValue);
 			
 		}
 
@@ -547,6 +553,7 @@ public class ActionDaoImpl implements ActionDao {
 				user.setCommandsByQA(rs.getString("commandsByQA"));
 				user.setCommandsBySLM(rs.getString("commandsBySLM"));
 				user.setCommandsByADM(rs.getString("commandsByADM"));
+				user.setEmail(rs.getString("email"));
 
 				adminUser.add(user);
 			}

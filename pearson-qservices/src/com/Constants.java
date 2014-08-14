@@ -53,6 +53,9 @@ public final class Constants {
 	public static final String USER_THREE="SLM";
 	public static final String USER_FOUR="ADM";
 	
-	
+	public static final String OVERALL_STATUS_2="PL Approve Pending";
+	public static final String OVERALL_STATUS_3="SLM Approve Pending";
+	public static final String OVERALL_STATUS_4="ADM Approve Pending";
+	public static final String OVERALL_STATUS_5="Approved";
 	
 }

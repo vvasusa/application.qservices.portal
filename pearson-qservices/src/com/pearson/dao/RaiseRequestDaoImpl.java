@@ -19,6 +19,9 @@ import com.pearson.model.RaiseRequest;
 import com.pearson.model.RequestForm;
 
 public class RaiseRequestDaoImpl implements RaiseRequestDao {
+	
+ @Autowired
+	 MailService mailService;
 
 	@Autowired
 	DataSource dataSource;
@@ -186,11 +189,12 @@ public class RaiseRequestDaoImpl implements RaiseRequestDao {
 			user.setRequestName(requestForm.getReq_ServiceName());
 			user.setAddress(requestForm.getAddress());
 			user.setRequestID(reqid);
+			user.setDate(date.toString());
 			adminUser.add(user);
-
-			// MailService mailService = new MailService();
-
-			// mailService.sendRequestID(requestForm.getEmail(), reqid);
+			//MailService mailService=new MailService();
+			 mailService.mailNewRequest(requestForm.getEmail(), reqid,Reqname,date,dataSource,adminUser);
+			// mailService.sendRequestID(reqid,Reqname);
+			 
 
 		} catch (Exception e) {
 			System.out.println(e);

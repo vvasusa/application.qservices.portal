@@ -325,7 +325,7 @@ $(document).ready(function(){
 		<!-- close tab -->
  
 		<!--Begin Header-->
-		<div class="header">
+		<div class="">
 			<!--Logo Area-->
 		<div class="span-24">
 		<div class="span-10">

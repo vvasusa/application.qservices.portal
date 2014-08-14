@@ -69,17 +69,6 @@ public class RegistrationController {
 			Map<String, Object> map, HttpServletRequest request,
 			ModelAndView model) {
 
-		/*
-		 * public ModelAndView Getdetails(
-		 * 
-		 * @ModelAttribute("register") @Valid Register register, BindingResult
-		 * result, Model model) {
-		 */
-		
-		
-		// public ModelAndView save(@Valid Register register, BindingResult
-		// result, HttpServletRequest request, ModelAndView model)
-
 		System.out.println(register.getFirstName());
 		System.out.println(register.getLastName());
 		System.out.println(register.getEmail());
@@ -128,9 +117,10 @@ public class RegistrationController {
 
 				model.addAllObjects(result.getModel());
 			}
+			return model;
 			// return new ModelAndView("register");
 			// return new ModelAndView("register", "register", register);
-			return model;
+			
 		}
 		register = actionService.newRegistrationDetails(register, request);
 		return new ModelAndView("confirmPass", "register", register);
@@ -181,39 +171,7 @@ public class RegistrationController {
 		return new ModelAndView("success", "register", password);
 	}
 
-	/* sample */
-	/*
-	 * @RequestMapping(value = "/login", method = RequestMethod.POST) public
-	 * String doLogin(@Valid @ModelAttribute("login") Admin1 userForm,
-	 * BindingResult result, Map<String, Object> model) { if
-	 * (result.hasErrors()) { return "index"; } return "error"; }
-	 */
-
-	/* sample end */
-
-	/*
-	 * Working example
-	 * 
-	 * @RequestMapping(value = "/login", method = RequestMethod.GET) public
-	 * String Getdetails(@ModelAttribute("login") AdminUser data, Map<String,
-	 * Object> map, HttpServletRequest request) {
-	 * 
-	 * map.put("login", data); map.put("userId",
-	 * request.getParameter("userId"));
-	 * 
-	 * String u_name = (request.getParameter("log")); String p_word =
-	 * (request.getParameter("pwd")); boolean value =
-	 * loginService.loginValidation(u_name,p_word); if (value == true) return
-	 * Constants.LOGIN_PAGE; return Constants.LOGIN_PAGE; }
-	 */
-
-	/* Working code for Login Page */
-	/*
-	 * @RequestMapping(value = "/login", method = RequestMethod.GET) public
-	 * String Getdetails() { boolean value = loginService.loginValidation(); if
-	 * (value == true) return Constants.LOGIN_PAGE; return Constants.LOGIN_PAGE;
-	 * }
-	 */
+	
 
 	@Bean
 	public MessageSource messageSource() {
