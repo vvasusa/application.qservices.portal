@@ -13,7 +13,7 @@
 
 	<context:component-scan base-package="com.pearson.controller" />
 
-	
+
 	<context:property-placeholder location="classpath:resources/app.properties" />
 
 	<bean id="messageSource"
@@ -22,7 +22,7 @@
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
-	
+
 
 	<!-- Entry for View for Jsp files START -->
 	<bean id="viewResolver"
@@ -55,16 +55,16 @@
 	<bean id="ActionService" class="com.pearson.services.ActionServiceImpl" />
 	<bean id="RaiseRequestDao" class="com.pearson.dao.RaiseRequestDaoImpl" />
 	<bean id="RaiseRequestService" class="com.pearson.services.RaiseRequestServiceImpl" />
-	<bean id="RaiseRequestServiceImpl" class="com.pearson.controller.MailService" /> 
-	
+	<bean id="RaiseRequestServiceImpl" class="com.pearson.controller.MailService" />
+
 	<!-- SMTP settings -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		
+
 		<property name="host" value="apprelay.cts.com" />
 		<property name="port" value="25" />
 		<property name="username" value="karthikeyan.arunachalam@cognizant.com" />
 		<property name="password" value="apr@2014" />
- 
+
 		<!-- additional properties specific to JavaMail -->
 		<property name="javaMailProperties">
 			<props>
@@ -76,15 +76,15 @@
 	</bean>
 
 	<bean id="javaMailService" class="com.pearson.services.JavaMailServiceImpl" />
-	
 
-	
-<bean id="templateMailMessage"    class="org.springframework.mail.SimpleMailMessage"> 
- <property name="from" value="sender@gmail.com" />
- <property name="to" value="receiver@gmail.com" />
- <property name="subject" value="Hello" />
- <property name="text">
-   <value>
+
+
+	<bean id="templateMailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="sender@gmail.com" />
+		<property name="to" value="receiver@gmail.com" />
+		<property name="subject" value="Hello" />
+		<property name="text">
+			<value>
    <![CDATA[
 Hi %s,
 
@@ -94,54 +94,8 @@ Regards,
 %s.
 		]]>
 
-
- </value>
-</property>
-</bean>
-	
-	
-
-	<!-- <bean id="alertMailMessage" class="org.springframework.mail.SimpleMailMessage"> 
-		<property name="from"> <value>myusername@gmail.com</value> </property> <property 
-		name="to"> <value>myusername@gmail.com</value> </property> <property name="subject" 
-		value="Alert - Exception occurred. Please investigate"/> </bean> -->
-
-	<!-- <bean id="GentrateUserId" class="com.pearson.services.ActionServiceImpl" 
-		/> -->
-
-
-
-
-	<!-- <bean id="id2" class="com.pearson.controller.EmailController"> </bean> -->
-
-
-	<!-- <bean id="JavaMailSender" class="com.pearson.controller.JavaMailSenderImpl" 
-		/> <bean id="LoginService" class="com.tool.services.LoginServiceImpl" /> -->
-
-	<!-- <bean id="id1" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
-		<property name="host" value="smtp.gmail.com" /> <property name="port" value="465" 
-		/> <property name="username" value="*******@gmail.com" /> <property name="password" 
-		value="******" /> <property name="javaMailProperties"> <props> <prop key="mail.smtp.auth">true</prop> 
-		<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop> 
-		<prop key="mail.smtp.socketFactory.port">465</prop> <prop key="mail.debug">true</prop> 
-		<prop key="mail.smtp.starttls.enable">true</prop> </props> </property> </bean> 
-		<bean id="id2" class="java4s.MailLogic"> <property name="mail" ref="id1" 
-		/> </bean> -->
-	<!-- ** END ** Added for E-mail Component Date 5/5/2014 -->
-
-	<!-- <bean id=”validator” class=”org.springframework.validation.beanvalidation.LocalValidatorFactoryBean” 
-		/> -->
-		
-		
-		<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"> 
-		<property name="validationMessageSource" ref="messageSource"/> </bean> <mvc:annotation-driven 
-		validator="validator" /> -->
-
-<!-- 	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="messages" />
-	</bean> -->
-
-		
+			</value>
+		</property>
+	</bean>
 
 </beans>
